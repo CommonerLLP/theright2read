@@ -727,7 +727,19 @@
   .action-title { font-family: var(--f-display); font-weight: 900; font-size: 32px; color: var(--ink); letter-spacing: -0.5px; line-height: 1; text-transform: uppercase; text-wrap: balance; }
   .action-text { font-family: var(--f-slab); font-size: 17px; color: var(--ink-soft); margin-top: 14px; line-height: 1.5; text-wrap: balance; }
 
-  /* ENDFRAME */
+  /* ENDFRAME — closing red declaration */
+  .section.red.end {
+    position: relative; overflow: hidden;
+  }
+  /* Panther watermark stretched edge-to-edge inside the closing red section.
+     Tuned so the panther is identifiable as a presence but the H2 still
+     reads first. */
+  .section.red.end::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('assets/panther-watermark.png') center center / cover no-repeat;
+    opacity: 0.38; pointer-events: none; z-index: 0;
+    mix-blend-mode: screen;
+  }
   .end-inner { position: relative; z-index: 1; text-align: center; }
   .end-tag { font-family: var(--f-mono); font-size: 12px; letter-spacing: 3px; color: var(--cream); text-transform: uppercase; margin-bottom: 24px; opacity: 0.85; }
   .end h2 { font-family: var(--f-display); font-size: 200px; font-weight: 900; line-height: 0.85; letter-spacing: -6px; margin: 0; color: var(--cream); text-transform: uppercase; text-wrap: balance; }
