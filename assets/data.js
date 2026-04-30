@@ -188,24 +188,22 @@ const NML_STATES = new Set(['Arunachal Pradesh','Goa','Mizoram','Rajasthan','Tel
   'Bihar','Himachal Pradesh','Haryana','Chhattisgarh','Odisha','Uttarakhand','Jammu & Kashmir',
   'Sikkim','Manipur','Meghalaya','Kerala','Puducherry','Punjab','Jharkhand']);
 
-// India vs World (₹ per capita per year — nominal). Three-country comparison only:
-// India, China, USA. India listed first as the anchor; longer list parked.
+// India vs World (₹ per capita per year — nominal). Lives on /data/ subpage now.
+// Anchored at the top with rich-country comparators; India sits at the bottom
+// (state avg + Centre) so the bar visually rounds to zero.
+// Sources: IMLS Public Libraries Survey (USA); CIPFA (UK); ALIA (Australia);
+// NAPLE Forum / Libraries.fi (Finland); Statistics Canada; Ministry of Culture
+// & Tourism (PRC); Kulkarni-Balaji-Dhanamjaya 2025 (India).
 const WORLD = [
-  { name: "India",  value: 15.30, india: true },
-  { name: "China",  value: 250,   india: false },
-  { name: "USA",    value: 2900,  india: false }
+  { name: "Finland",            value: 5500, india: false },
+  { name: "USA",                value: 2900, india: false },
+  { name: "Australia",          value: 2400, india: false },
+  { name: "UK",                 value: 1820, india: false },
+  { name: "Canada",             value: 1700, india: false },
+  { name: "China",              value: 250,  india: false },
+  { name: "India · State avg",  value: 15.30, india: true },
+  { name: "India · Centre",     value: 0.07,  india: true }
 ];
-// PARKED full list (for /data/ subpage later):
-// const WORLD_FULL = [
-//   { name: "Finland",    value: 5500, india: false },
-//   { name: "USA",        value: 2900, india: false },
-//   { name: "Australia",  value: 2400, india: false },
-//   { name: "UK",         value: 1820, india: false },
-//   { name: "Canada",     value: 1700, india: false },
-//   { name: "China",      value: 250,  india: false },
-//   { name: "India · State avg", value: 15.30, india: true },
-//   { name: "India · Centre",    value: 0.07,  india: true }
-// ];
 
 const STANDARDS = [
   { n: "01", short: "Free", long: "No fees, no subscription, no membership cost. Ever." },
