@@ -13,17 +13,7 @@
 (function initGame() {
   const app = document.getElementById("game-app");
   if (!app) return;
-
-  const screens = {
-    intro:  app.querySelector('[data-screen="intro"]'),
-    round:  app.querySelector('[data-screen="round"]'),
-    statue: app.querySelector('[data-screen="statue"]'),
-    end:    app.querySelector('[data-screen="end"]')
-  };
-  function show(name) {
-    Object.values(screens).forEach((s) => (s.hidden = true));
-    screens[name].hidden = false;
-  }
+  const show = makeScreenSwitcher(app);
 
   // State pairs for Higher-or-Lower: pre-shuffle 5 contrasting pairs.
   const stateNames = Object.keys(STATE_DATA).filter((n) => STATE_POP_MN[n]);
@@ -224,16 +214,7 @@
 (function initDiversionGame() {
   const app = document.getElementById("dgame-app");
   if (!app) return;
-
-  const screens = {
-    intro: app.querySelector('[data-screen="intro"]'),
-    round: app.querySelector('[data-screen="round"]'),
-    end:   app.querySelector('[data-screen="end"]')
-  };
-  function show(name) {
-    Object.values(screens).forEach((s) => (s.hidden = true));
-    screens[name].hidden = false;
-  }
+  const show = makeScreenSwitcher(app);
 
   let idx = 0, score = 0;
 

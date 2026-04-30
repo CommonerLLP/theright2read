@@ -21,6 +21,22 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
 }[c]));
 
+// Build a screen-switcher for a game-style multi-step UI.
+// Usage:
+//   const show = makeScreenSwitcher(rootEl);
+//   show("intro");  // hides others, shows intro
+// Reads `[data-screen]` attributes off children of rootEl.
+function makeScreenSwitcher(rootEl) {
+  const screens = {};
+  rootEl.querySelectorAll("[data-screen]").forEach((el) => {
+    screens[el.dataset.screen] = el;
+  });
+  return function show(name) {
+    Object.values(screens).forEach((s) => (s.hidden = true));
+    if (screens[name]) screens[name].hidden = false;
+  };
+}
+
 // Replace {{CONSTANT_NAME}} placeholders in HTML with values from window.CONSTANTS.
 // Used to keep canonical numbers (statue cost, per-capita, etc.) in one place.
 // Call once on DOMContentLoaded; opt-in by adding `data-substitute` to a node.
