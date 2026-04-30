@@ -718,6 +718,24 @@
 
   /* RRRLF — annual bar chart in pamphlet style */
   .rrrlf-chart { margin-top: 40px; }
+  .rrrlf-svg { display: block; width: 100%; height: auto; max-height: 460px; }
+  .rrrlf-legend {
+    display: flex; gap: 28px; flex-wrap: wrap;
+    margin-top: 16px; padding-top: 16px;
+    border-top: 2px solid var(--cream-deep);
+    font-family: var(--f-mono); font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--cream); font-weight: 700;
+  }
+  .rrrlf-legend .legend-item { display: inline-flex; align-items: center; gap: 8px; }
+  .rrrlf-legend .dot {
+    display: inline-block; width: 28px; height: 4px;
+  }
+  .rrrlf-legend .dot.solid { background: var(--cream); }
+  .rrrlf-legend .dot.dash {
+    background-image: linear-gradient(to right, var(--red) 60%, transparent 40%);
+    background-size: 8px 4px; background-repeat: repeat-x;
+  }
   .rrrlf-row {
     display: grid; grid-template-columns: 80px 1fr 120px;
     gap: 16px; align-items: center; padding: 8px 0;
@@ -1005,8 +1023,8 @@
     <div class="grain soft"></div>
     <div style="position:relative; z-index:1;">
       <div class="eyebrow">RRRLF · the Centre's contribution</div>
-      <h2>TWO DECADES.<br><span class="red">₹197 CRORE.</span></h2>
-      <p class="lede">The Raja Rammohun Roy Library Foundation is the Union Government's library funding arm. From 2003 to 2023, it disbursed ₹197 crore in total, across 1.4 billion people, across twenty years. That is ₹0.07 per person per year. The vermilion bars are years above ₹20 crore. There are not many.</p>
+      <h2>TWO DECADES.<br><span class="red">A NOSE DIVE.</span></h2>
+      <p class="lede">The Raja Rammohun Roy Library Foundation is the Union Government's library funding arm. From 2003 to 2023 it disbursed ₹197 crore in total, across 1.4 billion people, across twenty years. The line below is what each Indian got per year, in nominal rupees. <strong style="color:var(--red);">In real terms — adjusted for inflation and population growth — the line is far steeper.</strong> Even at peak, the Centre was spending less than 25 paise per person per year on every public library in the country combined.</p>
       <div class="rrrlf-chart" id="rrrlf-chart"></div>
       <div style="margin-top:32px; padding:20px 0; border-top:2px solid var(--cream); display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
         <div>
@@ -1579,19 +1597,103 @@ if ($("#state-sort")) $("#state-sort").addEventListener("change", (e) => { state
 if ($("#state-list")) renderStateList();
 
 // ─── RRRLF ANNUAL CHART ───────────────────────────────────────────
+// India population (millions, mid-year), 2003–2023, World Bank.
+const INDIA_POP_MN = {
+  2003: 1094, 2004: 1110, 2005: 1127, 2006: 1143, 2007: 1160, 2008: 1176,
+  2009: 1192, 2010: 1207, 2011: 1221, 2012: 1235, 2013: 1250, 2014: 1265,
+  2015: 1280, 2016: 1296, 2017: 1311, 2018: 1327, 2019: 1342, 2020: 1355,
+  2021: 1367, 2022: 1378, 2023: 1404
+};
+
 (function renderRrrlf() {
   const rrrlfEl = $("#rrrlf-chart");
-  if (!rrrlfEl) return; // section currently parked
-  const years = [];
-  for (let y = 2003; y <= 2023; y++) years.push(y);
-  const max = Math.max(...Object.values(RRMLF_DATA));
-  rrrlfEl.innerHTML = years.map((y) => {
+  if (!rrrlfEl) return;
+
+  // Compute per-capita ₹/year for each year that has RRRLF data.
+  // RRRLF disbursement is in lakhs (₹L). 1 L = 100,000 ₹.
+  const points = [];
+  for (let y = 2003; y <= 2023; y++) {
     const v = RRMLF_DATA[y];
-    if (!v) return `<div class="rrrlf-row"><div class="rrrlf-year">${y}</div><div class="rrrlf-bar-wrap"><div class="rrrlf-bar" style="width:0;background:transparent"></div></div><div class="rrrlf-amount" style="color:var(--cream-deep)">— no data —</div></div>`;
-    const pct = (v / max) * 100;
-    const peak = v >= 2000;
-    return `<div class="rrrlf-row"><div class="rrrlf-year" style="color:var(--cream)">${y}</div><div class="rrrlf-bar-wrap" style="background:rgba(255,255,255,0.08); border-color:var(--cream-deep)"><div class="rrrlf-bar${peak ? " peak" : ""}" style="width:${pct.toFixed(2)}%; background:${peak ? "var(--red)" : "var(--cream)"}"></div></div><div class="rrrlf-amount" style="color:var(--cream)">₹${fmtIN(Math.round(v))}L</div></div>`;
-  }).join("");
+    const pop = INDIA_POP_MN[y];
+    if (!v || !pop) continue;
+    const perCapita = (v * 100000) / (pop * 1_000_000); // ₹/person/year
+    points.push({ y, perCapita, raw: v });
+  }
+
+  const W = 1000, H = 360;
+  const padL = 64, padR = 32, padT = 28, padB = 56;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
+
+  const xMin = 2003, xMax = 2023;
+  const yMax = Math.max(...points.map((p) => p.perCapita)) * 1.1;
+  const x = (yr) => padL + ((yr - xMin) / (xMax - xMin)) * innerW;
+  const y = (val) => padT + (1 - (val / yMax)) * innerH;
+
+  const path = points.map((p, i) => `${i === 0 ? "M" : "L"} ${x(p.y).toFixed(2)} ${y(p.perCapita).toFixed(2)}`).join(" ");
+
+  // 5-year rolling avg trend line
+  const avg = [];
+  for (let i = 0; i < points.length; i++) {
+    const window = points.slice(Math.max(0, i - 2), Math.min(points.length, i + 3));
+    const m = window.reduce((s, p) => s + p.perCapita, 0) / window.length;
+    avg.push({ y: points[i].y, perCapita: m });
+  }
+  const avgPath = avg.map((p, i) => `${i === 0 ? "M" : "L"} ${x(p.y).toFixed(2)} ${y(p.perCapita).toFixed(2)}`).join(" ");
+
+  // X-axis tick years (every 4 years + endpoints)
+  const xTicks = [2003, 2007, 2011, 2015, 2019, 2023];
+  // Y-axis tick values
+  const yTicks = [0, 0.05, 0.10, 0.15, 0.20, 0.25].filter((v) => v <= yMax);
+
+  // Find peak + most-recent for callouts
+  const peak = points.reduce((a, b) => (b.perCapita > a.perCapita ? b : a));
+  const last = points[points.length - 1];
+
+  rrrlfEl.innerHTML = `
+    <svg viewBox="0 0 ${W} ${H}" class="rrrlf-svg" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Per-capita RRRLF disbursement ₹/year, 2003–2023. Line trends downward despite spikes.">
+      <!-- y-axis grid + labels -->
+      ${yTicks.map((v) => `
+        <line x1="${padL}" y1="${y(v)}" x2="${W - padR}" y2="${y(v)}" stroke="var(--cream-deep)" stroke-opacity="0.18" stroke-width="1"/>
+        <text x="${padL - 12}" y="${y(v) + 5}" fill="var(--cream-deep)" font-family="var(--f-mono)" font-size="13" font-weight="700" letter-spacing="1.2" text-anchor="end">₹${v.toFixed(2)}</text>
+      `).join("")}
+
+      <!-- x-axis ticks -->
+      ${xTicks.map((yr) => `
+        <text x="${x(yr)}" y="${H - padB + 26}" fill="var(--cream-deep)" font-family="var(--f-mono)" font-size="13" font-weight="700" letter-spacing="1.2" text-anchor="middle">${yr}</text>
+      `).join("")}
+
+      <!-- 5-year rolling-avg trend line (red, dashed) -->
+      <path d="${avgPath}" fill="none" stroke="var(--red)" stroke-width="3" stroke-dasharray="6 4" stroke-opacity="0.7"/>
+
+      <!-- raw line (cream) -->
+      <path d="${path}" fill="none" stroke="var(--cream)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- data points -->
+      ${points.map((p) => `
+        <circle cx="${x(p.y)}" cy="${y(p.perCapita)}" r="${p === peak || p === last ? 7 : 4}"
+                fill="${p === peak || p === last ? "var(--red)" : "var(--cream)"}"
+                stroke="var(--ink)" stroke-width="2"/>
+      `).join("")}
+
+      <!-- peak callout -->
+      <text x="${x(peak.y)}" y="${y(peak.perCapita) - 16}" fill="var(--red)"
+            font-family="var(--f-display)" font-size="18" font-weight="900" letter-spacing="-0.3" text-anchor="middle">
+        Peak ${peak.y} · ₹${peak.perCapita.toFixed(2)}
+      </text>
+
+      <!-- 2023 callout -->
+      <text x="${x(last.y) - 6}" y="${y(last.perCapita) + 22}" fill="var(--red)"
+            font-family="var(--f-display)" font-size="18" font-weight="900" letter-spacing="-0.3" text-anchor="end">
+        ${last.y} · ₹${last.perCapita.toFixed(2)}
+      </text>
+    </svg>
+    <div class="rrrlf-legend">
+      <span class="legend-item"><span class="dot solid"></span> Per capita, ₹/year (nominal)</span>
+      <span class="legend-item"><span class="dot dash"></span> 5-year rolling average</span>
+    </div>
+  `;
 })();
 
 // ─── REPORT CARD (interactive picker — /data/) ────────────────────
