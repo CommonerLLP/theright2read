@@ -159,36 +159,40 @@ function scandalFor(name) {
   };
 }
 
-(function initScandalPicker() {
-  const select = document.getElementById("scandal-picker");
+// Render the scandal panel for a given state. Used by:
+// (a) the standalone scandal-picker (homepage version, now retired)
+// (b) the data-page state-picker which drives BOTH grade + scandal panels.
+function renderScandalPanel(name) {
   const result = document.getElementById("scandal-result");
-  if (!select || !result) return;
+  if (!result) return;
+  if (!name) { result.hidden = true; return; }
+  const s = scandalFor(name);
+  document.getElementById("scandal-state").textContent = s.name;
+  document.getElementById("scandal-stat").textContent = `₹${fmtMoney(s.spend)}`;
+  document.getElementById("scandal-rows").innerHTML = s.rows.map((r) => `
+    <div class="scandal-row">
+      <div>
+        <div class="scandal-dim">${esc(r.dim)}</div>
+        <div class="scandal-detail">${r.detail}</div>
+      </div>
+      <div class="scandal-value">${r.value}</div>
+    </div>`).join("");
+  document.getElementById("scandal-punchline").innerHTML =
+    `<span class="label">THE SCANDAL</span>${s.punchline}`;
+  result.hidden = false;
+}
 
+(function initScandalPicker() {
+  // Standalone scandal picker (homepage) — kept for backward compatibility
+  // if reintroduced; safely no-ops when the dropdown isn't present.
+  const select = document.getElementById("scandal-picker");
+  if (!select) return;
   Object.keys(STATE_DATA).sort().forEach((name) => {
     const opt = document.createElement("option");
     opt.value = name; opt.textContent = name;
     select.appendChild(opt);
   });
-
-  function show(name) {
-    if (!name) { result.hidden = true; return; }
-    const s = scandalFor(name);
-    document.getElementById("scandal-state").textContent = s.name;
-    document.getElementById("scandal-stat").textContent = `₹${fmtMoney(s.spend)}`;
-    document.getElementById("scandal-rows").innerHTML = s.rows.map((r) => `
-      <div class="scandal-row">
-        <div>
-          <div class="scandal-dim">${esc(r.dim)}</div>
-          <div class="scandal-detail">${r.detail}</div>
-        </div>
-        <div class="scandal-value">${r.value}</div>
-      </div>`).join("");
-    document.getElementById("scandal-punchline").innerHTML =
-      `<span class="label">THE SCANDAL</span>${s.punchline}`;
-    result.hidden = false;
-  }
-
-  select.addEventListener("change", (e) => show(e.target.value));
+  select.addEventListener("change", (e) => renderScandalPanel(e.target.value));
 })();
 
 
@@ -387,7 +391,12 @@ const GRADE_MEANING = {
     result.hidden = false;
   }
 
-  select.addEventListener("change", (e) => showResult(e.target.value));
+  select.addEventListener("change", (e) => {
+    const name = e.target.value;
+    showResult(name);
+    // Also render the scandal panel below if it's present on this page.
+    renderScandalPanel(name);
+  });
 })();
 
 
