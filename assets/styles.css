@@ -162,64 +162,57 @@
     overflow: hidden;
     border-bottom: 4px solid var(--ink);
   }
-  /* Pantheon line-art (after sadancanada.org, recoloured).
-     Mobile-first default: stacks inline between hero-top and hero-lede,
-     centred, scales smoothly with viewport (no hard ceiling).
-     Desktop (≥1100px): grid item placed in row 1 / col 2 (right).
-     Image source itself is responsive via srcset (600/900/1200 widths). */
-  .hero-pantheon {
-    pointer-events: none; user-select: none;
-    opacity: 0.92;
-    display: block;
-    /* Fluid width — image always feels proportional to viewport.
-       Below 600px: 92% of viewport. 600-1099px: scales 80vw up to 720px.
-       At 1100px+ the desktop grid rule below takes over. */
-    width: clamp(280px, 80vw, 720px);
-    height: auto;
-    margin: clamp(24px, 4vw, 40px) auto clamp(8px, 2vw, 24px);
-  }
+  /* Hero is now a simple stack: text → lede → buys-card. The pantheon
+     moved to its own section above the footer (.pantheon-section). */
   .hero-inner {
     position: relative; z-index: 1;
     display: flex; flex-direction: column;
-    /* Cap on very large monitors (24"+ at native res, 32"+ external)
-       so line length stays readable. Section bg remains full-bleed. */
-    max-width: 1600px; margin-left: auto; margin-right: auto;
+    gap: clamp(24px, 3vw, 40px);
+    margin-left: auto; margin-right: auto;
+    width: 100%;
+    /* Container query context: H1 sizes itself relative to THIS
+       container (not the viewport), so the headline always fits the
+       available column width on one line, regardless of where the
+       outer .pamphlet cap lands. */
+    container-type: inline-size;
   }
-  /* Hero text always sits over the desktop pantheon (z-index 0). */
   .hero-inner > * { position: relative; z-index: 1; }
+  /* Buys card sits inside the hero now — drop its margin-top from
+     the calc-context rule and let the hero-inner gap handle spacing. */
+  .hero-inner .buys { margin: 0; }
+  /* Closing pantheon section — the lineage as a visual benediction
+     right before the footer. Full-bleed cream bg, image centred,
+     responsive sizing. */
+  .pantheon-section {
+    background: var(--cream);
+    border-bottom: 4px solid var(--ink);
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 56px);
+    text-align: center;
+  }
+  .pantheon-image {
+    display: block;
+    width: 100%;
+    max-width: clamp(600px, 85vw, 1100px);
+    height: auto;
+    margin: 0 auto;
+    pointer-events: none; user-select: none;
+  }
+  .pantheon-credit {
+    margin: 16px auto 0;
+    max-width: 60ch;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .pantheon-credit a { color: var(--red); text-decoration: underline; text-underline-offset: 2px; }
 
-  /* Desktop (≥1100px): keep upper text (notice + H1 + sub) in the left
-     column at ~48% width so it doesn't overlap the right-anchored
-     pantheon. Lede paragraph pushes down to the bottom of a 720px-tall
-     hero-inner — appears below the pantheon, full-width, justified.
-     hero-sub gets an explicit cap so the red "none for our libraries"
-     span never extends into the red pantheon area on the right. */
   @media (min-width: 1100px) {
-    /* Desktop: CSS grid — row 1 holds upper text on the left and the
-       pantheon on the right (row auto-sizes to whichever is taller);
-       row 2 holds the lede full-width. Lede always starts strictly
-       after row 1 — no overlap possible. */
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) clamp(560px, 62vw, 960px);
-      grid-template-areas:
-        "text  text"
-        "lede  pantheon";
-      column-gap: clamp(24px, 2.5vw, 48px);
-      row-gap: clamp(24px, 3vw, 40px);
-    }
-    .hero-inner .hero-lede { align-self: end; }
-    .hero-top      { grid-area: text; }
-    .hero-pantheon {
-      grid-area: pantheon;
-      align-self: start;
-      justify-self: end;
-      margin: 0;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-    }
-    .hero-lede     { grid-area: lede; margin-top: 0; }
+    /* Desktop hero: still stacked, no special grid needed since the
+       pantheon left. Just preserves the stack with appropriate gap. */
+    .hero-inner { gap: clamp(32px, 3vw, 48px); }
   }
   /* Pre-headline fact block — the ₹11.62 number is the lead artefact.
      Three stacked lines: prefix (eyebrow-style) → giant red number →
@@ -242,7 +235,7 @@
   }
   .hero-fact-num {
     font-family: var(--f-display);
-    font-size: clamp(56px, 9vw, 110px);
+    font-size: max(56px, 9vw);
     font-weight: 900;
     color: var(--red);
     line-height: 0.95;
@@ -258,9 +251,24 @@
     font-weight: 500;
   }
   .hero h1 {
-    font-family: var(--f-display); font-size: clamp(56px, 10vw, 160px); line-height: 0.88;
+    font-family: var(--f-display);
+    /* `cqi` = % of the container's inline (width) dimension. 8.6cqi
+       sizes the headline so "WHERE IS OUR RIGHT TO READ?" stretches
+       to fit the available container width on one line at any pamphlet
+       cap. Floor 48px for legibility on tiny phones; no upper cap
+       needed because cqi is bounded by the container. */
+    font-size: clamp(48px, 8.6cqi, 200px);
+    line-height: 0.88;
     font-weight: 900; letter-spacing: -3px; color: var(--ink); margin: 0;
-    text-transform: uppercase; text-wrap: balance;
+    text-transform: uppercase;
+    /* `text-wrap: balance` removed — we want a single greedy line
+       that fills the container, not a balanced multi-line block. */
+    white-space: nowrap;
+  }
+  /* Mobile fallback: cqi can produce tiny text on narrow screens; use
+     viewport-based sizing under 700px and allow wrap. */
+  @media (max-width: 700px) {
+    .hero h1 { font-size: clamp(48px, 13vw, 96px); white-space: normal; text-wrap: balance; }
   }
   .red, h1 .red, h2 .red, h3 .red { color: var(--red); }
   .hero-deva {
@@ -347,6 +355,29 @@
     font-family: var(--f-display); font-size: clamp(48px, 9vw, 110px); font-weight: 900;
     line-height: 0.9; letter-spacing: -3px; margin: 0;
     text-transform: uppercase; text-wrap: balance;
+  }
+
+  /* `.fit-headline` — opt-in sizing for sections whose H2 should
+     STRETCH to fill the container on one line (instead of wrapping
+     into a poster-style stack). Each section sets its own --cqi-h2
+     multiplier tuned to that headline's character count.
+
+     Applied to sections where the H2 was wrapping awkwardly:
+     calc, /data/ #china, all 4 /inequality/ headings. NOT applied to
+     declaration / CTA / actions / standards / states — those are
+     multi-line by design. */
+  .fit-headline {
+    container-type: inline-size;
+  }
+  /* Increased specificity (`.section.fit-headline h2`, `.calc.fit-headline h2`)
+     so this overrides per-section H2 rules like `.calc h2`. */
+  .section.fit-headline h2,
+  .calc.fit-headline h2 {
+    font-size: clamp(40px, calc(var(--cqi-h2, 7) * 1cqi), 200px);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    text-wrap: normal;
+    white-space: normal;
   }
   .section.cream h2 { color: var(--ink); }
   .section.ink h2, .section.red h2 { color: var(--cream); }
@@ -728,11 +759,12 @@
   /* BUDGET — horizontal bar chart at the same scale.
      Three rows: libraries (₹1,406 cr), PLI subsidies (₹40,000 cr),
      corporate tax cut (₹1,45,000 cr). Library bar is ~1% of the
-     tax-cut bar — that visual disparity IS the argument. */
+     tax-cut bar — that visual disparity IS the argument.
+     Section bg is cream now, so all colors are ink/red on cream. */
   .budget-bars {
     margin-top: 48px;
-    border-top: 4px solid var(--cream);
-    border-bottom: 4px solid var(--cream);
+    border-top: 4px solid var(--ink);
+    border-bottom: 4px solid var(--ink);
     padding: 8px 0;
   }
   .budget-bar-row {
@@ -741,22 +773,22 @@
     gap: 20px;
     align-items: center;
     padding: 18px 0;
-    border-bottom: 1px solid rgba(241, 232, 211, 0.15);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.15);
   }
   .budget-bar-row:last-child { border-bottom: none; }
   .budget-bar-name {
     font-family: var(--f-mono); font-size: 11px; letter-spacing: var(--ls-eyebrow);
-    color: var(--cream-deep); text-transform: uppercase; line-height: 1.4;
+    color: var(--ink-soft); text-transform: uppercase; line-height: 1.4;
   }
   .budget-bar-track {
     height: 28px;
-    background: rgba(241, 232, 211, 0.1);
-    border: 1px solid var(--cream-deep);
+    background: rgba(26, 26, 26, 0.06);
+    border: 1px solid var(--ink);
     position: relative;
   }
   .budget-bar-fill {
     height: 100%;
-    background: var(--cream);
+    background: var(--ink);
     min-width: 4px;
     transition: width 0.4s ease-out;
   }
@@ -765,7 +797,7 @@
   .budget-bar-amount {
     font-family: var(--f-display); font-size: clamp(28px, 3vw, 44px);
     font-weight: 900; letter-spacing: -1px; line-height: 1;
-    color: var(--cream); white-space: nowrap;
+    color: var(--ink); white-space: nowrap;
     font-variant-numeric: tabular-nums;
   }
   .budget-bar-row.libraries .budget-bar-amount { color: var(--red); }
@@ -776,7 +808,7 @@
     margin-top: 28px;
     display: grid; gap: 10px;
     font-family: var(--f-slab); font-size: clamp(14px, 1.2vw, 18px);
-    line-height: 1.5; color: var(--cream-deep);
+    line-height: 1.5; color: var(--ink-soft);
   }
   .budget-multipliers .bm-row { padding: 4px 0; }
   .budget-multipliers .bm-tag {
@@ -785,14 +817,14 @@
     color: var(--red); text-transform: uppercase;
     margin-right: 8px; font-weight: 700;
   }
-  .budget-multipliers strong { color: var(--cream); font-weight: 700; }
+  .budget-multipliers strong { color: var(--ink); font-weight: 700; }
 
   .budget-closer {
     margin-top: 40px;
     font-family: var(--f-slab); font-size: clamp(18px, 1.6vw, 28px); line-height: 1.5;
-    color: var(--cream-deep); font-weight: 500;
+    color: var(--ink-soft); font-weight: 500;
   }
-  .budget-closer strong { color: var(--cream); font-weight: 700; }
+  .budget-closer strong { color: var(--ink); font-weight: 700; }
   @media (max-width: 700px) {
     /* On phone: stack name/bar/amount vertically per row so the bar gets
        full width and the visual disparity is preserved. */
@@ -953,7 +985,7 @@
     text-transform: uppercase; text-wrap: balance;
     margin: 20px 0 32px; max-width: 920px;
   }
-  .statue-q strong { color: var(--ink); }
+  .statue-q strong { color: var(--red); }
   .statue-input-wrap {
     display: flex; gap: 16px; align-items: stretch; flex-wrap: wrap;
     padding: 20px 0;
@@ -1001,7 +1033,7 @@
     text-transform: uppercase; text-wrap: balance;
     margin: 16px 0 28px; max-width: 880px;
   }
-  .game-final strong { color: var(--ink); }
+  .game-final strong { color: var(--red); }
   .game-final .num { color: var(--ink); font-size: 88px; }
   .game-end-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
@@ -1251,6 +1283,18 @@
   .end-inner { position: relative; z-index: 1; text-align: center; }
   .end h2 { font-family: var(--f-display); font-size: clamp(56px, 14vw, 200px); font-weight: 900; line-height: 0.85; letter-spacing: -6px; margin: 0; color: var(--cream); text-transform: uppercase; text-wrap: balance; }
   .end-deva { margin-top: 32px; font-family: var(--f-deva); font-size: 56px; font-weight: 700; color: var(--cream); line-height: 1; letter-spacing: -1px; opacity: 0.95; }
+  /* Subline under the closing red H2 — slab serif, cream, modest scale.
+     Sits between the declaration H2 and the italic end-tail. */
+  .end-sub {
+    margin: 24px auto 0;
+    max-width: 800px;
+    font-family: var(--f-slab);
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.4;
+    color: var(--cream);
+    font-weight: 500;
+    text-wrap: balance;
+  }
   .end-tail { margin-top: 48px; font-family: var(--f-slab); font-size: 22px; color: var(--cream); font-style: italic; max-width: 700px; margin-left: auto; margin-right: auto; text-wrap: balance; opacity: 0.95; }
 
   /* FOOTER */
@@ -1338,13 +1382,14 @@
     /* H2/H3 font sizes are fluid via clamp() — no per-breakpoint override needed.
        Layout-level overrides (grid → column, padding, etc.) only. */
     .hero-deva { font-size: 28px; }
-    /* .hero-pantheon hidden under 1100px via main rule */
     .hero-grid { grid-template-columns: 1fr; gap: 32px; }
     .hero-grid p { font-size: 18px; }
-    .numbers-head { padding: 40px 24px 16px; }
-    .numbers > .buys { margin: 8px 24px 40px; padding: 24px; }
+    /* Buys card on phone — same dimensions whether in hero or section context */
+    .hero-inner .buys { padding: 24px; }
     .buys h3 { font-size: 26px; }
     .buys-grid > div { padding: 18px; font-size: 22px; }
+    /* Pantheon section on phone — tighter padding */
+    .pantheon-section { padding: 32px 16px; }
     .calc { padding: 56px 24px; }
     /* Mobile-first calc reorder: verdict (the punchline) FIRST,
        input collapsed below. Reader sees ₹X tax → ₹1.58 to libraries
@@ -1515,6 +1560,7 @@
      from the credits / sources block below. */
   .footer-cta-band {
     display: flex; justify-content: center; align-items: center;
+    gap: 16px; flex-wrap: wrap;
     padding: 0 0 36px;
     border-bottom: 2px solid var(--ink);
     margin-bottom: 36px;
@@ -1672,7 +1718,8 @@
   #game,
   #diversion,
   /* Decorative elements that don't translate to paper */
-  .hero-pantheon {
+  .pantheon-section,
+  .pantheon-credit {
     display: none !important;
   }
 

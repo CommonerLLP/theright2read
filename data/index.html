@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700;900&family=Roboto+Slab:wght@400;500;700;900&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Hind:wght@400;500;600;700&family=Hind+Madurai:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Serif+Tamil:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="../assets/styles.css?v=11">
+<link rel="stylesheet" href="../assets/styles.css?v=24">
 </head>
 <body>
 
@@ -58,26 +58,18 @@
     <a href="/#write"><span class="bang">ACT!</span>Write to your CM and the PM <span style="opacity:0.85">— now.</span><span class="arrow">→</span></a>
   </div>
 
-  <!-- BACK LINK -->
+  <!-- BACK LINKS — to pamphlet + sister page -->
   <div class="data-backbar">
     <a href="/" class="data-back-link">← Back to the pamphlet</a>
+    <a href="/inequality/" class="data-back-link" style="margin-left: 16px;">Our past →</a>
   </div>
 
-  <!-- 0 · AMBEDKAR SAID THIS FIRST — opening reflection -->
-  <section class="section cream" id="ambedkar-columbia">
-    <div class="eyebrow">Ambedkar said this first</div>
-    <h2>1915. <span class="red">COLUMBIA</span> UNIVERSITY. A LETTER TO BOMBAY.</h2>
-    <p class="lede" style="font-size:22px; max-width:920px; line-height:1.5;">
-      In 1915, writing from Columbia, a young Ambedkar urged the Bombay government to build a library in honour of <strong style="color:var(--ink); font-weight:700">Sir Pherozshah Mehta</strong> — <em>not a statue.</em> The statue went up. A century on, India is still building statues, expressways named after donors, smart cities that are not smart, vanity projects that enrich politicians' families. <strong class="red">Not libraries.</strong>
-    </p>
-    <details style="margin-top: 16px; max-width: 920px; font-family: var(--f-slab); font-size: 14px; color: var(--ink-soft);">
-      <summary style="cursor: pointer; font-family: var(--f-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); font-weight: 700;">+ The longer story</summary>
-      <p style="margin-top: 12px; line-height: 1.55;">
-        Ambedkar was reading for his Master's in Economics and Political Science at Columbia in 1915. The Bombay government had proposed a statue to commemorate Sir Pherozshah Mehta, the Parsi reformer and Indian National Congress leader, who had just died. Ambedkar wrote back: build a library in his name. Not a statue. The statue went up. A century on, the same logic governs every public-spending priority — expressways named after donors, smart cities that are not smart, hyperscale data centres for American corporations, and vanity projects that fund politicians' families, friends and the kickbacks they collect.
-      </p>
-    </details>
-    <div class="section-source-note" style="margin-top: 28px;">
-      Source: Narake, H., Kasare, M. L., Kamble, N. G., &amp; Godghate, A. (Eds.) (2014), <em>Dr. Babasaheb Ambedkar: Writings and Speeches</em>, Vol. 17(III), p. 162. Government of Maharashtra. Cited via <a href="https://www.roundtableindia.co.in/a-library-in-a-controversy-dr-b-r-ambedkar-and-jawaharlal-nehru-university/" target="_blank" rel="noopener">Round Table India</a>.
+  <!-- DATA PAGE OPENER -->
+  <section class="section cream" id="data-hero">
+    <div class="def-stack">
+      <div class="eyebrow">The data</div>
+      <h2>STATE OF <span class="red">PUBLIC LIBRARIES.</span></h2>
+      <p class="lede">The numbers behind the pamphlet. RRRLF disbursements 2003-2023, per-state grades and scandal data, world comparison, and India vs China. Updated as new data lands. Use this as your evidence base.</p>
     </div>
   </section>
 
@@ -109,11 +101,11 @@
     </div>
   </section>
 
-  <!-- 2 · STATE REPORT CARD (interactive picker) -->
+  <!-- 2 · STATE REPORT CARD + SCANDAL DETAILS (one picker, two stacked panels) -->
   <section class="section cream" id="report-card">
     <div class="eyebrow">State Report Card</div>
     <h2>HOW DOES YOUR STATE <span class="red">GRADE?</span></h2>
-    <p class="lede">Pick your state. We score it A–F across four dimensions: per-capita spending (50 pts), Library Act (20 pts), RRRLF utilisation 2021-24 (20 pts), NML participation (10 pts). Bonus: +5 if the Act actually defines libraries as <em>free</em>.</p>
+    <p class="lede">Pick your state. The card grades it A–F (per-capita spending 50 pts, Library Act 20 pts, RRRLF utilisation 2021-24 20 pts, NML participation 10 pts; +5 if the Act defines libraries as <em>free</em>). Below the grade, the scandal: where your state ranks, what the Centre sent, what it walks away with.</p>
 
     <div class="picker-wrap">
       <label class="picker-label" for="state-picker">Choose your state</label>
@@ -137,120 +129,25 @@
       <div class="result-total" id="result-total"></div>
       <div class="result-meaning" id="result-meaning"></div>
     </div>
-  </section>
 
-  <!-- 2.5 · INTERACTIVE GAME — Higher or Lower + Statue Test -->
-  <section class="section red" id="game">
-    <div class="grain light"></div>
-    <div class="stack">
-      <div class="eyebrow" style="color:var(--cream)">60-second civics quiz</div>
-      <h2 class="t-cream">PLAY THE <span class="t-ink">LIBRARY</span> GAME.</h2>
-      <p class="lede" style="color:var(--cream); max-width: 920px;">Five rounds of <strong>Higher or Lower</strong> — pick the state that spends more per person on libraries. Then face the <strong>Statue Test</strong>: how many years would your state need to equal one Statue of Unity? <strong class="t-ink">There are no points for being right. Only for being awake.</strong></p>
-
-      <div id="game-app" class="game-app">
-        <!-- intro -->
-        <div class="game-screen" data-screen="intro">
-          <div class="game-intro">
-            <div class="game-tag">READY?</div>
-            <p>Five quick rounds. Answer fast. We'll close with the <strong>Statue Test</strong> for the state you call home.</p>
-            <div class="game-home-wrap">
-              <label class="game-home-label" for="game-home">Your state (for the Statue Test)</label>
-              <select id="game-home" class="picker-select" aria-label="Your state">
-                <option value="">— Pick your state —</option>
-              </select>
-            </div>
-            <button id="game-start" class="game-btn primary" disabled>START THE GAME →</button>
-          </div>
+    <div id="scandal-result" class="scandal-result" aria-live="polite" hidden>
+      <div class="scandal-head">
+        <div>
+          <div class="scandal-eyebrow">The scandal</div>
+          <div class="scandal-state" id="scandal-state"></div>
         </div>
-
-        <!-- round (higher-or-lower) -->
-        <div class="game-screen" data-screen="round" hidden>
-          <div class="game-meta">
-            <div><span class="game-tag">ROUND</span> <span id="game-round">1</span> / 5</div>
-            <div><span class="game-tag">SCORE</span> <span id="game-streak">0</span></div>
-          </div>
-          <div class="game-question">Which spends more per person on libraries?</div>
-          <div class="game-pair">
-            <button class="game-card" data-pair="A" id="game-a">
-              <div class="game-card-name" id="game-a-name">—</div>
-              <div class="game-card-cta">PICK THIS</div>
-            </button>
-            <div class="game-vs">VS</div>
-            <button class="game-card" data-pair="B" id="game-b">
-              <div class="game-card-name" id="game-b-name">—</div>
-              <div class="game-card-cta">PICK THIS</div>
-            </button>
-          </div>
-          <div class="game-feedback" id="game-feedback" aria-live="polite" hidden></div>
-        </div>
-
-        <!-- statue test -->
-        <div class="game-screen" data-screen="statue" hidden>
-          <div class="game-tag">FINAL ROUND · THE STATUE TEST</div>
-          <div class="statue-q" id="statue-q">—</div>
-          <div class="statue-input-wrap">
-            <label class="statue-label" for="statue-guess">Your guess (years) — press Enter or REVEAL:</label>
-            <input id="statue-guess" type="number" inputmode="numeric" min="0" step="1" value="100" autocomplete="off" />
-            <button id="statue-submit" class="game-btn primary">REVEAL →</button>
-          </div>
-          <div class="statue-reveal" id="statue-reveal" aria-live="polite" hidden></div>
-        </div>
-
-        <!-- end -->
-        <div class="game-screen" data-screen="end" hidden>
-          <div class="game-tag">SCORECARD</div>
-          <div class="game-final" id="game-final">—</div>
-          <div class="game-end-actions">
-            <button id="game-replay" class="game-btn">PLAY AGAIN</button>
-            <a href="/#write" class="game-btn primary">WRITE TO YOUR CM →</a>
-          </div>
+        <div class="scandal-stat-block">
+          <div class="scandal-eyebrow" style="text-align:right;">Per capita · per year</div>
+          <div class="scandal-stat" id="scandal-stat"></div>
         </div>
       </div>
+      <div class="scandal-rows" id="scandal-rows"></div>
+      <div class="scandal-punchline" id="scandal-punchline"></div>
     </div>
   </section>
 
-  <!-- 2.6 · "WHAT DID WE BUILD?" — vanity-vs-useful detection game -->
-  <section class="section ink" id="diversion">
-    <div class="grain soft"></div>
-    <div class="stack">
-      <div class="eyebrow">The diversion game · What did we build?</div>
-      <h2>WHAT DID <span class="red">WE BUILD?</span></h2>
-      <p class="lede">India had the money. It funded <strong>one</strong> of these. Pick which. By round 4 you'll have learned the pattern. The pattern is the strategy.</p>
+  <!-- Library game and diversion game both moved to homepage. -->
 
-      <div id="dgame-app" class="game-app">
-        <div class="game-screen" data-screen="intro">
-          <div class="game-intro">
-            <div class="game-tag">6 ROUNDS · INDIA's REAL CHOICES</div>
-            <p>Each round, India had a real budget. It funded one item. The other options on the table were also real, also possible, also the same money. Pick what India built.</p>
-            <button id="dgame-start" class="game-btn primary">START →</button>
-          </div>
-        </div>
-
-        <div class="game-screen" data-screen="round" hidden>
-          <div class="game-meta">
-            <div><span class="game-tag">ROUND</span> <span id="dgame-round">1</span> / 6</div>
-            <div><span class="game-tag">PATTERN SCORE</span> <span id="dgame-score">0</span></div>
-          </div>
-          <div class="dgame-prompt" id="dgame-prompt">—</div>
-          <div class="dgame-options" id="dgame-options"></div>
-          <div class="game-feedback dgame-feedback" id="dgame-feedback" aria-live="polite" hidden></div>
-        </div>
-
-        <div class="game-screen" data-screen="end" hidden>
-          <div class="game-tag">YOU LEARNED THE PATTERN</div>
-          <div class="dgame-final" id="dgame-final">—</div>
-          <div class="dgame-final-text">
-            <p>The diversion is not a distraction <em>from</em> the strategy. It <strong>is</strong> the strategy.</p>
-            <p>India funds vanity. India calls itself <strong>Vishwaguru</strong>. The math doesn't add up. Your politicians are betting that you won't do this math. <strong class="t-red">Do the math. Send the letter.</strong></p>
-          </div>
-          <div class="game-end-actions">
-            <button id="dgame-replay" class="game-btn">PLAY AGAIN</button>
-            <a href="/#write" class="game-btn primary">WRITE TO YOUR CM →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- PARKED: Parliament 2025 section. Un-comment to restore. PARLIAMENT const + render
        guard remain in data.js / main.js, so this can come back without code changes.
@@ -270,17 +167,6 @@
   -->
 
 
-  <!-- 3.4 · HISTORY — short timeline of the policy neglect -->
-  <section class="section cream" id="history">
-    <div class="grain light"></div>
-    <div class="stack">
-      <div class="eyebrow">A short history</div>
-      <h2>THIS NEGLECT IS <span class="red">NOT NEW.</span> IT IS A POLICY.</h2>
-      <p class="lede">We have been told, again and again, what to do. By Phule. By Ambedkar. By Ranganathan. By committees the government itself appointed. The plans exist. The will does not.</p>
-      <div class="timeline" id="timeline"></div>
-    </div>
-  </section>
-
   <!-- 3.5 · WORLD COMPARISON — India next to the rich-world peers -->
   <section class="section cream" id="world">
     <div class="eyebrow">India vs the World · per capita / year</div>
@@ -293,7 +179,7 @@
   </section>
 
   <!-- 4 · MEANWHILE — India vs China (static comparison table) -->
-  <section class="section ink" id="china">
+  <section class="section ink fit-headline" id="china" style="--cqi-h2: 6;">
     <div class="grain soft"></div>
     <div class="stack">
       <div class="eyebrow">Meanwhile</div>
@@ -382,13 +268,6 @@
         </button>
       </div>
     </div>
-  </section>
-
-  <!-- 5 · QUOTES — voices from the tradition -->
-  <section class="section cream quotes" id="quotes">
-    <div class="eyebrow">From the tradition</div>
-    <h2>OUR PEOPLE HAVE BEEN <span class="red">SAYING THIS</span> FOR TWO CENTURIES.</h2>
-    <div class="quote-grid" id="quote-grid"></div>
   </section>
 
   <!-- FOOTER -->
