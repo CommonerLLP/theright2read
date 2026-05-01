@@ -84,13 +84,26 @@
     flex-wrap: wrap;
   }
 
-  /* Sticky single-action CTA bar — sits between top strip and hero,
-     stays pinned to viewport top so the action is always one click away. */
+  /* Sticky CTA bar — hidden until activation. The body gets the class
+     `.actbar-armed` once the reader interacts with the tax calculator
+     OR scrolls past it (whichever happens first). At that point the
+     bar slides in red and loud. */
   .actbar {
     position: sticky; top: 0; z-index: 50;
     background: var(--red); color: var(--cream);
     border-bottom: 4px solid var(--ink);
     text-align: center;
+    /* Hidden by default — collapsed height + invisible. */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+  }
+  body.actbar-armed .actbar {
+    max-height: 100px;
+    opacity: 1;
+    pointer-events: auto;
   }
   .actbar a {
     display: block; width: 100%;
@@ -110,6 +123,9 @@
   .actbar .bang { color: var(--cream); margin-right: 6px; }
   .actbar .arrow { display: inline-block; margin-left: 8px; transition: transform 0.15s; }
   .actbar a:hover .arrow { transform: translateX(4px); }
+  @media (prefers-reduced-motion: reduce) {
+    .actbar { transition: none; }
+  }
   @media (max-width: 700px) {
     .actbar a { font-size: 18px; padding: 14px 16px; }
   }
@@ -185,7 +201,7 @@
        after row 1 — no overlap possible. */
     .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) clamp(480px, 56vw, 880px);
+      grid-template-columns: minmax(0, 1fr) clamp(560px, 62vw, 960px);
       grid-template-areas:
         "text  pantheon"
         "lede  lede";
@@ -204,10 +220,41 @@
     }
     .hero-lede     { grid-area: lede; margin-top: 0; }
   }
-  .notice-pill {
-    display: inline-block; background: var(--ink); color: var(--cream);
-    padding: 6px 16px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 3px;
-    text-transform: uppercase; margin-bottom: 20px;
+  /* Pre-headline fact block — the ₹11.62 number is the lead artefact.
+     Three stacked lines: prefix (eyebrow-style) → giant red number →
+     suffix (slab body). Sits above the H1 and earns its own visual
+     weight. The H1 question that follows answers it. */
+  .hero-fact {
+    margin: 0 0 28px;
+    padding: 0 0 0 20px;
+    border-left: 4px solid var(--red);
+    max-width: min(60ch, 100%);
+  }
+  .hero-fact-prefix {
+    font-family: var(--f-mono);
+    font-size: clamp(11px, 0.95vw, 14px);
+    font-weight: 700;
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .hero-fact-num {
+    font-family: var(--f-display);
+    font-size: clamp(56px, 9vw, 110px);
+    font-weight: 900;
+    color: var(--red);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-fact-suffix {
+    margin-top: 8px;
+    font-family: var(--f-slab);
+    font-size: clamp(15px, 1.4vw, 22px);
+    line-height: 1.35;
+    color: var(--ink);
+    font-weight: 500;
   }
   .hero h1 {
     font-family: var(--f-display); font-size: clamp(56px, 10vw, 160px); line-height: 0.88;
@@ -230,25 +277,25 @@
   /* Hero slab paragraph — wide but capped at ~80 chars on huge monitors
      so line length stays readable. Justified. */
   .hero-lede {
-    font-family: var(--f-slab); font-size: 26px; line-height: 1.35;
-    color: var(--ink); margin: 40px 0 0; font-weight: 500;
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    max-width: min(100ch, 100%);
+    font-family: var(--f-slab);
+    font-size: clamp(18px, 2.2vw, 32px);
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 32px 0 0;
+    font-weight: 500;
+    max-width: min(80ch, 100%);
   }
   .hero-lede strong { color: var(--ink); font-weight: 700; }
   .hero-lede strong.red, .hero-lede .red { color: var(--red); font-weight: 700; }
-  /* Opener — the "so much money for statues" line, now the first
-     sentence of the lede. Italic + slightly larger to punch above
-     the rest of the paragraph. */
+  /* Opener — italic, same size as surrounding lede (no over-sizing —
+     the italic + the punctuation already does the rhythmic work). */
   .hero-lede .lede-opener {
-    display: inline; font-style: italic; font-weight: 700;
-    font-size: 1.15em; color: var(--ink);
+    display: inline; font-style: italic; font-weight: 600;
+    color: var(--ink);
   }
   .hero-lede .lede-opener .red { color: var(--red); font-weight: 700; }
-  @media (max-width: 900px) {
-    .hero-lede { font-size: 18px; margin-top: 28px; }
+  @media (max-width: 700px) {
+    .hero-lede { margin-top: 24px; }
   }
 
   /* em/strong styling inside .lede paragraphs (used by closing Ambedkar section) */
@@ -510,11 +557,29 @@
   @media (max-width: 900px) {
     .alloc-value { font-size: 28px; }
   }
-  .buys { margin-top: 56px; padding: 32px; background: var(--cream); color: var(--ink); border: 4px solid var(--ink); }
-  .buys h3 { font-family: var(--f-display); font-size: clamp(28px, 5vw, 64px); font-weight: 900; letter-spacing: -1.5px; color: var(--ink); text-transform: uppercase; line-height: 0.95; margin: 0; }
+  /* "What ₹11.62 buys you" — vermilion card, cream text, ink borders.
+     Lives directly under "THE SHAPE OF NEGLECT" as the visual punch
+     of the numbers section. The "Not even contempt" cell flips to ink
+     for the punchline contrast. */
+  .buys { padding: 32px; background: var(--red); color: var(--cream); border: 4px solid var(--ink); }
+  .numbers > .buys { margin: 8px 56px 56px; }
+  .calc .buys { margin-top: 56px; }
+  .buys h3 { font-family: var(--f-display); font-size: clamp(28px, 5vw, 64px); font-weight: 900; letter-spacing: -1.5px; color: var(--cream); text-transform: uppercase; line-height: 0.95; margin: 0; }
   .buys-grid { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 2px solid var(--ink); border-left: 2px solid var(--ink); }
-  .buys-grid > div { padding: 24px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); font-family: var(--f-display); font-weight: 900; font-size: 32px; letter-spacing: -0.5px; text-transform: uppercase; color: var(--ink); }
-  .buys-grid > div.red { color: var(--red); }
+  .buys-grid > div { padding: 24px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); font-family: var(--f-display); font-weight: 900; font-size: 32px; letter-spacing: -0.5px; text-transform: uppercase; color: var(--cream); }
+  /* Emoji icons sit above the text for poster-card prominence on mobile.
+     `data-icon` attribute drives this — easy to swap for custom SVG later. */
+  .buys-grid > div[data-icon]::before {
+    content: attr(data-icon);
+    display: block;
+    font-size: 44px;
+    line-height: 1;
+    margin-bottom: 14px;
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+  /* "Not even contempt" — ink on red, no icon, biggest visual contrast */
+  .buys-grid > div.red { color: var(--ink); }
 
   /* CLOSER — flagship two-side equation (PM trips vs Centre's library effort) */
   .closer-eq {
@@ -659,56 +724,87 @@
     .meanwhile-closer .deva { font-size: 22px; }
   }
 
-  /* BUDGET — equation rows showing what India can afford */
-  .budget-grid {
+  /* BUDGET — horizontal bar chart at the same scale.
+     Three rows: libraries (₹1,406 cr), PLI subsidies (₹40,000 cr),
+     corporate tax cut (₹1,45,000 cr). Library bar is ~1% of the
+     tax-cut bar — that visual disparity IS the argument. */
+  .budget-bars {
     margin-top: 48px;
     border-top: 4px solid var(--cream);
     border-bottom: 4px solid var(--cream);
+    padding: 8px 0;
   }
-  .budget-eq {
-    display: grid; grid-template-columns: 1fr auto 1fr;
-    gap: 24px; align-items: center;
-    padding: 32px 0;
-    border-bottom: 1px solid var(--cream-deep);
+  .budget-bar-row {
+    display: grid;
+    grid-template-columns: minmax(140px, 1fr) 2.5fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(241, 232, 211, 0.15);
   }
-  .budget-eq:last-child { border-bottom: none; }
-  .budget-item, .budget-equiv { color: var(--cream); }
-  .budget-item-label,
-  .budget-equiv-label {
+  .budget-bar-row:last-child { border-bottom: none; }
+  .budget-bar-name {
     font-family: var(--f-mono); font-size: 11px; letter-spacing: var(--ls-eyebrow);
-    color: var(--cream-deep); text-transform: uppercase; margin-bottom: 8px;
+    color: var(--cream-deep); text-transform: uppercase; line-height: 1.4;
   }
-  .budget-item-value {
-    font-family: var(--f-display); font-size: 56px; font-weight: 900;
-    letter-spacing: -1.5px; color: var(--cream); line-height: 1;
+  .budget-bar-track {
+    height: 28px;
+    background: rgba(241, 232, 211, 0.1);
+    border: 1px solid var(--cream-deep);
+    position: relative;
   }
-  .budget-item-source,
-  .budget-equiv-source {
-    font-family: var(--f-slab); font-size: clamp(14px, 1.05vw, 18px); line-height: 1.45;
-    color: var(--cream-deep); margin-top: 12px;
+  .budget-bar-fill {
+    height: 100%;
+    background: var(--cream);
+    min-width: 4px;
+    transition: width 0.4s ease-out;
   }
-  .budget-vs {
-    font-family: var(--f-display); font-size: 96px; font-weight: 900;
-    color: var(--red); letter-spacing: -2px; line-height: 1;
-    text-align: center;
+  .budget-bar-row.libraries .budget-bar-fill { background: var(--red); }
+  .budget-bar-row.libraries .budget-bar-name { color: var(--red); }
+  .budget-bar-amount {
+    font-family: var(--f-display); font-size: clamp(28px, 3vw, 44px);
+    font-weight: 900; letter-spacing: -1px; line-height: 1;
+    color: var(--cream); white-space: nowrap;
+    font-variant-numeric: tabular-nums;
   }
-  .budget-equiv-value {
-    font-family: var(--f-display); font-size: 72px; font-weight: 900;
-    letter-spacing: -2px; color: var(--cream); line-height: 1;
+  .budget-bar-row.libraries .budget-bar-amount { color: var(--red); }
+
+  /* Multiplier captions below the chart — three short lines that name
+     the ratios in plain language. The chart shows the gap; this names it. */
+  .budget-multipliers {
+    margin-top: 28px;
+    display: grid; gap: 10px;
+    font-family: var(--f-slab); font-size: clamp(14px, 1.2vw, 18px);
+    line-height: 1.5; color: var(--cream-deep);
   }
-  .budget-equiv-value.red { color: var(--red); }
+  .budget-multipliers .bm-row { padding: 4px 0; }
+  .budget-multipliers .bm-tag {
+    display: inline-block; font-family: var(--f-mono);
+    font-size: 11px; letter-spacing: var(--ls-eyebrow);
+    color: var(--red); text-transform: uppercase;
+    margin-right: 8px; font-weight: 700;
+  }
+  .budget-multipliers strong { color: var(--cream); font-weight: 700; }
+
   .budget-closer {
     margin-top: 40px;
     font-family: var(--f-slab); font-size: clamp(18px, 1.6vw, 28px); line-height: 1.5;
-    color: var(--cream); font-weight: 500;
+    color: var(--cream-deep); font-weight: 500;
   }
-  .budget-closer strong { color: var(--red); font-weight: 700; }
-  @media (max-width: 900px) {
-    .budget-eq { grid-template-columns: 1fr; gap: 12px; padding: 20px 0; }
-    .budget-item-value { font-size: 36px; }
-    .budget-vs { font-size: 56px; text-align: left; }
-    .budget-equiv-value { font-size: 44px; }
-    .budget-closer { font-size: 18px; }
+  .budget-closer strong { color: var(--cream); font-weight: 700; }
+  @media (max-width: 700px) {
+    /* On phone: stack name/bar/amount vertically per row so the bar gets
+       full width and the visual disparity is preserved. */
+    .budget-bar-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 14px 0;
+    }
+    .budget-bar-track { height: 22px; }
+    .budget-bar-amount { font-size: 24px; }
+    .budget-bar-name { font-size: 10px; }
+    .budget-multipliers { margin-top: 20px; font-size: 14px; }
+    .budget-closer { font-size: 16px; }
   }
 
   /* HISTORY TIMELINE */
@@ -1245,10 +1341,9 @@
     .hero-grid { grid-template-columns: 1fr; gap: 32px; }
     .hero-grid p { font-size: 18px; }
     .numbers-head { padding: 40px 24px 16px; }
-    .stats { grid-template-columns: 1fr; }
-    .stat { border-right: none; border-bottom: 4px solid var(--ink); padding: 28px 24px; }
-    .stat:last-child { border-bottom: none; }
-    .stat .value { font-size: 72px; }
+    .numbers > .buys { margin: 8px 24px 40px; padding: 24px; }
+    .buys h3 { font-size: 26px; }
+    .buys-grid > div { padding: 18px; font-size: 22px; }
     .calc { padding: 56px 24px; }
     /* Mobile-first calc reorder: verdict (the punchline) FIRST,
        input collapsed below. Reader sees ₹X tax → ₹1.58 to libraries
@@ -1569,7 +1664,6 @@
   .game-home-label::before,
   /* Homepage interactive sections */
   #states,
-  #history,
   .cta,
   .calc-grid,
   /* /data/ interactive sections */
@@ -1680,11 +1774,12 @@
      contained <div>s are display text. Force ink color so they're visible
      against the cream box. */
   .buys {
-    margin-top: 6mm !important;
+    margin: 6mm 0 !important;
     background: var(--cream) !important;
     color: var(--ink) !important;
     page-break-inside: avoid; break-inside: avoid;
   }
+  .numbers > .buys { margin: 0 !important; }
   .buys h3 { font-size: 14pt !important; letter-spacing: -0.5pt !important; color: var(--red) !important; }
   .buys-grid {
     grid-template-columns: 1fr 1fr 1fr !important;
@@ -1698,6 +1793,9 @@
     color: var(--ink) !important;
   }
   .buys-grid > div.red { color: var(--red) !important; }
+  /* Hide emoji icons on print — many printers render colour emoji as
+     monochrome boxes / fallback glyphs. Cleaner without them. */
+  .buys-grid > div[data-icon]::before { display: none !important; }
 
   /* DEFINITION + BUDGET — page 3 */
   .def {
@@ -1721,14 +1819,21 @@
   }
   .section.ink h2 { font-size: 26pt !important; line-height: 0.95 !important; color: var(--cream) !important; }
   .section.ink .lede { font-size: 10pt !important; color: var(--cream) !important; }
-  .budget-grid { gap: 4mm !important; margin-top: 4mm !important; }
-  .budget-eq { padding: 3mm 0 !important; }
-  .budget-item-label, .budget-equiv-label { font-size: 7pt !important; color: var(--cream) !important; }
-  .budget-item-value, .budget-equiv-value { font-size: 22pt !important; line-height: 1 !important; color: var(--cream) !important; }
-  .budget-equiv-value.red { color: var(--red) !important; }
-  .budget-vs { font-size: 18pt !important; color: var(--red) !important; }
-  .budget-item-source, .budget-equiv-source { font-size: 7pt !important; color: var(--cream) !important; opacity: 0.85; }
-  .budget-closer { font-size: 10pt !important; line-height: 1.4 !important; margin-top: 4mm !important; color: var(--cream) !important; }
+  /* Budget bar chart — print version. Force fills through and tighten spacing. */
+  .budget-bars { margin-top: 4mm !important; padding: 2mm 0 !important; }
+  .budget-bar-row { padding: 4mm 0 !important; gap: 4mm !important; grid-template-columns: minmax(80px, 1fr) 2fr auto !important; }
+  .budget-bar-name { font-size: 7pt !important; }
+  .budget-bar-track { height: 6mm !important; background: rgba(241,232,211,0.15) !important; border: 1px solid var(--cream-deep) !important; }
+  .budget-bar-fill { background: var(--cream) !important; }
+  .budget-bar-row.libraries .budget-bar-fill { background: var(--red) !important; }
+  .budget-bar-amount { font-size: 14pt !important; color: var(--cream) !important; }
+  .budget-bar-row.libraries .budget-bar-amount { color: var(--red) !important; }
+  .budget-bar-row.libraries .budget-bar-name { color: var(--red) !important; }
+  .budget-multipliers { margin-top: 4mm !important; font-size: 9pt !important; gap: 2mm !important; color: var(--cream) !important; }
+  .budget-multipliers .bm-tag { font-size: 7pt !important; color: var(--red) !important; }
+  .budget-multipliers strong { color: var(--cream) !important; }
+  .budget-closer { font-size: 10pt !important; line-height: 1.4 !important; margin-top: 4mm !important; color: var(--cream-deep) !important; }
+  .budget-closer strong { color: var(--cream) !important; }
 
   /* CLOSING DECLARATION — page 4 lead */
   .section.red.end {
