@@ -578,3 +578,50 @@ if (MP_LETTER_PRESENT) copyBtn.addEventListener("click", () => {
     done();
   }
 });
+
+// ─── ACTBAR ARMING ──────────────────────────────────────────────
+// Quiet "Read on →" by default; flips to loud red "ACT! Write to your
+// CM and the PM" once the reader engages with the tax calculator OR
+// scrolls past the calc section. State persists for the session via
+// localStorage so the bar stays armed on subsequent loads.
+(function armActbar() {
+  if (!document.querySelector(".actbar")) return;
+
+  const STORAGE_KEY = "r2r-actbar-armed";
+  let armed = false;
+
+  const arm = () => {
+    if (armed) return;
+    armed = true;
+    document.body.classList.add("actbar-armed");
+    try { localStorage.setItem(STORAGE_KEY, "1"); } catch (_) {}
+  };
+
+  // Restore armed state across visits
+  try {
+    if (localStorage.getItem(STORAGE_KEY) === "1") {
+      arm();
+      return;
+    }
+  } catch (_) {}
+
+  // Trigger 1: any interaction with the salary slider/input
+  ["income-range", "income-input"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("input", arm, { once: true });
+  });
+
+  // Trigger 2: scrolled past the calculator (calc bottom above viewport top)
+  const calc = document.querySelector(".calc");
+  if (calc && "IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.boundingClientRect.bottom < 0) {
+          arm();
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0 });
+    obs.observe(calc);
+  }
+})();

@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700;900&family=Roboto+Slab:wght@400;500;700;900&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Hind:wght@400;500;600;700&family=Hind+Madurai:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Serif+Tamil:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="assets/styles.css?v=7">
+<link rel="stylesheet" href="assets/styles.css?v=12">
 </head>
 <body>
 
@@ -53,7 +53,9 @@
     <span class="accent">A People's Pamphlet</span>
   </div>
 
-  <!-- STICKY CALL-TO-ACTION — single button, always visible -->
+  <!-- STICKY CTA — hidden until the reader interacts with the tax
+       calculator OR scrolls past it. Then it slides in red and loud.
+       Activation persists for the session via localStorage. -->
   <div class="actbar">
     <a href="#write"><span class="bang">ACT!</span>Write to your CM and the PM <span style="opacity:0.85">— now.</span><span class="arrow">→</span></a>
   </div>
@@ -63,7 +65,11 @@
     <div class="grain"></div>
     <div class="hero-inner">
       <div class="hero-top">
-        <div class="notice-pill">A NOTICE TO THE INDIAN VOTER</div>
+        <div class="hero-fact">
+          <div class="hero-fact-prefix">India spends just</div>
+          <div class="hero-fact-num">₹11.62</div>
+          <div class="hero-fact-suffix">per person, per year on every public library combined.</div>
+        </div>
         <h1>WHERE IS OUR RIGHT TO <span class="red">READ?</span></h1>
       </div>
       <img
@@ -72,39 +78,30 @@
         srcset="assets/pantheon-600.png 600w,
                 assets/pantheon-900.png 900w,
                 assets/pantheon-1200.png 1200w"
-        sizes="(min-width: 1100px) min(660px, 48vw),
+        sizes="(min-width: 1100px) min(960px, 62vw),
                (min-width: 600px) min(720px, 80vw),
                92vw"
         alt=""
         aria-hidden="true"
       />
-      <p class="hero-lede"><em class="lede-opener">So much money for statues — but <span class="red">none for our libraries!!!</span></em> Public libraries are a <strong>State subject</strong> — List II of the Constitution. India spends <strong class="red">₹11.62 per person, per year</strong> on every public library combined. <strong class="red">The US spends ₹2,900.</strong> <strong class="red">China — our "competitor" — has had a national Public Library Law since 2017.</strong> India has been drafting one for over six decades. <strong class="red">We say we want to be a Vishwaguru. With what?</strong></p>
+      <p class="hero-lede"><em class="lede-opener">So much money for statues — but <span class="red">none for our libraries!!!</span></em> <strong class="red">We say we are a Vishwaguru. How?</strong></p>
     </div>
   </section>
 
-  <!-- NUMBERS -->
+  <!-- NUMBERS — what ₹11.62 buys you, in 2026 -->
   <section class="numbers" id="numbers">
     <div class="numbers-head">
       <h2>THE SHAPE OF <span class="red">NEGLECT.</span></h2>
     </div>
-    <div class="stats">
-      <div class="stat">
-        <div class="label">India · per capita / year · all libraries</div>
-        <div class="value red">₹11.62</div>
-        <div class="sub">Empirical CAG data, peak year 2018-19. State governments ₹9.55 + the Centre ₹2.07. Less than half a Swiggy delivery fee. The price of biscuits.</div>
-      </div>
-      <div class="stat deep">
-        <div class="label">USA · per capita / year</div>
-        <div class="value">₹2,900</div>
-        <div class="sub">That is two hundred and fifty times more, paid by a country we like to claim we are catching up with.</div>
-      </div>
-      <div class="stat dark">
-        <div class="label">Density of libraries</div>
-        <div class="value">1 : 11,500</div>
-        <div class="value-sub">rural India · 1 library per 11,500 people.</div>
-        <div class="value" style="margin-top:24px">1 : 80,000</div>
-        <div class="value-sub">urban India · 1 library per 80,000 people.</div>
-        <div class="footnote">IFLA global norm: 1 : 3,000.</div>
+    <div class="buys">
+      <h3>WHAT ₹11.62 BUYS YOU, IN 2026:</h3>
+      <div class="buys-grid">
+        <div data-icon="☕">Not one sip of restaurant coffee.</div>
+        <div data-icon="🛵">Not one Swiggy delivery fee.</div>
+        <div data-icon="🚖">Not one Uber kilometre.</div>
+        <div data-icon="▶">Not three minutes of Netflix.</div>
+        <div data-icon="📖">Not one page of your child's textbook.</div>
+        <div class="red">Not even contempt.</div>
       </div>
     </div>
   </section>
@@ -117,22 +114,6 @@
         <div class="calc-tag">Where your tax goes</div>
       </div>
       <h2>WHERE YOUR TAX GOES. <span class="t-ink">NOT TO YOU.</span></h2>
-
-      <div class="closer-eq">
-        <div class="closer-side">
-          <div class="closer-label">One year · corporate tax cut · revenue forgone</div>
-          <div class="closer-value">₹1,45,000 CR</div>
-          <div class="closer-source">FY 2019-20, after the Centre cut the corporate tax rate from 30% to 22%.</div>
-        </div>
-        <div class="closer-vs" aria-hidden="true">vs.</div>
-        <div class="closer-side">
-          <div class="closer-label">Same year · every public library in India</div>
-          <div class="closer-value">₹1,406 CR</div>
-          <div class="closer-source">2018-19 peak, all states + the Centre combined.</div>
-        </div>
-      </div>
-
-      <p class="closer-punch">In one fiscal year, the State forgave <strong>100 times more in revenue from billion-dollar corporations</strong> than the country spent on every public library combined. Same Budget. Same Constitution.</p>
 
       <!-- INTERACTIVE: where YOUR tax goes -->
       <div class="calc-grid" style="margin-top:64px">
@@ -171,17 +152,6 @@
         </div>
       </div>
 
-      <div class="buys">
-        <h3>WHAT ₹11.62 BUYS YOU, IN 2026:</h3>
-        <div class="buys-grid">
-          <div>Not one sip of restaurant coffee.</div>
-          <div>Not one Swiggy delivery fee.</div>
-          <div>Not one Uber kilometre.</div>
-          <div>Not three minutes of Netflix.</div>
-          <div>Not one page of your child's textbook.</div>
-          <div class="red">Not even contempt.</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -217,25 +187,6 @@
     </div>
   </section>
 
-  <!-- DEFINITION (manifesto) -->
-  <section class="section cream def">
-    <div class="def-stack">
-      <div class="eyebrow">What a library actually is</div>
-      <h2>THE LIBRARY IS NOT A <span class="red">FAVOUR.</span></h2>
-      <p>It is not a reading room conceded to the deserving by the powerful. It is not a place for engineering aspirants only. It is a constitutional infrastructure — equal to the courthouse, the school, the polling booth.</p>
-      <p>It is the gate through which the people walk into themselves.</p>
-    </div>
-  </section>
-
-  <!-- DEFINITION (seven minimum standards) -->
-  <section class="section cream standards-section">
-    <div class="def-stack">
-      <div class="eyebrow">Seven minimum standards</div>
-      <h2>WHAT A PUBLIC LIBRARY <span class="red">MUST BE.</span></h2>
-      <div id="standards"></div>
-    </div>
-  </section>
-
   <!-- PARKED: Excluded section. Un-comment to restore. EXCLUDED const + render guard remain in the script.
   <section class="section ink excluded">
     <div class="grain soft"></div>
@@ -257,64 +208,33 @@
     <div class="stack">
       <div class="eyebrow">The budget is a moral document</div>
       <h2>WE CAN AFFORD IT. WE <span class="red">CHOOSE</span> NOT TO.</h2>
-      <p class="lede">India's libraries are not underfunded because India is poor. They are underfunded because the State chose to spend the money somewhere else. Look at the arithmetic.</p>
+      <p class="lede">Not poor. Deprioritised. Three lines, one scale.</p>
 
-      <div class="budget-grid">
-        <div class="budget-eq">
-          <div class="budget-item">
-            <div class="budget-item-label">All India library spending · per year</div>
-            <div class="budget-item-value">₹1,406 CR</div>
-            <div class="budget-item-source">Empirical CAG-sourced figure for 2018-19, the peak year. State governments ₹1,156 cr + Centre ₹250 cr.</div>
-          </div>
-          <div class="budget-vs" aria-hidden="true">≈</div>
-          <div class="budget-equiv">
-            <div class="budget-equiv-label">Of the Union Budget</div>
-            <div class="budget-equiv-value">0.03%</div>
-            <div class="budget-equiv-source">Union Budget 2024-25 BE: ~₹48 lakh crore. India spends three paise of every ₹100 of central budget on every public library combined.</div>
-          </div>
+      <div class="budget-bars" role="figure" aria-label="Annual budget allocations compared at the same scale">
+        <div class="budget-bar-row libraries">
+          <div class="budget-bar-name">All public libraries · 1 year</div>
+          <div class="budget-bar-track"><div class="budget-bar-fill" style="width: 1%"></div></div>
+          <div class="budget-bar-amount">₹1,406 CR</div>
         </div>
-
-        <div class="budget-eq">
-          <div class="budget-item">
-            <div class="budget-item-label">One year · 2019 corporate tax cut · revenue forgone</div>
-            <div class="budget-item-value">₹1,45,000 CR</div>
-            <div class="budget-item-source">Revenue the Centre gave up in FY 2019-20 alone after cutting the corporate tax rate from 30% to 22% (and to 15% for new manufacturing). Recurring annually.</div>
-          </div>
-          <div class="budget-vs" aria-hidden="true">=</div>
-          <div class="budget-equiv">
-            <div class="budget-equiv-label">Of all India's library spending</div>
-            <div class="budget-equiv-value red">103 YEARS</div>
-            <div class="budget-equiv-source">More revenue forgone from corporations in one fiscal year than India has spent on libraries in our lifetimes.</div>
-          </div>
+        <div class="budget-bar-row">
+          <div class="budget-bar-name">PLI corporate subsidies · 1 year avg</div>
+          <div class="budget-bar-track"><div class="budget-bar-fill" style="width: 27.6%"></div></div>
+          <div class="budget-bar-amount">~₹40,000 CR</div>
         </div>
-
-        <div class="budget-eq">
-          <div class="budget-item">
-            <div class="budget-item-label">One year · Production-Linked Incentive (PLI) · annual avg</div>
-            <div class="budget-item-value">~₹40,000 CR</div>
-            <div class="budget-item-source">Subsidies for corporate manufacturers under PLI: ~₹1.97 lakh crore committed across 14 sectors over five years.</div>
-          </div>
-          <div class="budget-vs" aria-hidden="true">=</div>
-          <div class="budget-equiv">
-            <div class="budget-equiv-label">Of all India's library spending</div>
-            <div class="budget-equiv-value red">28 YEARS</div>
-            <div class="budget-equiv-source">One year of subsidies to large corporate manufacturers ≈ three decades of every public library in the country.</div>
-          </div>
+        <div class="budget-bar-row">
+          <div class="budget-bar-name">Corporate tax cut (2019) · 1 year</div>
+          <div class="budget-bar-track"><div class="budget-bar-fill" style="width: 100%"></div></div>
+          <div class="budget-bar-amount">₹1,45,000 CR</div>
         </div>
       </div>
 
-      <p class="budget-closer">This is not a matter of poverty. It is a matter of priority. The State has chosen statues, expressways, hyperscale data centres for American corporations, and tax cuts for billion-dollar companies — over the libraries the Constitution promises you under <strong>Articles 14, 21 and 21A.</strong></p>
-    </div>
-  </section>
+      <div class="budget-multipliers">
+        <div class="bm-row"><span class="bm-tag">Libraries =</span> <strong>0.03%</strong> of the Union Budget.</div>
+        <div class="bm-row"><span class="bm-tag">PLI · 1 yr =</span> <strong>28 years</strong> of every public library combined.</div>
+        <div class="bm-row"><span class="bm-tag">Tax cut · 1 yr =</span> <strong>103 years</strong> of every public library combined.</div>
+      </div>
 
-  <!-- HISTORY -->
-  <section class="section cream" id="history">
-    <div class="grain light"></div>
-    <div class="stack">
-      <div class="eyebrow">A short history</div>
-      <h2>THIS NEGLECT IS <span class="red">NOT NEW.</span> IT IS A POLICY.</h2>
-      <p class="lede">We have been told, again and again, what to do. By Phule. By Ambedkar. By Ranganathan. By committees the government itself appointed. The plans exist. The will does not.</p>
-      <div class="timeline" id="timeline"></div>
+      <p class="budget-closer">Statues. Expressways. Hyperscale data centres for foreign corporations. Tax cuts for billion-dollar companies. <strong class="t-cream">Not libraries</strong> — under <strong>Articles 14, 21 and 21A.</strong></p>
     </div>
   </section>
 
@@ -387,6 +307,15 @@
     </div>
   </section>
 
+  <!-- STANDARDS — what we are demanding (between red declaration and CTA) -->
+  <section class="section cream standards-section">
+    <div class="def-stack">
+      <div class="eyebrow">Seven minimum standards</div>
+      <h2>WHAT A PUBLIC LIBRARY <span class="red">MUST BE.</span></h2>
+      <div id="standards"></div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta" id="write">
     <div class="grain soft"></div>
@@ -432,6 +361,16 @@
     <div class="eyebrow">Six things, in order of difficulty</div>
     <h2>AFTER THE LETTER — <span class="red">THE WORK.</span></h2>
     <div class="actions-grid" id="actions-grid"></div>
+  </section>
+
+  <!-- DEFINITION (manifesto) — the closing peroration before the footer -->
+  <section class="section cream def">
+    <div class="def-stack">
+      <div class="eyebrow">What a library actually is</div>
+      <h2>THE LIBRARY IS NOT A <span class="red">FAVOUR.</span></h2>
+      <p>It is not a reading room conceded to the deserving by the powerful. It is not a place for engineering aspirants only. It is a constitutional infrastructure — equal to the courthouse, the school, the polling booth.</p>
+      <p>It is the gate through which the people walk into themselves.</p>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -540,9 +479,9 @@
 
 </main>
 
-<script src="assets/data.js"></script>
-<script src="assets/helpers.js"></script>
-<script src="assets/games.js"></script>
-<script src="assets/main.js"></script>
+<script src="assets/data.js?v=8"></script>
+<script src="assets/helpers.js?v=8"></script>
+<script src="assets/games.js?v=8"></script>
+<script src="assets/main.js?v=8"></script>
 </body>
 </html>
