@@ -105,6 +105,27 @@ This is the single most-violated rule. **Read it twice.**
   Long entries grow the panel. Do NOT switch back to fixed `height` +
   `overflow-y: auto`.
 
+**Parliamentary library corpus pipeline (added 2026-05-06):**
+
+- `assets/parliament_libraries.js` is **generated**, not hand-edited.
+- Generator: the public package
+  [`sansad-semantic-crawler`](https://github.com/CommonSenseLLP/sansad-semantic-crawler)
+  pinned at `v0.2.0` in `requirements.txt`. PolyForm Noncommercial 1.0.0.
+- Topic profile lives at `topics/libraries.json` — vendored from
+  the upstream `examples/topics/libraries.json` because `pip install`
+  does not include `examples/`. Edit the vendored copy when the
+  topical lens needs to change; the upstream copy is just a starter.
+- Output dir: `data/_parliament_libraries/` (gitignored — manifest,
+  text/, pdfs/, parse.log, crawl.log).
+- Run `make corpus-refresh` for the full pipeline (crawl + parse +
+  export). After it finishes, **bump `?v=N` everywhere** the JS is
+  loaded — same one-pass `find ... sed` command above.
+- Two **legacy scripts** that did this work prior to 2026-05-06 —
+  `scripts/sansad_library_crawl.py` (568L) + `sansad_library_parse.py`
+  (317L) — were never tracked in git and were deleted from disk in
+  the 2026-05-06 migration. Do not resurrect; route corpus changes
+  through the package + the topic profile instead.
+
 ## 6 · REJECTED IDEAS — do not propose again
 
 | Idea | Why rejected |
