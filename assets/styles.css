@@ -1407,6 +1407,57 @@
     font-family: var(--f-slab); font-size: 14px; color: var(--ink-soft);
     margin-top: var(--space-3); line-height: 1.45;
   }
+  .parl-tags {
+    margin-top: var(--space-6);
+    display: flex; flex-wrap: wrap; gap: var(--space-2);
+  }
+  .parl-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 10px;
+    border: 2px solid var(--cream-deep);
+    color: var(--cream); background: transparent;
+    font-family: var(--f-mono); font-size: 10px; font-weight: 800;
+    letter-spacing: 1.4px; text-transform: uppercase;
+  }
+  .parl-chip strong { color: var(--red); }
+  .parl-questions {
+    margin-top: var(--space-8);
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4);
+  }
+  .parl-question,
+  .parl-empty {
+    padding: var(--space-5);
+    border: 2px solid var(--cream-deep);
+    background: rgba(255, 248, 226, 0.05);
+    color: var(--cream);
+  }
+  .parl-question-meta,
+  .parl-question-asker,
+  .parl-question-tags {
+    font-family: var(--f-mono); font-size: 10px; font-weight: 800;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--cream-deep);
+  }
+  .parl-question h3 {
+    margin: var(--space-2) 0 0;
+    font-family: var(--f-display); font-size: 30px; line-height: 0.98;
+    letter-spacing: 0; color: var(--cream);
+  }
+  .parl-question h3 a { color: inherit; text-decoration-color: var(--red); }
+  .parl-question-stat {
+    margin-top: var(--space-3);
+    font-family: var(--f-display); font-size: 34px; font-weight: 900;
+    color: var(--red); line-height: 0.95;
+  }
+  .parl-question p,
+  .parl-empty {
+    margin: var(--space-3) 0 0;
+    font-family: var(--f-slab); font-size: 15px; line-height: 1.45;
+  }
+  .parl-question-tags { margin-top: var(--space-3); color: var(--red); }
+  .parl-empty code {
+    font-family: var(--f-mono); color: var(--red); font-size: 0.9em;
+  }
 
   /* QUOTES */
   .quotes h2 { font-size: clamp(44px, 8vw, 96px); letter-spacing: -2px; }
@@ -1679,6 +1730,9 @@
        chart, and report-card picker respectively. */
     .parl-grid { grid-template-columns: 1fr 1fr; }
     .parl-stat .value { font-size: 40px; }
+    .parl-questions { grid-template-columns: 1fr; }
+    .parl-question h3 { font-size: 24px; }
+    .parl-question-stat { font-size: 28px; }
     .quote-grid { grid-template-columns: 1fr; gap: var(--space-6); }
     .quote .text, .quote.deva .text, .quote.tamil .text { font-size: 20px; }
     .cta { padding: var(--space-12) var(--space-6); }
