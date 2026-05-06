@@ -286,13 +286,6 @@ const ACTIONS = [
   { n: "06", verb: "VOTE", title: "and ask candidates a public-library question.", body: "Local body, MLA, MP. Ask in writing. Publish the silence. The first politician who answers has noticed something the others haven't." }
 ];
 
-const PARLIAMENT = [
-  { label: "Libraries sanctioned under NML", value: "64", sub: "across all states/UTs — 1 library per ~21 million people." },
-  { label: "Total NML sanctioned", value: "₹78.7 Cr", sub: "central + state share combined." },
-  { label: "Released to states (74%)", value: "₹58 Cr", sub: "central ₹43 Cr + state ₹9 Cr. ₹20.6 Cr stuck in pipeline." },
-  { label: "Unreleased — pipeline", value: "26%", sub: "of sanctioned amount remains undisbursed. Indore, MP got 50% of its sanction; Khandwa got 90%." }
-];
-
 // ─── DIVERSION GAME ROUNDS ────────────────────────────────────────
 // Each round: India had a real budget, and funded one of the listed
 // items. The user picks. The "correct" item is always the vanity

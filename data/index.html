@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700;900&family=Roboto+Slab:wght@400;500;700;900&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Hind:wght@400;500;600;700&family=Hind+Madurai:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Serif+Tamil:wght@400;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="../assets/styles.css?v=38">
+<link rel="stylesheet" href="../assets/styles.css?v=39">
 </head>
 <body>
 
@@ -149,22 +149,18 @@
   <!-- Library game and diversion game both moved to homepage. -->
 
 
-  <!-- PARKED: Parliament 2025 section. Un-comment to restore. PARLIAMENT const + render
-       guard remain in data.js / main.js, so this can come back without code changes.
   <section class="section ink" id="parliament">
     <div class="grain soft"></div>
     <div class="stack">
-      <div class="eyebrow">Parliament · July–August 2025</div>
-      <h2>WHAT MPs ARE FINALLY <span class="red">ASKING.</span></h2>
-      <p class="lede">For the first time in nearly a decade, MPs from MP, Bihar and Rajya Sabha probed the library question across one budget session. The numbers tabled in their replies, never before disclosed, are below.</p>
+      <div class="eyebrow">Parliament · library questions</div>
+      <h2>WHAT MPs ASK WHEN THEY <span class="red">ASK ABOUT LIBRARIES.</span></h2>
+      <p class="lede">A local crawler now tracks Lok Sabha and Rajya Sabha questions on public libraries, RRRLF, the National Mission on Libraries, Library Acts, digital libraries, school and university libraries, reading rooms, and access. The cards below are generated from the local Parliament corpus.</p>
       <div class="parl-grid" id="parl-grid"></div>
-      <div class="section-source-note">
-        Sources: Lok Sabha Q.2365 (04.08.2025); Q.120 Starred (28.07.2025); Q.4081 (18.08.2025); Rajya Sabha Q.1316 (31.07.2025).<br>
-        Tabled by: Bharadwaj, Sharma, Thakur (LS), Dr. V. Sivadasan (RS).
-      </div>
+      <div class="parl-tags" id="parl-tags" aria-label="Top Parliament library topics"></div>
+      <div class="parl-questions" id="parl-questions"></div>
+      <div class="section-source-note" id="parl-source-note"></div>
     </div>
   </section>
-  -->
 
 
   <!-- 3.5 · WORLD COMPARISON — India next to the rich-world peers -->
@@ -369,9 +365,10 @@
 
 </main>
 
-<script src="../assets/data.js?v=38"></script>
-<script src="../assets/helpers.js?v=38"></script>
-<script src="../assets/games.js?v=38"></script>
-<script src="../assets/main.js?v=38"></script>
+<script src="../assets/data.js?v=39"></script>
+<script src="../assets/parliament_libraries.js?v=39"></script>
+<script src="../assets/helpers.js?v=39"></script>
+<script src="../assets/games.js?v=39"></script>
+<script src="../assets/main.js?v=39"></script>
 </body>
 </html>
