@@ -2,8 +2,27 @@
 .claude/
 .conductor/
 
+# Agent operating rules + per-repo memory.
+# Hard rule: NEVER commit CLAUDE.md / AGENTS.md / memory/ on any repo.
+# These files carry operating discipline, mistakes log, and the
+# verified-fact audit trail. They stay local to the working tree.
+/CLAUDE.md
+/AGENTS.md
+/memory/
+
 # Internal strategy / architecture / design notes — NEVER commit.
+# Public repo; this content includes risk-model and operational detail
+# that should not be visible to adversaries or random readers.
+/ARCHITECTURE.md
+/PARSER-ARCHITECTURE.md
+/MISTAKES.md
+/STYLEGUIDE.md
+/RISKS.md
+/RUNBOOK.md
+/NOTES.md
+/TODO.md
 /notes/
+/internal/
 
 # Local standalone package repo. Keep this out of the website repo;
 # it has its own .git directory and remote.
