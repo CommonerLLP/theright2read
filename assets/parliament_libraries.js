@@ -1,12 +1,12 @@
 window.PARLIAMENT_LIBRARY_DATA = {
   "topic": "libraries",
   "description": "Public, institutional, digital, and access-oriented library questions in Parliament.",
-  "generatedAt": "2026-05-06T11:40:52",
-  "sourceManifest": "../data/_parliament_libraries/manifest.jsonl",
+  "generatedAt": "2026-05-10T09:40:44",
+  "sourceManifest": "data/_parliament_libraries/manifest.jsonl",
   "summaryStats": [
     {
       "label": "Questions in corpus",
-      "value": "160",
+      "value": "341",
       "sub": "Normalized Lok Sabha + Rajya Sabha records."
     },
     {
@@ -16,7 +16,7 @@ window.PARLIAMENT_LIBRARY_DATA = {
     },
     {
       "label": "Rajya Sabha",
-      "value": "80",
+      "value": "261",
       "sub": "From rsdoc.nic.in."
     },
     {
@@ -29,7 +29,7 @@ window.PARLIAMENT_LIBRARY_DATA = {
     {
       "tag": "public_library",
       "label": "Public libraries",
-      "count": 82
+      "count": 165
     },
     {
       "tag": "library_match",
@@ -37,468 +37,488 @@ window.PARLIAMENT_LIBRARY_DATA = {
       "count": 77
     },
     {
-      "tag": "accessibility",
-      "label": "Access / disability",
-      "count": 2
+      "tag": "digital_library",
+      "label": "Digital libraries",
+      "count": 63
     },
     {
       "tag": "nml",
       "label": "National Mission on Libraries",
-      "count": 1
+      "count": 34
     },
     {
-      "tag": "digital_library",
-      "label": "Digital libraries",
-      "count": 1
+      "tag": "rrrlf",
+      "label": "RRRLF",
+      "count": 28
+    },
+    {
+      "tag": "accessibility",
+      "label": "Access / disability",
+      "count": 17
+    },
+    {
+      "tag": "school_library",
+      "label": "School libraries",
+      "count": 11
+    },
+    {
+      "tag": "reading_room",
+      "label": "Reading rooms",
+      "count": 10
+    },
+    {
+      "tag": "library_act",
+      "label": "Library Acts / policy",
+      "count": 8
+    },
+    {
+      "tag": "university_library",
+      "label": "University / college libraries",
+      "count": 7
     }
   ],
   "keyQuestions": [
     {
-      "label": "Lok Sabha Unstarred Q.16",
-      "title": "National Mission on Libraries",
-      "date": "2025-12-01",
+      "label": "Rajya Sabha UNSTARRED Q.321",
+      "title": "Public libraries in the country",
+      "date": "2019-06-25",
       "ministry": "CULTURE",
       "askers": [
-        "Rajabhau Parag Prakash Waje",
-        "Rajesh Naranbhai  Chudasama"
+        "G.C. Chandrashekhar"
+      ],
+      "tags": [
+        "nml",
+        "public_library",
+        "reading_room",
+        "rrrlf"
+      ],
+      "score": 406.0,
+      "excerpt": "Public libraries in the country &lt;br/&gt;(a) the number of public libraries set up in the country and the number of libraries proposed to be set up in various parts of the country including at panchayats and districts level, State/UT-wise;&lt;br/&gt;&lt;br/&gt;(b) the Central...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/249/Au321.doc?source=pqars"
+    },
+    {
+      "label": "Rajya Sabha UNSTARRED Q.2586",
+      "title": "Providing network connectivity to libraries under NML in West Bengal",
+      "date": "2017-08-09",
+      "ministry": "CULTURE",
+      "askers": [
+        "Vivek Gupta"
       ],
       "tags": [
         "nml",
         "public_library"
       ],
-      "score": 10.0,
-      "excerpt": "National Mission on Libraries",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1523902"
-    },
-    {
-      "label": "Rajya Sabha UNSTARRED Q.2162",
-      "title": "Establishing public libraries",
-      "date": "2014-07-30",
-      "ministry": "CULTURE",
-      "askers": [
-        "Ambeth Rajan"
-      ],
-      "tags": [
-        "public_library"
-      ],
-      "score": 8.0,
-      "excerpt": "Establishing public libraries &lt;br/&gt;&lt;br/&gt;&lt;br/&gt;RAJYA SABHA&lt;br/&gt;UNSTARRED QUESTION NO. 2162&lt;br/&gt;TO BE ANSWERED ON JULY 30, 2014&lt;br/&gt;&lt;br/&gt;ESTABLISHING PUBLIC LIBRARIES &lt;br/&gt;&lt;br/&gt;2162. SHRI AMBETH RAJAN:&lt;br/&gt;&lt;br/&gt;Will...",
+      "score": 268.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO. 2586 TO BE ANSWERED ON 09.08.2017 PROVIDING NETWORK CONNECTIVITY TO LIBRARIES UNDER NML IN WEST BENGAL 2586. SHRI VIVEK GUPTA: Will the Minister of CULTURE be pleased to state: (a) the number of district...",
       "source": "rsdoc.nic.in",
-      "href": "https://sansad.in/getFile/annex/232/?source=pqars"
+      "href": "https://sansad.in/getFile/annex/243/Au2586.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.816",
-      "title": "PUBLIC LIBRARY",
-      "date": "2009-02-26",
+      "label": "Rajya Sabha UNSTARRED Q.3065",
+      "title": "Central assistance archival repositories, libraries and museums",
+      "date": "2017-03-29",
       "ministry": "CULTURE",
       "askers": [
-        "Shailendra Kumar"
+        "Harshvardhan Singh Dungarpur"
       ],
       "tags": [
-        "public_library"
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 6.0,
-      "excerpt": "PUBLIC LIBRARY",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/724586"
+      "score": 222.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.3065 TO BE ANSWERED ON 29TH MARCH, 2017 CENTRAL ASSISTANCE ARCHIVAL REPOSITORIES, LIBRARIES AND MUSEUMS 3065. SHRI HARSHVARDHAN SINGH DUNGARPUR: Will the Minister of CULTURE be pleased to state: (a) the...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/242/Au3065.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.1381",
-      "title": "Setting up of Public Libraries",
-      "date": "2019-07-01",
+      "label": "Rajya Sabha STARRED Q.31",
+      "title": "National Mission on Libraries",
+      "date": "2024-07-25",
       "ministry": "CULTURE",
       "askers": [
-        "Supriya Sule",
-        "Amol Ramsing Kolhe",
-        "Heena Vijayakumar Gavit",
-        "Subhash Ramrao Bhamre",
-        "Sunil Dattatray Tatkare"
+        "K. Laxman"
       ],
       "tags": [
-        "public_library"
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 6.0,
-      "excerpt": "Setting up of Public Libraries",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1436710"
+      "score": 212.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA STARRED QUESTION NO.*31 TO BE ANSWERED ON 25.07.2024 NATIONAL MISSION ON LIBRARIES *31 DR. K. LAXMAN: Will the Minister of CULTURE be pleased to state: a) the steps taken by Government to increase the number of libraries in the...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/265/AS31_BxOlMG.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.2583",
-      "title": "PROMOTING TECHNOLOGY FOR DISABLED PERSONS",
-      "date": "2012-12-10",
-      "ministry": "SOCIAL JUSTICE AND EMPOWERMENT",
+      "label": "Rajya Sabha UNSTARRED Q.2588",
+      "title": "Setting up of National Virtual Library of India",
+      "date": "2015-08-12",
+      "ministry": "CULTURE",
       "askers": [
-        "Modugula Venugopala Reddy"
+        "K.K. Ragesh"
       ],
       "tags": [
-        "accessibility",
+        "nml",
         "public_library"
       ],
-      "score": 4.0,
-      "excerpt": "PROMOTING TECHNOLOGY FOR DISABLED PERSONS",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1007539"
+      "score": 192.0,
+      "excerpt": "Setting up of National Virtual Library of India GOVERNMENT OF INDIA&lt;br/&gt;MINISTRY OF CULTURE&lt;br/&gt;&lt;br/&gt;RAJYA SABHA&lt;br/&gt;UNSTARRED QUESTION No.2588&lt;br/&gt;TO BE ANSWERED ON AUGUST 12, 2015&lt;br/&gt;&lt;br/&gt;SETTING UP OF NATIONAL VIRTUAL LIBRARY OF...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/236/Au2588.docx?source=pqars"
     },
     {
-      "label": "Rajya Sabha UNSTARRED Q.1570",
-      "title": "Funds for spreading and improving Culture",
-      "date": "2014-02-05",
+      "label": "Rajya Sabha UNSTARRED Q.1853",
+      "title": "Survey of libraries under NML",
+      "date": "2016-08-03",
+      "ministry": "CULTURE",
+      "askers": [
+        "Tiruchi Siva"
+      ],
+      "tags": [
+        "nml",
+        "public_library"
+      ],
+      "score": 172.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.1853 TO BE ANSWERED ON 03.08.2016 SURVEY OF LIBRARIES UNDER NML 1853. SHRI TIRUCHI SIVA: Will the Minister of CULTURE be pleased to state: (a) whether the Ministry has concluded its survey of libraries...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/240/Au1853.pdf?source=pqars"
+    },
+    {
+      "label": "Rajya Sabha UNSTARRED Q.1141",
+      "title": "National Mission on Libraries",
+      "date": "2024-12-05",
+      "ministry": "CULTURE",
+      "askers": [
+        "Lahar Singh Siroya"
+      ],
+      "tags": [
+        "nml",
+        "public_library"
+      ],
+      "score": 148.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.1141 TO BE ANSWERED ON 05.12.2024 NATIONAL MISSION ON LIBRARIES 1141 SHRI LAHAR SINGH SIROYA: SHRI R. GIRIRAJAN: Will the Minister of CULTURE be pleased to state: a) the steps taken by the Government to...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/266/AU1141_cUETEd.pdf?source=pqars"
+    },
+    {
+      "label": "Rajya Sabha UNSTARRED Q.1137",
+      "title": "National Library Mission",
+      "date": "2024-12-05",
+      "ministry": "CULTURE",
+      "askers": [
+        "Indu Bala Goswami"
+      ],
+      "tags": [
+        "nml",
+        "public_library"
+      ],
+      "score": 142.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.1137 TO BE ANSWERED ON 05.12.2024 NATIONAL LIBRARY MISSION 1137 MS. INDU BALA GOSWAMI: Will the Minister of CULTURE be pleased to state: (a) whether Government plans to provide financial assistance to the...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/266/AU1137_r0hqYv.pdf?source=pqars"
+    },
+    {
+      "label": "Rajya Sabha UNSTARRED Q.1142",
+      "title": "Status of Rashtriya Pustakalaya Mission",
+      "date": "2024-08-01",
+      "ministry": "CULTURE",
+      "askers": [
+        "Sujeet Kumar"
+      ],
+      "tags": [
+        "nml",
+        "public_library"
+      ],
+      "score": 128.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.1142 TO BE ANSWERED ON 1ST AUGUST, 2024 STATUS OF RASHTRIYA PUSTAKALAYA MISSION 1142. SHRI SUJEET KUMAR: Will the Minister of CULTURE be pleased to state:- (a) the manner in which the students,...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/265/AU1142_VzJxXP.pdf?source=pqars"
+    },
+    {
+      "label": "Rajya Sabha UNSTARRED Q.2758",
+      "title": "Development of public libraries under NML",
+      "date": "2015-12-23",
+      "ministry": "CULTURE",
+      "askers": [
+        "Derek O' Brien"
+      ],
+      "tags": [
+        "nml",
+        "public_library"
+      ],
+      "score": 92.0,
+      "excerpt": "Development of public libraries under NML GOVERNMENT OF INDIA&lt;br/&gt;MINISTRY OF CULTURE&lt;br/&gt;&lt;br/&gt;RAJYA SABHA&lt;br/&gt;&lt;br/&gt;UNSTARRED QUESTION NO.2758 &lt;br/&gt;TO BE ANSWERED ON 23.12.2015&lt;br/&gt;&lt;br/&gt;DEVELOPMENT OF PUBLIC LIBRARIES UNDER...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/237/Au2758.docx?source=pqars"
+    },
+    {
+      "label": "Rajya Sabha UNSTARRED Q.1885",
+      "title": "Enactment of Public Library Act by States",
+      "date": "2012-08-29",
+      "ministry": "CULTURE",
+      "askers": [
+        "BARUN MUKHERJI"
+      ],
+      "tags": [
+        "library_act",
+        "nml",
+        "public_library",
+        "rrrlf"
+      ],
+      "score": 90.0,
+      "excerpt": "Enactment of Public Library Act by States &lt;br/&gt;GOVERNMENT OF INDIA&lt;br/&gt;MINISTRY OF CULTURE&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;RAJYA SABHA&lt;br/&gt;UNSTARRED QUESTION NO. 1885&lt;br/&gt;TO BE ANSWERED ON AUGUST 29, 2012&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;ENACTMENT OF...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/226/Au1885.html?source=pqars"
+    },
+    {
+      "label": "Rajya Sabha UNSTARRED Q.2502",
+      "title": "High level Committee on libraries",
+      "date": "2013-03-20",
       "ministry": "CULTURE",
       "askers": [
         "Pradeep Kumar Balmuchu"
       ],
       "tags": [
-        "public_library"
+        "library_act",
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 4.0,
-      "excerpt": "Funds for spreading and improving Culture GOVERNMENT OF INDIA&lt;br/&gt;MINISTRY OF CULTURE&lt;br/&gt;RAJYA SABHA &lt;br/&gt;UNSTARRED QUESTION NO. 1570&lt;br/&gt;&lt;br/&gt;FUNDS FOR SPREADING AND IMPROVING CULTURE&lt;br/&gt;1570. DR. PRADEEP KUMAR BALMUCHU:&lt;br/&gt;will the...",
+      "score": 90.0,
+      "excerpt": "High level Committee on libraries GOVERNMENT OF INDIA&lt;br/&gt;MINISTRY OF CULTURE&lt;br/&gt;&lt;br/&gt;RAJYA SABHA&lt;br/&gt;UNSTARRED QUESTION NO.2502&lt;br/&gt;TO BE ANSWER ON MARCH 20, 2013&lt;br/&gt;&lt;br/&gt;HIGH-LEVEL COMMITTEE ON LIBRARIES&lt;br/&gt;&lt;br/&gt;2502....",
       "source": "rsdoc.nic.in",
-      "href": "https://sansad.in/getFile/annex/230/Au1570.html?source=pqars"
+      "href": "https://sansad.in/getFile/annex/228/Au2502.html?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.3959",
-      "title": "National Accessible Library Initiative",
-      "date": "2025-03-25",
-      "ministry": "SOCIAL JUSTICE AND EMPOWERMENT",
+      "label": "Rajya Sabha UNSTARRED Q.302",
+      "title": "Establishment of ideal libraries at district level in the country",
+      "date": "2016-07-20",
+      "ministry": "CULTURE",
       "askers": [
-        "Naveen Jindal"
+        "Meghraj Jain"
       ],
       "tags": [
-        "accessibility",
+        "nml",
         "public_library"
       ],
-      "score": 4.0,
-      "excerpt": "National Accessible Library Initiative",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1524936"
+      "score": 88.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.302 TO BE ANSWERED ON 20.07.2016 ESTABLISHMENT OF IDEAL LIBRARIES AT DISTRICT LEVEL IN THE COUNTRY 302. MEGHRAJ JAIN: Will the Minister of CULTURE be pleased to state: (a) whether Government has formulated...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/240/Au302.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Starred Q.774",
-      "title": "Hindi Books",
-      "date": "1954-09-11",
-      "ministry": "EDUCATION",
+      "label": "Rajya Sabha UNSTARRED Q.2543",
+      "title": "Public Library Systems in India",
+      "date": "2019-07-16",
+      "ministry": "CULTURE",
       "askers": [
-        "Mono Mohan Das",
-        "Amar Singh Saigal",
-        "Ganesh Vasudeo Mavalankar",
-        "Syed Ahmed",
-        "Rohini Kumar Chaudhuri",
-        "Abul Kalam Azad",
-        "Govind Das Jeewan Das Maheshwari"
+        "Mahesh Poddar"
       ],
       "tags": [
-        "public_library"
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 2.0,
-      "excerpt": "Hindi Books",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1051939"
+      "score": 80.0,
+      "excerpt": "Public Library Systems in India (a) whether it is a fact that the number of public libraries in India is getting reduced year by year due to poor financial health of the organisations;&lt;br/&gt;&lt;br/&gt;(b) if so, the details thereof;&lt;br/&gt;&lt;br/&gt;(c) the steps taken...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/249/Au2543.docx?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.1289",
-      "title": "Institutes for Mining Engineering",
-      "date": "1956-09-04",
-      "ministry": "EDUCATION",
+      "label": "Rajya Sabha UNSTARRED Q.2896",
+      "title": "Implementation of National Mission on Libraries",
+      "date": "2019-01-08",
+      "ministry": "CULTURE",
       "askers": [
-        "Mono Mohan Das",
-        "Ram Krishan Gupta"
+        "Rajkumar Dhoot"
       ],
       "tags": [
+        "nml",
         "public_library"
       ],
-      "score": 2.0,
-      "excerpt": "Institutes for Mining Engineering",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1205483"
+      "score": 76.0,
+      "excerpt": "Implementation of National Mission on Libraries (a) whether it is a fact that Government is implementing a National Mission on Libraries (NML) for promoting the establishment of libraries in States and Union Territories, if so, the details thereof;&lt;br/&gt;&lt;br/&gt;(b)...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/247/Au2896.doc?source=pqars"
     },
     {
-      "label": "Lok Sabha Starred Q.980",
-      "title": "A.I.N.E. Conference",
-      "date": "1957-12-10",
-      "ministry": "INFORMATION AND BROADCASTING",
+      "label": "Rajya Sabha UNSTARRED Q.3716",
+      "title": "Proposals from Uttar Pradesh Government",
+      "date": "2017-04-05",
+      "ministry": "CULTURE",
       "askers": [
-        "Balkrishna Vishwanath Keskar",
-        "M.K. Kumaran",
-        "Atal Bihari Vajpayee"
+        "Sukhram Singh Yadav"
       ],
       "tags": [
-        "public_library"
+        "nml",
+        "public_library",
+        "reading_room",
+        "rrrlf"
       ],
-      "score": 2.0,
-      "excerpt": "A.I.N.E. Conference",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1121674"
+      "score": 68.0,
+      "excerpt": "MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO. 3716 TO BE ANSWERED ON 05.04.2017 PROPOSALS FROM UTTAR PRADESH GOVERNMENT 3716. SHRI SUKHRAM SINGH YADAV: SHRI VISHAMBHAR PRASAD NISHAD: Will the Minister of CULTURE be pleased to state: a) the number of proposals received...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/242/Au3716.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.1581",
-      "title": "Protecteq Monuments of Mysore",
-      "date": "1959-08-27",
-      "ministry": "EDUCATION",
+      "label": "Rajya Sabha UNSTARRED Q.3062",
+      "title": "Public libraries in the country",
+      "date": "2025-03-27",
+      "ministry": "CULTURE",
       "askers": [
-        "Parvathi Krishnan",
-        "Mono Mohan Das",
-        "S.M. Siddiah"
+        "Abdul Wahab"
       ],
       "tags": [
-        "public_library"
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 2.0,
-      "excerpt": "Protecteq Monuments of Mysore",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/455447"
+      "score": 64.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.3062 TO BE ANSWERED ON 27.03.2025 PUBLIC LIBRARIES IN THE COUNTRY 3062. SHRI ABDUL WAHAB: Will the Minister of CULTURE be pleased to state: a) details of public libraries currently functional in the...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/267/AU3062_pHoYyI.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.257",
-      "title": "Publications Division of the I.&B. Ministry",
-      "date": "1964-02-17",
-      "ministry": "INFORMATION AND BROADCASTING",
+      "label": "Rajya Sabha UNSTARRED Q.657",
+      "title": "Funds allocated to libraries and museums in Karnataka",
+      "date": "2018-07-24",
+      "ministry": "CULTURE",
       "askers": [
-        "Surendranath Dwivedy"
+        "K.C. Ramamurthy"
       ],
       "tags": [
-        "public_library"
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 2.0,
-      "excerpt": "Publications Division of the I.&B. Ministry",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/783614"
+      "score": 62.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.657 TO BE ANSWERED ON 24TH JULY, 2018 FUNDS ALLOCATED TO LIBRARIES AND MUSEUMS IN KARNATAKA 657. SHRI K.C. RAMAMURTHY : Will the Minister of CULTURE be pleased to state: (a) the details of funds provided...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/246/Au657.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.910",
-      "title": "Protein Tablets",
-      "date": "1965-03-10",
-      "ministry": "EDUCATION",
+      "label": "Rajya Sabha UNSTARRED Q.1298",
+      "title": "NML Scheme",
+      "date": "2023-12-14",
+      "ministry": "CULTURE",
       "askers": [
-        "Surendra Pal Singh",
-        "M.C. Chagla"
+        "Dharmasthala Veerendra Heggade"
       ],
       "tags": [
-        "public_library"
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 2.0,
-      "excerpt": "Protein Tablets",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1053453"
+      "score": 62.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.1298 TO BE ANSWERED ON 14.12.2023 NML SCHEME 1298. DR. DHARMASTHALA VEERENDRA HEGGADE: Will the Minister of CULTURE be pleased to state: a) whether Government through its National Mission on Libraries...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/262/AU1298.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Starred Q.723",
-      "title": "Terms of Service of Regular Artists",
-      "date": "1965-04-05",
-      "ministry": "INFORMATION AND BROADCASTING",
+      "label": "Rajya Sabha STARRED Q.143",
+      "title": "Deplorable condition of archives and libraries",
+      "date": "2012-08-22",
+      "ministry": "CULTURE",
       "askers": [
-        "Kapur Singh",
-        "Ghanshyambhai Chhotalal Oza",
-        "Sham Lal Saraf",
-        "Viramachaneni Vimla Devi",
-        "Hukum Singh (Patiala)",
-        "C.R. Pattabhi Raman",
-        "Homi F. Daji",
-        "Indrajit Gupta",
-        "Prafulla Chandra Borooah",
-        "Balkrishna Ramchandra Wasnik",
-        "S.M. Banerjee",
-        "Krishna Chandra Pant",
-        "Siddheshwar Prasad",
-        "Jagdev Singh Siddhanti",
-        "Prakash Vir Shastri"
+        "SHYAMAL CHAKRABORTY"
       ],
       "tags": [
-        "public_library"
+        "digital_library",
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 2.0,
-      "excerpt": "Terms of Service of Regular Artists",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/217031"
+      "score": 60.0,
+      "excerpt": "Deplorable condition of archives and libraries RAJYA SABHA&lt;br/&gt;ADMITTED STARRED QUESTION NO. 143&lt;br/&gt;TO BE ANSWERED ON AUGUST 22, 2012&lt;br/&gt;DEPLORABLE CONDITIONS OF ARCHIVES AND LIBRARIES&lt;br/&gt;*143. SHRI SHYAMAL CHAKRABORTY:&lt;br/&gt;Will the MINISTER OF...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/226/As143.html?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.5208",
-      "title": "Salaries of Lecturers in Delhi",
-      "date": "1966-05-11",
-      "ministry": "EDUCATION",
+      "label": "Rajya Sabha UNSTARRED Q.674",
+      "title": "Objectives of NMMA",
+      "date": "2017-02-08",
+      "ministry": "CULTURE",
       "askers": [
-        "Yashpal Singh",
-        "M.C. Chagla"
+        "Amar Shankar Sable"
       ],
       "tags": [
+        "nml",
         "public_library"
       ],
-      "score": 2.0,
-      "excerpt": "Salaries of Lecturers in Delhi",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/270450"
+      "score": 56.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO. 674 TO BE ANSWERED ON 08.02.2017 MAGHA 19,1938(SAKA) OBJECTIVES OF NMMA +674. SHRI AMAR SHANKAR SABLE: Will the Minister of CULTURE be pleased to state: (a) the details of the National Missions being run...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/242/Au674.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.5137",
-      "title": "Film on Social Evils",
-      "date": "1967-07-10",
-      "ministry": "INFORMATION AND BROADCASTING",
+      "label": "Rajya Sabha UNSTARRED Q.3850",
+      "title": "Infrastructure for digital library",
+      "date": "2023-04-06",
+      "ministry": "CULTURE",
       "askers": [
-        "Kodardas Kalidas Shah",
-        "Sushila Rohatgi",
-        "S.M. Banerjee"
+        "M. Mohamed Abdulla"
       ],
       "tags": [
+        "digital_library",
+        "nml",
         "public_library"
       ],
-      "score": 2.0,
-      "excerpt": "Film on Social Evils",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/948040"
+      "score": 52.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO-3850 ANSWERED ON - 06/04/2023 INFRASTRUCTURE FOR DIGITAL LIBRARY 3850 SHRI M. MOHAMED ABDULLA: Will the Minister of CULTURE be pleased to state: - (a) the steps taken by the Central Government to improve...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/259/AU3850.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.3231",
-      "title": "Sewing and Embroidery in Delhi Schools",
-      "date": "1967-12-06",
-      "ministry": "EDUCATION",
+      "label": "Rajya Sabha UNSTARRED Q.353",
+      "title": "Financial assistance for archives, libraries and museums in Rajasthan",
+      "date": "2017-07-19",
+      "ministry": "CULTURE",
       "askers": [
-        "Bhagwat Jha Azad",
-        "Ram Gopal Shawlwale"
+        "Ram Narain Dudi"
       ],
       "tags": [
-        "public_library"
+        "nml",
+        "public_library",
+        "rrrlf"
       ],
-      "score": 2.0,
-      "excerpt": "Sewing and Embroidery in Delhi Schools",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1265363"
+      "score": 48.0,
+      "excerpt": "GOVERNMENT OF INDIA MINISTRY OF CULTURE RAJYA SABHA UNSTARRED QUESTION NO.353 TO BE ANSWERED ON 19THJULY, 2017 FINANCIAL ASSISTANCE FOR ARCHIVES, LIBRARIES AND MUSEUMS IN RAJASTHAN † 353: SHRI RAM NARAIN DUDI: Will the Minister of CULTURE be pleased to state: (a) the amount of...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/243/Au353.pdf?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.5181",
-      "title": "Manufacture of T.V. Sets at Pilani",
-      "date": "1967-12-20",
-      "ministry": "EDUCATION",
+      "label": "Rajya Sabha UNSTARRED Q.1824",
+      "title": "National Digital Library",
+      "date": "2018-08-02",
+      "ministry": "HUMAN RESOURCE DEVELOPMENT",
       "askers": [
-        "K.M. Koushik",
-        "Triguna Sen"
+        "Sanjay Raut"
       ],
       "tags": [
-        "public_library"
+        "digital_library"
       ],
-      "score": 2.0,
-      "excerpt": "Manufacture of T.V. Sets at Pilani",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1089401"
+      "score": 48.0,
+      "excerpt": "National Digital Library (a) whether Government is proposing to help National Digital Library to collaborate with various top digital libraries of the world to create a national online educational asset for students interested in research and innovation;&lt;br/&gt;&lt;br/&gt;(b)...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/246/Au1824.docx?source=pqars"
     },
     {
-      "label": "Lok Sabha Unstarred Q.2241",
-      "title": "Indian Council for Cultural Relations",
-      "date": "1968-08-02",
-      "ministry": "EDUCATION",
+      "label": "Rajya Sabha UNSTARRED Q.320",
+      "title": "Projects on NML",
+      "date": "2019-06-25",
+      "ministry": "CULTURE",
       "askers": [
-        "Baburao Patel",
-        "Triguna Sen"
+        "Vinay P. Sahasrabuddhe"
       ],
       "tags": [
-        "public_library"
+        "digital_library",
+        "nml"
       ],
-      "score": 2.0,
-      "excerpt": "Indian Council for Cultural Relations",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/751140"
-    },
-    {
-      "label": "Lok Sabha Unstarred Q.5141",
-      "title": "Scheduled Castes and Scheduled Tribes in Various Educational Institutions",
-      "date": "1968-08-23",
-      "ministry": "EDUCATION",
-      "askers": [
-        "Bhagwat Jha Azad",
-        "S.M.Siddiah"
-      ],
-      "tags": [
-        "public_library"
-      ],
-      "score": 2.0,
-      "excerpt": "Scheduled Castes and Scheduled Tribes in Various Educational Institutions",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/610828"
-    },
-    {
-      "label": "Lok Sabha Unstarred Q.2676",
-      "title": "Books of India Author Published in Russia",
-      "date": "1968-11-29",
-      "ministry": "EDUCATION",
-      "askers": [
-        "Sher Singh",
-        "Jugal Mondal"
-      ],
-      "tags": [
-        "public_library"
-      ],
-      "score": 2.0,
-      "excerpt": "Books of India Author Published in Russia",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1209372"
-    },
-    {
-      "label": "Lok Sabha Unstarred Q.3290",
-      "title": "Films Exempted from Entertainment Tax in Foreign Countries",
-      "date": "1968-12-04",
-      "ministry": "INFORMATION AND BROADCASTING",
-      "askers": [
-        "Kashi Nath Pandey",
-        "Kodardas Kalidas Shah"
-      ],
-      "tags": [
-        "public_library"
-      ],
-      "score": 2.0,
-      "excerpt": "Films Exempted from Entertainment Tax in Foreign Countries",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/525750"
-    },
-    {
-      "label": "Lok Sabha Unstarred Q.2243",
-      "title": "Introduction of T.V. in Hyderabad and Vijayawada",
-      "date": "1977-06-29",
-      "ministry": "INFORMATION AND BROADCASTING",
-      "askers": [
-        "Lal Krishna Advani",
-        "Kommareddi Suryanarayana"
-      ],
-      "tags": [
-        "public_library"
-      ],
-      "score": 2.0,
-      "excerpt": "Introduction of T.V. in Hyderabad and Vijayawada",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/1448443"
-    },
-    {
-      "label": "Lok Sabha Unstarred Q.558",
-      "title": "Expenditure on Schemes for Rural Development",
-      "date": "1982-07-13",
-      "ministry": "RURAL DEVELOPMENT",
-      "askers": [
-        "Baleshwar Ram",
-        "K. Lakkappa"
-      ],
-      "tags": [
-        "public_library"
-      ],
-      "score": 2.0,
-      "excerpt": "Expenditure on Schemes for Rural Development",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/676328"
-    },
-    {
-      "label": "Lok Sabha Starred Q.7",
-      "title": "Release of Foodgrains Under NREP",
-      "date": "1983-02-21",
-      "ministry": "RURAL DEVELOPMENT",
-      "askers": [
-        "Harinatha Misra",
-        "B.V. Desai",
-        "M.V.Chandrashekhara Murthy"
-      ],
-      "tags": [
-        "public_library"
-      ],
-      "score": 2.0,
-      "excerpt": "Release of Foodgrains Under NREP",
-      "source": "elibrary.sansad.in",
-      "href": "https://elibrary.sansad.in/handle/123456789/213512"
+      "score": 48.0,
+      "excerpt": "Projects on NML (a) the projects undertaken under the National Mission on Libraries (NML) and the amount spent on creation of National Virtual Library of India; and&lt;br/&gt;&lt;br/&gt;(b) the measures taken for the digitization of manuscripts in the last three years and how...",
+      "source": "rsdoc.nic.in",
+      "href": "https://sansad.in/getFile/annex/249/Au320.doc?source=pqars"
     }
   ]
 };
