@@ -18,6 +18,8 @@
     --red: #dc2a14;
     --red-deep: #a31e0e;
     --blue: #1936a8;
+    --green: #16a34a;       /* correct-answer signal, readable on --ink (AA) */
+    --green-deep: #15803d;
 
     --f-display: 'Bebas Neue', 'Oswald', 'Anton', Impact, sans-serif;
     --f-slab: 'Roboto Slab', 'Bree Serif', 'Rockwell', serif;
@@ -74,7 +76,7 @@
   button { font-family: inherit; }
   a { color: inherit; }
 
-  .pamphlet { width: 100%; max-width: 1280px; margin: 0 auto; background: var(--cream); color: var(--ink); }
+  .pamphlet { width: 100%; max-width: 960px; margin: 0 auto; background: var(--cream); color: var(--ink); }
 
 
   /* Skip link — visible only on focus, top-left */
@@ -1121,9 +1123,9 @@
     background: var(--cream); color: var(--red);
     transform: translateY(-2px);
   }
-  .game-btn.primary { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+  .game-btn.primary { background: var(--red); border-color: var(--red); color: var(--cream); }
   .game-btn.primary:hover, .game-btn.primary:focus {
-    background: var(--cream); color: var(--ink); border-color: var(--cream);
+    background: var(--cream); color: var(--red); border-color: var(--cream);
   }
   .game-meta {
     display: flex; justify-content: space-between; gap: var(--space-4);
@@ -1159,9 +1161,19 @@
   .game-card:hover .game-card-cta, .game-card:focus .game-card-cta { color: var(--red); }
   .game-card:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
   .game-card.disabled { pointer-events: none; opacity: 0.85; }
-  .game-card.correct { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-  .game-card.correct .game-card-cta { color: var(--cream); }
-  .game-card.wrong { background: var(--cream); color: var(--ink); border-color: var(--ink); opacity: 0.55; }
+  /* Answer feedback: green-on-ink for correct, red-on-ink for wrong.
+     Card background stays ink so the colour signal is clean against the
+     section background. */
+  .game-card.correct {
+    background: var(--ink); color: var(--green);
+    border-color: var(--green);
+  }
+  .game-card.correct .game-card-cta { color: var(--green); }
+  .game-card.wrong {
+    background: var(--ink); color: var(--red);
+    border-color: var(--red); opacity: 0.75;
+  }
+  .game-card.wrong .game-card-cta { color: var(--red); }
   .game-card-name {
     font-family: var(--f-display); font-size: 36px; font-weight: 900;
     letter-spacing: -1px; line-height: 0.95; text-transform: uppercase;
@@ -1260,7 +1272,7 @@
     margin: var(--space-4) 0 var(--space-7); max-width: 880px;
   }
   .game-final strong { color: var(--red); }
-  .game-final .num { color: var(--ink); font-size: 88px; }
+  .game-final .num { color: var(--cream); font-size: 88px; }
   .game-end-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
   @media (max-width: 700px) {
@@ -1302,18 +1314,23 @@
   .dgame-option:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
   .dgame-option.disabled { pointer-events: none; }
   .dgame-option.correct {
-    background: var(--red); color: var(--cream); border-color: var(--red);
+    background: var(--ink); color: var(--green); border-color: var(--green);
   }
-  .dgame-option.correct .dgame-cost { color: var(--cream); }
-  .dgame-option.wrong { opacity: 0.55; }
-  .dgame-option.your-pick { outline: 3px dashed var(--ink); outline-offset: -8px; }
+  .dgame-option.correct .dgame-cost { color: var(--green); }
+  .dgame-option.wrong {
+    background: var(--ink); color: var(--red); border-color: var(--red);
+    opacity: 0.75;
+  }
+  .dgame-option.wrong .dgame-cost { color: var(--red); }
+  .dgame-option.your-pick { outline: 3px dashed var(--cream); outline-offset: -8px; }
   .dgame-marker {
     flex-shrink: 0; width: 28px; height: 28px;
     border: 3px solid currentColor;
     background: transparent;
     margin-top: 2px;
   }
-  .dgame-option.correct .dgame-marker { background: var(--cream); border-color: var(--cream); }
+  .dgame-option.correct .dgame-marker { background: var(--green); border-color: var(--green); }
+  .dgame-option.wrong .dgame-marker { background: var(--red); border-color: var(--red); }
   .dgame-text {
     flex: 1; min-width: 0;
     font-family: var(--f-display); font-size: 20px; font-weight: 900;
