@@ -1,32 +1,28 @@
 # lychee link-checker config for the site CI.
 # https://github.com/lycheeverse/lychee
+# Accept ranges + a few specific codes that some servers return for
+# unauthenticated bot requests.
+accept = ["100..=103", "200..=299", "403", "429"]
 
-# Resolve root-relative links (`/data/`, `/spend/`, etc.) against the
-# repo root so the local-file run matches the live-site behaviour.
-base = "."
-
-# Accept these HTTP status codes as success. 403 is included because
-# some servers (e.g., academic publishers) block headless agents.
-accept = [200, 206, 403, 429]
+# Resolve root-relative hrefs (`/data/`, `/spend/`) against repo root.
+root_dir = "/github/workspace"
 
 max_concurrency = 4
+max_redirects = 5
+no_progress = true
 timeout = 30
 retry_wait_time = 8
 max_retries = 2
 
-# Exclude domains that have known false positives or are unreliable
-# for unauthenticated CI requests:
+# Domains with known false-positives in CI:
 #  - pgportal.gov.in: India govt site with an SSL cert chain that
-#    Linux CI runners don't trust. The site is reachable from
-#    end-user browsers; the CI failure is a TLS-trust artefact.
-#  - polyformproject.org: 404s intermittently on the
-#    trailing-slash URL we cite for the licence; the licence text is
-#    canonical and stable elsewhere.
+#    Linux runners don't trust; reachable in normal browsers.
+#  - polyformproject.org: intermittent 404s on the licence URL.
+#  - jsdelivr.net and fonts.gstatic.com: CDN endpoints that block
+#    unauthenticated GETs from CI ranges.
 exclude = [
   "^https://pgportal\\.gov\\.in",
   "^https://polyformproject\\.org",
+  "^https://(cdn\\.)?jsdelivr\\.net",
+  "^https://fonts\\.gstatic\\.com",
 ]
-
-# Page-anchor links (`#write`, etc.) are within-page navigation and
-# don't need verification.
-exclude_path = []
