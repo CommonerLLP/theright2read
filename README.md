@@ -59,8 +59,12 @@ make corpus-refresh    # crawl LS + RS, parse PDFs, regenerate the JS
 ```
 
 After regeneration, **bump the `?v=N` cache-bust suffix** wherever the
-JS is loaded — see [`AGENTS.md`](./AGENTS.md) section 5 for the
-canonical one-pass sed command.
+JS or CSS is loaded. One-pass update across all HTML files:
+
+```bash
+find . -name "*.html" -not -path "./node_modules/*" \
+  -exec sed -i '' 's/v=OLD/v=NEW/g' {} +
+```
 
 The legacy `scripts/sansad_library_crawl.py` + `sansad_library_parse.py`
 that previously did this work were retired in the 2026-05-06 migration;
