@@ -35,6 +35,7 @@ jobs:
           args: >-
             --no-progress
             --config lychee.toml
+            --root-dir ${{ github.workspace }}
             ./index.html
             ./data/index.html
             ./inequality/index.html

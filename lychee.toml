@@ -4,9 +4,8 @@
 # unauthenticated bot requests.
 accept = ["100..=103", "200..=299", "403", "429"]
 
-# Resolve root-relative hrefs (`/data/`, `/spend/`) against repo root.
-root_dir = "/github/workspace"
-
+# root_dir is passed at invocation time from the workflow so it can use
+# the runner's actual workspace path (${{ github.workspace }}).
 max_concurrency = 4
 max_redirects = 5
 no_progress = true
