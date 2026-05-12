@@ -1,0 +1,32 @@
+# lychee link-checker config for the site CI.
+# https://github.com/lycheeverse/lychee
+
+# Resolve root-relative links (`/data/`, `/spend/`, etc.) against the
+# repo root so the local-file run matches the live-site behaviour.
+base = "."
+
+# Accept these HTTP status codes as success. 403 is included because
+# some servers (e.g., academic publishers) block headless agents.
+accept = [200, 206, 403, 429]
+
+max_concurrency = 4
+timeout = 30
+retry_wait_time = 8
+max_retries = 2
+
+# Exclude domains that have known false positives or are unreliable
+# for unauthenticated CI requests:
+#  - pgportal.gov.in: India govt site with an SSL cert chain that
+#    Linux CI runners don't trust. The site is reachable from
+#    end-user browsers; the CI failure is a TLS-trust artefact.
+#  - polyformproject.org: 404s intermittently on the
+#    trailing-slash URL we cite for the licence; the licence text is
+#    canonical and stable elsewhere.
+exclude = [
+  "^https://pgportal\\.gov\\.in",
+  "^https://polyformproject\\.org",
+]
+
+# Page-anchor links (`#write`, etc.) are within-page navigation and
+# don't need verification.
+exclude_path = []

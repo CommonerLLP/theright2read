@@ -29,15 +29,12 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          # Restrict to the live-site surface + top-level docs. The
-          # build script and notes/memory/ aren't in scope.
+          # Config lives in lychee.toml at repo root: accept-codes,
+          # excludes for sites with known SSL/UA quirks, root-dir for
+          # root-relative href resolution.
           args: >-
             --no-progress
-            --accept 200,206,403
-            --max-concurrency 4
-            --timeout 20
-            --retry-wait-time 8
-            --max-retries 2
+            --config lychee.toml
             ./index.html
             ./data/index.html
             ./inequality/index.html
