@@ -153,8 +153,88 @@
     </div>
   </section>
 
-  <!-- Library game and diversion game both moved to homepage. -->
+  <!-- EXCLUDED — who is locked out -->
+  <section class="section ink excluded" id="excluded">
+    <div class="grain soft"></div>
+    <div class="stack">
+      <div class="eyebrow">The library is empty of the people who need it most.</div>
+      <h2>WHO IS LOCKED OUT? EVERYONE BRAHMINISM EVER LOCKED OUT.</h2>
+      <p class="lede">This is not an accident. It is an inheritance of the brahmanical order, of the colonial state, of every government that came after and did nothing. The fee at the door of the library is the same fee that has always been at the door of knowledge in India: caste, class, gender, ability, language.</p>
+      <div class="excluded-grid" id="excluded-grid"></div>
+      <div class="door">The library was built. Then the door was locked.</div>
+    </div>
+  </section>
 
+  <!-- 31 STATES GAME -->
+  <section class="section ink" id="states">
+    <div class="grain soft"></div>
+    <div class="stack">
+      <div class="eyebrow">State by state</div>
+      <h2 class="t-cream">31 STATES. ONE SCANDAL.</h2>
+      <p class="lede" style="max-width: 920px;">Goa spends <strong>1,400× more</strong> on libraries than Jharkhand. Both are in the same Constitution. <strong class="t-cream">Play the game to see how different Indian states support public libraries — if at all.</strong></p>
+
+      <div id="game-app" class="game-app">
+        <!-- intro -->
+        <div class="game-screen" data-screen="intro">
+          <div class="game-intro">
+            <div class="game-tag">READY?</div>
+            <p>Five quick rounds. Answer fast. We'll close with the <strong>Statue Test</strong> for the state you call home.</p>
+            <div class="game-home-wrap">
+              <label class="game-home-label" for="game-home">Your state (for the Statue Test)</label>
+              <select id="game-home" class="picker-select" aria-label="Your state">
+                <option value="">— Pick your state —</option>
+              </select>
+            </div>
+            <button id="game-start" class="game-btn primary" disabled>START THE GAME →</button>
+          </div>
+        </div>
+
+        <!-- round (higher-or-lower) -->
+        <div class="game-screen" data-screen="round" hidden>
+          <div class="game-meta">
+            <div><span class="game-tag">ROUND</span> <span id="game-round">1</span> / 5</div>
+            <div><span class="game-tag">SCORE</span> <span id="game-streak">0</span></div>
+          </div>
+          <div class="game-question">Which spends more per person on libraries?</div>
+          <div class="game-pair">
+            <button class="game-card" data-pair="A" id="game-a">
+              <div class="game-card-name" id="game-a-name">—</div>
+              <div class="game-card-cta">PICK THIS</div>
+            </button>
+            <div class="game-vs">VS</div>
+            <button class="game-card" data-pair="B" id="game-b">
+              <div class="game-card-name" id="game-b-name">—</div>
+              <div class="game-card-cta">PICK THIS</div>
+            </button>
+          </div>
+          <div class="game-feedback" id="game-feedback" aria-live="polite" hidden></div>
+        </div>
+
+        <!-- statue test -->
+        <div class="game-screen" data-screen="statue" hidden>
+          <div class="game-tag">FINAL ROUND · THE STATUE TEST</div>
+          <div class="statue-q" id="statue-q">—</div>
+          <div class="statue-input-wrap">
+            <label class="statue-label" for="statue-guess">Your guess (years) — press Enter or REVEAL:</label>
+            <input id="statue-guess" type="number" inputmode="numeric" min="0" step="1" value="100" autocomplete="off" />
+            <button id="statue-submit" class="game-btn primary">REVEAL →</button>
+          </div>
+          <div class="statue-reveal" id="statue-reveal" aria-live="polite" hidden></div>
+        </div>
+
+        <!-- end -->
+        <div class="game-screen" data-screen="end" hidden>
+          <div class="game-tag">SCORECARD</div>
+          <div class="game-final" id="game-final">—</div>
+          <div class="game-end-actions">
+            <button id="game-replay" class="game-btn">PLAY AGAIN</button>
+            <a href="/#write" class="game-btn primary">WRITE TO YOUR CM →</a>
+            <a href="/spend/" target="_blank" rel="noopener" class="game-btn">NOT CONVINCED? →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section ink fit-headline" id="parliament" style="--cqi-h2: 5;">
     <div class="grain soft"></div>
