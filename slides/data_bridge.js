@@ -15,7 +15,12 @@ function syncData() {
 
 document.addEventListener('DOMContentLoaded', syncData);
 // Also hook into Reveal.js slide changes to ensure dynamic updates
-if (typeof Reveal !== 'undefined') {
-  Reveal.on('ready', syncData);
-  Reveal.on('slidechanged', syncData);
+function registerReveal() {
+  if (typeof Reveal !== 'undefined') {
+    Reveal.on('ready', syncData);
+    Reveal.on('slidechanged', syncData);
+  } else {
+    setTimeout(registerReveal, 100);
+  }
 }
+registerReveal();
