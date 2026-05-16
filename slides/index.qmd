@@ -5,7 +5,7 @@ author: "The Right to Read Campaign"
 date: "2026-05-16"
 include-in-header:
   - text: |
-      <script src="../assets/data.js"></script>
+      <script src="../../assets/data.js"></script>
       <script src="data_bridge.js"></script>
 ---
 
