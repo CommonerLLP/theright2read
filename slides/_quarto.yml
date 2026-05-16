@@ -1,0 +1,16 @@
+project:
+  type: website
+  output-dir: ../docs/slides
+
+format:
+  revealjs:
+    theme: [black, custom.scss]
+    logo: ../assets/favicon.svg
+    footer: "The Right to Read Campaign // Draft v2.9.9"
+    transition: slide
+    background-transition: fade
+    auto-animate: true
+    controls: true
+    progress: true
+    hash: true
+    center: true
