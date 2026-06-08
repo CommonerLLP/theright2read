@@ -43,35 +43,47 @@ Contributors are expected to maintain these commitments:
 
 ## Refreshing The Parliamentary Library Corpus
 
-`assets/parliament_libraries.js` is generated, not hand-edited. As of
-2026-05-06 the crawler that produces it is the standalone public-good
-package
-[`sansad-semantic-crawler`](https://github.com/CommonerLLP/sansad-semantic-crawler)
-(PolyForm Noncommercial 1.0.0), pinned at `v1.0.0` in
-[`requirements.txt`](./requirements.txt). The host project supplies the
-topic profile at [`topics/libraries.json`](./topics/libraries.json) (a
-vendored copy of the package's `examples/topics/libraries.json`,
-because `pip install` does not pull `examples/`).
+`assets/parliament_libraries.js` is generated, not hand-edited. The refresh
+pipeline is split across two packages:
+
+- [`commoner-probe`](https://github.com/CommonerLLP/commoner-probe), pinned at
+  `v0.3.0` in [`requirements.txt`](./requirements.txt), owns acquisition:
+  probing Lok Sabha / Rajya Sabha records, writing `manifest.jsonl`,
+  downloading source files, and recording run provenance.
+- [`sansad-semantic-crawler`](https://github.com/CommonerLLP/sansad-semantic-crawler),
+  pinned at `294a77b9ef476ca5a3e582db57f495529095d977`, owns this repo's
+  analysis/export stage: parse, discourse analysis, ministry aggregation, and
+  export.
+
+The host project supplies the topic profile at
+[`topics/libraries.json`](./topics/libraries.json), a vendored copy of the
+library topic lens used by the pipeline.
 
 ```sh
 make deps              # one-time: install pinned deps into .venv
-make corpus-refresh    # crawl LS + RS, parse PDFs, regenerate the JS
+make corpus-refresh    # acquire LS + RS, parse/analyse, regenerate the JS
 make test              # docs/code sync checks for this repo contract
 ```
 
-The refresh pipeline leaves a small auditable trail in
-`data/_parliament_libraries/`:
+The refresh pipeline leaves an auditable local trail in
+`data/_parliament_libraries/`. These files are refresh artifacts, not the
+public site surface:
 
-- `data/_parliament_libraries/manifest.jsonl` records the crawled questions and PDFs.
-- `data/_parliament_libraries/analysis.jsonl` records topic classification against the vendored
-  `topics/libraries.json` profile.
-- `data/_parliament_libraries/_runs.jsonl` records run-level provenance, including
-  the topic-profile hash.
+- `data/_parliament_libraries/manifest.jsonl` records acquired questions and
+  source files.
+- `data/_parliament_libraries/_runs.jsonl` records run-level provenance,
+  including the topic-profile hash.
+- `data/_parliament_libraries/probe.log` records acquisition progress.
+- `data/_parliament_libraries/analysis.jsonl` records topic classification
+  against the vendored `topics/libraries.json` profile.
+- `data/_parliament_libraries/answers.jsonl`,
+  `analysis_discourse.jsonl`, and `ministry_summary_qa.jsonl` support the
+  discourse layer.
 
 The site's public artifact is still `assets/parliament_libraries.js`.
-The intermediate JSONL files matter because they are the easiest way to
-review whether a corpus refresh changed the substance of the analysis or
-only the rendered asset.
+That file is the static artifact served by the site; the intermediate JSONL
+files matter because they are the easiest way to review whether a corpus
+refresh changed the substance of the analysis or only the rendered asset.
 
 After regeneration, **bump the `?v=N` cache-bust suffix** wherever the
 JS or CSS is loaded. One-pass update across all HTML files:
@@ -191,7 +203,7 @@ India has made possible.
 |-- inequality/index.html# The history — interactive timeline
 |-- spend/index.html     # Per-capita expenditure analysis (generated)
 |-- assets/              # styles.css, data.js, helpers.js, games.js, main.js
-|-- scripts/             # render_essays.py, sync_agents.py, build_spend_page.py
+|-- scripts/             # build_parliament_libraries.py, render_essays.py, sync_agents.py, build_spend_page.py
 |-- design/index.html    # Earlier design/prototype version
 |-- README.md
 |-- CONTRIBUTING.md

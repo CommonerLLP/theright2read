@@ -1,9 +1,10 @@
-# theright2read — runtime dependencies for the parliamentary-corpus
-# refresh pipeline. The site itself ships zero Python at runtime; these
-# deps run only when the maintainer regenerates assets/parliament_libraries.js
-# from the upstream Sansad records.
+# theright2read — refresh-pipeline dependencies. The public site ships
+# zero Python at runtime; these deps run only when a maintainer regenerates
+# assets/parliament_libraries.js from parliamentary records.
 #
-# Bump the @v tag below when a new sansad-semantic-crawler release lands at
-# https://github.com/CommonerLLP/sansad-semantic-crawler
+# Stage split:
+# - commoner-probe owns acquisition/provenance into data/_parliament_libraries/.
+# - sansad-semantic-crawler owns parse/analysis/export over that acquired corpus.
 
-sansad-semantic-crawler[http,pdf] @ git+https://github.com/CommonerLLP/sansad-semantic-crawler.git@v1.0.0
+commoner-probe[http,pdf] @ git+https://github.com/CommonerLLP/commoner-probe.git@v0.3.0
+sansad-semantic-crawler[http,pdf] @ git+https://github.com/CommonerLLP/sansad-semantic-crawler.git@294a77b9ef476ca5a3e582db57f495529095d977

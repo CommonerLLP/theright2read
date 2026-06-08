@@ -116,6 +116,12 @@ not be the only basis for numeric changes when a primary source exists.
 - Keep data transformations easy to audit.
 - Avoid unrelated refactors in data correction pull requests.
 - Do not commit local operating-system files such as `.DS_Store`.
+- Keep acquisition and analysis separate: parliamentary acquisition runs through
+  `commoner-probe`; parse, discourse analysis, ministry aggregation, and export
+  run through `sansad-semantic-crawler`.
+- Keep `data/index.html` as a public static page. Local corpus storage belongs
+  under `data/_parliament_libraries/`, not by replacing `data/` itself with a
+  symlink.
 
 ## Local Checks
 
@@ -151,9 +157,9 @@ Before submitting a change:
    ```
 
    These checks enforce narrow factual invariants: the README's pinned
-   `sansad-semantic-crawler` tag must match `requirements.txt`, documented
-   `make ...` commands must exist, and the README's named corpus artifacts must
-   match the files this repo actually carries.
+   refresh-package refs must match `requirements.txt`, documented `make ...`
+   commands must exist, and the public static artifacts the README names must
+   exist in the repo.
 
 ## Pull Request Checklist
 
