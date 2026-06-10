@@ -79,6 +79,61 @@ window.PARLIAMENT_LIBRARY_DATA = {
   ],
   "keyQuestions": [
     {
+      "key": "RS|U|1316|2025-07-31",
+      "house": "Rajya Sabha",
+      "date": "2025-07-31",
+      "title": "Allocation of Funds by RRRLF",
+      "ministry": "CULTURE",
+      "excerpt": "No new public library has been built by the Union government in the last five years.",
+      "label": "MISSION_MODE_CONFLATION",
+      "politicalFunction": "Admits zero new provision while reframing 'modernization' of existing elite libraries as progress.",
+      "uri": "https://sansad.in/rs/questions/questions-and-answers"
+    },
+    {
+      "key": "LS|U|1156|2025-07-28",
+      "house": "Lok Sabha",
+      "date": "2025-07-28",
+      "title": "Legislation for Management of Public Library System",
+      "ministry": "CULTURE",
+      "excerpt": "As per the Seventh Schedule (Article 246) of the Constitution of India, 'Libraries' is a State subject.",
+      "label": "FEDERAL_DEFLECTION",
+      "politicalFunction": "Uses constitutional technicality to abdicate Central responsibility for a national right to read.",
+      "uri": "https://sansad.in/ls/questions/questions-and-answers"
+    },
+    {
+      "key": "LS|U|3646|2025-08-11",
+      "house": "Lok Sabha",
+      "date": "2025-08-11",
+      "title": "Establishment of Central Tribal Cultural Library in Kandhamal",
+      "ministry": "CULTURE",
+      "excerpt": "No proposal has been received from the State Government of Odisha... for establishment of a Central Library dedicated to tribal culture in Kandhamal.",
+      "label": "FEDERAL_DEFLECTION",
+      "politicalFunction": "Blames the State for 'no proposal' while ignoring the structural exclusion of Kui-speaking tribal communities.",
+      "uri": "https://sansad.in/ls/questions/questions-and-answers"
+    },
+    {
+      "key": "LS|U|4131|2025-08-18",
+      "house": "Lok Sabha",
+      "date": "2025-08-18",
+      "title": "Status of Proposals under RRRLF",
+      "ministry": "CULTURE",
+      "excerpt": "Financial assistance is released based on eligible applications... recommended by the respective State/UT Library Authorities.",
+      "label": "CIRCULAR_REFERENCE",
+      "politicalFunction": "Hides underspending behind 'eligibility' and 'application' bottlenecks, ensuring Bahujan districts remain unserved.",
+      "uri": "https://sansad.in/ls/questions/questions-and-answers"
+    },
+    {
+      "key": "RS|U|664|2026-02-05",
+      "house": "Rajya Sabha",
+      "date": "2026-02-05",
+      "title": "Public Library Infrastructure in Erode",
+      "ministry": "CULTURE",
+      "excerpt": "RRRLF released ₹17.61 lakh for procurement of furniture... and establishment of 'differently-abled corners'.",
+      "label": "DATA_SUBSTITUTION",
+      "politicalFunction": "Swaps 'Furniture and Corners' for 'Functional Library Access' to simulate inclusion without systemic change.",
+      "uri": "https://sansad.in/rs/questions/questions-and-answers"
+    },
+    {
       "label": "Rajya Sabha UNSTARRED Q.321",
       "title": "Public libraries in the country",
       "date": "2019-06-25",

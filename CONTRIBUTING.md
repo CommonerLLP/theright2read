@@ -149,11 +149,12 @@ Before submitting a change:
 4. Check at least one narrow mobile viewport and one desktop viewport.
 
 5. If your change touches `README.md`, `Makefile`, `requirements.txt`,
-   `requirements-dev.txt`, `topics/libraries.json`, or the parliamentary-corpus
-   refresh pipeline, run:
+   `requirements-dev.txt`, `topics/libraries.json`, `spend/index.qmd`, or the
+   parliamentary-corpus refresh pipeline, run:
 
    ```sh
    make test
+   make spend-page
    ```
 
    These checks enforce narrow factual invariants: the README's pinned

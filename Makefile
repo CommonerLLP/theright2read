@@ -25,8 +25,8 @@ CORPUS_DEPS   := $(VENV)/.corpus-deps.stamp
 
 .PHONY: deps test corpus-crawl corpus-crawl-committees corpus-parse corpus-export \
         corpus-extract-answers corpus-analyse-discourse corpus-analyse-ministry \
-        corpus-analyse corpus-enrich corpus-refresh data-init data-link \
-        sync-agents help
+        corpus-analyse corpus-enrich corpus-refresh spend-page sync-agents \
+        hooks prune help
 
 $(PYTHON):
 	python3 -m venv $(VENV)
@@ -94,10 +94,14 @@ corpus-analyse-ministry: $(CORPUS_DEPS)
 
 corpus-analyse: corpus-extract-answers corpus-analyse-discourse corpus-analyse-ministry
 
-# Join the manifest export with the analytical outputs into a single enriched
-# assets/parliament_libraries.js.
+# Join the upstream manifest export with the v1.0.0 analytical outputs
+# into a single enriched assets/parliament_libraries.js.
 corpus-enrich: corpus-export
 	$(PYTHON) scripts/build_parliament_libraries.py
+
+# Build the /spend/ page (Quarto).
+spend-page: $(PYTHON)
+	cd spend && QUARTO_PYTHON=../$(PYTHON) quarto render index.qmd
 
 # Full pipeline: crawl → parse → analyse → export → enrich. After this
 # finishes, manually bump the `?v=N` cache-bust everywhere index.html /
@@ -106,6 +110,13 @@ corpus-refresh: corpus-crawl corpus-parse corpus-analyse corpus-enrich
 
 sync-agents:
 	python3 scripts/sync_agents.py
+
+hooks:  ## Install git pre-commit hook (run once after clone)
+	bash ../_org/scripts/install-hooks.sh
+
+prune:  ## Delete local branches already merged into main
+	git fetch --prune
+	git branch --merged main | grep -vE '^\*|main' | xargs -r git branch -d
 
 help:
 	@echo "Corpus refresh (commoner-probe acquisition + sansad-semantic-crawler analysis):"
@@ -120,16 +131,16 @@ help:
 	@echo "Setup:"
 	@echo "  make deps                             — install pinned deps into .venv"
 	@echo "  make test                             — run docs/code sync checks"
-	@echo "  make data-init                        — create data/_parliament_libraries/ under the public data page"
-	@echo "  make data-link EXTERNAL=../corpus-store  — link only data/_parliament_libraries/ to external storage"
 	@echo "Agent rules:"
 	@echo "  make sync-agents                      — regenerate CLAUDE.md + AGENTS.md from CONTEXT.md"
+	@echo "  make hooks                            — install pre-commit hook into .git/hooks/"
+	@echo "  make prune                            — delete local branches merged into main"
 
 data-init:  ## Create the local corpus output directory under the public data page
 	mkdir -p data/_parliament_libraries
 
-data-link:  ## Symlink only the corpus output dir: make data-link EXTERNAL=../corpus-store
-	@test -n "$(EXTERNAL)" || (echo "Usage: make data-link EXTERNAL=../corpus-store"; exit 1)
+data-link:  ## Symlink only the corpus output dir: make data-link EXTERNAL=/Volumes/m1-storage
+	@test -n "$(EXTERNAL)" || (echo "Usage: make data-link EXTERNAL=/Volumes/your-drive"; exit 1)
 	mkdir -p data
 	mkdir -p $(EXTERNAL)/$(shell basename $(CURDIR))/_parliament_libraries
 	ln -sfn $(EXTERNAL)/$(shell basename $(CURDIR))/_parliament_libraries data/_parliament_libraries

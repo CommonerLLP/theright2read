@@ -296,6 +296,23 @@ $$("#actions-grid").innerHTML = ACTIONS.map((a) => `
     }).join("");
   }
 
+  // ── Parliament 2025-26 Key Questions ──────────────────────────────
+  const keyGridEl = $("#parl-key-questions");
+  const keyQuestions = data.keyQuestions || [];
+  if (keyGridEl && keyQuestions.length) {
+    keyGridEl.innerHTML = keyQuestions.slice(0, 5).map((q) => `
+      <article class="parl-key-card">
+        <div class="parl-key-meta">
+          <span class="parl-key-date">${esc(q.date)}</span>
+          <span class="parl-key-tag">${esc((q.label || "").replace(/_/g, " "))}</span>
+        </div>
+        <h4 class="parl-key-title">${esc(q.title)}</h4>
+        <div class="parl-key-excerpt">&ldquo;${esc(q.excerpt)}&rdquo;</div>
+        <div class="parl-key-function">${esc(q.politicalFunction)}</div>
+        <div class="parl-key-cite">${esc(q.house)} Q.${esc(q.key.split("|")[2])} · ${esc(q.ministry)}</div>
+      </article>`).join("");
+  }
+
   // ── Collapsible: corpus stats + top tags (kept for completeness) ─
   const stats = data.summaryStats || [];
   const tags = data.topTags || [];
