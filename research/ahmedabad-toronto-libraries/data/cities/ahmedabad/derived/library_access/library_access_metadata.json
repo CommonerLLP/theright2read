@@ -1,0 +1,22 @@
+{
+  "city": "ahmedabad",
+  "model": "ward_centroid_walk_and_transit_proxy",
+  "sources": {
+    "wards": "data/cities/ahmedabad/layers/wards.geojson",
+    "libraries": "data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv",
+    "transit_stops": "data/cities/ahmedabad/source/transit/transit_stops.json",
+    "route_corridors": "data/cities/ahmedabad/source/transit/route_corridors.json"
+  },
+  "assumptions": {
+    "walk_speed_kmph": 4.8,
+    "transit_speed_kmph": 18.0,
+    "route_distance_factor": 1.35,
+    "wait_and_transfer_minutes": 10.0,
+    "population_origin": "ward centroid, weighted by layers/wards.geojson population_2020"
+  },
+  "limitations": [
+    "This is not full scheduled routing.",
+    "Raw GTFS trips/stop_times are not present on this branch.",
+    "Ward centroid origins understate within-ward inequality and edge effects."
+  ]
+}

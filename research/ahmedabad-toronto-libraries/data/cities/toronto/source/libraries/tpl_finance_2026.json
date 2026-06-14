@@ -1,0 +1,29 @@
+{
+  "schema": "sevent4.toronto.tpl_finance.v1",
+  "network_name": "Toronto Public Library",
+  "source_url": "https://tpl.ca/about-the-library/library-finance/",
+  "retrieved_on": "2026-06-13",
+  "source_page_note": "Library Finance, 2026 Operating Budget Reports",
+  "reporting_year": "2026",
+  "confidence": "high",
+  "operating_budget_cad": {
+    "gross_expenditure": 296057196,
+    "staffing_salaries_and_benefits": 217954794,
+    "library_materials": 23082883,
+    "operations_and_administration": 55019519,
+    "city_funding_property_taxes": 274378001,
+    "revenues_fines_fees": 4298350,
+    "other_sources": 17380845
+  },
+  "capital_budget_cad": {
+    "total_sources_of_funding": 72776219,
+    "debt": 51087186,
+    "development_charges": 17691343,
+    "transfer_from_operating": 400000,
+    "other": 3597690
+  },
+  "notes": [
+    "Toronto Public Library's finance page labels CAD 4,298,350 as 'Revenues (fines, fees)'. This is the closest local analogue to Ahmedabad Public Library / M.J. Library Network's disclosed library income line.",
+    "The operating budget is 2026 while TPL activity outcomes in tpl_key_facts_2024.json are 2024. The paper treats this as a latest-available institutional capacity comparison, not a same-year audited performance table."
+  ]
+}
