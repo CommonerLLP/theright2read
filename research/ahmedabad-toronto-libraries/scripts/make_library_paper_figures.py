@@ -222,7 +222,8 @@ def fig_budget():
 
 def fig_access_map():
     """Choropleth: ward-centroid walk minutes to nearest library, with library points."""
-    wards = gpd.read_file(ROOT / "data/cities/ahmedabad/layers/wards.geojson")
+    M = 32643  # UTM 43N — same projection/aspect as the transit map for parity
+    wards = gpd.read_file(ROOT / "data/cities/ahmedabad/layers/wards.geojson").to_crs(M)
     times = pd.read_csv(ROOT / "data/cities/ahmedabad/derived/library_access/origin_travel_times.csv")
     libs = pd.read_csv(ROOT / "data/cities/ahmedabad/source/libraries/ahmedabad_library_locations.csv")
 
@@ -232,6 +233,9 @@ def fig_access_map():
         times[["ward_no", "ward_name", "walk_minutes_to_nearest_library", "population"]],
         on="ward_no", how="left",
     )
+    lg = gpd.GeoDataFrame(
+        libs, geometry=gpd.points_from_xy(libs.longitude, libs.latitude), crs=4326
+    ).to_crs(M)
 
     fig, ax = plt.subplots(figsize=(7.6, 8.0))
     g.plot(
@@ -240,7 +244,7 @@ def fig_access_map():
         legend_kwds={"label": "Walk minutes to nearest library (ward centroid)",
                      "shrink": 0.55, "orientation": "horizontal", "pad": 0.02},
     )
-    ax.scatter(libs["longitude"], libs["latitude"], s=11, color=INK,
+    ax.scatter(lg.geometry.x, lg.geometry.y, s=11, color=INK,
                edgecolor="white", linewidth=0.3, zorder=5, label="Library locations (83)")
 
     # Label the worst-served wards.
@@ -252,6 +256,12 @@ def fig_access_map():
                     xy=(c.x, c.y), ha="center", va="center", fontsize=7.5,
                     color=INK, fontweight="bold",
                     bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.7))
+
+    xmin, ymin, xmax, ymax = g.total_bounds
+    mx = (xmax - xmin) * 0.04
+    my = (ymax - ymin) * 0.04
+    ax.set_xlim(xmin - mx, xmax + mx)
+    ax.set_ylim(ymin - my, ymax + my)
 
     ax.set_title("Ahmedabad: ward-centroid walk time to the nearest library",
                  loc="left", fontweight="bold", fontsize=12.5, pad=8)
@@ -340,6 +350,14 @@ def fig_transit_map():
                label=f"Library >500 m from rapid transit ({len(lg) - n_near})"),
     ]
     ax.legend(handles=handles, frameon=False, fontsize=7.8, loc="lower left")
+
+    # Clip to the city's ward bounds so the map fills the frame like Figure 4
+    # (the AMTS/Metro corridors otherwise sprawl past the city and shrink it).
+    xmin, ymin, xmax, ymax = wards.total_bounds
+    mx = (xmax - xmin) * 0.04
+    my = (ymax - ymin) * 0.04
+    ax.set_xlim(xmin - mx, xmax + mx)
+    ax.set_ylim(ymin - my, ymax + my)
 
     ax.set_title("Metro and BRTS reach the periphery; libraries do not",
                  loc="left", fontweight="bold", fontsize=12.5, pad=8)
