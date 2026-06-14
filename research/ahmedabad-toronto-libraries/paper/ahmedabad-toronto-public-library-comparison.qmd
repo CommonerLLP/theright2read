@@ -86,7 +86,9 @@ users, visits, physical and digital loans, staff, internet access, and
 collections, all comparable per population [@iflaLibraryMapData; @iso2789]. ISO
 11620 adds the performance question — not how much a library owns, but how well
 its resources convert into use [@iso11620]. That distinction organizes this paper.
-Ahmedabad's collection disclosure is strong; its use is not.
+The library is best read as civic infrastructure, not a book warehouse —
+provisioned, sited, and judged like other urban systems [@mattern2014]. Ahmedabad's
+collection disclosure is strong; its use is not.
 
 The normative baseline is shared. The IFLA-UNESCO Public Library Manifesto frames
 the public library as a local institution for education, information, and civic
@@ -97,18 +99,29 @@ the primary measures. The urban-sociology literature explains why use, not stock
 is the test: libraries work as low-threshold public space and social
 infrastructure, anchoring everyday public life beyond lending [@oldenburg1989;
 @audunson2005; @klinenberg2018], though the link to trust and social capital must
-be shown, not assumed [@goulding2004; @varheim2008].
+be shown, not assumed [@goulding2004; @varheim2008]. In the Indian debate the same
+point recurs as a politics of neglect: the public library is named a bedrock of
+democratic and anti-caste life [@liangGupta2024] yet left under-resourced by the
+states that own it [@chitralekha2014; @pyati2009], inside cities where elected
+municipal bodies hold limited control [@mehta2016]. And "access" is not the end of
+the argument — a library can be nominally available and still go unused, or remain
+exclusionary in practice [@mickiewicz2016].
 
 Access is not distance. Penchansky and Thomas distinguish availability,
 accessibility, accommodation, affordability, and acceptability [@penchansky1981];
 spatial-accessibility work shows a defensible model needs demand origins, supply
 capacity, travel time, catchments, and distance decay, not nearest-facility
-distance alone [@guagliardo2004; @luoWang2003; @luoQi2009]. We therefore read the
-Ahmedabad ward-centroid walk model as a first diagnostic, not an accessibility
-finding. In the Indian policy context [@nationalKnowledgeCommission2007], the
-binding constraint on comparison is municipal disclosure; Ahmedabad is unusual in
-disclosing a decade-long series at all, which is what lets us measure decline
-rather than infer it.
+distance alone [@guagliardo2004; @luoWang2003; @luoQi2009]; the nearest-facility
+assumption that simpler proxies rest on is itself only an approximation of how
+people travel [@nisar2018]. We therefore read the Ahmedabad ward-centroid walk
+model as a first diagnostic, not an accessibility finding. On where a library
+should go, the IFLA service guidelines are explicit: service points belong where
+people already converge, with branch, deposit, and mobile service tiered outward so
+that everyone in the area is reached [@iflaServiceGuidelines2010]. In the Indian
+policy context [@nationalKnowledgeCommission2007], the binding constraint on
+comparison is municipal disclosure; Ahmedabad is unusual in disclosing a
+decade-long series at all, which is what lets us measure decline rather than infer
+it.
 
 We carry five measurement rules into the analysis: normalize by population;
 separate service points from effective capacity; treat public funding as an input,
@@ -442,6 +455,15 @@ the periphery is not unreachable. The public-library network was simply not buil
 along the high-capacity lines that already serve these wards.
 
 ![Walk time to the nearest library (ward fill) against the Metro, Janmarg/AJL BRTS, and AMTS networks. A Metro or BRTS corridor runs through every labelled worst-served ward, yet 23 of 83 libraries are not near rapid transit and the peripheral wards on the lines have no library within reach.](figures/fig5_transit_map.png){#fig-transit width=92%}
+
+Cities elsewhere now plan for exactly this proximity. The "15-minute city" and,
+since 2016, China's older "15-minute community life circle" — first issued in
+Shanghai — require daily public facilities, libraries among them, to fall within a
+short walk, and then audit that coverage as a governance metric [@yangQian2024;
+@maEtal2023]. The recurring deficit those audits report is the suburban periphery,
+the same place Ahmedabad's library access fails. Proximity to a line is also not yet
+access: the first- and last-mile stretches, the waiting and the transfers, are
+where the trip actually breaks down, especially for women [@roy2024].
 
 Relative to the other problems in this paper, this one is cheap to fix. Putting
 branch service — even small reading rooms or extension counters — on the Metro and
