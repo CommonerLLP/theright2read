@@ -1,6 +1,6 @@
 ---
 title: "Ahmedabad's Public Libraries"
-subtitle: "Reach, transit, and a declining public — with Toronto as a background comparator"
+subtitle: "Reach, transit, and a declining public"
 author: "Right 2 Read Campaign"
 date: "14 June 2026"
 bibliography: library-comparator-references.bib
@@ -121,6 +121,34 @@ access: the first- and last-mile stretches, the waiting and the transfers, are w
 journeys break down, especially for women [@roy2024]. Buses and the metro matter
 because they are how a library reaches the residents who most need it and can least
 afford the trip.
+
+This is not a parochial or a Northern standard. Reachable, well-served
+neighbourhoods are what the major quantitative livability frameworks measure and
+reward — the Economist Intelligence Unit's liveability ranking, the Mercer
+quality-of-living index, the Social Progress Index, and the wider field of more than
+150 city-benchmarking efforts [@wolfmayr2024; @kitchin2015] — and the cities that
+consistently top them (Vienna, Vancouver, Melbourne, Geneva) are precisely those with
+dense, walkable, transit-served public provision. The same coverage logic is now
+codified across the Global South, most explicitly in China's 15-minute community life
+circle, which sets pedestrian-distance coverage of daily public facilities as a
+measured governance target [@yangQian2024; @maEtal2023], and it runs through Southern
+urban practice more broadly, where reliable access to shared services — not the
+spectacle of the flagship — is the test of a functioning city
+[@bhan2019; @routledgeGlobalSouth2017]. We borrow these frameworks' coverage logic,
+not their league tables: city rankings can be naive and politically loaded, treating
+the city as a scoreboard rather than a public [@kitchin2015]. The question is not
+where Ahmedabad places, but whether its residents can reach and use the library their
+taxes already fund.
+
+Indian researchers have documented these same access deficits across the country's
+cities. Transport policy has expanded mass transit while keeping equity out of its
+planning framework [@verma2021]; the street has been progressively captured by the
+private automobile at the walker's expense [@gopakumar2020]; and public open space is
+shrinking and unequally shared, with land-cover analysis of India's ten largest
+cities showing the urban commons fragmenting over fifteen years [@nagendra2023]. The
+contest over India's "open space" and "public place" is itself long-standing
+[@chakrabarty1991]. The public library is one more public amenity caught in this
+pattern — provided in form, hard to reach in use.
 
 Together these set the three tests for Ahmedabad: can people reach the library on
 foot; does the transit network extend that reach to the periphery; and, given reach,
