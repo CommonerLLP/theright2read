@@ -108,7 +108,7 @@ report of the library (Public Library Manuals, Vol. 8, 1957). Its stated purpose
 conditions" and to serve as "a model public library for Asia" [@stdcomm2022culture]. By 1955 UNESCO could call it "the busiest and most
 modern public library in Asia" and use it as "the headquarters and the
 'laboratory'" for a seminar drawing delegates from twelve Asian countries
-[@PublicLibrariesAsia2024].
+[@PublicLibrariesAsia1956].
 
 The institution belongs to the founding wave of the republic: the Constitution
 in force in 1950, the Planning Commission in 1950, the First Plan and the Delhi
@@ -132,7 +132,7 @@ In his inaugural address Azad located India's backwardness in the history of
 restricted reading --- great libraries had existed, he said, but had served only
 a few:
 
-> [T]he benefits of these libraries were confined to royalty and the nobility ... knowledge was not widespread among the masses. One main reason why India fell behind Europe is to be found in this restriction of libraries for the use of only a selected few. [@PublicLibrariesAsia2024]
+> [T]he benefits of these libraries were confined to royalty and the nobility ... knowledge was not widespread among the masses. One main reason why India fell behind Europe is to be found in this restriction of libraries for the use of only a selected few. [@PublicLibrariesAsia1956]
 
 "Today," he concluded, "democratic India ... is providing facilities for
 education and enlightenment for all her children." The diagnosis
@@ -342,7 +342,7 @@ into a right against the State's reluctance: the People's Union for Civil
 Liberties' 2001 writ persuaded the Supreme Court to read a right to food into the
 Article 21 right to life --- "no person goes hungry when the granaries are full"
 --- and the right was finally legislated as the National Food Security Act, 2013
-[@tillinMakingIndiaWork2024; @amrithFoodWelfareIndia2008]. That this route exists, and that the library never travelled it, is exactly what
+[@tillinMakingIndiaWork2024]. That this route exists, and that the library never travelled it, is exactly what
 the 2011 library proceedings register when they ask whether the profession must
 "wait till some one files a PIL in the Supreme Court." Yet even the won right is
 hollowed in the giving --- prioritised in some states and abandoned in others
@@ -356,7 +356,7 @@ Sector Reform pilots and then Swajaldhara (2002), onto a World-Bank-informed
 "demand-responsive approach" in which a village must first mobilise a share of
 the capital cost --- typically ten per cent --- before it is served, on the
 premise that what is not paid for is neither valued nor maintained
-[@daftaryWatershedDevelopmentNeoliberalism2014]. The Jal
+[@sampat2007payjaldhara]. The Jal
 Jeevan Mission (2019) carries the same architecture to scale: its operational
 guidelines require a community contribution of ten per cent of in-village capital
 cost (five per cent in hill and majority-SC/ST villages) and hand operation,
@@ -377,8 +377,7 @@ public standpost, which are collective and unpriced, to the household connection
 family has helped pay to install and must pay to keep running. Critics caught the
 move in a pun: Swajaldhara, "our water," becomes Pay-jaldhara
 [@sampat2007payjaldhara]. Tracked on a
-real-time governance dashboard [@samdubGovernanceInterfaceIndex2022] rather than
-guaranteed as an entitlement, and
+real-time governance dashboard rather than guaranteed as an entitlement, and
 arriving --- where it arrives --- as taps without water, the right to water is
 delivered in the shape of a serviced, chargeable account the user has been taught
 to think she owns because she pays for it.
@@ -395,8 +394,7 @@ the people's own demand, as when the 1994 library proceedings cite a survey that
 1993 decision sets the fee "keeping in view the economic condition of the target
 group of users." Frontline ethnography of India's reforming water utilities
 records the same rationality hardening into hostility toward a "public" of
-"demanding, unruly ... slum-dwellers" [@coelhoEngineersRationalitiesRule2004;
-@kapurWhyDoesIndian2020]. And beneath the economics sits the older
+"demanding, unruly ... slum-dwellers" [@coelhoEngineersRationalitiesRule2004]. And beneath the economics sits the older
 refusal: the free, open-to-all commons is precisely what a caste order has long
 resisted, and a fee re-segregates by purse what birth once segregated directly.
 The water the Jal Jeevan Mission now meters reaches, disproportionately, Dalit
