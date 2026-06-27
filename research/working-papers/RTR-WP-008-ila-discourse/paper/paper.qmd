@@ -1,6 +1,5 @@
 ---
-# Body only — paper-level metadata should be added to ../../_shared/papers.toml
-# when this draft moves from outline to series metadata.
+# Body only; paper-level metadata in ../../_shared/papers.toml.
 bibliography:
   - ../../_shared/references.bib
 format:
@@ -33,250 +32,72 @@ execute:
   message: false
 ---
 
-# From Reader to User
+# Introduction
 
-## Eighty Years of the Indian Library Association and the Changing Public of the Library, 1942-2019
+Begin with the smallest unit of the thing: a person, and a book she has not paid
+for. For three-quarters of a century the Indian library profession argued, in
+conference after conference between 1942 and 2019, about who that person was and
+what the country owed her. They called her, by turns, the reader, the citizen, the
+adult learner, the rural masses, the user, the information seeker, the knowledge
+worker. Each name was a theory of the public; each renaming was a quiet decision
+about what a library is for. This article reads eighty years of that renaming ---
+the forty published proceedings of the Indian Library Association, some nine
+million words --- as the documented record of how a democratic state learned to
+imagine its readers, and then learned to stop.
 
-### Draft Status
+Its argument is that the public library in India was promised as a commons and
+delivered as a deferral. From the last colonial decade the profession asked for
+one plain thing: a library free at the door, paid for from the public purse,
+guaranteed by a law that bound the State rather than merely permitted it. It asked
+across the founding of the Republic, across the Five Year Plans, across a National
+Policy on Library and Information Systems that was drafted in 1986 and never laid
+before Parliament. It was answered, each time, with a further committee, a model
+bill left "under active consideration," a statute that might be brought into force
+"gradually within a period of twenty years." When at last an answer arrived with
+the weight of a decision --- in 1993 --- it was to permit libraries to charge the
+reader a fee: the very subscription a committee had called, in 1939, of a public
+library, "a contradiction in terms." The commons was not lost in a single act of
+destruction. It was avowed and deferred in the same breath, year upon year, until
+deferral set into a refusal that no minister ever had to sign.
 
-This is a working-paper scaffold. The evidentiary claims below must be revised
-after the OCR run over the Indian Library Association proceedings is complete,
-segmented, and sampled for OCR quality. The ILA corpus currently consists of 40
-downloaded proceedings records from the NDLI Indian Library Association DSpace
-collection, spanning 1942-2019.
+To watch this happen, one has to read the profession's own speech. Conference
+proceedings are not neutral technical literature; they are a record of what
+librarians, educators, and the administrators beside them found urgent, sayable,
+or unspeakable at each moment --- and the words drift. Across the series the
+vocabulary of the reader, the public library, of adult and social education, of
+finance and legislation thins and gives way to the vocabulary of the user, of
+information, networks, quality, management, the digital. The drift is not merely
+lexical. Read against two other archives --- the government's own compendium of
+committee reports, and the floor of Parliament, where the question was put and
+deflected for thirty years --- it resolves into a single movement told three
+times: the reader becoming a user, the entitlement becoming a service, the commons
+becoming a connection one pays to keep.
 
-# Abstract
+There is, finally, a figure the record keeps just outside its frame. The library
+was offered as the caste-free room, the place where anyone at all might read; but
+the public it imagined --- from its Brahmanical and princely genealogy to the
+committee-room "citizen" whose caste went unnamed --- did not see who it left
+standing at the threshold. The free, open-to-all commons is precisely what a caste
+order has always resisted. The near-silence the proceedings keep on caste, never
+more than a fraction of a fraction of their nine million words, is not a gap in
+the record. It is the record's deepest finding.
 
-This paper asks how the Indian Library Association's discourse transformed the
-imagined purpose, public, and institutional form of the library between 1942
-and 2019. It treats 40 ILA conference proceedings as a professional archive of
-Indian library thought and reads them beside adjacent historical and policy
-records: Baroda's public-library system, Ranganathan's library-movement
-writings, the Advisory Committee for Libraries, the Planning Commission working
-group, state public-library bills and review committees, and the National
-Knowledge Commission. The paper is part of a broader historical-sociological
-inquiry into the changing place of libraries in Indian society. Within that
-larger project, this corpus analysis supplies the professional-discourse
-record: it shows how librarians and library institutions made the library
-legible across successive languages of civic formation, planning, public
-infrastructure, information systems, management, knowledge society, and digital
-services. The digital-humanities layer of the study downloads and preserves
-the ILA corpus, runs OCR and text extraction, audits OCR quality, and produces
-descriptive NLP evidence. The critical-interpretive layer asks what social
-publics become visible or disappear as the library moves from reader/citizen
-toward user/information seeker.
+# The Library Deferred: A National Obligation Never Enacted
 
-# Core Claim
-
-Across the ILA proceedings, the library appears first as a civic-democratic and
-educational institution, then as a planned-development infrastructure, then as
-an information/documentation system, and finally as a digital and
-service-management platform. The paper asks what is gained in professional and
-technological sophistication, and what is lost when the "reader" or "citizen"
-becomes the "user" or "information seeker."
-
-The ILA proceedings should be treated as the spine of the paper. Other Zotero
-records enter as counter-records: moments where professional speech meets
-state policy, princely or regional public-library experiments, public-library
-law, and later knowledge-economy or digital-library discourse.
-
-# Introduction: Why Read ILA Discursively?
-
-This paper asks how the Indian Library Association's discourse transformed the
-imagined purpose, public, and institutional form of the library between 1942
-and 2019.
-
-It opens from a simple proposition: ILA conference proceedings are not neutral
-professional literature. They are institutional speech. They show what Indian
-librarians, library educators, administrators, and associated policy actors
-made thinkable, urgent, technical, political, or unspeakable at different
-historical moments.
-
-The research question:
-
-How did the Indian library profession describe the purpose of libraries across
-colonial crisis, national planning, public-library legislation, information
-policy, liberalization, digitization, and Digital India?
-
-The introduction should establish three claims.
-
-First, the ILA corpus lets us read the profession's own changing vocabulary:
-`reader`, `public`, `citizen`, `adult education`, `social education`,
-`information`, `user`, `quality`, `knowledge society`, `digital`, and
-`sustainability`.
-
-Second, the corpus must be read beside state and regional records. The ILA
-does not speak in a vacuum; it responds to advisory committees, planning
-language, state library acts, public-library bills, and later national
-knowledge-economy frameworks.
-
-Third, the right-to-read question is not only whether libraries existed, but
-what kind of public the profession imagined libraries to serve.
-
-# Research Question
-
-The paper asks: how did the Indian Library Association's discourse transform
-the imagined purpose, public, and institutional form of the library between
-1942 and 2019?
-
-Three subsidiary questions organize the inquiry.
-
-First, how does the ILA vocabulary shift from the language of readers, public
-libraries, adult education, social education, finance, and legislation toward
-the language of users, information services, networks, quality, management,
-knowledge, and digital systems?
-
-Second, how does ILA discourse relate to adjacent state and historical records:
-the Baroda public-library system, the Advisory Committee for Libraries, the
-Planning Commission working group, state public-library bills and review
-committees, and the National Knowledge Commission?
-
-Third, what publics become visible or disappear across this transition,
-especially readers marked by caste, language, rurality, gender, disability,
-library labour, and fiscal dependence on the state?
-
-## Interleaved Records
-
-- `Baroda and its libraries` (1928, Zotero `4QZK3GV7`) as a pre-ILA example
-  of princely/state-supported public-library modernity.
-- `Libraries and Library Movement` by S. R. Ranganathan (1941, Zotero
-  `3I9WSMT5`) as immediate pre-history.
-- `The Origin and Development of the Library Movement in the Bombay Presidency`
-  (1947, Zotero `FGVD8X9K`) as a regional movement genealogy.
-
-# Method: Mixed Methods and Digital Humanities
-
-This is a mixed-methods study combining a reproducible digital-humanities
-corpus pipeline with critical interpretation. The digital-humanities layer
-creates the corpus, records provenance, extracts text, audits OCR quality, and
-generates descriptive NLP evidence. The critical-interpretive layer reads the
-verified passages, institutional vocabulary, silences, and historical shifts.
-
-The source corpus was acquired from the Indian Library Association collection
-hosted on the National Digital Library of India infrastructure. The collection
-metadata and PDFs were downloaded from the ILA DSpace service, with provenance
-captured in local manifests. The acquisition records include handle, source
-URL, title, date issued, publisher, original PDF path, file size, and SHA-256
-hash.
-
-The PDFs were first inspected with standard PDF tools. `pdftotext` was used to
-test whether text was natively extractable. The completed checks showed that
-the ILA proceedings are scanned image PDFs rather than born-digital text PDFs,
-including the recent volumes inspected in this run. The scanned PDFs were then
-processed through a Python-controlled OCR workflow using OCRmyPDF and Tesseract
-(`eng`) with page rotation and deskewing enabled. For each volume, the workflow
-produces an OCR PDF, a sidecar text file, an OCR log, and a manifest row with
-checksums and text length.
-
-After OCR, Python scripts parse the sidecar text and generate descriptive
-NLP artifacts: term counts by volume, normalized term drift by period,
-concordance targets, and quality summaries. The current descriptive pass uses
-terms such as `reader`, `user`, `citizen`, `public library`, `adult education`,
-`social education`, `information`, `network`, `computerization`, `quality`,
-`management`, `digital`, `knowledge`, `caste`, `language`, `finance`, and
-`labour`. These counts are used for discovery and orientation, not as a
-substitute for interpretation.
-
-The corpus is OCR-derived, with page-level verification as the evidentiary
-standard for claims. The first quality pass covers the 30 completed proceedings
-from 1942-2008: none are graded `poor`, seventeen are graded
-`usable-close-reading`, and thirteen are graded `usable-concordance`. The OCR
-layer is used for discovery, term drift, and concordance; page verification
-decides what can be quoted and argued from the source. The detailed audit is
-kept at `data/ila-conference-proceedings/quality/ocr_quality_report.md`.
-
-
-# Preliminary Term-Drift Findings, 1942-2008
-
-The first non-interpretive pass supports the paper's periodization as a working
-hypothesis. Normalized counts per 10,000 words show `user` rising from near
-absence in the 1940s to 52.449 in the 2000-2008 subset. `information` rises
-from 3.332 to 149.283 across the same span. `digital`, absent in the early
-periods, reaches 37.649 in 2000-2008. `quality` and `management` also rise
-sharply in the post-2000 proceedings.
-
-The same table shows a planning-era peak and later decline in explicitly
-public-library and fiscal language. `public_library` rises to 49.594 in
-1950-1969, then falls to 7.299 in 2000-2008. `finance` rises to 39.124 in
-1950-1969, then falls to 8.156 in 2000-2008. `adult_education` peaks in
-1970-1985 and is nearly absent in 2000-2008.
-
-These are discovery counts, not final claims. They identify where close reading
-should begin: the shift from `reader` to `user`, from `public library` and
-`finance` to `information`, `quality`, `management`, `digital`, and
-`knowledge`, and the persistent thinness of caste-explicit vocabulary. The
-underlying artifacts are:
-
-- `data/ila-conference-proceedings/analysis/term_drift_summary_1942_2008.md`
-- `data/ila-conference-proceedings/analysis/term_drift_by_period_1942_2008.csv`
-- `data/ila-conference-proceedings/analysis/term_counts_by_volume_1942_2008.csv`
-
-# Before the Republic: Library as Civic Formation
-
-Period: Baroda 1928, Ranganathan 1941, ILA 1942 and 1944.
-
-Question:
-
-Before development planning, what was a library imagined to do?
-
-Likely themes to test in the corpus:
-
-- public reading;
-- adult education;
-- reference books;
-- classification;
-- professional training;
-- rural reconstruction;
-- library as civic discipline.
-
-The Baroda report should not be treated as a quaint prelude. It is a record of
-library modernity before the postcolonial planning state. It can show how a
-state-supported library system was imagined before the ILA's own institutional
-language stabilized.
-
-The Mysore/Tipu material in Zotero should be used cautiously. The currently
-identified Mysore-adjacent record is `Plunder and Prestige: Tipu Sultan's
-Library and the Making of British India` (Zotero `MYJ5E24F`). That belongs as
-background on library, sovereignty, and colonial capture, not as evidence for
-twentieth-century public-library policy unless a more direct Mysore
-public-library report is added.
-
-# The Planning State: Library as Public Infrastructure
-
-Period: 1950s-1960s.
-
-Question:
-
-How did the library become a planned institution of the developmental state?
-
-ILA nodes:
-
-- 1962, 1964, and 1965 proceedings;
-- library legislation;
-- state library systems;
-- Fourth Five Year Plan language;
-- social education;
-- librarian status, pay, training, and service conditions.
-
-Interleaved records:
-
-- `Report of Advisory Committee for libraries` (GIPE, 1959, Zotero
-  `85IVM7VW`).
-- `Report of the Advisory Committee for Libraries` (Internet Archive/Central
-  Secretariat Library, 1961, Zotero `PQFDDGJY`) as a duplicate-review/source
-  variant of the Advisory Committee report, not a separate committee report
-  unless later title-page evidence establishes that distinction.
-- `Report of the working group on libraries` (Planning Commission, 1966,
-  Zotero `TCWLEJSW`).
-
-Analytical move:
-
-Compare ILA's professional demands with state committee language. Does ILA ask
-for rights and infrastructure, or for recognition, status, administration, and
-professional jurisdiction? Where do those demands overlap, and where do they
-diverge?
-
-## The Delhi Public Library: a model for Asia
+The public library reached the Republic already freighted with a politics of
+access, and it arrived by two roads. One was princely and improving: by the 1920s
+a state like Baroda had built a state-supported library system --- a modernity of
+letters handed down from above, to a public the ruler defined. The other was
+professional and movement-born: by 1941, on the eve of the transfer of power,
+S. R. Ranganathan could survey a "library movement" already conscious of itself,
+with its theory, its cadre, and its demand. That demand hardened quickly into a
+claim on the state. By the mid-1940s the Indian Library Association was asking not
+for charity, and not merely for professional recognition, but for an enforceable
+public obligation --- a library guaranteed by central law, paid for from the
+public purse, free at the door. The profession arrived at independence, that is,
+asking for the library as a right. What the next eight decades would hand it
+instead was the library as a recommendation; and the distance between those two
+words is the subject of this section.
 
 The planning state's library vision had a flagship, and it was built for
 display. The Delhi Public Library was established in 1951 as a joint Government
@@ -332,6 +153,23 @@ The Delhi Public Library's universalism and Ambedkar's exit are the two halves
 of the planning state's relation to the reader --- the promise, and the unnamed
 exclusion it is built upon.
 
+That exclusion was older than the Republic, and it was already doubled. The
+Bombay legislature that in 1939--40 declined a library cess and chose only
+permissive provision was the same Assembly in which Ambedkar then sat; and the
+legislator who had moved the 1936 Bombay Public Libraries Bill, S. K. Bole, was
+the very man whose earlier resolution to throw open public places to untouchables
+had set off Ambedkar's Mahad water satyagraha of 1927. Ambedkar pressed Bole on
+public access [@ambedkarDrBabasahebAmbedkar2020f]; on the record he did not speak
+on the library bill. The man who in
+1916 had argued, as a student at Columbia, that a public library would be a finer
+memorial than a statue, and who kept a free reading room for the Depressed
+Classes at Clarke Road, was --- in his own movement's account of Mahad --- a
+figure "unable even to take water from a public watercourse or to read in a
+public library in Hindustan, the land of his birth" [@ambedkar2019drb]. Water and
+the library, the
+two public goods this article reads together, were for him a single caste
+boundary; and at the founding of each provision they were settled without him.
+
 <!-- CITATIONS TO WIRE (this subsection): Standing Committee on Culture #310 2022
   = Zotero FDGNQ8CH; Gardner, Public Libraries for Asia: the Delhi Seminar, UNESCO
   1956 = GBH3RILT; The Delhi Public Library: an evaluation report, UNESCO 1956 =
@@ -340,77 +178,252 @@ exclusion it is built upon.
   3J37J5WR p.7-8. Verify Ambedkar 1951 cabinet-resignation date against a primary
   source before final. -->
 
-# Federalization and Law: Library as State Obligation
+Whether the public library becomes a state obligation or stays a professional
+aspiration has a documentary answer, and it is the latter. The demand was stated
+early and exactly. At its sixth conference in 1944 the Indian Library Association
+resolved that "the Library Act must be one promulgated by the Central
+Legislature," and faulted its own 1942 draft Bill for making the Act "permissive
+and adoptive, instead of a mandatory and compulsory piece of legislation"; given
+rural poverty a local rate "cannot be thought of," so "the Government of the
+country must finance the scheme." Central, mandatory, tax-funded, free: the terms
+of the obligation were set at the origin, and never met.
 
-Period: late 1960s-1970s, with retrospective reference to later legal
-scholarship.
+The refusal was in fact older than the organised demand, and it turned on a
+calculation about money. The founding calculation debate sits in the Library
+Development Committee, Bombay (1939-40), whose chapter on legislation weighs the
+one mechanism that could make libraries free at the point of use --- a library
+cess on the English and American model, of the kind the Bombay Presidency Public
+Libraries Bill (No. XXIV of 1936) had already proposed before it was "introduced
+in the Legislative Council, but ... not further considered." The committee
+declines it: "people are not prepared for any additional tax ... and ... even if
+a special cess was levied people were not sure that it would be necessarily
+utilised for that purpose." It concludes that "compulsory legislation is not
+necessary at present" and recommends only that "permissive legislation may be
+enacted to authorise any Municipality or Local Board to levy a special tax, if
+they so desire." Permissive rather than compulsory, optional rather than owed:
+the structure of the deferral is fixed in 1939, before the central-Act demand is
+fully voiced --- and the committee's own doubt, that a cess might not "be
+necessarily utilised for that purpose," is precisely the failure the system would
+confirm eighty years later.
 
-Question:
+The committee chain restated them for half a century without enacting them. The
+first post-independence national report, the Advisory Committee for Libraries
+under K.P. Sinha (reported 1958), held that a national Library Law should incorporate "the
+right of every citizen to have free access to libraries as his fundamental
+right," funded not by fees but by a cess --- "a library rate of 6 naye paise in a
+rupee of property-tax" --- while deferring the law's operation "gradually within
+a period of twenty years." The Working Group on the Development of Libraries
+during the Fourth Five Year Plan (1966-71) was firmer still: the Central and
+State Governments "should share among them the entire responsibility of providing
+adequate public library services to the citizens," a Directorate of Libraries in
+every State, a minimum of Rs 30.99 crore over the Plan, and a Draft Bill it
+"prepared for consideration." The Centre's own Model Public Libraries Bill
+(1963), circulated to the States, then settled into a permanent holding pattern:
+in the 1964 proceedings it is "under the active consideration of the State
+Government" with a decision "likely to be taken very soon" --- a sentence the
+record keeps repeating and the statute book never honours.
 
-What happens when public-library discourse moves into state legislation and
-committees?
+The form of the refusal is recurrence without enactment. Each committee
+re-recommends what the last committee's recommendation failed to make real, and
+deferral is written into the instruments themselves: "permissive" legislation
+(1944), a twenty-five-year finance horizon and a twenty-year operation clause
+(1957), a "Draft Bill for consideration" (1966). The cost of the gap between
+avowal and provision is legible in the per-capita figures the profession recorded
+against itself: public-library spending of about 2.9 paise per head in 1963-64,
+and roughly three paise --- Rs 0.03 --- per head by the early 1980s, with only a
+small minority of villages served. The obligation was always affirmed and never
+appropriated.
 
-ILA nodes:
+The arithmetic deserves to be set in one place, because it is the consistency
+that makes the argument. Decade after decade the State costed universal provision,
+in detail, and then declined to pay for it.
 
-- 1979, 1980, 1982, and 1985 proceedings;
-- state systems;
-- public-library acts;
-- finance;
-- adult education;
-- national information system.
+| Committee (year) | What it costed or required | Enacted or funded? |
+|---|---|---|
+| Library Development Committee, Bombay (1939--40) | a library cess, weighed and declined; only *permissive* legislation proposed | no obligation created |
+| Advisory Committee for Libraries, chaired by K. P. Sinha (appointed 1955, reported 1958) | free access as a fundamental right; a cess of 6 naye paise per rupee of property-tax; a twenty-five-year plan to make the whole system free by the Sixth Plan | not enacted |
+| Working Group, Fourth Five Year Plan (1966--71) | Rs 30.99 crore for public libraries, Rs 20 crore for book production, a Directorate of Libraries in every State, and a Draft Bill | Bill never enacted; sums never appropriated |
+| NAPLIS, Empowered Committee, follow-up Working Group (1986--93) | provision pared to a charge on the reader | declared a "State subject"; libraries permitted a Re. 1 to Rs. 10 membership fee |
 
-Interleaved records:
+: What the committees calculated, and what the State provided. Source: the Central
+Secretariat Library's compendium of government library reports
+[@csl2003compendium]. {#tbl-costing}
 
-- Andhra review committee report on the Andhra Pradesh Public Libraries Act,
-  1960 (Zotero `UQU84SFW`).
-- Gujarat Public Libraries Bill select committee report (Zotero `RIYYM3ST`).
-- Kerala Public Libraries Bill select committee report (Zotero `BV6RETS6`).
-- `Public Library Legislation in the New Millennium` (Zotero `N8AAA4WU`) as a
-  later retrospective legal comparison.
+Against every line in that table, the expenditure actually delivered stayed near
+zero: about 2.9 paise per head in 1963--64, and roughly Rs 0.03 a head by the
+early 1980s. They calculated for forty-five years; they funded almost none of it.
 
-Analytical move:
+After 1986 the deferral acquired a name to defer. The Committee on the National
+Policy on Library and Information System (CONPOLIS), under D.P. Chattopadhyaya,
+submitted its report in 1986; an Empowered Committee filed comments in 1988; a
+Working Group in 1992 found the recommendations "difficult to implement" and
+pared them down, and the residue was "accepted" in 1993. There the obligation was
+not merely deferred but inverted. The central recommendation --- shared
+Centre-State responsibility for a public-library system --- was answered with
+"'Library' being a State subject, the Department of Culture ... is not in a
+position to take direct action," and downgraded to a provision that libraries
+"may [charge] Re. 1/- to Rs. 10.00 ... as nominal membership fee" --- the very
+subscription the 1944 committee had called, of a public library, "a contradiction
+in terms." The profession registered the result without illusion: the 1994
+proceedings record that the Department of Culture "has not yet placed [NAPLIS]
+before the Parliament ... As a result, the NAPLIS is yet to see the light of the
+day," and the 1999 proceedings that "No further action has been taken, on the
+report by the government."
 
-Ask whether "public library" becomes a state obligation or remains a
-professional aspiration. Track the movement between law, finance, professional
-standards, and public entitlement.
+What the committee chain deferred, the constitutional division of powers then
+naturalised. On the floor of the Rajya Sabha the national public-library question
+is met, with increasing regularity from the late 2000s, by three interchangeable
+formulas --- that libraries are "a State subject" (from 2022, "as per the Seventh
+Schedule"), that there is "no such proposal" or "no data maintained," and that
+the petitioner should look to the Raja Rammohun Roy Library Foundation. In 2006
+the government conceded that the 1985 committee notwithstanding, "a National
+Policy of Public Library and Information has not been declared." In 2018 a
+question asking why civic bodies collect the library cess "as part of the
+property tax" and fail to deposit it with the library institutions was answered
+only that "Library is a state subject" --- the cess levied on the public and not
+passed on, with the Union disclaiming the remedy. By 2025 the answer had reduced
+to its elements: "The subject 'Libraries' comes under State list. No such data is
+maintained. ... There is no such plan." The State List does the work that
+"permissive legislation" and the twenty-year clause once did: it converts a
+sustained political refusal into a jurisdictional fact, an obligation that is
+formally nobody's.
 
-# The Information Turn: Library as System, Network, Database
+The profession ratified the retreat even as it protested it. By 1997 the
+proceedings can state that "the days of free-service have gone by; the fee-based
+services are a viable alternative," and the 1999 Library Vision 2010 that
+"Information will be available at a cost" --- the free-access right of 1944 and
+1957 abandoned in the professional register itself. And the record names the only
+avenue it has left: in 2011, sixty-four years after independence, a paper asks
+"should we wait till some one files a PIL in the Supreme Court to make the public
+welfare achieved?" The public library never crystallised into a state
+obligation. It dissolved from a mandatory central Act demanded as a fundamental
+right (1944-57), into a model bill perpetually under consideration (1963-),
+into a diluted policy reduced to a membership fee (1993), into a question of
+"informatics" and "technology" (1985-95), and finally into a matter on which the
+Union maintains no data and has no plan (2025).
 
-Period: 1980s-1990s.
+<!-- PRIMARY-CORPUS CITES TO WIRE:
+  Compendium of Govt Reports on Library Services (CSL 2003) = Zotero J886QGZU,
+    OCR data/zotero-policy-trace/text/J886QGZU-2003-compendium.txt :
+    1957 Sinha fundamental-right + 6-naye-paise cess l.12884,12890,12905-08;
+    1957 twenty-year clause l.12893-94; Fourth-Plan Rs30.99cr + Draft Bill l.259-284;
+    1993 "State subject / not in a position" l.27298-301 + Re.1-Rs.10 fee l.27263.
+    PAGE-IMAGE VERIFIED 2026-06-27 against the scan: fee Re.1-Rs.10 = PDF p.801
+    (printed p.854); 6-naye-paise cess + 20yr clause + fundamental right = PDF p.377
+    (printed p.338); Rs30.99cr + Rs20cr book-production + Draft Bill = PDF p.12
+    (printed p.xii). These three figures are cleared to ship. (Volume running-title
+    varies: "Major" vs "Select" Government Reports.)
+    STILL OCR-ONLY (verify before shipping): ILA per-capita 2.9 paise (1965), Rs0.03
+    (1982).
+  ILA proceedings, data/ila-conference-proceedings/OCR/text/ (NOT text/, which is dead):
+    1944 Central Legislature l.3499, permissive/adoptive l.3490, govt-must-finance l.3463;
+    1964 Model Bill "active consideration" l.3784; 1965 per-capita 2.9 paise l.2816;
+    1982 per-capita Rs0.03 l.13924, TN-first-1948 l.14163;
+    1994 "yet to see the light of the day" l.18047-48; 1997 "days of free-service" l.19662;
+    1999 Vision2010 "available at a cost" l.37184; 1999 "no further action" l.36870;
+    2011 PIL-Supreme-Court l.3517-18.
+  Rajya Sabha Q&A, data/_parliament_libraries/text/ :
+    2006 "not been declared" RS_U_2602 l.30-31; 2018 cess RS_U_504 l.18-24,35-36;
+    2025 "no data/no plan" RS_U_3062 l.32-38.
+  Corpus limits: LS files are title-only stubs; RS record is 1995+. State-Act years
+    (TN 1948 etc.) quoted as govt stated; Haryana year contested in verified_facts.
+  Full line-cited dossier: reading-notes/critical-timeline-deferral.md +
+    reading-notes/policy-chain-and-the-1993-refusal.md -->
 
-ILA nodes:
+# The Commons Refused: Library, Food, Water
 
-- 1982: public libraries and a national information system;
-- 1985: national policy for library and information services;
-- 1990: computerization and library network;
-- 1991: national information policies and programmes;
-- 1992: library and information technology;
-- 1994-1999: library movement, twenty-first century preparation, electronic
-  information era, and Library Vision 2010.
+The public library's deferral is one instance of a wider grammar, and two
+neighbouring goods show its range. Food is the case where the commons was forced
+into a right against the State's reluctance: the People's Union for Civil
+Liberties' 2001 writ persuaded the Supreme Court to read a right to food into the
+Article 21 right to life --- "no person goes hungry when the granaries are full"
+--- and the right was finally legislated as the National Food Security Act, 2013
+[@tillinMakingIndiaWork2024; @amrithFoodWelfareIndia2008]. That this route exists, and that the library never travelled it, is exactly what
+the 2011 library proceedings register when they ask whether the profession must
+"wait till some one files a PIL in the Supreme Court." Yet even the won right is
+hollowed in the giving --- prioritised in some states and abandoned in others
+[@chhotrayPoliticalPrioritizationWelfare2020a], and resting on the unpaid domestic
+labour that turns subsidised grain into a meal.
 
-Question:
+Water runs the other way, from right toward commodity, and India built the
+conversion deliberately. Its instrument is not the meter but a doctrine --- the
+"sense of ownership." Rural water supply was reformed from 1999, through the
+Sector Reform pilots and then Swajaldhara (2002), onto a World-Bank-informed
+"demand-responsive approach" in which a village must first mobilise a share of
+the capital cost --- typically ten per cent --- before it is served, on the
+premise that what is not paid for is neither valued nor maintained
+[@daftaryWatershedDevelopmentNeoliberalism2014]. The Jal
+Jeevan Mission (2019) carries the same architecture to scale: its operational
+guidelines require a community contribution of ten per cent of in-village capital
+cost (five per cent in hill and majority-SC/ST villages) and hand operation,
+maintenance, and the collection of user charges to a Gram Panchayat
+sub-committee --- the Village Water and Sanitation Committee, or Pani Samiti ---
+expressly, in the guidelines' own words, "to instil the sense of ownership among
+the community" [@jjm2019guidelines]. Lest this read as incidental, the state has built a behavioural
+science around it: the first of the four intervention categories in the 2023
+*Compendium of Behavioural Best Practices* for the Mission --- authored by the
+Behavioural Insights Unit of NITI Aayog with the Centre for Social and Behaviour
+Change --- is, in its own words, "Uptake and Payment for JJM services," gathering
+"all interventions encouraging people to take up and regularly pay user charges
+... for JJM services" [@biu2023jjmcompendium]. The work of making the rural poor
+pay for water is not a
+by-product of the scheme; it is a named object of governmental behaviour design.
+The unit of the good shifts from the well, the tank and the
+public standpost, which are collective and unpriced, to the household connection a
+family has helped pay to install and must pay to keep running. Critics caught the
+move in a pun: Swajaldhara, "our water," becomes Pay-jaldhara
+[@sampat2007payjaldhara]. Tracked on a
+real-time governance dashboard [@samdubGovernanceInterfaceIndex2022] rather than
+guaranteed as an entitlement, and
+arriving --- where it arrives --- as taps without water, the right to water is
+delivered in the shape of a serviced, chargeable account the user has been taught
+to think she owns because she pays for it.
 
-When "information" enters, what happens to "reading"?
+What holds the three together is a common sense about the poor that had to be
+manufactured. The claim that people do not value what they do not pay for is not
+the poor's own; it is a governing-class judgement, on record in the library
+papers from 1939, where the masses "have not yet realised the importance ... of
+education" and must have it "forced on them compulsorily." After 1991 a
+cost-recovery doctrine gave the judgement a technical alibi --- the user fee would
+teach "ownership" and "accountability" --- and the doctrine was then laundered as
+the people's own demand, as when the 1994 library proceedings cite a survey that
+"more than 85% of the users viewed that the libraries should charge fees" and the
+1993 decision sets the fee "keeping in view the economic condition of the target
+group of users." Frontline ethnography of India's reforming water utilities
+records the same rationality hardening into hostility toward a "public" of
+"demanding, unruly ... slum-dwellers" [@coelhoEngineersRationalitiesRule2004;
+@kapurWhyDoesIndian2020]. And beneath the economics sits the older
+refusal: the free, open-to-all commons is precisely what a caste order has long
+resisted, and a fee re-segregates by purse what birth once segregated directly.
+The water the Jal Jeevan Mission now meters reaches, disproportionately, Dalit
+households; it is the same public water Ambedkar marched for at the Chavdar Tank
+in Mahad in 1927, when the right at stake was simply to drink from a public tank
+caste had closed [@ambedkar2019drb]. Then the barrier was the caste order; now it is the user
+charge --- the commons the satyagraha fought to prise open, handed back as a bill.
+The library, the meal and the tap are governed by one move --- the entitlement
+recoded as a service the user must deserve, maintain, and buy --- and "the poor
+do not value free things" is the sentence that makes the State's withdrawal read
+as the public's choice.
 
-Codes:
+<!-- CITES TO WIRE via Zotero sync (do NOT hand-author bibtex; pull from local
+  Zotero localhost:23119). Food: PUCL v Union of India 2001; NFSA 2013; Tillin,
+  Making India Work 2024 = LWQB98II; Amrith, Food and Welfare in India 2008 =
+  GSII5WIH; Chhotray et al. 2020 (PDS) = IYJSDJVI; Singh, From grains to meals =
+  E9E7Z2II. Water/JJM (INDIA-grounded; Ballestero/Costa-Rica REMOVED): JJM
+  Operational Guidelines 2019, "sense of ownership" + 10%/5% community
+  contribution + VWSC/Pani Samiti O&M = PIB relid 196121 +
+  jaljeevanmission.gov.in/media/community-ownership-water-supply (acquire to
+  Zotero); Sector Reform 1999 / Swajaldhara 2002 demand-responsive 10% =
+  indiawaterportal Swajaldhara guidelines 2002; critique "'Swa'-jal-dhara or
+  'Pay'-jal-dhara: Sector Reform and the Right to Drinking Water in Rajasthan and
+  Maharashtra" (acquire); Samdub, Governance Interface 2022 = J52RE5B8 (Jal Shakti
+  dashboard); Coelho, Of engineers, rationalities and rule 2004 = FNUME6NS
+  (Metrowater hostility-to-"public"); Daftary 2014 = JEJDM9GF; delivery gap
+  Paliath 2022 = N9TRMQVX, Purohit = 7Q34I9X3. "Weak demand" framing (read
+  critically): Kapur 2020 = BDSFF36M, p.42. Primary-corpus quotes (1939
+  forced-compulsorily; 1994 85%; 1993 economic-condition) cited above. -->
 
-- information system;
-- database;
-- network;
-- resource sharing;
-- documentation;
-- excellence;
-- quality;
-- service.
-
-Analytical move:
-
-This is likely the hinge chapter. The library is no longer only a place for
-readers and books; it becomes a node in information infrastructure. The
-chapter should test whether this expansion strengthens the public-library
-mission or displaces it into professional and technical language.
-
-# 1989-1991: The Library Loses Its Commons
+# The Information Turn and the Lost Commons
 
 The information turn is usually read as a technological event: the arrival of
 the computer, the database, the network. Read against the term-drift evidence,
@@ -432,7 +445,7 @@ state's flagship institution --- the Delhi Public Library, founded in 1951 as
 the first UNESCO Public Library Pilot Project, was a modernisation instrument, a
 "model public library for Asia." The first register was the planning state's own
 vision of public-library provision as a public obligation. The Advisory
-Committee for Libraries of 1957, chaired by K.P. Sinha, the first
+Committee for Libraries (reported 1958), chaired by K.P. Sinha, the first
 post-independence report to treat public-library development extensively, framed
 the library through social and adult education and laid out a finance plan
 running from the Third to the Seventh Plan. The Working Group on Development of
@@ -456,8 +469,11 @@ Mezhdunarodnaya Kniga and distributed in India through a network of Communist
 Party book houses (People's Publishing House, Visalaandhra, Navakarnataka,
 Prabhath), from a central node at the USSR Book Centre on Connaught Circus in
 Delhi --- made a left reading economy viable at prices Indian commercial
-editions could not match. Reading room and subsidised book were two halves of
-one infrastructure of collective reading.
+editions could not match [@booksfromussr1981; @rajagopalan2023soviet;
+@chakrabarti2019moscow]. Reading room and subsidised book were two halves of one
+infrastructure of collective reading. India's was one side of a Cold War contest
+over the reading public: the United States ran its own state-subsidised book
+diplomacy in parallel, the Franklin Book Programs [@khalifa2025translation].
 
 After 1991 both registers lost their backbone at once. The rouble-rupee book
 trade collapsed with the state that subsidised it, and liberalisation
@@ -468,6 +484,21 @@ be recoded --- from a collective good secured by public provision into a service
 delivered to an individual through a network. This is the deeper content of the
 reader-to-user shift: the *user* is the reader stripped of the collective. One
 reads in a commons; one queries a system alone.
+
+That the rupture was selective is the point. The Indo-Soviet relationship did not
+end in 1991; it was re-based --- from books to weapons-and-barrels. The strategic
+and military axis survived the collapse and was formally renewed: the 2000
+Declaration on Strategic Partnership restored the inter-state framework, Soviet-
+and Russian-origin platforms remained the installed backbone of the Indian armed
+forces, and after 2022 discounted Russian crude climbed from under two per cent
+to roughly a third of India's oil imports. What was not renewed was the knowledge
+register: the subsidised book, the translated text, the reading economy. Russia
+rebuilt the arms supply and opened the oil supply; it never rebuilt the book
+[@dyakonov2023propaganda]. Of everything the partnership carried, the collective
+reading commons was the first thing both states treated as dispensable. The
+reading commons died; the arms and oil pipelines did not. The library's loss of
+its commons was, in this light, not an accident of the Soviet collapse but a
+choice about what in that collapse was worth saving.
 
 The internet's rise did not merely add a tool to this settlement; it occupied
 the conceptual space the public-library commons had vacated. The promise that
@@ -512,104 +543,39 @@ this paper is built to read.
   Laugesen, UNESCO and the Globalization of the Public Library Idea = ZPU2F59I
   Books from USSR, Soviet Review 1981 = IA books-from-ussr-soviet-review-1981
   Term-drift figures: data/ila-conference-proceedings/analysis/term_drift_by_period_1942_2008.csv
-  ILA close-reading passages (2000s proceedings) still owed per verification protocol. -->
+  ILA close-reading passages (2000s proceedings) still owed per verification protocol.
+  ASYMMETRY PARA (Soviet relationship re-based, not ended) — bib entries to add:
+    SIPRI Trends in Intl Arms Transfers 2024 (Russia share of India imports 72%/55%/36%) — primary
+    Russian crude <2%->~35% of India oil imports post-2022 (CFR; ThePrint/DGCIS) — primary/secondary
+    2000 Declaration on Strategic Partnership, Putin-Vajpayee 3 Oct 2000 — Britannica/RIAC
+    Laruelle, Russia's niche soft power (IFRI 2021) — hard-power-not-soft framing
+  See reading-notes/soviet-book-economy.md for the full sourced divergence (deep-research run 2). -->
 
-# Liberalization and Management: Library as Service Organization
+If 1991 hollowed the commons, the two decades that followed renamed what was left.
+The proceedings of the 2000s read like a glossary of a new dispensation --- Quest
+for Quality, the Electronic Information Environment, Responding to Users' Need,
+Information Literacy and Lifelong Learning, the Information Commons. The reader,
+once a citizen and an adult learner, becomes a "user" to be satisfied; the library
+becomes a service to be managed; provision becomes "quality." The state's own
+elite supplied the charter: the National Knowledge Commission's working group on
+libraries (2006) restated the knowledge-economy case and was answered as every
+committee before it had been --- forwarded, noted, not made binding. "Lifelong
+learning" and "information literacy" carried the husk of the old social-education
+mission forward while emptying it of its collective and fiscal content; an
+obligation to a citizen became a service to a user and a skill for an individual.
 
-Period: 2001-2010.
+By the 2010s the recoding had a slogan, Digital India, and the library returns in
+the record only as a node --- next-generation, embedded, networked, digital. The
+single term still climbing at the end of the series is the digital itself, even as
+the words *public library* and *finance* sink to their lowest recorded levels.
+Here is the misidentification that now governs Indian knowledge policy, and it
+should be named without euphemism: the belief that connectivity is provision ---
+that a wire and a screen will let a poor but literate public leapfrog the slow,
+costly, staffed, vernacular labour of building places to read. A connection is
+offered where a commons was owed. The platform does not extend the public library;
+it settles into the space the public library was never permitted to occupy.
 
-ILA nodes:
-
-- 2001: `Quest for Quality`;
-- 2001: `Library Practices for Effective Management`;
-- 2003: `Electronic Information Environment`;
-- 2004: `Responding to Users' Need`;
-- 2004: `Knowledge Organization in Digital Environment`;
-- 2005: `Libraries, Information Literacy and Lifelong Learning`;
-- 2006: `Information Commons`;
-- subsequent 2007-2010 proceedings after OCR completion.
-
-Question:
-
-Who replaces the reader? The "user."
-
-Trace:
-
-- quality;
-- management;
-- effective service;
-- changing information landscape;
-- information literacy;
-- lifelong learning;
-- information commons.
-
-Interleaved record:
-
-- National Knowledge Commission, `Report of the Working Group on Libraries`
-  (2006, Zotero `TLKKE95B`).
-
-Analytical move:
-
-Use the National Knowledge Commission as the state/elite knowledge-economy
-rearticulation of the library question. The chapter should ask whether
-`information literacy` and `lifelong learning` extend the older social/adult
-education discourse or convert it into individualized skills and user-service
-language.
-
-# Digital India and the Platform Library
-
-Period: 2011-2019.
-
-ILA nodes:
-
-- next generation libraries;
-- knowledge society;
-- embedded librarianship;
-- technological challenges;
-- Digital India;
-- sustainable development of the LIS profession;
-- transforming libraries and information centres in the digital era.
-
-Question:
-
-Does digital access renew the public-library mission, or does it dissolve it
-into ICT and service language?
-
-Interleaved records:
-
-- Andhra Pradesh digital-library records in Zotero;
-- Gujarat library expansion and digital-modernization news records in Zotero;
-- `Public Libraries and Open Government`;
-- `National Information and Library Policies in Support of the UN Sustainable
-  Development Goals` (Zotero `6SJDCY3I`);
-- contemporary public-library legislation scholarship where relevant.
-
-Analytical move:
-
-Separate "digital access for publics" from "digital modernization of
-institutions." They are not the same thing. The key test is whether the public
-returns as reader/citizen/community, or appears only as user, beneficiary, or
-data subject.
-
-# The Silence Ledger
-
-This should be a standalone chapter, not a footnote.
-
-Ask across all periods:
-
-- Where are caste and Bahujan readers?
-- Where are vernacular publics?
-- Where are rural women, children, disabled readers?
-- Where is library labour?
-- Where is finance?
-- Where is the constitutional citizen?
-- When `user` appears, what social body disappears?
-
-The chapter should use both absence and euphemism. Terms such as `public`,
-`community`, `user`, `people`, `rural`, `backward`, and `weaker sections` may
-do political work without naming caste, class, language, disability, or labour.
-
-# What the Archive Shows: Refusal, the Dissolved Reader, and the Caste-Silence
+# What the Archive Shows
 
 The preceding chapters trace a vocabulary. This one reads what the vocabulary is
 the symptom of. Three independent record-sets --- the ILA proceedings, the
@@ -621,11 +587,9 @@ a caste-blind universal whose coherence depends on caste remaining unsayable, an
 whose material correlate is a costed-then-refused provision. Four operations hold
 that formation together.
 
-## Refusal by deferral
-
 The state did not neglect the public library; it studied it, repeatedly, for
 forty-five years, and the studying was the form the neglect took. The *Compendium*
-assembles the chain: the Advisory Committee for Libraries (Sinha, 1957); the
+[@csl2003compendium] assembles the chain: the Advisory Committee for Libraries (Sinha, 1957); the
 Fourth Plan Working Group (1966-71); the Seventh Plan Working Group on
 Modernisation (1985-90); the Committee on a National Policy on Library and
 Information System (NAPLIS, 1986) and its Empowered Committee (1988); the
@@ -656,8 +620,6 @@ recommendation was refused; and every subsequent "libraries are a State subject"
 answer cites as a constitutional given what was in fact a reform the state chose
 not to make.
 
-## The dissolution of the reader into a function
-
 Read archaeologically rather than lexically, the reader-to-user shift is not a
 change of words but a change in what the library constitutes as its subject.
 Across the proceedings the library is successively an instrument of civic
@@ -672,8 +634,6 @@ One can ask of a person, but not of a function, who by caste is permitted to rea
 The discourse protects itself not by denying caste but by dissolving the subject
 of whom the caste question could be asked.
 
-## The constitutive silence
-
 The flat near-absence of caste across the series --- never above 0.45 per 10,000
 words, across forty volumes and 9.3 million words --- is not a gap but a
 condition. The discourse can constitute its universal reader only on condition
@@ -687,8 +647,6 @@ speech: it sees the historical monopoly on letters ("the restriction of librarie
 for the use of only a selected few") but can name it only as feudal, "royalty and
 nobility," before dissolving it into "all her children." The unsayable thing is
 the true thing.
-
-## The three publics, and the one that was erased
 
 The silence has a history. Across the twentieth century the Indian reading public
 was constituted three times over. The nationalist library movement --- fused to
@@ -707,8 +665,6 @@ caste-silence of the professional and state discourse is therefore not an
 oversight but the trace of a won contest: the caste-blind reading public defeated
 the caste-explicit one at the level of the state, and the silence is what that
 victory sounds like.
-
-## The regional reading-movements
 
 The "library as people's movement" was never a single national movement; it was
 a constellation of regional reading-movements, and it is in the regions that the
@@ -740,8 +696,6 @@ created consciousness "among the colonised," and Mantena's public sphere convene
 the Telugu "public," whose consciousness, and which public --- and was the Dalit
 reader inside it, or its constitutive outside?
 
-## A comparative control
-
 The silence is specific, not generic. In the 1996 *Daedalus* issue "Books, Bricks,
 and Bytes" --- a single volume in which the postwar library establishment
 reframed itself around the digital transition --- the postcolonial chapters name
@@ -753,8 +707,6 @@ name caste. The comparison is the control: the silence is not a universal featur
 of postcolonial library discourse, which elsewhere could say its inequality. It is
 specific to the Indian caste case. What the other national stories could say, the
 Indian one could not.
-
-## What the archive shows
 
 These are not three datasets and a comparison but four faces of one formation. The
 state calculates the cost of a universal reading public and refuses it by
@@ -781,134 +733,77 @@ paper sets itself.
   Lor (S. Africa), de Sant'Anna (Brazil, H2SWIQGZ), Banerjee (India) — Daedalus
   "Books, Bricks, and Bytes" 125(4) 1996 (Zotero collection 9BUD3JEJ). -->
 
-# Conclusion: What the ILA Archive Shows
+Across eighty years the archive shows a profession forever translating the
+library into the dominant language of the day --- reconstruction, planning,
+information policy, management, digitization --- and paying for each translation
+in the only currency that mattered: the stability of the reader it was meant to
+serve. The democratic subject of the library never held still. She was named the
+reader, the adult learner, the citizen, the student, and then unnamed into the
+user, the information seeker, the knowledge worker --- each renaming a step
+further from a person with a claim on the state, a step closer to a customer with
+a need to be met.
 
-Possible closing argument:
+The right to read cannot be rebuilt in the language that dissolved it. No quantum
+of connectivity restores a commons that was never funded, and no platform answers
+a claim the State spent half a century learning not to hear. To recover the right
+to read is to recover the public library as what the demand of 1944 already knew
+it had to be: public, fiscal, linguistic, and anti-caste infrastructure --- free
+at the door, paid from the common purse, held in the languages people actually
+read, and built first for the readers the commons was designed not to see.
 
-The ILA archive shows a profession repeatedly trying to make libraries legible
-to the dominant state language of each period: reconstruction, planning,
-information policy, management, digitization. The cost is that the library's
-democratic subject becomes unstable: reader, adult learner, citizen, student,
-user, information seeker, knowledge worker.
+# Methodology and Data
 
-That lets the paper end with a contemporary claim: the right to read cannot be
-rebuilt only through digital-library language. It requires recovering the
-library as public, fiscal, linguistic, and anti-caste infrastructure.
+The study reads three archives together. The spine is the forty published
+proceedings of the Indian Library Association, 1942--2019, acquired from the
+Association's collection on the National Digital Library of India; beside them sit
+the government's committee reports, compiled in the Central Secretariat Library's
+2003 *Compendium*, and the post-1990 parliamentary record. The proceedings survive
+as scanned image PDFs, and were run through optical character recognition
+(OCRmyPDF and Tesseract) to yield a searchable text layer, with provenance and
+per-volume quality logged.
 
-# Verification Protocol and Future Work
+The method is mixed, and the order of authority is fixed. Normalised term counts
+across the series --- the rise of *user*, *information*, *quality*, *management*,
+and *digital*, against the fall of *public library*, *finance*, and *adult
+education* --- are used only for discovery: they show where to read, not what to
+conclude. Every claim that bears weight in the argument rests on a passage checked
+against the original page image, never on the OCR or the counts alone. The full
+corpus, the term-drift tables, the OCR-quality audit, and the verification record
+are deposited as set out under Data and Code Availability.
 
-This draft begins from scanned proceedings. OCR supplies the discovery layer;
-page-level verification supplies the evidentiary layer. The next version must
-finish OCR for the full 1942-2019 collection, segment papers and addresses
-where possible, and carry verified passages into the argument with page-level
-citations.
+# Limitations and Future Work
 
-# Evidence Tables To Generate
+This is a working draft, and its evidentiary base is uneven in ways a next version
+must repair. The parliamentary record read here is partial: the Lok Sabha question
+files in the corpus survive only as title stubs, so the floor history quoted above
+is drawn from the Rajya Sabha, and only from 1995 onward; the deep debates of the
+1950s and 1960s wait to be recovered from the printed Debates. The term-drift
+counts rest on optical character recognition of scanned proceedings, complete for
+the figures cited here but not yet for every volume. The figures on which the argument leans have been
+checked against the original page images: the 1957 cess of six naye paise, the
+Fourth-Plan estimates of Rs 30.99 and Rs 20 crore, the 1993 membership fee of one
+to ten rupees, and the per-capita expenditure of 2.9 paise (1963--64) and Rs 0.03
+(early 1980s). The Advisory Committee chaired by K. P. Sinha was appointed in 1955
+and reported in 1958, recommending free library service as a right; catalogue
+dates for the report vary between 1958 and 1959, and the Compendium reprints it
+under a 1969 running head. The counts
+of how many states had passed library legislation drift between sources and even
+within single volumes, and each must be pinned to the statute before it is
+repeated. Finally, the comparative material on food and water is offered as
+analytical triangulation, not primary research of equal depth, and each would
+repay an archival study of its own.
 
-## Timeline of ILA Proceedings
+# Data and Code Availability
 
-Generate from:
-
-`data/ila-conference-proceedings/manifest.jsonl`
-
-Fields:
-
-- year;
-- title;
-- handle;
-- Zotero key;
-- original PDF path;
-- OCR PDF path;
-- OCR text path;
-- OCR character count;
-- OCR warnings.
-
-## Concordance Ledger
-
-Generate by decade for:
-
-- `reader`;
-- `user`;
-- `citizen`;
-- `public`;
-- `rural`;
-- `adult education`;
-- `social education`;
-- `information`;
-- `documentation`;
-- `network`;
-- `computerization`;
-- `quality`;
-- `management`;
-- `digital`;
-- `knowledge society`;
-- `lifelong learning`;
-- `information literacy`;
-- `caste`;
-- `scheduled caste`;
-- `scheduled tribe`;
-- `backward`;
-- `vernacular`;
-- `language`;
-- `finance`;
-- `cess`;
-- `labour`;
-- `staff`.
-
-## Zotero Interleaving Table
-
-Seed records:
-
-| Role | Zotero key | Record |
-| --- | --- | --- |
-| Pre-ILA princely/state-supported public-library modernity | `4QZK3GV7` | `Baroda and its libraries` |
-| Immediate pre-history | `3I9WSMT5` | `Libraries and Library Movement` |
-| Regional movement genealogy | `FGVD8X9K` | `The Origin and Development of the Library Movement in the Bombay Presidency` |
-| Planning-state advisory report | `85IVM7VW` | `Report of Advisory Committee for libraries` |
-| Duplicate-review source variant | `PQFDDGJY` | `Report of the Advisory Committee for Libraries` |
-| Planning Commission report | `TCWLEJSW` | `Report of the working group on libraries` |
-| Andhra library-law review | `UQU84SFW` | Andhra Pradesh Public Libraries Act review committee report |
-| Gujarat library-law committee | `RIYYM3ST` | Gujarat Public Libraries Bill select committee report |
-| Kerala library-law committee | `BV6RETS6` | Kerala Public Libraries Bill select committee report |
-| Later public-library legislation comparison | `N8AAA4WU` | `Public Library Legislation in the New Millennium` |
-| Knowledge-economy state reframing | `TLKKE95B` | National Knowledge Commission `Report of the Working Group on Libraries` |
-| Mysore/sovereignty background, not public-library-policy evidence | `MYJ5E24F` | `Plunder and Prestige: Tipu Sultan's Library and the Making of British India` |
-
-## Duplicate and Source-Review Table
-
-Start from:
-
-`data/zotero-rights2reads-audit/duplicate_parent_titles.csv`
-
-Minimum issue to carry into the paper:
-
-- `85IVM7VW` and `PQFDDGJY` appear to be duplicate bibliographic records for
-  the same Advisory Committee report, with different catalog sources/scans and
-  different dates. Do not treat them as two distinct committee reports unless
-  further title-page evidence proves that.
-
-## OCR Quality Table
-
-Generate from:
-
-`data/ila-conference-proceedings/ocr_manifest.jsonl`
-
-Minimum fields:
-
-- year;
-- title;
-- pages if available from `pdfinfo`;
-- OCR text characters;
-- OCR engine;
-- elapsed time;
-- warning count from log;
-- spot-check status;
-- whether OCR is sufficient for concordance, close reading, or only metadata.
-
-# Immediate Next Steps
-
-1. Finish OCR for all 40 ILA PDFs.
-2. Verify `ocr_manifest.jsonl` has 40 records and no missing OCR PDFs/texts.
-3. Build the timeline, concordance ledger, and Zotero interleaving table.
-4. Segment proceedings by table of contents where possible.
-5. Select close-reading passages for each period before drafting prose claims.
+The derived data and analysis code for this paper --- the OCR and term-drift
+scripts, the term-drift and OCR-quality tables, and the page-image verification
+ledger --- will be deposited in the Right to Read working-paper series' Open
+Science Framework project, with the code archived for a citable version DOI on
+Zenodo (DOIs to be assigned). The three primary source bodies are cited to their
+own repositories rather than re-hosted here: the forty Indian Library Association
+conference proceedings (1942--2019), held on the National Digital Library of
+India; the CSL *Compendium of Government Reports on Library and Information
+Services in India* (2003); and the Rajya Sabha question-and-answer record
+(1995--2025). All figures and quoted passages are verified against the original
+page images. The deposited derived data are released under CC-BY-4.0 and the
+analysis code under the GNU Affero General Public License v3 (AGPL-3.0).
