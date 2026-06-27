@@ -129,12 +129,13 @@ state produced both.
 
 The library's universalism is worth reading closely, because it is euphemistic.
 In his inaugural address Azad located India's backwardness in the history of
-restricted reading: great libraries had existed, but "the benefits of these
-libraries were confined to royalty and the nobility ... knowledge was not
-widespread among the masses. One main reason why India fell behind Europe is to
-be found in this restriction of libraries for the use of only a selected few."
+restricted reading --- great libraries had existed, he said, but had served only
+a few:
+
+> [T]he benefits of these libraries were confined to royalty and the nobility ... knowledge was not widespread among the masses. One main reason why India fell behind Europe is to be found in this restriction of libraries for the use of only a selected few. [@PublicLibrariesAsia2024]
+
 "Today," he concluded, "democratic India ... is providing facilities for
-education and enlightenment for all her children" [@PublicLibrariesAsia2024]. The diagnosis
+education and enlightenment for all her children." The diagnosis
 is half-right and tellingly coded: the monopoly on letters is named as feudal
 --- "royalty and nobility," "a selected few" --- never as caste. The remedy is
 an undifferentiated "all her children," a reading citizen whose caste the state
@@ -195,12 +196,11 @@ one mechanism that could make libraries free at the point of use --- a library
 cess on the English and American model, of the kind the Bombay Presidency Public
 Libraries Bill (No. XXIV of 1936) had already proposed before it was "introduced
 in the Legislative Council, but ... not further considered." The committee
-declines it: "people are not prepared for any additional tax ... and ... even if
-a special cess was levied people were not sure that it would be necessarily
-utilised for that purpose." It concludes that "compulsory legislation is not
-necessary at present" and recommends only that "permissive legislation may be
-enacted to authorise any Municipality or Local Board to levy a special tax, if
-they so desire." Permissive rather than compulsory, optional rather than owed:
+declines it:
+
+> [P]eople are not prepared for any additional tax ... and ... even if a special cess was levied people were not sure that it would be necessarily utilised for that purpose. ... Compulsory legislation is not necessary at present ... permissive legislation may be enacted to authorise any Municipality or Local Board to levy a special tax, if they so desire.
+
+Permissive rather than compulsory, optional rather than owed:
 the structure of the deferral is fixed in 1939, before the central-Act demand is
 fully voiced --- and the committee's own doubt, that a cess might not "be
 necessarily utilised for that purpose," is precisely the failure the system would
@@ -250,8 +250,7 @@ Secretariat Library's compendium of government library reports
 [@csl2003compendium]. {#tbl-costing}
 
 Against every line in that table, the expenditure actually delivered stayed near
-zero: about 2.9 paise per head in 1963--64, and roughly Rs 0.03 a head by the
-early 1980s. They calculated for forty-five years; they funded almost none of it.
+zero. They calculated for forty-five years; they funded almost none of it.
 
 After 1986 the deferral acquired a name to defer. The Committee on the National
 Policy on Library and Information System (CONPOLIS), under D.P. Chattopadhyaya,
@@ -282,8 +281,11 @@ question asking why civic bodies collect the library cess "as part of the
 property tax" and fail to deposit it with the library institutions was answered
 only that "Library is a state subject" --- the cess levied on the public and not
 passed on, with the Union disclaiming the remedy. By 2025 the answer had reduced
-to its elements: "The subject 'Libraries' comes under State list. No such data is
-maintained. ... There is no such plan." The State List does the work that
+to its elements:
+
+> The subject 'Libraries' comes under State list. No such data is maintained. ... There is no such plan.
+
+The State List does the work that
 "permissive legislation" and the twenty-year clause once did: it converts a
 sustained political refusal into a jurisdictional fact, an obligation that is
 formally nobody's.
@@ -300,7 +302,9 @@ obligation. It dissolved from a mandatory central Act demanded as a fundamental
 right (1944-57), into a model bill perpetually under consideration (1963-),
 into a diluted policy reduced to a membership fee (1993), into a question of
 "informatics" and "technology" (1985-95), and finally into a matter on which the
-Union maintains no data and has no plan (2025).
+Union maintains no data and has no plan (2025) (@fig-timeline).
+
+![**Costed, then declined.** Eighty years of the public-library obligation: each demand or committee recommendation (filled) met, on both sides, by refusal, deferral, or inversion (open). Events are spaced evenly so the sequence is legible; the bold dates give the actual chronology. Sources: ILA proceedings; the CSL *Compendium* [@csl2003compendium]; the Rajya Sabha record.](figures/fig2_deferral_timeline.png){#fig-timeline width=100%}
 
 <!-- PRIMARY-CORPUS CITES TO WIRE:
   Compendium of Govt Reports on Library Services (CSL 2003) = Zotero J886QGZU,
@@ -438,7 +442,9 @@ Union in 1991; the Indian balance-of-payments crisis and the liberalisation of
 1991; and the first public reach of the internet across the decade that
 followed. For the library these are not three events but one. The profession's
 own language registers the moment the library stopped being imagined as a
-commons and began to be imagined as a terminal.
+commons and began to be imagined as a terminal (@fig-termdrift).
+
+![**The reader becomes a user.** Normalised frequencies (occurrences per 10,000 words) across the forty ILA proceedings, 1942--2019. *User* overtakes *reader* in the 1970s and *public library* after its 1950s--60s peak; *digital* surges after 2000; *caste* never leaves the floor (never above 0.45). *Information* is held off-scale (it peaks at 136 per 10,000 words). Source: the term-drift counts in `term_drift_by_period_1942_2019.csv`.](figures/fig1_term_drift.png){#fig-termdrift width=95%}
 
 What was the commons that was lost? It had two registers, neither of them the
 state's flagship institution --- the Delhi Public Library, founded in 1951 as
@@ -510,9 +516,7 @@ citizen, the Eighth Plan Working Group on Libraries and *Informatics* (1990-95)
 and the Planning Commission's Core Task Group on the Sharing of Library and
 Information *Technology* renamed the same object as a problem of systems and
 connectivity. Hence the misidentification that still organises Indian knowledge
-policy: that digital connectivity *is* library provision --- that the network
-lets a poor but literate public leapfrog the slow work of physical, fiscal,
-staffed, vernacular reading infrastructure. The proceedings of the 2000s and 2010s, where
+policy: that digital connectivity *is* library provision. The proceedings of the 2000s and 2010s, where
 `digital` climbs from near-absence to 28.7 (2000-08) and then 41.7 (2009-19) ---
 the one term still rising at the end of the series --- while `public_library`
 (4.1) and `finance` (0.6) reach their lowest recorded levels, are the
@@ -602,13 +606,15 @@ transfer of public libraries from the State List to the Concurrent List so the
 Centre could legislate universal provision; and the explicit extension of service
 to the "weaker sections," "backward areas," and "neo-literates." None of the four
 was enacted. No national library law; no National Commission; public libraries
-remained a State subject; provision decayed to the per-capita floor the
-measurement paper documents. The repetition is not a failure within the discourse
+remained a State subject; provision decayed to the per-capita floor of a few
+paise a head. The repetition is not a failure within the discourse
 but the discourse's function: each committee re-discovers the identical problem,
 re-recommends the identical fix, the fix is not enacted, and a new committee is
 constituted to re-study it. The committee chain is the institutional form of the
 refusal --- the state performing perpetual concern as the technique of withholding
-provision. Two artefacts in the chain are decisive. First, the state's own
+provision.
+
+Two artefacts in the chain are decisive. First, the state's own
 admission of elite capture: the 1995 Core Task Group recorded that the country's
 information infrastructure had "rather low" impact because "the services are not
 effective due to limiting its users only to scientists in elite institutions" ---
