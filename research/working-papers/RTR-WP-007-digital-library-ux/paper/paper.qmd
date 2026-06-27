@@ -1,0 +1,750 @@
+---
+# Body only — paper-level metadata lives in ../../_shared/papers.toml
+bibliography:
+  - ../../RTR-WP-006-city-libraries/paper/library-comparator-references.bib
+  - ../../_shared/references.bib
+format:
+  pdf:
+    output-file: "RTR-WP-007-body.pdf"
+    documentclass: article
+    classoption: [11pt, a4paper]
+    geometry: [top=20mm, bottom=20mm, left=28mm, right=28mm]
+    pdf-engine: lualatex
+    number-sections: true
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    colorlinks: false
+    linkcolor: "black"
+    urlcolor: "black"
+    citecolor: "black"
+    include-in-header: ../../_shared/body-preamble.tex
+    header-includes: |
+      \usepackage{tabularx}
+      \usepackage{xurl}
+      \usepackage{setspace}
+      \onehalfspacing
+      \usepackage{float}
+      \floatplacement{figure}{!htbp}
+      \floatplacement{table}{!htbp}
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Introduction
+
+India now has two public-facing digital library surfaces that carry the word
+"national" in different registers. The National Digital Library of India
+(NDLI), operated from IIT Kharagpur, presents itself as "One Library All of
+India" and as a single-window educational repository. Rashtriya e-Pustakalaya,
+under the Ministry of Education's school-education apparatus, presents itself
+as a free digital reading library for children and youth.[^ndli-home]
+
+These are not minor websites. They are state-backed answers to a major public
+question: if India's physical public-library network is weak, can a national
+digital service partially compensate? The answer depends on what "library"
+means. If a library is only a pile of content with search over it, then a large
+federated index might be enough. If a library is a public institution that
+lowers the cost of reading, provides reader guidance, protects privacy, supports
+many languages, enables accessible formats, and connects people to librarians
+and local institutions, then the standard is higher.
+
+This paper reviews NDLI and Rashtriya e-Pustakalaya against that higher
+standard. The conclusion is deliberately two-sided. NDLI is not merely a garbage
+dump: it has real taxonomy, domain facets, language affordances, content
+provider logic, and institutional services. But its user experience often makes
+that structure feel dump-like, because the interface asks readers to navigate
+the system's categories before it answers their reading need. Rashtriya
+e-Pustakalaya has the stronger public-library concept, because it starts from
+children, stories, languages, and age bands. But its implementation weakens its
+public character: the public About route is JavaScript-only, and the app source
+blocks browser behaviors such as right-click and print shortcuts.
+
+The core design claim is simple: India should stop trying to make one giant
+portal stand for every library function. A credible public digital library
+needs four connected layers: a reader library, a scholarly repository, a public
+library network layer, and a preservation-and-rights layer.
+
+[^ndli-home]: National Digital Library of India, `https://ndl.iitkgp.ac.in/`;
+Rashtriya e-Pustakalaya About route, `https://ndl.education.gov.in/about`.
+Both were fetched and reviewed on 25 June 2026. The Rashtriya e-Pustakalaya
+route returned a JavaScript-only shell when fetched as HTML.
+
+# Method and Review Standard
+
+This is a heuristic UX review and service-model analysis, not a moderated
+usability study. The evidence base is local-first: saved public HTML and source
+artefacts for NDLI and Rashtriya e-Pustakalaya; the Right to Read public-library
+measurement frame; local NFHS-5 digital-access figures; parliamentary text on
+NDLI; and the partial-recall corpus for related library, access, and
+Ambedkarite material. Official public pages for comparison models are used only
+where the local corpus did not already contain a cleaner primary description of
+the model.[^scope]
+
+The review asks four questions:
+
+1. Does the service help a reader get to a readable object?
+2. Does it work under public conditions: weak device, weak network,
+   non-English use, low institutional confidence, disability, and shared
+   phones?
+3. Does it behave like a library, meaning that it supports discovery, guidance,
+   borrowing or downloading, rights clarity, accessibility, privacy, and human
+   mediation?
+4. Does it connect to the institutional life of libraries: local branches,
+   teachers, librarians, preservation, and collection governance?
+
+The target users are not a generic "digital user." A public digital library in
+India must serve at least seven concrete publics:
+
+- a child looking for a story in a home language;
+- a school student looking for age-appropriate reading or textbooks;
+- a teacher or anganwadi/library worker assembling a reading set;
+- an exam aspirant looking for structured preparatory resources;
+- a researcher needing discovery, citation, and metadata;
+- a disabled or print-disabled reader needing audio, text-to-speech, EPUB,
+  large type, or screen-reader compatibility;
+- a librarian or institution needing hosting, preservation, collection
+  management, and public-service tooling.
+
+The review uses standard usability principles: visibility of system status,
+match between system and user language, user control, consistency, error
+prevention, recognition over recall, efficiency, minimalism, error recovery,
+and help/documentation. But the public-library standard adds two further tests.
+First, the service must reduce social barriers to reading. Second, it must not
+turn copyright, analytics, account control, or app behavior into new gates.
+
+[^scope]: The comparison models reviewed were DPLA, Europeana, Trove, the
+National Library of Norway, the Palace Project, Libby, Open Library, Project
+Gutenberg, StoryWeaver, and Bookshare.
+
+# Public-Library and Ambedkarite Access Standard
+
+The review standard is not "does the portal have a lot of content?" The
+public-library standard is service performance. RTR-WP-006 uses the
+IFLA-UNESCO Public Library Manifesto, IFLA's Library Map of the World, ISO
+2789, and ISO 11620 as the measurement frame: a public library must be read as
+a service system, with service points, staff, users, visits, loans, digital
+loans, downloads, internet access, expenditure, and population reach, not as a
+warehouse of books or files [@iflaManifesto2022; @iflaLibraryMapData; @iso2789;
+@iso11620].
+
+For a digital library in India, that means the digital layer cannot assume the
+reader already has digital capacity. It must ask whether the service supplies,
+bridges, or ignores the access conditions that a branch library would normally
+mediate: a device, a place to sit, a readable language, privacy, a librarian or
+teacher, print/offline fallback, assistive formats, and the confidence to use
+the system without humiliation.
+
+The Ambedkarite test is sharper. Ambedkar's critique of caste treats reading
+and knowledge as historically withheld capacities, not merely as consumer
+preferences. In *Annihilation of Caste*, he argues that caste destroys public
+spirit and makes collective life impossible across graded boundaries (BAWS
+Vol. 1, pp. 56-57). In the same text, he defines democracy socially: a mode of
+associated living and shared experience, not only a constitutional form (BAWS
+Vol. 1, pp. 57-58). In his account of the Shudras, the denial of reading and
+writing appears as a structural political technology: literacy is reserved for a
+few, while illiteracy is assigned to the many (BAWS Vol. 3, p. 43). A public
+digital library therefore cannot be judged only by its collection size. It must
+be judged by whether it breaks or reproduces that inherited distribution of
+knowledge.
+
+# Digital Substitution as Proceduralised Refusal
+
+The digital-access evidence changes the politics of this review. The question is
+not simply whether NDLI and Rashtriya e-Pustakalaya have usable interfaces. The
+question is whether the State is using digital interfaces to substitute for the
+library infrastructure it has not built. That substitution is a form of
+proceduralised refusal: access is announced at the portal layer, while the
+burden of device ownership, data, private screen time, English/interface
+confidence, digital literacy, disability accommodation, and print/offline
+fallback is pushed onto the reader.
+
+The telecom story is real, but it is not the same as public access. TRAI's July
+2025 subscription release recorded 1,220.02 million total telephone
+subscriptions, 1,171.91 million wireless subscriptions, and 1,083.14 million
+active wireless subscribers on peak VLR. The same release recorded 984.69
+million broadband subscribers, but only 45.49 million fixed wired broadband
+subscribers; mobile broadband was 930.41 million. Rural wireless mobile
+tele-density was 58.20%, against 124.75% in urban India. The local December
+2025 digital-access note records TRAI's later 1,028.6 million internet
+subscriber figure, 1,007.4 million broadband subscribers, 47.4 million wireline
+subscribers, 983.3 million wireless subscribers, and wireless ARPU of about
+Rs. 195 per month.[^digital-access]
+
+Those numbers are not a mandate to close libraries and open portals. They are a
+warning about the kind of user a portal silently selects. A billion
+subscriptions do not mean a billion autonomous readers. A SIM is not a person;
+a monthly "active internet user" can be someone who used the internet once in a
+month; a household phone is not a woman's phone; a mobile-data connection is
+not a quiet reading room; a JavaScript app is not a library service.
+
+| Measure | What the digital-success story says | What the library-access test asks |
+|---|---|---|
+| 1,083.14 million active wireless subscribers, July 2025 | India is connected | How many are individual readers with private, reliable access? |
+| 984.69 million broadband subscribers, July 2025 | Broadband is near-universal | How much is fixed, stable, document-grade broadband? Only 45.49 million was fixed wired broadband. |
+| 930.41 million mobile-broadband subscribers, July 2025 | Mobile solves access | Can a child, rural woman, disabled reader, or exam aspirant read, listen, print, cite, and return later on a shared phone? |
+| 58.20% rural wireless mobile tele-density vs. 124.75% urban, July 2025 | Rural India is on the network | Rural access remains thinner, more shared, and more fragile. |
+| 33.3% of women and 51.2% of men aged 15-49 ever used the internet, NFHS-5 India total | Internet adoption is rising | The public-library target population is precisely where autonomous use is lowest. |
+| 20.6% of ST women and 27.0% of SC women ever used the internet, NFHS-5 | Digital can scale | Caste and gender compound; the portal default user is not the Bahujan woman reader. |
+| 61% male vs. 31% female mobile-phone ownership, Oxfam India 2022 | Phones are widely available | Ownership, not household access, is the first condition of autonomous reading. |
+| Women's mobile-internet adoption in India at 37%; rural women 45% less likely than rural men to use mobile internet | Smartphones will carry the public library | Mobile internet itself is gendered; a phone-first reader strategy is not gender-neutral [@gsma_gender_gap_2024]. |
+| 75% upper-caste internet adoption vs. 38% Dalit and 28% Adivasi adoption; fixed broadband at home in 42% of upper-caste households, 8% of SC households, and 5% of ST households | "Online" reaches everyone equally | The home broadband reader is caste-stratified [@ceda_caste_digital_2025]. |
+| About one-quarter of ST adults do not use a phone at all; nearly half use a shared phone | Mobile-first is enough | Shared-phone access cannot carry a rights-bearing public library [@sprf_st_digital_2022]. |
+| Digital-literacy indicators are measured separately from simple connectivity in NSS survey instruments | Connectivity is capability | Digital literacy must be supplied or mediated by the service, not assumed as a precondition [@nsso_reading_2023]. |
+
+![NFHS-5 internet use by caste and gender, from the local Right to Read figure set. The average line is 33.3% for women and 51.2% for men; Scheduled Tribe women are at 20.6%, Scheduled Caste women at 27.0%, OBC women at 33.3%, and "general" caste women at 44.2%.](figures/india-internet-caste-nfhs5.png){#fig-caste-internet width=100%}
+
+This is where the UX review must stop being polite. A portal that assumes a
+stable device, JavaScript, private screen time, print control, sufficient
+bandwidth, a confident search vocabulary, and the ability to distinguish
+interface language from content language is not serving India in general. It is
+serving the already-addressable fraction of India. The "30-40%" intuition is
+therefore directionally right if the question is meaningful, autonomous access
+among the groups a public library must most care about: rural women, Dalit and
+Adivasi readers, low-wealth households, first-generation learners, children
+sharing family devices, and older or disabled readers who need mediation. It is
+wrong only if telecom subscriptions are treated as the same thing as a usable
+public reading environment.
+
+The Grammar of Refusal essay gives the right language for this. A state answer
+can refuse without saying "no" by moving the question into a register where the
+named gap disappears. In library policy, "we have a national digital portal" can
+perform that move. The child asks for a story in a language she can read; the
+portal offers a JavaScript app. The teacher asks for printable reading packs;
+the app blocks print shortcuts. The rural reader needs a place, device, and
+librarian; the state counts wireless subscriptions. The Dalit or Adivasi woman
+needs unmediated access; the metric counts household or SIM access. The
+procedure is the refusal.
+
+That does not make digital libraries useless. It defines their honest role.
+They can serve connected students, researchers, teachers, librarians, exam
+aspirants, and some children well. They can also support public institutions by
+supplying offline packs, printable shelves, audio, EPUBs, metadata, and local
+library workflows. But if they replace physical libraries, school libraries,
+public internet points, and human mediation, they convert a public-library
+promise into an elite access filter and call the excluded majority an adoption
+problem.
+
+[^digital-access]: TRAI July 2025 figures from *Highlights of Telecom
+Subscription Data as on 31st July 2025*, Press Release No. 83/2025, 29 August
+2025. December 2025 internet/broadband figures from the local digital-access
+note, which records TRAI 2026 summary figures. IAMAI/Kantar 2026 defines
+"active internet user" as at least one internet use in the past month. NFHS-5
+gender and caste figures come from the local Right to Read NFHS-5 figure set,
+which cites NFHS-5 India Report FR375, Table 3.6, p. 101. Mobile-phone
+ownership figures are from Oxfam India 2022.
+
+# NDLI IIT Kharagpur: Structured Repository, Weak Reader Path
+
+The NDLI homepage is not an empty shell. It is server-rendered HTML with a
+large navigational surface, a search box, language controls, institutional
+contact information, and a set of domain cards. The public metadata describes
+NDLI as a virtual repository of learning resources sponsored and mentored by
+the Ministry of Education through NMEICT, developed and maintained from IIT
+Kharagpur.[^ndli-source]
+
+![Saved NDLI homepage HTML rendered from disk. The page contains real public information and language/search controls, but the local rendering also shows how asset dependence and layered controls can collapse into a cluttered, low-guidance entry surface.](figures/ndl-local-html.png){#fig-ndli-local width=100%}
+
+NDLI's strengths are real. The homepage exposes domains for School Education,
+Higher Education, Research, Career Development, Cultural Archives, Newspaper
+Archives, Judicial Resources, Patents and Standards, and SWAYAM-linked skill
+development. The search control includes Indian-language choices. The footer
+and modal surfaces link to services that are recognizably library-facing:
+Institutional Registration, NDLI Club, IDR Hosting Service, IDL Service, a
+Digital Preservation Centre, a copyright guide for Indian libraries, feedback,
+and contact routes.
+
+That is not a random dump. It is a federated educational repository with
+institutional services around it.
+
+The problem is that the primary UX still behaves like a repository portal
+rather than a public library. The first burden is classification. A user who
+knows what they want should be able to type, search, filter, and read. On NDLI,
+the domain structure is pushed to the front. The live homepage JavaScript
+redirects search to `/_search?key=...`, but focusing the search field can also
+trigger a domain-selector modal when the modal message is absent. That is a
+classic flow break: a reader begins a search and the system asks them to choose
+the institution's frame first.
+
+The second burden is language. NDLI exposes multiple language mechanisms:
+interface translation, search/input language, and content-language facets. Each
+is useful. But they are not framed as distinct user tasks. For a Hindi, Bengali,
+Tamil, Urdu, or Assamese reader, the question is practical: "Will I see the
+site in my language? Can I type my query? Will I find content in that language?"
+Those are three different controls. NDLI's current presentation risks making
+the user infer the difference.
+
+The third burden is the mismatch between slogan and service. "One Library All
+of India" is an expansive public-library promise. But the observed service is
+closer to a single discovery window over learning resources, with institutional
+services attached. That can be valuable, especially to students, researchers,
+and institutions. It is not the same as a public library.
+
+Parliamentary material in the local corpus confirms the same institutional
+identity. In 2018, the Ministry described NDLI as a collaborator with global
+digital-library and heritage institutions: a 2017 workshop with UNESCO's
+regional cluster office and representatives from 13 countries; an MoU with the
+British Library for the Two Centuries of Indian Print Project; work with the
+European digital-library foundation; RightsStatements.org membership; and
+integration of sources such as OECD Library, PubMed, WHO, and publishers. That
+is the profile of a federated repository and heritage/education infrastructure,
+not a neighbourhood public-library substitute.
+
+The public-library gap is visible in what the interface does not foreground. It
+does not start from "I am in Class 8," "I need a Hindi story," "I have low
+vision," "I need an audiobook," "I want something I can print," "I am a teacher
+building a reading list," or "I am a district librarian setting up an offline
+reading shelf." The service has categories, but not enough reader guidance.
+
+[^ndli-source]: NDLI live homepage, `https://ndl.iitkgp.ac.in/`, fetched 25
+June 2026.
+
+## NDLI Heuristic Findings
+
+**Critical / major issue: search flow interruption.** A search box should not
+interrupt the user with a domain-choice modal at the moment of focus. Domain
+narrowing belongs after the query or alongside results.
+
+**Major issue: system model over user model.** The IA is organized around
+domains and resource classes. The main missing layer is task-based access:
+children, teachers, exam aspirants, researchers, disabled readers, librarians.
+
+**Major issue: language control ambiguity.** Interface language, search input
+language, and content language should be separated and labelled as such.
+
+**Major issue: insufficient public-library mediation.** NDLI has institutional
+services but does not strongly expose human guidance, local-library connection,
+reader advisory, accessible reading paths, or offline packs.
+
+**Strength to preserve.** The domain taxonomy, institutional service links,
+language affordances, preservation/hosting services, and feedback taxonomy are
+assets. The redesign should not flatten NDLI into a generic search page. It
+should put reader pathways over the existing structure.
+
+# Rashtriya e-Pustakalaya: Better Library Concept, Worse Public-Web Discipline
+
+Rashtriya e-Pustakalaya is conceptually sharper than NDLI. Its About component
+states that it was launched on 10 February 2024 by the Minister of Education
+Dharmendra Pradhan, sits under the Department of School Education and Literacy,
+and is designed for children and youth. The same component claims over 6500
+non-academic titles, more than 250 publishers, 23+ Indian languages and English,
+and formats including PDF, EPUB, text-to-speech, and audiobooks.[^rep-source]
+
+Those are the right nouns for a public reading library. Children, youth,
+non-academic books, languages, age bands, stories, PDF, EPUB, audio, and
+text-to-speech map onto real library needs far better than a generic national
+knowledge repository does. Its app source also shows a home-page model organized
+around popular books, books by language, newly added books, video books, books
+by age group, nursery rhymes, genre, authors, publishers, and recommendations.
+
+But the implementation contradicts the mission.
+
+The About route is JavaScript-only. Fetched as HTML, it returns the message
+"You need to enable JavaScript to run this app" and does not expose the About
+content. That is unacceptable for a public library. A public library's public
+pages should be readable by crawlers, assistive technology, locked-down school
+machines, low-end devices, and users on bad networks. JavaScript can enhance
+the experience. It cannot be the condition for basic public information.
+
+![Rashtriya e-Pustakalaya's saved About route rendered from the public HTML with JavaScript disabled. The only visible fallback is "You need to enable JavaScript to run this app."](figures/rep-about-nojs-local-html.png){#fig-rep-nojs width=100%}
+
+The second problem is more serious: the app source disables the browser context
+menu, blocks `Ctrl+P`, and uses a devtools-detection redirect to a warning page.
+This is a hostile pattern in a learning environment. A public library should not
+treat printing, quoting, saving, inspecting, or using browser tools as suspect
+behavior. If there are rights constraints, the service should express them
+through licensing, download rules, watermarking where appropriate, and clear
+terms. It should not break ordinary browser affordances.
+
+Blocking print is especially damaging. Indian reading contexts are hybrid:
+children share phones, teachers print pages, parents save stories for offline
+use, disabled readers use assistive workflows, and low-bandwidth users need
+fallbacks. A print block says that the service is optimized around app control,
+not reading.
+
+[^rep-source]: Rashtriya e-Pustakalaya public About route,
+`https://ndl.education.gov.in/about`, plus the public JavaScript bundle and
+source map linked by that route, fetched 25 June 2026. Numeric collection claims
+are treated here as site claims, not independently audited catalog totals.
+
+## Rashtriya e-Pustakalaya Heuristic Findings
+
+**Critical issue: no-JS public-page failure.** Public informational pages should
+render meaningful content without JavaScript.
+
+**Critical issue: anti-reader browser controls.** Disabling right-click,
+printing, and devtools conflicts with the public-library mission.
+
+**Major issue: app-first access model.** The service may work well as an app
+for users with capable devices, but public-library access must include web,
+offline, low-bandwidth, print, and assistive modes.
+
+**Major issue: engagement may displace service.** Routes for rewards,
+competitions, reviews, recommendations, and profiles may be useful, but they
+should not crowd out the basic library tasks: find, read, download, print,
+listen, cite, share with a class, and return later.
+
+**Strength to preserve.** The children/youth focus, age-band organization,
+language shelves, genre shelves, and multi-format ambition are exactly the
+right foundation for a national reader library.
+
+# The Combined Problem: India Has Portals, Not a Library Service Stack
+
+Read together, NDLI and Rashtriya e-Pustakalaya show a split. NDLI has the
+repository and institutional side. Rashtriya e-Pustakalaya has the reader side.
+Neither fully solves the public-library problem because neither is embedded
+enough in a national public-library service stack.
+
+A library stack is not a website. It is a set of institutional promises:
+
+- discovery: users can find what exists;
+- access: users can open, borrow, download, print, listen, or request;
+- guidance: users receive age, level, subject, language, and context help;
+- rights clarity: users know what they may do with the object;
+- accessibility: users can read in formats that work for them;
+- preservation: the record and object remain stable over time;
+- local mediation: teachers, librarians, schools, and local branches can use
+  the system with communities;
+- accountability: the public can see coverage, gaps, usage, licensing, and
+  collection policy.
+
+NDLI performs parts of discovery, preservation, and institutional connection.
+Rashtriya e-Pustakalaya performs parts of reader access and child-facing
+discovery. The missing middle is public-library mediation: the connection to
+India's district libraries, municipal libraries, school libraries, teachers,
+anganwadi systems, disability services, and community reading programs.
+
+The design implication is that "national digital library" should not be treated
+as a single surface. It should be treated as connected public infrastructure.
+
+The Ambedkarite conclusion is that "portal first" is not a neutral technical
+choice. It chooses the already-addressable user as the default public and turns
+the Bahujan, rural, disabled, poor, and phone-sharing reader into an exception
+to be handled later. That is the governing-class UX pattern: service design
+starts from the administratively legible, device-owning user, then calls the
+excluded majority an adoption problem.
+
+The NDLI/ReP split is therefore not merely a product-management problem. NDLI
+refuses the reader's register by asking a readerly question to pass first
+through repository categories. ReP refuses public-web access by making even its
+About route a JavaScript app shell and by blocking ordinary reader actions such
+as printing. In both cases the institution can truthfully say that a digital
+library exists. What it cannot honestly say is that the design has carried the
+reader across the access gap. The gap is being administratively relocated from
+the state to the user.
+
+# Public Digital Library Models Worth Studying
+
+The comparison set below is not a ranking. The models have different legal and
+institutional mandates. They are useful because each solves one part of the
+library problem better than the Indian services currently do.
+
+## Trove: Discovery Plus Physical Library Connection
+
+Trove, maintained by the National Library of Australia, describes itself as a
+free, always-online service for searching collections from Australian
+libraries, universities, museums, galleries, and archives.[^trove] It brings
+together digital copies and physical holdings. Crucially, it also points users
+toward options for viewing physical items, including library loans. Trove also
+foregrounds community contribution through Voluntroves, API and bulk-download
+options, help for downloading, printing, citing, and culturally specific
+guidance around First Australians content.
+
+The lesson for India is that national discovery should not float above the
+library system. It should connect digital objects, physical holdings, local
+service, community correction, and reuse.
+
+[^trove]: Trove About, National Library of Australia,
+`https://trove.nla.gov.au/about`.
+
+## Europeana: Aggregation as Public Data Infrastructure
+
+Europeana gives access to Europe's digital cultural heritage through a network
+of aggregators and providing institutions. Its public About page lists item
+counts by media type and says it displays digital cultural heritage from over
+2,000 European providing institutions. Europeana Pro describes the wider
+infrastructure: data providers, aggregators, APIs, the common European data
+space for cultural heritage, reuse, accessibility, and metadata quality.[^europeana]
+
+The lesson for India is that aggregation is a discipline. It requires metadata
+standards, rights statements, provider accountability, APIs, reuse policy, and
+capacity-building for institutions. Without that discipline, aggregation becomes
+a dump.
+
+[^europeana]: Europeana About, `https://www.europeana.eu/en/about-us`;
+Europeana Pro mission, `https://pro.europeana.eu/about-us/mission`.
+
+## DPLA and Palace: Library Control Over Digital Lending
+
+The Digital Public Library of America describes two linked functions: making
+millions of materials from libraries, archives, museums, and cultural
+institutions available in a one-stop discovery experience, and providing a
+library-controlled marketplace/platform for ebooks and other e-content.[^dpla]
+The Palace Project, supported by Lyrasis in strategic partnership with DPLA,
+frames its goal as strengthening the public library as the digital center of
+the community, giving libraries more direct patron relationships, greater
+control over e-content acquisition and delivery, publisher advocacy, and patron
+privacy.[^palace]
+
+The lesson for India is governance. Digital reading should not be reduced to a
+central app. Public libraries need institutional control over collections,
+patron relationships, privacy rules, and community service.
+
+[^dpla]: DPLA About, `https://dp.la/about`.
+
+[^palace]: The Palace Project About, `https://thepalaceproject.org/about/`.
+
+## Libby: Excellent Reader UX, Proprietary Governance
+
+Libby shows what a polished public-library reading app can feel like. It links
+borrowing to a library card, supports ebooks, audiobooks, magazines, offline
+downloads or streaming, holds notifications, tags, font/layout/lighting
+customization, notes, highlights, and audiobook controls.[^libby]
+
+The governance model is proprietary and should not be copied uncritically. But
+the UX patterns matter. A reader library must make the first task easy: find
+your library, sign in if needed, borrow or open, download for offline use, and
+read or listen in a comfortable format.
+
+[^libby]: Libby / OverDrive app page,
+`https://www.overdrive.com/apps/libby`.
+
+## National Library of Norway: Rights-Aware National Digitization
+
+The National Library of Norway states that it is digitizing its entire
+collection; the digitization programme began in 2006 and was estimated to take
+20-30 years. Its digital access page says the digital library contains most
+books published in Norway, plus newspapers, periodicals, manuscripts, recorded
+music, and other cultural-heritage objects. Access depends on copyright,
+location, and purpose: public-domain material can be available to everyone,
+agreement-covered copyrighted material can be available under conditions such
+as Norwegian IP access, and the full digital collection can be available on
+premises for research/documentation.[^norway]
+
+The lesson for India is legal clarity. A serious national digital library needs
+legal deposit, digitization policy, rights agreements, on-premise access rules,
+research access, public-domain downloads, and stable identifiers. "Everything
+online" is not a policy. A rights-aware access model is.
+
+[^norway]: National Library of Norway, "Digitizing at the National Library,"
+`https://www.nb.no/en/digitizing-at-the-national-library/`; "Access to the
+National Library's digital library," `https://www.nb.no/en/digital-access/`.
+
+## Open Library and Project Gutenberg: Open Records and Low-Friction Text
+
+Open Library's goal is one web page for every book ever published. It states
+that it has gathered over 20 million records and that its software, data, and
+documentation are open.[^openlib] Project Gutenberg is narrower and simpler:
+more than 75,000 free ebooks, free and always free.[^gutenberg]
+
+The lesson for India is that some layers should be radically simple. Public
+domain Indian-language texts, open government publications, children's books
+with open licenses, and basic bibliographic records should not require heavy
+apps, accounts, or portal navigation.
+
+[^openlib]: Open Library About, `https://openlibrary.org/about`.
+
+[^gutenberg]: Project Gutenberg About, `https://www.gutenberg.org/about/`.
+
+## StoryWeaver: A Strong Indian Reference Model for Open Children's Reading
+
+StoryWeaver from Pratham Books is a useful Indian comparator, but it should not
+be overstated as a complete public-library model. Its own About page describes
+it as a digital gateway to thousands of richly illustrated, open-licensed
+children's stories in mother-tongue languages. It says users can read, create,
+translate, and download stories, and that stories are available as
+web-resolution PDF, A4 print-ready PDF, and EPUB. Its open-content page states
+that StoryWeaver stories and illustrations use the CC BY 4.0 license. Its FAQ
+adds the important operational qualification: StoryWeaver is not itself usable
+without internet access, but users can download stories while online and then
+read them later or print them.[^storyweaver]
+
+The lesson for Rashtriya e-Pustakalaya is therefore narrower than "copy
+StoryWeaver." At the children's-reading layer, StoryWeaver is a strong Indian
+reference for open licensing, multilingual story discovery, translation and
+re-levelling workflows, printable PDFs, EPUB, and downloaded/offline use of
+individual stories. It does not solve the whole public-library problem:
+institutional distribution, disability-first formats, privacy, collection
+governance, and integration with public libraries and schools still need a
+separate public-service design.
+
+[^storyweaver]: Pratham Books StoryWeaver About,
+`https://storyweaver.org.in/en/about`; StoryWeaver Open Content,
+`https://storyweaver.org.in/en/open-content`; StoryWeaver FAQs,
+`https://storyweaver.org.in/en/faqs`.
+
+## Bookshare: Accessibility as Collection Infrastructure
+
+Bookshare describes itself as an accessible ebook library for people who cannot
+read traditional books. It reports over 1.4 million titles, accessible formats,
+over 40 languages, and partnerships with over 1,000 publishers.[^bookshare]
+
+The lesson for India is that accessibility cannot be an afterthought. If a
+digital library claims text-to-speech or support for disabled readers, it needs
+an actual accessible-collection policy: EPUB quality, screen-reader testing,
+DAISY or equivalent navigation where needed, alt text, structured text, audio
+quality, and a clear route for print-disabled users.
+
+[^bookshare]: Bookshare "Who we are," `https://www.bookshare.org/who-we-are`.
+
+# Design Direction for India
+
+The worst design move would be to merge everything into a larger portal. India
+should instead define four layers and connect them through shared identity,
+metadata, rights, and local-library interfaces.
+
+## Layer 1: Reader Library
+
+This is the public-facing reading service. Its primary users are children,
+parents, teachers, new readers, and general public readers.
+
+Minimum standard:
+
+- works without JavaScript for public pages;
+- low-bandwidth mode;
+- no login for open/free/public-domain material;
+- clear age bands and reading levels;
+- content language, interface language, and input language separated;
+- PDF, EPUB, audio, and TTS where rights allow;
+- print and offline download supported rather than blocked;
+- curated shelves by age, language, theme, school use, and reading level;
+- accessible reader controls: font size, spacing, contrast, audio speed, notes,
+  bookmarks, and resume.
+
+Rashtriya e-Pustakalaya should own this layer, but it needs public-web
+discipline and should borrow specific patterns from StoryWeaver's open-license,
+translation, printable, and downloaded-reading model, and from the reader UX of
+Libby.
+
+## Layer 2: Scholarly Repository
+
+This is the search and research layer. Its primary users are higher-education
+students, researchers, exam aspirants, teachers, and institutions.
+
+Minimum standard:
+
+- powerful search and filters;
+- stable item pages;
+- citation export;
+- metadata provenance;
+- content provider identity;
+- subject and discipline facets;
+- full-text search where possible;
+- clear rights and access conditions;
+- APIs for institutional reuse.
+
+NDLI is closest to this layer. It should stop carrying the entire "one library"
+promise and instead become excellent at repository discovery, academic search,
+and institutional integration.
+
+## Layer 3: Public Library Network Layer
+
+This is the missing layer. It connects digital content to actual public
+institutions.
+
+Minimum standard:
+
+- every district and municipal library has a public profile;
+- branch hours, services, internet availability, accessibility, staff, events,
+  and holdings are visible;
+- librarians can create local shelves and QR reading lists;
+- teachers can create class reading packs;
+- district systems can download offline packs;
+- users can find nearby physical libraries and know what they can do there;
+- public usage data is published in a standard format.
+
+This is where India's current digital library strategy is weakest. Without it,
+the national platform becomes a content surface above a broken local network.
+
+## Layer 4: Preservation and Rights Layer
+
+This is the national-memory layer.
+
+Minimum standard:
+
+- legal-deposit strategy for digital publications;
+- digitization standards;
+- persistent identifiers;
+- public-domain download policy;
+- rights statements on every item;
+- research/on-premise access for restricted works;
+- institutional hosting and preservation services;
+- metadata exports and APIs;
+- audit trails for takedowns, corrections, and rights changes.
+
+NDLI's IDR, IDL, and Digital Preservation Centre point in this direction, but
+the layer should be explicit and accountable.
+
+# Product Recommendations
+
+The first 90 days should be surgical.
+
+1. Remove ReP's right-click, print-shortcut, and devtools blocks.
+2. Server-render ReP's About, FAQ, guide, catalog landing, and collection-policy
+   pages.
+3. Separate language controls across both services: interface language, content
+   language, and input/script helper.
+4. Stop interrupting NDLI search focus with a domain-selector modal.
+5. Add task-based entry points to NDLI: school student, child reader, teacher,
+   researcher, exam aspirant, librarian, accessible reader.
+6. Publish a rights label on every readable item: read online, download,
+   print, share, classroom use, public domain, open license, restricted.
+7. Add low-bandwidth and print/offline flows to the reader library.
+8. Publish accessibility statements and test results for both services.
+9. Create librarian and teacher toolkits: printable reading lists, QR shelves,
+   offline packs, local-language campaign templates.
+10. Publish service metrics: collection by language, age band, format, rights
+    status, accessibility status, and usage.
+11. Publish digital-exclusion metrics beside usage metrics: no-login items,
+    public-domain downloads, printable items, audio/EPUB coverage, low-bandwidth
+    page weight, public-library access points, and use through schools or
+    libraries rather than only individual accounts.
+12. Publish an access-prerequisites statement for every major workflow: whether
+    it works without JavaScript, whether it works on low-end phones, whether it
+    works on a shared device without exposing reading history, approximate page
+    weight/data cost, printability, downloadability, and whether a librarian or
+    teacher can mediate it for a reader with low digital literacy.
+13. Report equity of use rather than only volume of use: language, rural/urban
+    geography, school/library mediated use, disability format, and outreach
+    through SC/ST/OBC, minority, and girls' education institutions where data
+    collection can be done without surveillance or stigma.
+14. Treat branch libraries, school libraries, panchayat reading rooms, and
+    disability services as distribution infrastructure, not as "outreach" after
+    the portal is built.
+
+The next 12 months should define the institutional stack:
+
+- NDLI as scholarly repository and institutional services layer;
+- Rashtriya e-Pustakalaya as national reader library;
+- a new public-library network layer tied to state, district, municipal, and
+  school libraries;
+- a preservation/rights layer with legal-deposit and digitization policy.
+
+# Conclusion
+
+The question is not whether NDLI or Rashtriya e-Pustakalaya contains useful
+content. They do. The question is whether they serve library needs.
+
+NDLI serves some library needs of students, researchers, and institutions. But
+it is not yet a public library in the civic sense. Its strength is structured
+aggregation; its weakness is that it makes readers meet the repository halfway.
+
+Rashtriya e-Pustakalaya is closer to the public-reading mission, especially for
+children and Indian-language reading. But a public library cannot be a
+JavaScript-only app shell that blocks print. Its mission and implementation are
+currently at odds.
+
+A library is not a content dump. It is a public arrangement that makes reading
+possible for people who would otherwise be excluded from it. India's digital
+library strategy should be judged by that standard. On that standard, NDLI is a
+real repository but not yet a public library; Rashtriya e-Pustakalaya has a
+stronger reader mission but currently violates public-web discipline; and the
+combined state strategy serves connected Indians first unless it is anchored in
+libraries, schools, offline access, accessible formats, and the social question
+Ambedkar forces us to ask: who is being made capable of reading?
+
+# Data and Code Availability {.unnumbered}
+
+This paper is a heuristic UX review; its evidence base is the saved public HTML and source artefacts of the National Digital Library of India and Rashtriya e-Pustakalaya, NFHS-5 digital-access figures, and the parliamentary record on NDLI. The review rubric and the per-portal evaluation are deposited as the derived artifacts in the Right to Read working-paper series' Open Science Framework (OSF) project, with any analysis code archived for a citable, versioned DOI on Zenodo (DOIs to be assigned at public release). The reviewed portals and primary documents are cited to their own locations rather than re-hosted here. The deposited derived material is released under CC-BY-4.0 and any analysis code under the GNU Affero General Public License v3 (AGPL-3.0).

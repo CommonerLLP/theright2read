@@ -1,0 +1,463 @@
+---
+# Body only — paper-level metadata lives in ../../_shared/papers.toml
+bibliography: ../../_shared/references.bib
+format:
+  pdf:
+    output-file: "RTR-WP-003-body.pdf"
+    documentclass: article
+    classoption: [11pt, a4paper]
+    geometry: [top=20mm, bottom=20mm, left=28mm, right=28mm]
+    pdf-engine: lualatex
+    number-sections: true
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    colorlinks: false
+    linkcolor: "black"
+    urlcolor: "black"
+    citecolor: "black"
+    include-in-header: ../../_shared/body-preamble.tex
+    header-includes: |
+      \usepackage{tabularx}
+      \usepackage{setspace}
+      \onehalfspacing
+      \usepackage{float}
+      \floatplacement{figure}{!htbp}
+      \floatplacement{table}{!htbp}
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Introduction
+
+```{python}
+import sys, os
+_HERE = os.path.dirname(os.path.abspath('paper_2_mechanisms.qmd'))
+sys.path.insert(0, os.path.join(_HERE, '..', '..', '..', '..', 'spend'))
+from spend_data import *
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import matplotlib.ticker as ticker
+from matplotlib.patches import FancyBboxPatch
+import numpy as np
+
+mpl.rcParams.update({
+    'font.family': 'serif',
+    'font.serif': ['STIX Two Text', 'TeX Gyre Termes', 'Times New Roman',
+                   'DejaVu Serif'],
+    'mathtext.fontset': 'stix',
+    'font.size': 9.0,
+    'axes.titlesize': 10.0,
+    'axes.titleweight': 'normal',
+    'axes.labelsize': 9.0,
+    'xtick.labelsize': 8.0,
+    'ytick.labelsize': 8.0,
+    'legend.fontsize': 8.0,
+    'legend.frameon': False,
+    'axes.spines.top': False,
+    'axes.spines.right': False,
+    'axes.linewidth': 0.5,
+    'axes.edgecolor': '#333333',
+    'xtick.major.width': 0.5,
+    'ytick.major.width': 0.5,
+    'xtick.major.size': 3.0,
+    'ytick.major.size': 3.0,
+    'xtick.color': '#333333',
+    'ytick.color': '#333333',
+    'grid.linewidth': 0.4,
+    'grid.alpha': 0.22,
+    'grid.color': '#aaaaaa',
+    'lines.linewidth': 1.6,
+    'figure.dpi': 150,
+    'savefig.dpi': 300,
+    'savefig.bbox': 'tight',
+})
+
+C_INK, C_BLUE, C_RED, C_GREY = '#0e0e0e', '#1936a8', '#dc2a14', '#888888'
+```
+
+The Centre's expenditure on the public-library function in India fell 65% in nominal terms between FY 2017–18 and FY 2022–23. The principal Central transfer to public libraries — the Government of India's annual Grant-in-Aid to the Raja Rammohun Roy Library Foundation (RRRLF), an autonomous body under the Ministry of Culture established by Act of Parliament in 1972 — fell from ₹76.7 cr in FY 2017–18 (its decade peak) to ₹27.1 cr by FY 2022–23. The flagship "Development of Libraries and Archives" budget head under the Ministry of Culture, which housed the National Mission on Libraries (NML, launched under the 12th Plan in 2012), recorded a Budget Estimate of ₹118.51 cr for FY 2019–20 [@sc277, p. 14, para 57] but a Revised Estimate of ₹0.73 cr in the same year [ibid.] — a 99.4% within-year cut. The matching-book scheme, RRRLF's flagship instrument for state library bodies, fell from 21 participating states in FY 2018–19 to six in FY 2022–23.
+
+A natural reading of such a contraction is that public libraries lost out to competing claims on a constrained fiscal envelope — the routine attritional politics of social-sector budgeting in a constrained federation. This paper argues that the contraction has a more specific institutional structure than the attritional reading allows. On a close reading of the parliamentary record, the post-2016 collapse is the operational signature of a particular procedural sequence — initiated by the Cabinet-ratified rationalisation of Centrally Sponsored Schemes in August 2016, executed through three downstream institutional failures over the FY 2017–18 → FY 2020–21 budget cycles, and still running in modified form into the Sixteenth Finance Commission award cycle. The sequence has four named mechanisms. None is hidden. Each is documented in the 245th, 258th, 264th, 277th, 310th, 328th, and 382nd Reports of the Department-related Parliamentary Standing Committee on Transport, Tourism and Culture, the body that scrutinises the Ministry of Culture's Demands for Grants annually. What the standing committee records, the Ministry has not contested; it has, in several instances, supplied the language.
+
+We name the chain in four steps.
+
+**Mechanism 0 — Categorisation.** In October 2015 the Sub-Group of Chief Ministers on Rationalisation of Centrally Sponsored Schemes, chaired by then-Madhya Pradesh CM Shivraj Singh Chouhan, submitted to the Prime Minister a report defining a binary classification of CSS into Core and Optional categories [@chouhan_subgroup_2015]. Core eligibility was confined to ten sectors of the "National Development Agenda for VISION 2022." Public libraries appear in none of them. Para 4.11.2 of the Chouhan report defines the Optional category by residual: *"All non-Core Schemes would be Optional Schemes."* The Cabinet ratified the recommendations on 3 August 2016 [@cabinet_chouhan_2016]. From FY 2017–18, Optional schemes were funded by lump-sum allocation to states from the Ministry of Finance, with states "free to choose which Optional Schemes they wish to implement." NML, classified Optional by residual, lost the ring-fenced Centre-State matching architecture that had carried its disbursement through the 12th Plan period. This is the upstream cause.
+
+**Mechanism 1 — Scheme sunset and nominal renewal.** With matching ring-fencing extinguished, NML proceeded as a Centrally Sponsored Scheme on paper but with no matching obligation in fact. The BE/RE/Actual divergence visible in the parliamentary record over FY 2017–18 → FY 2020–21 is the operational signature: the Ministry continued to budget for NML at rising BE levels (₹52.01 cr → ₹99.81 cr → ₹118.51 cr) and then progressively zeroed out the RE and the Actual. At the FY 2019–20 RE stage the Ministry declined renewal: *"the National Mission on Libraries is complete now and the scheme is not extended beyond March 2020"* [@sc277, p. 14, para 57]. Two years later, RS #310 records a nominal 5-year extension to 31.03.2026 [@sc310, p. 7, para 30]. The disbursement series does not recover.
+
+**Mechanism 2 — State-side non-submission of matching proposals.** The NML Model Libraries component, a 75:25 Centre-State matching scheme (90:10 for Northeast states) intended to upgrade 35 State Central Libraries, 35 District Libraries, and six Ministry of Culture libraries, required state-side proposal submission to trigger Centre-side disbursement. By March 2020, eleven states/UTs had not submitted [@sc277, p. 14, para 56]. One-third of states/UTs declined to engage with the matching architecture even on the favourable terms.
+
+**Mechanism 3 — Centre-side procedural non-action.** Where state-side proposals did arrive, the Grants Committee on the Centre side did not convene to sanction them. The Ministry's own written reply, recorded by the standing committee: *"non-convening of meeting of Grants Committee, slow pace of expenditure under Capital and non-finalization of tender for digitization of archival records"* [@sc277, p. 14, para 49].
+
+We document these four mechanisms (§3), read the Kerala State Central Library two-stream divergence as the documentary trace of how the policy moment registered at the recipient end (§4), survey the cess-state comparative pattern that shows why only Tamil Nadu's institutional design produced durably-rising real per-capita expenditure (§5), update the trajectory through to the FY 2023–24 Central Nodal Agency disruption and the forthcoming Sixteenth Finance Commission successor scheme (§6), and close on the selective-retreat reading: the Ministry of Culture's withdrawal from public-library architecture was concurrent with the Ministry of Education's expansion of school-library architecture under Samagra Shiksha and NIPUN Bharat over the same window (§7). The historical-analytical aim across these sections is not to establish a causal chain but to identify the structural conditions of possibility — categorical, institutional, administrative — under which a particular form of state withdrawal from one constituency, and redirection toward another, became enactable in the Indian policy regime as procedure rather than as reversal.
+
+## What this paper claims and does not claim
+
+This paper is a *historical-institutional reconstruction*, situated within three overlapping traditions of Indian political-economy and anti-caste scholarship. The first is the structural critique of post-1991 Indian neoliberalism, developed most systematically in the work of @chandrasekhar_ghosh_2002 on the fiscal-federal reorganisation and social-sector compression that followed the reform period, and extended in @patnaik_patnaik_2017's account of the income-deflation logic by which global-South states are structurally constrained to suppress claims on public expenditure from constituencies outside the formal-organised pipeline. The second is the institutional analysis of Indian state-society configurations developed in @chatterjee_2004's distinction between civil society and *political society*, and in the longer-arc readings of state-capital arrangements offered by @bagchi_2005 and @kaviraj_2010. The third — analytically foundational for any reading of reading-rights in India — is the anti-caste tradition that has, since Phule's *Gulamgiri* (1873), through Iyothee Thass, Periyar, and Ambedkar, and now extended by @teltumbde2018republic to the post-1991 neoliberal-Hindutva conjuncture, named the Right to Read as the foundational anti-caste right against the millennia-long inheritance of caste-coded textual exclusion. The fourth, which this paper introduces to the library-policy domain, is the sociological analysis of the "Information Age" and its specific Indian refutation. We synthesize @castells1996rise's account of the shift from the "space of places" to the "space of flows" with @cody2013light's documentation of India's vernacular "print exceptionalism" and his concept of the **"pedagogic state."** We argue that the state used the global rhetoric of the network society as an intellectual alibi to abandon the **pedagogic responsibility** of maintaining a physical reading commons precisely at the moment of a historic Bahujan print boom. The paper draws on these traditions: it reads the four-mechanism procedural sequence as a specific historical-institutional event whose intelligibility depends on the structural account these literatures supply, while the structural account in turn gains traction from the documentary precision the parliamentary record permits. Where the present argument differs from the broader literature is in the level of resolution — the case shows what the structural logic looks like at the granularity of named Cabinet decisions, dated budget-cycle stages, and identified line items in standing-committee reports.
+
+The argument the paper offers is procedural-historical and structural-sociological in equal measure. The procedural-historical claim is that a specific administrative sequence is reconstructable from the parliamentary record. The structural-sociological claim is that the sequence is intelligible as the redirection of state library-policy capacity along a documentable constituency line — away from the adult non-school public-library function (whose users have historically included first-generation learners, exam aspirants from Dalit and Adivasi households, women without access to paid private reading rooms, and the rural elderly) and toward the school-library and digital-library architectures whose users sit inside the formal-education pipeline and the National Development Agenda's stated priorities. The two claims are mutually reinforcing: the procedural mechanism reconstructs the *how*; the constituency reading places the *why* of the choice within the longer arc of post-1991 Indian state-society arrangements. Read alongside the literatures named above, the four-mechanism account is one institutional trace of a broader structural pattern; read alone, it is a forensic reconstruction of how a Centrally Sponsored Scheme dies. The two readings are compatible and the paper offers both.
+
+The evidentiary base of this reconstruction is the parliamentary record of the Department-related Parliamentary Standing Committee on Transport, Tourism and Culture for the 2017–2026 period; the Raja Rammohun Roy Library Foundation's Annual Reports (44th–51st); the Chouhan Sub-Group Report and the Cabinet decision ratifying it; and the Action Taken Reports through RS #382 (February 2026). The structural readings draw on the published critique cited above; the procedural reconstruction is original to this paper.
+
+Three things this paper does *not* do, taken up in companion papers in this series:
+
+- The measurement methodology that produces the 42% real-terms fall headline is documented in the companion paper *A Consolidated Real Per-Capita Series for Public Library Expenditure in India, 2014–15 to 2024–25*. We treat the consolidated series as a primitive here, citing it where the parliamentary record needs the budget-data interpretation.
+- The cost-engineered policy alternative to the Centre's retreat — a state-government-led convergence model toward a Tamil-Nadu-equivalent real per-capita expenditure by 2035 — is the subject of the forthcoming companion paper *A 2035 Convergence Model for State Public Library Expenditure in India*.
+- The distributional incidence of the contraction across caste, gender, quintile, and rural–urban groups, and the anti-caste-reading historical lineage of the public-library institution, is the subject of the forthcoming companion paper *The Infrastructure of Demography: Public Libraries, Foundational Learning, and the Anti-Caste Tradition*.
+
+## Limitations
+
+Four limitations stated up front. *First*, the parliamentary record we use is restricted to the Department-related Standing Committee on Transport, Tourism and Culture — the body that scrutinises the Ministry of Culture's Demands for Grants. Decisions taken inside the Ministry but not surfaced in standing-committee replies are outside our evidentiary reach. *Second*, the Department of Expenditure Office Memorandum that operationalised the Optional-category classification at the bureaucratic level, and the Cabinet / Expenditure Finance Committee instrument that extended NML to 31.03.2026, were not located in the parliamentary corpus and remain open verification items. *Third*, the cross-state CSS-stream pattern is documented for Kerala alone via RS #328's stream-disaggregated annexure; generalising the Kerala-SCL CSS-zero pattern to a national series requires separate primary-source work not undertaken here. *Fourth*, FY 2023–24 RRRLF disbursement actuals are not yet published; we describe the CNA-account friction documented in RS #382 (Feb 2026) but cannot quantify its magnitude.
+
+The structural finding — a four-mechanism CSS-collapse chain dated to the 2016 Cabinet ratification — is robust to all four limitations; the limitations bear on the precise operational details, not on the institutional account.
+
+# The institutional baseline
+
+The Centrally Sponsored matching architecture that the 2016 Cabinet decision dismantled had carried public-library funding for forty-four years. To read its dismantling as an isolated procedural event is to miss the longer institutional history it was embedded in.
+
+The institutional history that follows is set against a longer historical background in which the Right to Read has been, for most of recorded Indian history, a caste-coded right. Brahminical orthodoxy reserved textual literacy in the Sanskrit-Pali corpus to specific castes; Shudra and Ati-Shudra populations were structurally excluded from textual learning, with prescribed sanctions, in the canonical texts of the dharmic tradition, for violation of the exclusion. The colonial period introduced English-medium administrative literacy as a partial disruption of the Brahmin monopoly but did not undo the underlying caste-coded structure of knowledge access; missionary schools and the gradual expansion of vernacular print produced individual exits without producing institutional library infrastructures accessible to the populations Brahminical exclusion had locked out for millennia. The anti-caste reform tradition has been the consistent counter-thread that named the Right to Read as the foundational anti-caste right: Jotirao Phule's argument in *Gulamgiri* (1873) for the emancipatory function of universal education; the late-nineteenth-century Tamil reading societies and printing presses of Iyothee Thass and his successors; the Adi-Hindu Mahasabha's vernacular-Hindi song-booklet and chapbook circuit that Rawat has recovered as the early-twentieth-century Dalit public sphere [@rawat2024dalitpublic]; Periyar's library movement and the Self-Respect Movement's investment in literacy infrastructures across mid-twentieth-century Madras Presidency; B. R. Ambedkar's lifelong insistence — bibliographically registered in his personal library at Rajgruha and politically registered in *Annihilation of Caste* (1936) — that the cultivation of the intellect is the precondition of political emancipation [@ambedkar1936annihilation]. @teltumbde2018republic has extended this counter-tradition to the post-1991 period, reading the contemporary conjuncture as a neoliberal-Hindutva complex that consolidates caste hegemony through the procedural dismantling of redistributive institutional arrangements — a frame within which the public-library function is one specific site of dismantling among several. Read against this longer history, the post-Independence institutional commitment to a public-library function is an institutional carrier of the anti-caste counter-tradition. Reading the post-1972 history of RRRLF without the longer history of caste-coded textual exclusion misses the political-historical weight of what each institutional decision was inheriting.
+
+The normative ground for treating the public library as constitutive infrastructure rather than supplementary amenity is given in the political-philosophical tradition that the anti-caste counter-tradition culminates in. Ambedkar, who studied under John Dewey at Columbia between 1913 and 1916, defined democracy in *Annihilation of Caste* — almost verbatim from Dewey's *Democracy and Education* (1916) — as "primarily a mode of associated living, of conjoint communicated experience" [@ambedkar1936annihilation; @dewey1916democracy]. The formulation is Dewey's; the use Ambedkar puts it to is anti-caste. Where Dewey emphasised communicated experience as the substance of democratic life, Ambedkar locates the same substance in the Buddhist register of *maitri* — the first of the Four Sublime States in the Buddhist ethical tradition, conventionally rendered as fellowship without barriers of caste, gender, or birth. Maitri is Ambedkar's translation of the French revolutionary *fraternité* into an Indian framework freed from its specifically Christian-European origins and rooted instead in the Buddhist ethics of association that he developed across his life and codified in *The Buddha and His Dhamma* [@stroud2023pragmatism]. On this reading, a robust, active, inclusive, non-discriminatory public library network is not an aid to democratic citizenship but one of its constitutive material infrastructures — a public space organised around the conjoint use of shared knowledge, accessible without market mediation and without the caste-coded gatekeeping that structures most other institutional sites in Indian society. The library is one specific material form of the architecture of associated living that the anti-caste tradition has named as foundational since Phule.
+
+The Raja Rammohun Roy Library Foundation was established by Act of Parliament in 1972 — a high-Indira-period instance of the developmental-state's commitment to cultural-developmental infrastructure as a category alongside, not subordinate to, agricultural-developmental and industrial-developmental infrastructure. The founding is contemporary with the establishment of several institutions whose institutional logic was similar: the National Book Trust's expansion in the late 1960s, the establishment of the Sahitya Akademi's translation programme, the Indian Council of Social Science Research's regional documentation centres, and the broader Plan-period coordination of cultural-developmental schemes under successive Five Year Plans. What unites this institutional cohort is a particular reading of the developmental state's responsibilities — that the cultivation of a public reading capacity, distributed across the federation and accessible without ability-to-pay, is part of what the state is *for*. The institutional architecture this reading produced — autonomous central bodies disbursing matching grants to state institutions, with the matching structure ring-fencing Centre-side commitment from year-on-year reallocation — was characteristic of a specific phase of Indian state-formation in which the developmental commitment was institutionally encoded as a structural-fiscal arrangement, not as a discretionary annual choice [@bagchi_2005; @kaviraj_2010].
+
+RRRLF's instruments through the 8th, 9th, 10th, and 11th Plan periods (1992–2012) extended this architecture: the matching-book scheme (a 60:40 and later 75:25 Centre-State arrangement under which the Centre matched state purchases of books and reading material on a rupee-for-rupee basis subject to the matching ratio), building grants for libraries in eligible districts, storage and furniture support, and special grants for North-east and Tribal-Sub-Plan areas. Through this period, RRRLF's GoI grant grew in tandem with the broader social-sector envelope; the matching architecture functioned as a relatively low-friction Centre-State coordination mechanism whose principal failure mode was state-side under-utilisation, not Centre-side withdrawal. The post-1991 fiscal-federal reorganisation, with its progressive untying of Centre-to-state transfers and the compression of plan-period social-sector schemes documented in @chandrasekhar_ghosh_2002, did not initially threaten the matching ring-fence on cultural-developmental infrastructure; the structural-fiscal logic of the 1972 institutional commitment outlasted the broader untying as a residual arrangement that the reform period left intact. The 2016 dismantling is therefore a *delayed* extension of the post-1991 logic into a domain that had remained protected through the first two decades of the neoliberal-fiscal regime, not a sudden departure from it. Read this way, the rupture is intelligible: the matching ring-fence on public-library funding was one of the last pre-1991 structural-fiscal commitments to be dismantled, and its dismantling completes a longer pattern that the broader literature has documented for other social-sector heads.
+
+The period that bears most directly on the present argument is the decade of UPA-era rights legislation, 2005–2014. Over this decade the Indian state codified statutory rights for information (RTI 2005), employment (NREGA 2005), forests (FRA 2006), education (RTE 2009), food (NFSA 2013), and land-acquisition compensation (LARR 2013) — a rights-based architecture without precedent in the country's post-Independence history. The institutional ambition was real and its consequences in the domains covered were substantial. What the architecture did not include — and what the present argument suggests was its analytically consequential absence — was the public library as the connective material infrastructure that would have made each of these rights more effectively exercisable by the populations they were designed for. RTI is a demand-driven right: an information request requires a literate citizen who knows what to ask for, can read the response, and can act on it. @aga_choudhury_2018_rti document the systematic advantage that prior civic capacity confers on RTI users in their ethnographic study of the Act's implementation, and the corresponding disadvantage of populations the Act was intended to empower. FRA claims require legal literacy, paralegal support, and Gram Sabha activation across forest-fringe districts. RTE secures classroom enrolment but not the after-school, vacation, or post-drop-out continuity of reading on which retention depends. NFSA entitlement and ICDS uptake are mediated by maternal literacy and rights-awareness. The institutional architectures that would have served the demand-side of each of these rights — robust panchayat-level libraries, district-level paralegal-plus-reading-room infrastructures, school-attached community libraries serving learners across the formal-school boundary — were not built. @dreze_sen_2013 make a related point at higher abstraction: India's rights-based architectures depend on civic capacity that the architecture itself does not supply, and the institutional infrastructures of public action have not been built to scale. The public library is one of those infrastructures, and one that the millennia-long anti-caste counter-tradition has explicitly named as foundational. The UPA-era rights architecture did not name it.
+
+The most concrete instance of the missed connection is the eligible-asset list of the Mahatma Gandhi National Rural Employment Guarantee Act. MGNREGA permits asset-construction work on rural public infrastructure including community buildings. A panchayat library — a single-room pucca structure, approximately four hundred square feet, brick-and-mortar walls, tin or asbestos roof, basic shelving — is a community building. At a hundred person-days of unskilled wage labour per rural household per year and approximately 250,000 Gram Panchayats across India, an eligible-asset addition of "construct a panchayat community library" in 2005 or shortly thereafter could have produced a built library structure in every Gram Panchayat in India within two to three MGNREGA cycles. Books would have followed under the RRRLF matching-book scheme that operated continuously through this period. The remaining decade-plus of MGNREGA (2010–2024) could have been used to maintain, upgrade, and progressively expand the network — a verandah, a children's section, a reading room, a digital corner. By 2024–25 India could have had a panchayat-level public library network of approximately 250,000 institutions, built almost entirely from wage-labour funding that was already being disbursed without an additional rupee of capital allocation; the digital transformation of that network would be a 2020s-grade conversion of an already-built infrastructure. The infrastructure of associated living, in this specific form, was financially and institutionally feasible at any point between 2005 and 2014. It was not proposed. The eligible-asset list of MGNREGA was extended in other directions repeatedly across the decade; the library was not one of them. What this raises is not what UPA did wrong but what the post-Independence Indian state's institutional imagination — across multiple dispensations — has consistently not seen: that the public library is the connective material substrate that the rest of the rights-based architecture structurally requires, and that anti-caste scholarship since Phule has consistently named as foundational.
+
+This institutional non-recognition of the physical library commons is further illuminated by the early utopian excitement of the "network society." As theorized by Manuel @castells1996rise, the Information Age fundamentally restructures power by separating the "space of flows" (global, digital networks of information, capital, and elite interaction) from the "space of places" (the physical, localized, historically-rooted environments where the majority actually lives and associates). Castells argued that the logic of the network society systematically bypasses and marginalizes the space of places.
+
+In the Indian context, this global shift manifested as what @cody2011technological names "technological charisma." During the late 1990s and early 2000s, the ICT4D (Information and Communication Technologies for Development) movement offered a seductive technological fix to the structural problems of literacy and access. The M.S. Swaminathan Research Foundation (MSSRF) Village Knowledge Centres, launched in 1998 in Pondicherry, represented a hybrid "alternative template": they attempted to anchor the digital "space of flows" directly into the localized, community-governed "space of places." However, as @cody2011technological argues, the "technological charisma" of these projects ultimately allowed the state to shift its focus away from the human-intensive, politically-charged grassroots literacy movements—like the *Arivoli Iyakkam* (Light of Knowledge) that @cody2013light documents—and toward a performative staging of empowerment through screens. 
+
+The Arivoli Iyakkam represented the high-water mark of what Cody calls the **"pedagogic state"**: a mode of postcolonial governance that assumed the role of a teacher to transform its subjects into modern, "enlightened" citizens through mass literacy. This project was fundamentally social and physical, requiring village reading rooms and collective performance to cultivate a "will to politics" among the Bahujan majority. The state’s eventual pivot in 2006 to the privatized Common Service Centre (CSC) model was not just a technical change; it was the state **refusing its own pedagogic responsibility**. By trading the human-intensive pedagogic project for the capital-intensive digital project, the state swapped the reading room (where collective political subjects are formed) for the transactional kiosk (where individualized users pay for services). The "Grammar of Refusal" is, in this sense, the surrender of the pedagogic state to Castells' elite space of flows, leaving the physical reading infrastructure of the majority to rot.
+
+The 12th Plan (2012–2017) added the National Mission on Libraries (NML), approved by the Mission Authority chaired by the Minister of Culture in 2012 with a five-year outlay of ₹333.24 crore [@sc258, para 58]. NML had four operational components: (i) the Indian Culture Portal (originally the National Virtual Library of India, a digital portal of cultural artefacts); (ii) NML Model Libraries — the matching scheme intended to upgrade 35 State Central Libraries, 35 District Libraries, and six Ministry of Culture libraries; (iii) a Quantitative and Qualitative Survey of public libraries (the first comprehensive audit of public-library provision since independence); and (iv) Capacity Building for library professionals (training, exchanges, and accreditation) [@sc310, p. 7, para 29]. Read together, components (ii)–(iv) constituted the most ambitious Centre-State coordination on the public-library function the Indian state had attempted in the post-1972 RRRLF era; component (i) was the supplementary digital-deliverable layer. The 12th Plan moment can be read, in retrospect, as the *high-water mark of the longer institutional commitment*: a renewed structural-fiscal arrangement for cultural-developmental infrastructure under the matching ring-fence, with a more ambitious outlay and a fuller operational architecture (audit, capacity, infrastructure) than the previous Plan periods had supported.
+
+The combined Ministry-of-Culture envelope on the "Development of Libraries and Archives" head rose from ₹52.01 cr (BE 2017–18) [@sc245, p. 19, para 77] to ₹99.81 cr (BE 2018–19) [@sc258, p. 18, para 59] to ₹118.51 cr (BE 2019–20) [@sc277, p. 14, para 57] — a rising trajectory through the first full years after the 12th Plan extension. This is the institutional architecture that the four mechanisms then dismantled. The historical-institutional weight of the rupture is given by what was being dismantled, not by the year-on-year budget number alone.
+
+# The four mechanisms
+
+## Mechanism 0 — Categorisation
+
+In October 2015 the Sub-Group of Chief Ministers on Rationalisation of Centrally Sponsored Schemes — chaired by then-Madhya Pradesh CM Shivraj Singh Chouhan and constituted by the Prime Minister to recommend a binary reorganisation of the CSS architecture — submitted its report. Para 4.3 of the report defined Core eligibility by enumeration: ten priority sectors of the *"National Development Agenda for VISION 2022"*. The ten sectors, in order: poverty elimination, drinking water and Swachh Bharat, rural connectivity, agriculture, education (operationally defined as Mid Day Meal and school infrastructure), health, housing, urban transformation, law and order, and *"Others (Wildlife Conservation and Greening)"* [@chouhan_subgroup_2015, para 4.3]. Public libraries and cultural infrastructure appear in none of the ten. Para 4.11.2 of the same report then defines the Optional category by residual: *"All non-Core Schemes would be Optional Schemes."* The Cabinet ratified the recommendations on 3 August 2016 [@cabinet_chouhan_2016].
+
+From FY 2017–18 — the first full fiscal year after operationalisation — Optional schemes were funded by lump-sum allocation to states from the Ministry of Finance, with states *"free to choose which Optional Schemes they wish to implement"* [@chouhan_subgroup_2015, para 4.11.2]. The Optional category did not specify *how* a state should choose; the structural effect was that the matching ring-fence that had previously routed Centre-side rupees specifically into state library expenditure was extinguished. Centre-side funds for any Optional scheme now arrived at the state treasury as part of a generic allocation against which the state could spend on any Optional scheme it preferred.
+
+The Optional classification did not name NML. The classification was operationalised by residual: any CSS not on the Core list was Optional. NML was not on the Core list (the ten priority sectors do not include cultural infrastructure or public libraries); NML was therefore Optional. The Ministry of Culture's "Development of Libraries and Archives" head, of which NML was the largest component, was the operational consequence.
+
+The Chouhan classification is the upstream cause of the post-2016 collapse not because it specifically targeted public libraries — there is no evidence in the parliamentary record that public-library cuts were a discussed objective of the rationalisation — but because the residual classification removed the matching ring-fence that had structurally protected the line from precisely the kind of within-year, within-Ministry, within-budget-cycle reallocation that the three downstream mechanisms then enacted. The cause is *categorical*, not *intentional*. What follows could not have happened in the same form under the pre-2016 architecture.
+
+## Mechanism 1 — Scheme sunset and nominal renewal
+
+Once the matching ring-fence was extinguished, NML proceeded on paper but ceased to function as a Centre-State coordination mechanism. The operational signature of the policy change is visible in the BE/RE/Actual divergence at the FY 2019–20 cycle.
+
+Figure @fig-be-re-actuals plots the three stages of the budget cycle (Budget Estimate, Revised Estimate, Actual) for the "Development of Libraries and Archives" head across FY 2017–18 → FY 2020–21. The Ministry budgeted at rising BE levels — ₹52.01 cr, ₹99.81 cr, ₹118.51 cr — through the post-Cabinet-ratification years. At the FY 2019–20 RE stage, the head collapsed from BE ₹118.51 cr to RE ₹0.73 cr, a 99.4% cut.
+
+```{python}
+#| label: fig-be-re-actuals
+#| fig-cap: "Budget Estimate, Revised Estimate, and Actual expenditure for the 'Development of Libraries and Archives' head (Ministry of Culture), FY 2017–18 → FY 2020–21. The FY 2019–20 RE-stage collapse (BE ₹118.51 cr → RE ₹0.73 cr) is the operational signature of the scheme-sunset decision. Sources: RS PSC Reports #245 (p. 19, para 77), #258 (p. 18, para 59), #277 (p. 14, para 57)."
+#| fig-width: 6.5
+#| fig-height: 3.6
+
+years_bre  = ['2017-18', '2018-19', '2019-20', '2020-21']
+be_vals    = [52.01, 99.81, 118.51, 0.38]
+re_vals    = [None,  35.95, 0.73,   None]
+act_vals   = [None,  27.37, 0.00,   None]
+
+x = np.arange(len(years_bre))
+width = 0.27
+
+fig, ax = plt.subplots(figsize=(6.5, 3.6))
+
+ax.bar(x - width, be_vals, width, color=C_BLUE,
+       label='Budget Estimate (BE)', edgecolor='white', lw=0.4)
+ax.bar(x, [v if v is not None else 0 for v in re_vals], width,
+       color=C_RED, label='Revised Estimate (RE)', edgecolor='white', lw=0.4)
+ax.bar(x + width, [v if v is not None else 0 for v in act_vals], width,
+       color=C_GREY, label='Actuals', edgecolor='white', lw=0.4)
+
+for i, v in enumerate(be_vals):
+    ax.text(i - width, v + 2, f'₹{v:.2f}', ha='center', fontsize=7.5)
+for i, v in enumerate(re_vals):
+    if v is not None:
+        ax.text(i, v + 2, f'₹{v:.2f}', ha='center', fontsize=7.5)
+for i, v in enumerate(act_vals):
+    if v is not None:
+        ax.text(i + width, v + 2, f'₹{v:.2f}', ha='center', fontsize=7.5)
+
+ax.annotate('99.4% RE-stage cut',
+            xy=(2, 0.73), xytext=(2.05, 62),
+            ha='center', fontsize=8.5, color=C_RED, fontweight='bold',
+            arrowprops=dict(arrowstyle='->', color=C_RED, lw=0.8))
+
+ax.set_xticks(x); ax.set_xticklabels(years_bre, fontsize=9)
+ax.set_ylabel('₹ crore (nominal)')
+ax.set_ylim(0, 135)
+ax.set_title("'Development of Libraries and Archives' — BE / RE / Actuals",
+             loc='left', pad=6)
+ax.legend(loc='upper right')
+ax.grid(axis='y')
+ax.set_axisbelow(True)
+
+plt.tight_layout()
+plt.show()
+```
+
+The Ministry's written reply at the FY 2019–20 stage explained the RE-stage cut: *"the National Mission on Libraries is complete now and the scheme is not extended beyond March 2020"* [@sc277, p. 14, para 57]. The standing committee's reaction is recorded in the same Report: it called the Ministry's BE 2019–20 ask *"irrational projection of funds"* [ibid., para 58] and recommended that NML be extended for another year [ibid., para 59]. The Ministry was silent on the recommendation at the time.
+
+Two years later, RS #310 (3 February 2022) records that NML had in fact been re-extended: *"The Scheme has been extended for 05 years till 31.03.2026"* [@sc310, p. 7, para 30]. The nominal renewal is a critical detail. It allows the Ministry to claim, in subsequent parliamentary replies and in public budget documents, that the scheme continues to operate. The disbursement series tells the operational story: NML-Plan disbursements through RRRLF over FY 2020–21 → FY 2022–23 stayed in the ₹20–27 cr range, against the pre-collapse peak of ₹76.7 cr in the broader "Development of Libraries and Archives" head. The renewal is nominal. The disbursement is collapsed.
+
+The distinction between *nominal continuation* and *operational continuation* matters because the matching architecture under NML required Centre-side disbursement to trigger state-side activity. A scheme that exists on paper but does not disburse at scale is not, in operational terms, a matching scheme — it is an administrative residue.
+
+## Mechanism 2 — State-side non-submission of matching proposals
+
+The NML Model Libraries component required state-side proposal submission to trigger Centre-side disbursement. RS #264 (Action Taken Report, 14 December 2018) records that *"Project proposals for establishment of NML Model Libraries have not yet been received from 12 States/UTs in spite of repeated reminders and persuasion by RRRLF"* [@sc264, para 5.2]. By RS #277 (March 2020) the non-submitting list had narrowed to eleven: Andaman & Nicobar Islands, Jharkhand, Lakshadweep, Daman & Diu, Dadra and Nagar Haveli, Meghalaya, Chandigarh, Haryana, Delhi, Jammu & Kashmir, and Punjab [@sc277, p. 14, para 56].
+
+One-third of states/UTs declined to engage with the matching architecture. The geographic spread of those who declined is structurally informative. It combines small UTs without independent library directorates (Andaman & Nicobar, Lakshadweep, Daman & Diu, Dadra and Nagar Haveli, Chandigarh — administrative units whose library function is too small to support a dedicated proposal-submission capacity), Northeast / disputed-territory units with constrained administrative capacity (Meghalaya, J&K), and large states with no documented political constituency for library investment (Jharkhand, Haryana, Delhi, Punjab — substantial states whose ruling political formations did not prioritise the matching-scheme opportunity). The four Central Zonal Council states whose population-weighted real per-capita expenditure is lowest in our cross-section — Uttar Pradesh, Madhya Pradesh, Chhattisgarh, Bihar — do not appear on the non-submitter list, but their MH 2205-105 expenditure is so low (below ₹2/person/year in real terms) that nominal participation in the matching scheme does not translate to material recipient-end resource transfer.
+
+The composite picture: the matching architecture as a Centre-State delivery mechanism for the under-served third of the federation is structurally non-functional. A state that lacks administrative capacity to write a matching-scheme proposal, or lacks political will to prioritise it, does not get the Centre's matching transfer. The architecture as designed presumes both that all states have the capacity and that all states will exercise it; both presumptions fail for one-third of the federation in the cross-section visible in RS #264 and #277.
+
+## Mechanism 3 — Centre-side procedural non-action
+
+Where state-side proposals did arrive, the Centre-side instruments that would have routed them into disbursement were inert. RS #277 records the Ministry's own written reply explaining a parallel collapse at the National Archives of India RE stage: *"non-convening of meeting of Grants Committee, slow pace of expenditure under Capital and non-finalization of tender for digitization of archival records"* [@sc277, p. 14, para 49].
+
+The Grants Committee is the body responsible for sanctioning disbursements under this head. It did not meet. The tender for digitisation of archival records was not finalised. The pace of expenditure under the Capital head was *"slow"* — by the Ministry's own description. Each of these is a Centre-side discretionary action or inaction, not a state-side failure. Together they account for approximately ₹17 crore of RE-stage reductions in FY 2019–20 alone, before the NML-sunset reductions are factored in. The standing committee records the mechanism on the parliamentary record. The Ministry does not contest it; the Ministry, in fact, supplied the language.
+
+The combined effect of the three downstream mechanisms is what an institutional retreat looks like in budget-cycle terms: matching ring-fence extinguished at the upstream categorisation stage; scheme renewal declined at the within-Ministry stage; state-side proposal flow drying up where the federation cannot deliver capacity; Centre-side disbursement instrument inert where the proposals do arrive. None of the three downstream mechanisms is independently sufficient. Each by itself could be — and historically has been — countered by procedural insistence: standing-committee pressure for renewal, RRRLF outreach to non-submitting states, Ministry insistence on Grants-Committee scheduling. What characterises the post-2016 period is that the three failures occur simultaneously and persistently, in a way that is structurally enabled by the upstream categorisation.
+
+Figure @fig-four-mechanisms presents the four-mechanism chain in schematic form.
+
+```{python}
+#| label: fig-four-mechanisms
+#| fig-cap: "The four-mechanism causal chain in schematic form. Mechanism 0 (Chouhan-Cabinet rationalisation, ratified 3 August 2016) is the upstream cause: it placed NML in the Optional category by residual classification, extinguishing the Centre-State matching architecture. The three downstream mechanisms — scheme sunset and nominal renewal; state-side non-submission; Centre-side Grants Committee non-convening — are the visible institutional failures in the parliamentary record. Each downstream mechanism is enabled by the upstream categorisation; their joint effect is the post-2017 RRRLF disbursement collapse."
+#| fig-width: 7
+#| fig-height: 4.4
+
+fig, ax = plt.subplots(figsize=(7.2, 4.4))
+ax.set_xlim(0, 10); ax.set_ylim(0, 10)
+ax.axis('off')
+
+def box(x, y, w, h, label, color, fontsize=9, bold=False):
+    p = FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0.08',
+                       facecolor=color, edgecolor=C_INK, lw=0.9)
+    ax.add_patch(p)
+    weight = 'bold' if bold else 'normal'
+    ax.text(x + w/2, y + h/2, label, ha='center', va='center',
+            fontsize=fontsize, color=C_INK, fontweight=weight, wrap=True)
+
+# Upstream cause
+box(2.5, 7.5, 5.0, 1.6,
+    'Mechanism 0 — Categorisation\nChouhan-Cabinet rationalisation (3 August 2016)\n'
+    'NML classified Optional by residual under para 4.11.2',
+    '#fde6e6', fontsize=9, bold=True)
+
+ax.annotate('', xy=(5.0, 6.2), xytext=(5.0, 7.45),
+            arrowprops=dict(arrowstyle='-|>', color=C_INK, lw=1.2))
+
+ax.plot([1.0, 9.0], [6.0, 6.0], color=C_GREY, lw=0.5, ls=':', alpha=0.6)
+ax.text(9.05, 6.0, ' Categorisation → consequences', fontsize=7.5,
+        color=C_GREY, style='italic', va='center')
+
+box(0.2, 3.5, 3.0, 2.0,
+    'Mechanism 1\nScheme sunset\n(declined renewal, March 2020;\nnominal extension to 2026)',
+    '#fff3e0', fontsize=8.5)
+box(3.5, 3.5, 3.0, 2.0,
+    'Mechanism 2\nState-side\nnon-submission\n(11 states/UTs, March 2020)',
+    '#fff3e0', fontsize=8.5)
+box(6.8, 3.5, 3.0, 2.0,
+    'Mechanism 3\nCentre-side\nnon-action\n(Grants Committee\nnot convening)',
+    '#fff3e0', fontsize=8.5)
+
+for x_target in [1.7, 5.0, 8.3]:
+    ax.annotate('', xy=(x_target, 5.55), xytext=(5.0, 6.2),
+                arrowprops=dict(arrowstyle='-|>', color=C_INK, lw=0.9))
+
+ax.annotate('', xy=(5.0, 1.7), xytext=(1.7, 3.45),
+            arrowprops=dict(arrowstyle='-|>', color=C_RED, lw=0.9))
+ax.annotate('', xy=(5.0, 1.7), xytext=(5.0, 3.45),
+            arrowprops=dict(arrowstyle='-|>', color=C_RED, lw=0.9))
+ax.annotate('', xy=(5.0, 1.7), xytext=(8.3, 3.45),
+            arrowprops=dict(arrowstyle='-|>', color=C_RED, lw=0.9))
+
+box(2.5, 0.3, 5.0, 1.4,
+    'Observed outcome\nRRRLF GoI grant ₹76.7 cr (2017-18) → ₹27.1 cr (2022-23)\n65% nominal contraction, 63% real-per-capita contraction',
+    '#fbe5e5', fontsize=8.5, bold=True)
+
+plt.tight_layout()
+plt.show()
+```
+
+# The recipient-end record: Kerala State Central Library
+
+The four-mechanism account, read at the recipient end, identifies a particular kind of documentary trace one would expect to find in the institutional record. Where a state library institution received both Centrally Sponsored Scheme funding and parallel non-CSS funding from the same Central source, the two streams should behave differently across the policy-change moment: the CSS channel — the one that lost its matching ring-fence at the upstream categorisation in Mechanism 0 — should register a discontinuity dated to FY 2017–18 (the first full year after operationalisation), while the non-CSS channel — which the categorisation did not touch — should continue along whatever trajectory the state-specific conditions produced. The structural-administrative point is not about how much funding was lost against an alternative; it is about which channel of state-recipient transfer became fiscally extinguishable under the new categorisation, and which did not.
+
+RS #328 (Action Taken Report, December 2022) preserves precisely this kind of documentary record. The Report contains two stream-disaggregated tables for the Kerala State Central Library — the non-CSS State Plan stream and the Centrally Sponsored Scheme stream — at one of the few recipient institutions for which the standing-committee evidentiary architecture made the stream-by-stream disaggregation possible.
+
+Figure @fig-kerala-two-stream plots the two streams. The non-CSS State Plan stream [@sc328, p. 24] rose from ₹1.00 cr in FY 2011–12 to a peak of ₹4.60 cr in FY 2017–18 and then declined moderately to ₹0.92 cr by FY 2020–21 — a trajectory consistent with the Kerala state-level fiscal compression that affected the social-sector envelope generally over that period. The CSS stream [@sc328, p. 25] tells a different story: ₹1.17 cr in FY 2016–17, then **₹0 in FY 2017–18, ₹0 in FY 2018–19, ₹0 in FY 2019–20, and ₹0 in FY 2020–21**. The two streams diverge at exactly the policy-change moment. FY 2017–18 was the first full year of operationalisation of the Cabinet-ratified Chouhan rationalisation; the CSS channel to Kerala SCL collapsed in that year and stayed at zero through 2021, while the non-CSS State Plan channel continued normally and peaked at ₹4.60 cr in the very same year.
+
+```{python}
+#| label: fig-kerala-two-stream
+#| fig-cap: "Kerala State Central Library: RRRLF disbursement by funding stream, FY 2011–12 → FY 2020–21. The Cabinet ratified the Chouhan rationalisation on 3 August 2016 (dashed vertical line); FY 2017–18 was the first full year of operationalisation. The non-CSS State Plan stream continued normally and peaked at ₹4.60 cr in FY 2017–18. The Centrally Sponsored Scheme stream collapsed to ₹0 in FY 2017–18 and stayed at zero through 2020–21. Source: RS PSC Report #328, p. 24 (State Plan stream) and p. 25 (CSS stream)."
+#| fig-width: 6.8
+#| fig-height: 3.6
+
+years_k    = ['2011-12','2012-13','2013-14','2014-15','2015-16','2016-17','2017-18','2018-19','2019-20','2020-21']
+state_plan = [1.00, 1.50, 1.00, 2.20, 1.66, 2.05, 4.60, 2.62, 1.16, 0.92]
+css_stream = [None, None, None, None, None, 1.17, 0.00, 0.00, 0.00, 0.00]
+
+fig, ax = plt.subplots(figsize=(6.8, 3.6))
+
+xk = np.arange(len(years_k))
+ax.plot(xk, state_plan, marker='o', color=C_BLUE, lw=1.8,
+        label='Non-CSS State Plan stream', markersize=5)
+css_x = [i for i, v in enumerate(css_stream) if v is not None]
+css_y = [v for v in css_stream if v is not None]
+ax.plot(css_x, css_y, marker='s', color=C_RED, lw=1.8,
+        label='Centrally Sponsored Scheme stream', markersize=5)
+
+ax.axvline(x=5.5, color=C_INK, lw=0.6, ls='--', alpha=0.6)
+ax.text(5.55, 4.5, ' Cabinet ratifies Chouhan\n rationalisation\n 3 August 2016',
+        fontsize=7.5, color=C_INK, va='top')
+
+ax.annotate('Peak ₹4.60 cr\n(non-CSS continues)', xy=(6, 4.60), xytext=(7.4, 4.65),
+            fontsize=8, color=C_BLUE, fontweight='bold',
+            arrowprops=dict(arrowstyle='->', color=C_BLUE, lw=0.7))
+ax.annotate('CSS-channel collapses\nto zero', xy=(6, 0.0), xytext=(7.4, 1.5),
+            fontsize=8, color=C_RED, fontweight='bold',
+            arrowprops=dict(arrowstyle='->', color=C_RED, lw=0.7))
+
+ax.set_xticks(xk); ax.set_xticklabels(years_k, rotation=45, ha='right', fontsize=8)
+ax.set_ylabel('₹ crore (nominal)')
+ax.set_ylim(-0.5, 5.4)
+ax.set_title('Kerala State Central Library: two RRRLF streams diverge at the policy-change moment',
+             loc='left', pad=6)
+ax.legend(loc='upper left')
+ax.grid(axis='y')
+ax.set_axisbelow(True)
+
+plt.tight_layout()
+plt.show()
+```
+
+The two streams diverge at exactly the moment one would attend to. The non-CSS State Plan stream represents the Centre-side channel that the 2016 categorisation left intact; it continued through the post-2016 years and peaked at ₹4.60 cr in FY 2017–18, the very year the CSS channel disappeared. The CSS stream represents the channel that the categorisation rendered fiscally extinguishable; it disappeared, for four consecutive years, at a recipient institution that was simultaneously and continuously receiving non-CSS support from the same Central source. The institutional reading the record permits is that the recipient did not stop participating in the matching architecture; the matching architecture, as a Centre-side channel of transfer, stopped operating.
+
+Three notes on what this record does and does not show. *First*, RS #328 preserves the stream-disaggregated tables for the Kerala State Central Library alone; the other state-recipient tables in the same Report (Tripura, Gujarat, Maharashtra, Karnataka, and others) are combined-stream, so the Kerala-SCL pattern cannot be generalised to a national series from this one Report. The historical-analytical point — that the channel-specific discontinuity is what the institutional record displays where the disaggregation is visible — survives this limitation; how broadly the same channel-specific pattern holds across the federation is a question for separate primary-source work. *Second*, Kerala's social-sector envelope was under fiscal compression over the post-2018 period for reasons unrelated to the Chouhan rationalisation (the Kerala-specific fiscal trajectory after the 2018 floods and the subsequent COVID years); the non-CSS State Plan stream's post-2018 moderation reflects that compression and is not part of the CSS-channel question we are reading. *Third*, the FY 2014–15 to FY 2015–16 CSS-stream values are not reported in the source table; the FY 2016–17 ₹1.17 cr figure is the only pre-collapse CSS-channel observation, which constrains how much pre-period trend can be characterised from the source alone.
+
+The reading the Kerala SCL record permits is therefore *case-specific and historical*: at the one recipient where the standing-committee evidentiary architecture preserved the stream-by-stream record, the record displays exactly the kind of channel-specific discontinuity that the four-mechanism account would lead one to attend to. What this records is not a causal effect but a documentary trace of how the policy moment became visible at the recipient end.
+
+# The cess-state comparative coda
+
+The four-mechanism account explains the Centre's withdrawal. It does not explain why some state-level public-library systems weathered the withdrawal better than others. Five Indian states have a statutory library cess on the books — Tamil Nadu, Andhra Pradesh, Karnataka, West Bengal, and Kerala. Their consolidated state-level expenditure series (Paper I, Figure 5) show that only one — Tamil Nadu — has produced a durably-rising real per-capita library expenditure trajectory across the decade. The four other cess states have not. This section reads the cess-state divergence institutionally. We argue that the Tamil Nadu model represents the survival of the "space of places" against the state's selective retreat into the "space of flows" described earlier. While the Centre abandoned the physical reading commons by choosing the transactional CSC model, Tamil Nadu's statutory design effectively ring-fenced the communal reading room from that technocratic pivot. What distinguishes the Tamil Nadu institutional design from the others is not just a tax; it is a statutory defense of associated living.
+
+The four other cess states are not failures of legislation. Each has the Public Libraries Act on paper, the cess provision on paper, the library directorate on paper. They are failures of *operation*. Understanding the failure modes is necessary because the cost-engineered policy alternative documented in the forthcoming companion blueprint paper (P4) presumes the cess instrument as the structural feature of the state-government-led recovery model; if the institutional design that produced Tamil Nadu's success is non-replicable, the convergence model is itself a Tamil-Nadu-specific document. We argue here that it is replicable — but that the failures are instructive about which specific institutional features must be replicated.
+
+**West Bengal: collapse and reclassification.** West Bengal's reported MH 2205-105 expenditure shows a series so volatile as to be uninterpretable as a continuous fiscal record: ₹483 lakh (FY 2014–15), ₹491 lakh (FY 2015–16), ₹17,518 lakh (FY 2016–17), ₹421 lakh (FY 2019–20). A series that drops by approximately 95% in a single year and recovers in the next is not a budgetary phenomenon; it is an accounting one. Two mechanisms are consistent with the pattern. First, parts of library-relevant expenditure may have been reclassified into Urban Development (MH 2217) for some years and back into MH 2205 in others, depending on which department's demand-for-grants was the recording vehicle in any given budget cycle. Second, the cess receipts may have been retained in the cess-collecting authority's general account rather than transferred to the State Library Authority in the years of low reported expenditure. Both mechanisms imply that the cess instrument exists in West Bengal as a fiscal claim but not as an operational disbursement channel; what looks like a budget-cycle collapse is in fact a failure of the institutional architecture to convert cess collection into recorded library expenditure. The Tamil Nadu institutional design — a dedicated State Library Authority with its own treasury account, into which the cess flows automatically — is precisely the absent feature.
+
+**Karnataka: cyclical volatility and BBMP cess-withholding.** Karnataka's nominal MH 2205-105 series rises from ₹10,107 lakh (FY 2014–15) to ₹23,055 lakh (FY 2018–19) and falls to ₹7,321 lakh by FY 2020–21. Karnataka has the cess on paper but operates it without statutory ring-fencing that would protect the cess receipts from absorption into general revenues. The Karnataka cess-architecture failure has a sharper second dimension that the MH 2205-105 series alone cannot show: **the urban local body collects the cess but does not transfer it.** Bengaluru property tax includes a 6% library cess statutorily earmarked for the Karnataka Department of Public Libraries. The Bruhat Bengaluru Mahanagara Palike (BBMP) collects the cess from property-tax assessees but, in the reporting of multiple primary news sources, has not transferred the collected cess to the Department of Public Libraries for over six years; the cumulative pending transfer reached approximately **₹700.62 crore** by 2023, against which BBMP made a partial payment of only ₹14 crore [@thesoftcopy_libraries_2023; @citizenmatters_libraries; @vidhi_karnataka_libraries]. The Karnataka Municipal Corporations Act, 1976, does not legally compel BBMP to flow the cess receipts automatically into the Department of Public Libraries' treasury account; the transfer is administratively discretionary at the urban-local-body level. The ₹700 cr accumulated BBMP withholding is roughly an order of magnitude larger than Karnataka's entire annual MH 2205-105 figure, which means the gap between what Bengaluru residents are taxed for libraries and what reaches Bengaluru libraries is much wider than the budget-line series suggests.
+
+The Hyderabad case has its own version of the same inter-departmental failure. The Greater Hyderabad Municipal Corporation (GHMC) collects an analogous library cess; whether the collected amounts are transferred in full and in time to the Telangana State Library Authority is a parallel open empirical question requiring similar primary-source verification. The structural lesson generalises: **a cess on paper is not a cess in operation when the collecting authority and the disbursing authority are different institutions and the legislation does not statutorily compel the transfer.** The Tamil Nadu architecture is the only one in the cross-section that has resolved this inter-institutional gap — its cess flows directly to the State Library Authority's treasury account without a discretionary intermediary.
+
+**Andhra Pradesh and Telangana: post-bifurcation reconstitution.** The bifurcation of undivided Andhra Pradesh into Andhra Pradesh and Telangana on 2 June 2014 produced an asymmetric institutional inheritance. The bulk of pre-bifurcation State Central Library infrastructure, library directorate, cess-collection mechanism, and urban-library network was located in Hyderabad, which became part of Telangana. Andhra Pradesh post-bifurcation inherited the cess provision and the AP Public Libraries Act of 1960 but had to set up a new state library directorate in the post-2014 capital — first Hyderabad (as joint capital), then Vijayawada, then Amaravati — without the institutional infrastructure that pre-bifurcation AP had built up over six decades. The AP series 2014–15 onwards is therefore a *post-bifurcation, reconstitution-phase* series, not a continuation of the pre-bifurcation AP series. The institutional lesson is that the *legislation* (the 1960 Act) survived the bifurcation; the *operational infrastructure* did not. A cess that is legally in force but lacks the disbursement architecture that operationalises it is not a working cess.
+
+Paper I (§3.5) reconstructs the combined undivided-AP series (AP + Telangana summed year-by-year, against the Census 2011 combined denominator of 84.58 mn), which shows that the cess-architecture's institutional trajectory ran from approximately ₹5/person/year (partial-year FY 2014–15) to ₹21/person/year (FY 2018–19) and held there through the pre-COVID period. The combined series captures what the cess regime *would have* delivered absent the bifurcation discontinuity; the separated series misrepresent the regime in both directions. The institutional point for the present argument is that the AP/Telangana cess apparatus is *reconstituting*, not absent — the four-year recovery to a sustained level approximately 2.5× the post-bifurcation AP-alone series, broadly comparable to the lower end of Tamil Nadu's range for FY 2018–19, shows that the architecture is replicable when the political will exists.
+
+**Kerala: legislative robustness, fiscal compression.** Kerala is the most instructive of the four. The Kerala Public Libraries Act (1989) is well-designed; the Kerala State Library Council coordinates a large grama-panchayat-level library network with documented operational quality. But Kerala's real per-capita library expenditure has *fallen* in real terms across the decade, against a state-level revenue trajectory that has grown approximately 50% over the same window. Kerala's library legislation has not protected the line from the fiscal compression that has affected Kerala's social-sector envelope generally in the post-2018 period. The cess exists; the disbursement architecture exists; the librarians exist. What is absent is the *statutory funding floor* — a binding allocation rule that prevents the line from absorbing the budget-shortfall politics of any given year. Kerala's experience is the cleanest evidence that legislation alone is insufficient; the dedicated funding instrument needs both ring-fencing and a floor.
+
+**The composite reading.** Of the five cess states, only Tamil Nadu has all three institutional features simultaneously: statutory cess, ring-fenced disbursement to a dedicated state library authority, and a binding minimum-allocation rule that survives political cycles. The four other states have one or two of the three. The forthcoming companion blueprint paper therefore takes the Tamil Nadu *institutional design* as its template, not the Tamil Nadu *cultural context*. Any state government adopting all three features should expect a Tamil-Nadu-shaped trajectory; any state government adopting one or two should expect a Kerala, Karnataka, or West Bengal trajectory.
+
+# Post-2022 trajectory and the Sixteenth Finance Commission successor scheme
+
+Three findings in the parliamentary record after RS #328 sharpen the four-mechanism account and identify a forthcoming institutional break-point that will play out in the Sixteenth Finance Commission cycle.
+
+**Central Nodal Agency account friction (FY 2023–24).** RS #382 (Action Taken Report, 11 February 2026) records the Ministry of Culture's written reply on FY 2023–24: *"at the time of introduction of the Central Nodal Agency (CNA) account, certain technical issues were experienced by both the parent organization, i.e., Raja Rammohun Roy Library Foundation (RRRLF), and the beneficiary States/UTs/Libraries, which impacted timely expenditure of allocated funds during the financial year 2023-24"* [@sc382, p. 16]. This is a procedural-friction event added on top of the four-mechanism baseline: a CNA-architecture change consolidating GoI grant disbursement through Central Nodal Agencies (intended, in principle, to improve audit-trail integrity) produced additional delays in libraries' receipt of approved grants. FY 2023–24 disbursement actuals are not yet published; the held-flat-at-₹27 cr assumption used in the consolidated series in Paper I implicitly absorbs the friction, while the CAGR-extrapolation sensitivity reported in that paper produces a lower bound.
+
+**NML successor scheme being designed for the FC-16 cycle.** RS #382, in its response to a recommendation on improving NML implementation: *"To address issues of the existing NML scheme, a new scheme with better implementation & monitoring is being proposed for the next FC Cycle"* [@sc382, p. 16]. NML's nominal 5-year extension to 31.03.2026 (Mechanism 1) was a bridging measure; the actual successor is in design and will begin under the Sixteenth Finance Commission's 2026–27 to 2030–31 award cycle. The design phase is the inflection point that will determine whether the post-2016 retreat is institutionally normalised or institutionally reversed. The forthcoming blueprint paper's recommendations on RRRLF re-architecture are the inputs this design phase requires.
+
+**The PPP-mode library-mobility scheme.** RS #382 records the introduction of a *"Matching Scheme of Assistance towards Development of Library on Wheels Services... run in Public-Private-Partnership (PPP) mode with the mobile van being gifted by any Philanthropic organization, Corporate Bodies etc."* [@sc382, p. 16]. This is structurally significant: it is the first RRRLF scheme explicitly architected around corporate / philanthropic gifts of capital assets (the mobile van) rather than Centre-State matching of recurrent expenditure. The political-economy register is consistent with the four-mechanism account — the Centre is moving from the Centre-State matching architecture, which the four mechanisms dismantled, toward a Centre-private-philanthropy architecture in which the state's role is procedural-only and the resources are nominally non-public. Whether this PPP architecture produces sustained library mobility, or merely lets the Centre claim a library-policy footprint while transferring fiscal responsibility to private capital, is an empirical question for the next round of analysis. The Tamil Nadu cess model — statutory state revenue, ring-fenced, automatic disbursement — is the institutional comparator: the alternative arrangement that exists in fact, in one part of the federation, against which the PPP architecture's structural logic can be read.
+
+# The selective-retreat thesis: what the same Government did elsewhere
+
+The four-mechanism account documents a Centre-side withdrawal from one specific architecture — the matching-grant ring-fence around public libraries under the Ministry of Culture. The natural reading of the withdrawal is that the State experienced an across-the-board fiscal compression in this period and the public-library line was one of many compressed. The natural reading is not supported by the evidence. The same Government, in the same period, *expanded* a parallel library architecture under a different Ministry. We document the expansion as the analytical counterpoint to the contraction.
+
+**Three months: the Indian Culture Portal as the surviving component.** NML had four components: (i) the Indian Culture Portal (originally the National Virtual Library of India); (ii) NML Model Libraries (the matching scheme); (iii) a Quantitative and Qualitative Survey of public libraries; and (iv) Capacity Building for library professionals [@sc310, p. 7, para 29]. The Indian Culture Portal went live on 10 December 2019, managed by IIT Bombay [@sc310, p. 7, para 30]. Three months later — on 12 March 2020 — the Ministry recorded in RS #277 that NML was *"complete now"* [@sc277, p. 14, para 57]. Component (i) delivered; components (ii), (iii), (iv) abandoned. The surviving component is a digital portal of cultural artefacts accessible to readers with computers and internet; the abandoned components are the physical-library matching infrastructure, the audit of public-library provision, and the training of state library professionals. The selection pattern is what an institutional preference for digital-deliverable-over-physical-infrastructure looks like in budget terms — the victory of @castells1996rise's "space of flows" over the abandoned "space of places".
+
+**The National Digital Library of India (NDLI).** The contrast is sharper when set against the digital-library infrastructure the Indian state demonstrably *did* build in the same period. NDLI, operated by IIT Kharagpur and sponsored by the Ministry of Education's National Mission on Education through ICT (NMEICT), launched on 19 June 2018 with 81 million educational resources in 100+ languages [@ndli_pib_2018]. It continues to operate and expand throughout the period of NML's collapse. The Indian state demonstrably has institutional capacity to deliver national-scale digital-library infrastructure when it chooses to. The choice it made in this window was between national digital portals (built) and physical public-library matching schemes (allowed to lapse).
+
+**Ministry of Education library expansion: Samagra Shiksha and NIPUN Bharat.** The contrast is sharper still when set against what the Ministry of Education's Department of School Education and Literacy (DoSEL) was doing in precisely the period the four mechanisms operated.
+
+In FY 2018–19 — the same year the post-Chouhan-Cabinet operationalisation took effect — DoSEL introduced a new "Library Grant" component under the Samagra Shiksha umbrella scheme [@dosel_library_grant_2021]. The library-grant guidelines were issued 3 October 2018, revised 21 January 2020, and revised again 28 October 2021 to align with the National Education Policy 2020's emphasis on libraries. The revised 2021 guidelines explicitly framed the grant as supporting *"identifying, printing and procuring library books; ways for setting up and managing libraries; library activities; provisions for promoting a culture of reading; and the monitoring mechanisms to be adopted to facilitate optimum utilization of Library Grant under Samagra Shiksha"* — a comprehensive operational framework for school libraries flowing through MoE rather than Ministry of Culture.
+
+In July 2021, DoSEL launched NIPUN Bharat — the National Initiative for Proficiency in Reading with Understanding and Numeracy — targeting foundational literacy for children aged 3–9 [@dosel_reading_campaign_2021]. The associated nationwide Reading Campaign ran from January to April 2022 across 100 days, targeting Balvatika to Grade VIII students with a structured 14-week activity calendar designed at Centre level and delivered through SCERTs, DIETs, school principals, and teachers. Read against the Mechanism-1 NML collapse (RE ₹0.73 cr in FY 2019–20), the Centre's simultaneous capacity to design, fund, and deliver a 100-day nationwide reading campaign through MoE is institutionally instructive: the State did not lose the capacity to run a nationwide library / reading initiative in this period. It chose where to apply that capacity.
+
+**The selectivity is along a documentable constituency line.** The school-library grant under Samagra Shiksha reaches captive child constituencies in the formal-school enrollment pipeline; the National Education Policy 2020 places foundational literacy and the school library at the centre of its National Development Agenda. The public-library architecture under RRRLF reaches non-school adult constituencies — first-generation learners studying for state recruitment, the rural elderly, women without paid private reading rooms, exam-aspirants from Dalit and Adivasi households. The companion sociology paper documents the demographic and caste-disaggregated distribution of who reads outside the school system. The selective-retreat reading is therefore that the Centre's library-policy capacity in the post-2016 period was structurally redirected: from constituencies outside the development-agenda category toward constituencies inside it; from physical public-library infrastructure for adults toward school-library infrastructure for children in the formal pipeline; from the Ministry of Culture's RRRLF channel toward the Ministry of Education's Samagra Shiksha channel and the National Digital Library of India.
+
+Read against the longer historical background sketched in §2, the post-2016 selective retreat takes on a sharper register. The public library is the material infrastructure of "associated living" in Dewey's sense, of *maitri* in Ambedkar's, and of the foundational anti-caste right that Phule, Iyothee Thass, the Adi-Hindu Mahasabha poet-activists Rawat has recovered, Periyar, and Ambedkar consistently named as the precondition of political emancipation. Its withdrawal from the consolidated public-expenditure ledger is not the reduction of an amenity but the foreclosure of one of the few institutional sites where caste, class, and gender boundaries are not load-bearing for entry. The conditions of possibility under which a state can preside over such a foreclosure — across two political dispensations of different ideological character, with a documented procedural sequence at the dispensational pivot — are continuous with the conditions of possibility under which the rights-based architecture of 2005–2014 could codify rights for food, work, information, forests, education, and land without registering the connective infrastructure that anti-caste scholarship has named as foundational. @teltumbde2018republic's reading of the post-1991 conjuncture as a neoliberal-Hindutva consolidation that operates by capturing the rhetorical surfaces of equality while procedurally dismantling redistributive arrangements applies precisely to the institutional history this paper has reconstructed: the 2016 dismantling completes a foreclosure that the 2005–2014 architecture had already structurally permitted by not building. Neither the UPA period's progressive codification of social-sector rights nor the post-2014 period's procedural retreat captures this longer institutional pattern on its own. What captures it is a sustained — across political dispensations — non-recognition of the public library as constitutive of democratic life in the Dewey–Ambedkar sense, and as foundational in the millennial anti-caste counter-tradition. The state used the utopian "technological charisma" (@cody2011technological) of the network society to mask its retreat from the physical reading infrastructure precisely as it was reaching its historic peak in the vernacular print boom documented by @cody2013light. This retreat marks the final surrender of the **pedagogic state** — which once aimed to cultivate rational, political subjects through mass literacy — to a transactional digital state that manages isolated users. The right-to-read movement, on this longer view, is not opposing one party's policy choices; it is naming an infrastructural absence that India's post-Independence rights-based imagination has carried across the post-1991 era, against an even longer historical inheritance of caste-coded textual exclusion.
+
+# Conclusion
+
+This paper has reconstructed a four-mechanism chain linking the 2016 Cabinet ratification of the Chouhan rationalisation of Centrally Sponsored Schemes to the 65% nominal collapse in Centre-side public-library expenditure visible in the FY 2022–23 RRRLF disbursement series. The upstream cause is categorical (NML classified Optional by residual); the three downstream mechanisms are the visible institutional failures in the parliamentary record (scheme sunset and nominal renewal; state-side non-submission of matching proposals; Centre-side Grants Committee non-convening). The recipient-end signature of the chain is documented at the Kerala State Central Library: a CSS-channel collapse to zero starting in FY 2017–18 alongside a continuing non-CSS State Plan stream that peaked in the same year. The cess-state comparative pattern shows that only Tamil Nadu's institutional design — statutory cess plus ring-fenced disbursement plus a binding allocation floor — produced a durably-rising real per-capita expenditure trajectory across the decade. The post-2022 trajectory adds a fourth procedural-friction layer (Central Nodal Agency account setup delays, FY 2023–24) and identifies the Sixteenth Finance Commission's 2026–27 → 2030–31 award cycle as the next institutional break-point. The selective-retreat reading — the Ministry of Culture's withdrawal from public-library architecture concurrent with the Ministry of Education's expansion of school-library architecture under Samagra Shiksha and NIPUN Bharat — places the four-mechanism account inside a broader institutional pattern in which the Centre's library-policy capacity was redirected along a documentable constituency line.
+
+Two policy implications follow directly. *First*, the Centre is institutionally unlikely to revive the matching-grant architecture under the Ministry of Culture in the current FC-16 cycle without a redesigned successor scheme that resolves the four-mechanism failure modes simultaneously. RS #382 confirms the successor is in design; the form it takes will determine whether the post-2016 retreat is normalised or reversed. *Second*, the constitutionally accurate response — public libraries are a state-list subject under Seventh Schedule, List II, Entry 12 — is to treat the state government as the unit of intervention. The cost-engineered model for state-government-led recovery is the subject of the forthcoming companion blueprint paper. The Tamil Nadu institutional design provides the existence-proof; the four-mechanism account here provides the diagnosis of what cannot be relied on from the Centre.
+
+## Future directions
+
+The four-mechanism account opens several institutional-analysis questions that subsequent work could address.
+
+1. **A within-state replication of the Kerala SCL two-stream test.** RS #328 disaggregates by funding stream only for Kerala SCL. A complete primary-source reconstruction of the stream-disaggregated tables for the other state recipients named in the Report (Tripura, Gujarat, Maharashtra, Karnataka, and others) would test whether the Kerala-specific CSS-zero pattern is the national pattern.
+
+2. **A content analysis of MoC vs MoE budget-language shifts, 2017–2022.** The selective-retreat reading rests on a constituency-line interpretation of the simultaneous MoC withdrawal and MoE expansion. A formal content analysis of demand-for-grants language, budget-speech language, and parliamentary-question language for the period would either confirm or revise the reading we offer.
+
+3. **A cross-state institutional-features audit.** Tamil Nadu's three-feature design (cess + ring-fence + floor) is the existence-proof. A systematic audit of the other 30 states / UTs against the three features would identify which states are one feature, two features, or three features away from the durable-trajectory institutional design.
+
+4. **A primary-source verification of the Bengaluru and Hyderabad cess-withholding patterns.** The ₹700 cr BBMP withholding figure rests on news-source reporting and partial primary-source verification. A full BBMP – Karnataka Department of Public Libraries cess-account reconciliation, and the parallel GHMC – Telangana State Library Authority reconciliation, would establish the cess-collection-vs-transfer ledger as a documented evidentiary base.
+
+5. **A formal analysis of the FC-16 successor scheme design phase.** RS #382 confirms the design is underway. Tracking the design phase, naming the institutional features that the successor scheme proposes, and assessing them against the four-mechanism failure modes documented here, is the analytical work that would influence the design phase before its operationalisation.
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+# Funding and Competing Interests {.unnumbered}
+
+The Right to Read Campaign is a public-interest project of Commoner LLP. This paper received no external funding; the authors declare no competing financial interests. Correspondence: `contact@theright2read.org`.
+
+# Data and Code Availability {.unnumbered}
+
+The parliamentary-record primary sources cited in this paper are listed by Report number, page, and paragraph. The Department-related Parliamentary Standing Committee on Transport, Tourism and Culture's Reports #245, #258, #264, #277, #310, #328, and #382 are publicly available on the Rajya Sabha Committees portal at `rajyasabha.nic.in`. The RRRLF Annual Reports 44th–51st (FY 2015–16 → FY 2022–23) are publicly available on the RRRLF website at `rrrlf.gov.in`. The Chouhan Sub-Group Report (2015) and the Cabinet Decision Ratifying It (3 August 2016) are publicly available on the PIB and Department of Expenditure portals.
+
+```{python}
+#| output: asis
+
+print(r'\begin{table}[H]')
+print(r'\centering')
+print(r'\caption{Parliamentary record cited in this paper, by Report number and date.}')
+print(r'\renewcommand{\arraystretch}{1.25}')
+print(r'\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.13\linewidth}X>{\raggedright\arraybackslash}p{0.16\linewidth}@{}}')
+print(r'\toprule')
+print(r'\textbf{Report} & \textbf{Subject} & \textbf{Date} \\')
+print(r'\midrule')
+rows = [
+    ('RS \\#245', 'Demands for Grants 2017--18, Ministry of Culture', 'March 2017'),
+    ('RS \\#258', 'Demands for Grants 2018--19, Ministry of Culture', 'March 2018'),
+    ('RS \\#264', 'Action Taken Report on \\#258', '14 December 2018'),
+    ('RS \\#277', 'Demands for Grants 2020--21, Ministry of Culture', '12 March 2020'),
+    ('RS \\#310', 'Demands for Grants 2022--23, Ministry of Culture', '3 February 2022'),
+    ('RS \\#328', 'Action Taken Report on \\#310', 'December 2022'),
+    ('RS \\#382', 'Action Taken Report (most recent ATR cycle)', '11 February 2026'),
+]
+for r, s, d in rows:
+    print(rf'{r} & {s} & {d} \\')
+print(r'\bottomrule')
+print(r'\end{tabularx}')
+print(r'\renewcommand{\arraystretch}{1.0}')
+print(r'\end{table}')
+```
+
+The replication archive --- the Quarto source for this paper, the BE/RE/Actual data series underlying Figure 1, the Kerala SCL two-stream series underlying Figure 3, and the consolidated cross-references between the parliamentary record and the budget-line evidence base --- is deposited in the Right to Read working-paper series' Open Science Framework (OSF) project, with the code archived for a citable, versioned DOI on Zenodo (DOI to be assigned at public release). The deposited derived data are released under CC-BY-4.0 and the analysis code under the GNU Affero General Public License v3 (AGPL-3.0). The paper compiles end-to-end in under three minutes on standard hardware.

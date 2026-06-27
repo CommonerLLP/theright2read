@@ -1,0 +1,404 @@
+---
+# Body only — paper-level metadata lives in ../../_shared/papers.toml
+bibliography: library-comparator-references.bib
+format:
+  pdf:
+    output-file: "RTR-WP-006-body.pdf"
+    documentclass: article
+    classoption: [11pt, a4paper]
+    geometry: [top=20mm, bottom=20mm, left=28mm, right=28mm]
+    pdf-engine: lualatex
+    number-sections: true
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    colorlinks: false
+    linkcolor: "black"
+    urlcolor: "black"
+    citecolor: "black"
+    include-in-header: ../../_shared/body-preamble.tex
+    header-includes: |
+      \usepackage{tabularx}
+      \usepackage{setspace}
+      \onehalfspacing
+      \usepackage{float}
+      \floatplacement{figure}{!htbp}
+      \floatplacement{table}{!htbp}
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+
+# Introduction and Measurement Frame
+
+Reading, in modern India, was never neutral leisure. From the nineteenth-century anti-caste reformers to the twentieth-century literacy and library movements, access to the printed word was claimed as a route out of caste hierarchy, and the free public library became its civic form. It is against that inheritance — the library as an instrument of emancipation, open to anyone who walks in — that this paper reads two contemporary Indian city systems, Ahmedabad's and Delhi's. It finds the inheritance being reversed: the library kept intact as an institution while it is withdrawn as a public, hollowed by a disclosure regime that hides the loss and a documentary gate that screens its readers by class and caste.
+
+Ahmedabad and Delhi represent two different institutional models. Ahmedabad's system is municipal, organized around Sheth M.J. Library and the Ahmedabad municipal library network. Delhi Public Library is a Union-linked library system governed through the Delhi Library Board and funded through the Ministry of Culture. Delhi is therefore not simply another municipal case. It is closer to a capital-city special case: like Washington, Canberra, Ottawa, Jakarta, or Singapore, the capital function and the local public-service function are institutionally tangled.
+
+The resident denominator is also not enough. Both cities serve large non-resident publics. Delhi is a capital, transport hub, university city, heritage destination, and administrative centre. Ahmedabad is not only an AMC-resident city. It is Gujarat's main metropolitan gateway, a UNESCO World Heritage City, the city of Gandhi Ashram, a major business and education centre, and a global architecture destination through the Le Corbusier, Louis Kahn, Balkrishna Doshi, Sarabhai, and modernist institutional circuit. For a library-access paper, this matters because public libraries serve students, job seekers, visitors, researchers, migrants, and temporary residents as well as formal municipal residents. Until city-bounded tourist-use data is isolated, the current foreign-visitor proxies are Delhi's 1.83 million foreign tourist visits in 2023 and Gujarat's 2.274 million foreign tourist visits in 2024, used here as an Ahmedabad gateway-exposure proxy rather than as a literal AMC-limit visitor count.
+
+A public library is civic infrastructure, not a book warehouse. Ranganathan's laws put use at the centre of the institution [@ranganathan1931], and the IFLA-UNESCO manifesto frames the public library as a local institution for education, information, culture, and democratic participation [@iflaManifesto2022]. Contemporary work on libraries as social infrastructure makes the same point in urban terms: the branch matters because it is a low-threshold public place where access to knowledge, space, and social life can be distributed [@mattern2014; @klinenberg2018; @audunson2005].
+
+Three instruments set that standard. IFLA's Library Map of the World collects library data from national associations on a common template — service points, staff, registered users, visits, loans, expenditure — so that a system can be described and compared as a service rather than as a stock of buildings [@iflaLibraryMapData]. ISO 2789 standardises the definitions beneath those counts: what registers as a service point, a loan, a visit, a registered user [@iso2789]. ISO 11620 turns the counts into performance indicators — measures of how far a service actually reaches the population it is meant to serve [@iso11620]. Together they move the question a city must answer from institutional existence to service performance: not whether it runs a library department, but whether residents and non-resident publics can reach and use staffed, open, adequately resourced service points. The fields the frame expects a system to report are precisely the ones Ahmedabad and Delhi mostly do not:
+
+| Metric | Why it matters |
+| --- | --- |
+| Libraries or service points | Establishes the physical and mobile service network. |
+| Libraries with internet access | Tests whether the library is also a digital access point. |
+| Full-time staff | Tests whether the network has human service capacity. |
+| Volunteers | Captures supplementary labor, but should not substitute for staff. |
+| Registered users | Measures active membership or registration stock. |
+| Physical visits | Measures actual use of library premises. |
+| Physical loans | Measures circulation of physical material. |
+| E-book loans | Measures digital lending. |
+| Audio-book loans | Measures accessible and digital lending. |
+| Downloads | Measures broader digital content use. |
+
+The access model is deliberately conservative. Distance to the nearest library is only a proxy. A defensible model needs demand origins, travel time, catchments, supply capacity, and distance decay [@penchansky1981; @guagliardo2004; @luoWang2003; @luoQi2009]. The spatial results below should therefore be read as first-pass access diagnostics, not final capacity-weighted service claims.
+
+For Ahmedabad and Delhi, the decisive missing layer is branch-level service disclosure: seating capacity, opening hours, weekly hours, branch collection size, collection type, internet access, staff posted, visits, loans, and programs by location.
+
+A library's "public-ness" is not one quality but a chain of conditions, each of which must hold for the institution to work as public infrastructure: it must be **disclosed** (its service visible enough to judge), **reachable** (within ordinary travel of the people it serves), **enterable** (open without a test of documents, money, or social standing), **governed** accountably, and **planned as infrastructure** at all rather than maintained as a legacy department. The argument runs through these conditions in turn; the international systems enter where each is most sharply at stake — Toronto on disclosure, the membership regimes on entry, Singapore and Jakarta on governance, Medellín and Shenzhen on civic intent.
+
+# The Public Library in the Postcolonial City
+
+Delhi and Ahmedabad are the two cities through which India most often stages its arrival for an external gaze. Delhi hosted the 2010 Commonwealth Games; Ahmedabad, declared India's first UNESCO World Heritage City in 2017, has since been chosen to host the 2030 Commonwealth Games and made the centrepiece of the country's 2036 Olympic bid. The investment such spectacle commands flows readily to shiny capital infrastructure — stadiums, riverfronts, expressways, the world's largest cricket ground — and far less readily to the unglamorous public goods that constitute everyday urban life: parks, footpaths, buses, and the public library among them. To ask what becomes of the library in these cities is to ask what the showcase city does with the commons it does not photograph.
+
+Beneath the spectacle runs an accumulation logic that Marxist geographers have placed at the centre of how the contemporary city is read. The showcase city is also an engine of land and financial accumulation — the urban built as a fix for surplus capital [@harvey2012] — and India's recent urbanism turns land itself into a financial asset [@searle2016], with the state brokering it for real-estate capital and dispossessing those in the way [@levien2018] and public infrastructure recast as a tradable asset class rather than a citizens' commons [@bear2017; @bear2020]. The Mumbai–Ahmedabad high-speed line will fold Ahmedabad into Mumbai's property orbit; GIFT City stages a finance enclave beside it; Delhi's three airports and regional rapid-transit corridors are land-value machines as much as transit. We do not anatomise this here, only mark its weight: a city tuned for accumulation keeps little room on its balance sheet for the unprofitable commons — and it is there, in the commons being squeezed out, that the library's anti-caste promise was meant to live.
+
+Scholarship on the Indian city runs along two tracks, and the public library falls between them. One track anatomises the high-modernist planning state — the developmental promise that zoned, built, and then failed to deliver. The other, following Ravi Sundaram, finds in the postcolonial city a "pirate modernity": where the planned city fails, residents improvise, appropriate, and circulate their own access to media and the urban, and the city's centre of gravity shifts "from planning to information" [@sundaram2009; @sundaram2017]. Both accounts are indispensable, and both are organised around class, informality, and aesthetics. D. Asher Ghertner's Delhi — where an "aesthetic governmentality" learns to calculate without numbers and a gentrified state clears the poor for a world-class future — is read through property and class, not caste [@ghertnerCalculating2010; @ghertnerGentrifying2011]; Ayona Datta's "smart urban age" governs through an aspirational future [@datta2019]. The injunction to read the Southern city on its own terms [@bhan2019] and the subaltern urbanism of its informal majority [@ananyaRoy2011] have reshaped the field — yet caste sits at its edge, rarely its object.
+
+That omission matters, because for Dalits and the marginalised the Indian city has delivered neither modernity in full. It did not deliver the high-modernist public good: the planned library, like the planned school, was sited where the upper-caste city already was, and the Dalit migrant arrived as "footloose labour" [@breman1996]. Juned Shaikh's history of twentieth-century Bombay shows the rest — industrial capitalism and the caste system in "symbiosis," Dalit neighbourhoods marked as slums to be cleared, and "language and literature" made a battleground of Dalit cultural politics [@shaikh2021]. Banerjee and Mehta find the same logic in contemporary Ahmedabad: city-making does not dissolve caste in the "liberating space of anonymity" it promised, but masks and intensifies it into a "post-liberalisation Dalit ghetto" [@banerjeeMehta2017]. Nor does the marginalised reader receive the pirate-modern compensation: you cannot improvise past a biometric, a guarantor, or a refundable deposit the way Sundaram's subjects pirate a cable line, and the digital reading layer that now displaces the branch runs on the same mobile-and-identity rails, along "gender- and caste-based fault lines" [@mukherjee2026]. The "right to be counted" that Sanjeev Routray's Delhi poor must fight for [@routray2022] is, at the library counter, exactly the right the gate withholds. This double foreclosure — denied the planned institution and the informal workaround at once — is what frames that read only for class do not see.
+
+Ambedkar gives the stakes their sharpest form. For him the village was "a sink of localism, a den of ignorance, narrow-mindedness and communalism," the engine of untouchability, where tight and segregated association marks the Untouchable out [@ambedkarBAWS]; the city, larger and more anonymous, was where caste might loosen and a "corporate feeling of oneness" become thinkable [@chairezGarza2014]. The free public library is the civic form of that urban promise — a place where reading, long withheld by caste, opens to anyone who enters. The promise was always conditional in practice. Shailaja Paik records Dalit girls admitted to school yet made to sit at its threshold, present in the institution and excluded from its use, caste and gender compounding into a "double discrimination" [@paik2014; @paik2022]. Sharika Thiranagama finds that even the celebrated "caste-free" library publics of Kerala reconstitute caste rather than abolish it — "not all are coming to the library ... I can't really say that there is a free space for Dalit castes" [@thiranagamaRural2022; @harikrishnan2022; @thiranagamaMonster2026]. The library admits and excludes in the same gesture.
+
+Seeing how requires giving up the habit of counting infrastructure as a stock of buildings. AbdouMaliq Simone's "people as infrastructure" relocates the infrastructural to social practice — the provisional collaborations through which residents provision what the state does not [@simone2004]; Susan Leigh Star observes that infrastructure turns visible only when it breaks [@star1999], which is why a service kept off the record can be withdrawn without anyone seeing it go; and Graham and Marvin describe how networked public infrastructures "splinter," binding the served districts while bypassing the poor [@grahamMarvin2001]. Set beside Klinenberg's and Mattern's account of the library as social infrastructure [@klinenberg2018; @mattern2014], these let the paper treat a library's "public-ness" not as its existence but as the chain of conditions set out above — disclosure, reach, entry, governance, civic intent — and ask, condition by condition, where the postcolonial city quietly breaks it.
+
+# Data and Methods
+
+The unit of analysis is the city public-library system. For Ahmedabad, the system is the Ahmedabad Public Library / M.J. Library Network, not only the flagship M.J. Library building. For Delhi, the system is Delhi Public Library, a Union-linked public-library system governed through the Delhi Library Board and funded through the Ministry of Culture.
+
+Ahmedabad values use the compiled 83-location library inventory, M.J. Library official disclosures, and the July 2025 AMC / M.J. / Balbhavan service list [@mjLibraryOfficial]. Delhi values use DPL annual reports from 2009-10 to 2023-24, the current 111-row DPL service hierarchy, and the fixed-location spatial layer. Comparator values use Toronto Public Library, Singapore's National Library Board, Medellin's Sistema de Bibliotecas Publicas de Medellin, Jakarta's provincial/digital library layer, and Shenzhen's "City of Libraries" network.
+
+The comparison keeps four rules. First, normalize by population where possible. Second, separate nominal service points from effective service capacity. Third, treat public funding as an input, not a result. Fourth, disclose proxy layers rather than turning them into final claims.
+
+# Ahmedabad: Municipal Network, Weak Use Conversion
+
+The compiled Ahmedabad evidence set currently has 83 mapped library locations. Official M.J. Library annual statistics give a usable 2015-16 to 2025-26 time series.
+
+Latest Ahmedabad values:
+
+| Field | Value | Source / scope |
+| --- | ---: | --- |
+| Service points | 83 | Compiled location inventory |
+| Registered users including Gyanvihar | 26,834 | 2025-26 |
+| Physical loans / circulation | 96,491 | 2025-26 |
+| Collection total | 811,093 | 2025-26 |
+| Foreign visitor / gateway exposure proxy | 2.274 million | Gujarat foreign tourist visits, 2024; used as Ahmedabad gateway proxy |
+| Branches with seating capacity disclosed | 0 / 83 | Public evidence reviewed |
+| Branches with opening hours disclosed | 65 official service rows | July 2025 AMC / M.J. / Balbhavan list; reconciliation to the 83-location inventory pending |
+| Branches with branch collection size disclosed | 0 / 83 | Public evidence reviewed |
+| Branches with collection types disclosed | 0 / 83 | Public evidence reviewed |
+
+Ahmedabad therefore looks spatially dense but service-thin in the public evidence. With a resident denominator of about 7.08 million, 83 service points is about 11.7 service points per million people. But registered users are only about 0.38 percent of residents, and physical loans are about 0.014 loans per resident per year.
+
+The annual series also shows a weakening use profile. Circulation was over 200,000 in 2016-17 and 2017-18, fell to 89,846 in 2021-22, and is 96,491 in 2025-26. The collection continues to grow, but disclosed use does not show a corresponding service expansion.
+
+## Administrative Gatekeeping: Residency, Aadhaar, Guarantors, and Mobile OTP
+
+The low membership count — about 0.38 percent of the city population — is not only a sign of weak public interest. Administrative gatekeeping shapes it too. The M.J. Library site states a broad eligibility rule: all residents of Ahmedabad city can become members. But the operational requirements are stated inconsistently across the same official site. One membership section says applicants need a photograph, Aadhaar card, and guarantor name and signature. An older rules block accepts a wider set of proof for residence and photo identity: ration card, licence, passport, voting card, or Aadhaar. The current online membership form narrows the KYC dropdown to Aadhaar card, driving licence, or voter ID. Digital library registration, meanwhile, depends on a valid mobile number and OTP.
+
+The contradiction is therefore not resident versus non-resident. It is between a broad resident-facing public-library promise and a much narrower implementation layer. If Ahmedabad residence is the eligibility test, then residence should be verifiable through multiple ordinary proofs, and Aadhaar should not become the default gate. A library can reasonably ask for stronger proof before lending books outside the building. But reading-room access, reference use, events, and basic digital discovery should not require a biometric-adjacent identity document, a personal mobile number, or a socially powerful guarantor.
+
+These requirements create predictable barriers:
+
+- **Migrants, renters, students, and informal workers** may live in Ahmedabad but lack documents showing an Ahmedabad address, especially if their Aadhaar or voter record is tied to a village, previous rental, hostel, employer address, or family home.
+- **Women, children, older people, disabled users, and low-income users** may not control their own identity documents, phone number, scanned files, or online payment channel. The mobile-OTP model assumes individual device access that many households do not provide equally.
+- **Unhoused residents and people in informal settlements** are least likely to satisfy address-proof and guarantor expectations, even though public libraries are most valuable when they operate as low-cost, low-barrier civic infrastructure.
+- **Privacy-conscious readers** face a different barrier: library use becomes tied to KYC documents, phone numbers, OTP trails, usage data, and potentially analytics sharing. That can chill use, especially for students, activists, job seekers, and readers pursuing sensitive information.
+- **Users who only need non-lending access** face disproportionate burden if the same proof regime is applied to reading rooms, reference material, public events, or digital browsing. Borrowing risk and in-library use are different risk categories and should not be governed by the same proof burden.
+
+The access design principle should be proportionality. Borrowing books may justify address verification and loss recovery rules. It does not justify making Aadhaar, mobile OTP, or guarantor networks the practical threshold for participating in a municipal public library.
+
+Governance remains partly visible and partly opaque. The live M.J. Library content still names a Library Committee / board-facing roster: Shrimati Pratibhaben Rakeshkumar Jain as Mayor of Ahmedabad Municipal Corporation and Chairman; Shri Devang Jitendrabhai Dani as Chairman, Library Standing Committee; Dr. Sujay J. Mehta as a member of the Sheth M.J. Library management committee/board and Chairman, School Board, Ahmedabad; Shree Faljibhai G. Patel and Shree Jigneshkumar U. Pandya as scholar members of that management committee/board; Shri N. N. Dave (IAS) as Deputy Municipal Commissioner (Library); and Shri Malav Nawab as Municipal Chief Auditor. But AMC's official mayor incumbency table now lists Shri Hitesh Kantilal Barot as Mayor from 26 May 2026 to 26 May 2031, and lists Pratibhaben Jain's mayoral term as 11 September 2023 to 9 March 2026. The M.J. page therefore appears unsynchronised with current AMC incumbency. Separately, AMC's 2026 Standing Committee PDF lists a general Standing Committee appointed from 26 May 2026, with a PDF title/metadata term ending 25 November 2028; that committee is chaired by Kamleshbhai Maheshchandra Patel, not Devang Dani. A separate M.J. site cluster names Dr Bipin J Modi as Librarian, Mr. YogeshKumar J Patel as Assistant Librarian, Shri Prashant Pandya as Municipal Director, and Mr. Deepak Trivedi as I/C Deputy Municipal Commissioner (Library). The rules also give the librarian some first-instance decision powers and give the library management committee appeal/rule-changing powers. What is still missing is the formal by-laws or constitution, a confirmed current library-board roster, library-specific committee appointment dates, term lengths, delegation of powers, and professional qualifications.
+
+# Delhi: Central System, Local Service Problem
+
+Delhi Public Library is not the same kind of object as Ahmedabad's municipal library network. DPL is tied to the Delhi Library Board and Union Ministry of Culture funding. Its governance should therefore be read as a capital-city special case: a library system serving local residents, but not simply controlled through ordinary municipal government.
+
+The current Delhi service hierarchy distinguishes fixed libraries from mobile service points. The compiled inventory has 111 located DPL rows. That does not mean 111 equivalent library buildings. The hierarchy includes headquarters, zonal libraries, branch libraries, sub-branch libraries, a Braille library, a community library, and scheduled mobile-library stops.
+
+Current Delhi hierarchy facts:
+
+| Field | Value |
+| --- | ---: |
+| Total working DPL locations | 111 |
+| Fixed physical locations | 35 |
+| Mobile service points | 76 |
+| Headquarters | 1 |
+| Zonal libraries | 4 |
+| Branch libraries | 8 |
+| Special fixed library | 1 |
+| Sub-branch libraries | 20 |
+| Community library | 1 |
+| Located rows | 111 / 111 |
+
+For the purposes of this paper, the important distinction is not only how many DPL rows exist, but what kind of service they represent. A mobile stop, a sub-branch, a zonal library, and headquarters do not offer the same service capacity, even if they all appear in a single institutional inventory.
+
+The DPL annual-report time series runs from 2009-10 to 2023-24 for members, issues, reading-room attendance, collection, accessions, and expenditure. The 2023-24 values are:
+
+| Field | Value | Year |
+| --- | ---: | --- |
+| Registered members | 110,534 | 2023-24 |
+| Physical loans / issues | 274,751 | 2023-24 |
+| Reading-room attendance proxy | 335,270 | 2023-24 |
+| Collection total | 1,527,531 | 2023-24 |
+| Total expenditure | INR 328,986,673 | 2023-24 |
+| Foreign tourist visits | 1.83 million | Delhi, 2023 |
+
+Delhi's problem is not only missing branches. It is a decline in use intensity. DPL issues were 1,169,734 in 2010-11 and 1,138,767 in 2012-13. By 2023-24 they were 274,751. Registered members peaked at 189,235 in 2019-20 and were 110,534 in 2023-24. The collection remains large, but circulation has collapsed.
+
+## Administrative Gatekeeping: The Attestation-or-Deposit Gate
+
+Delhi gates access just as severely. DPL accepts a broader range of residency documents than Ahmedabad — utility bills, bank passbooks — but filters enrolment through social and financial capital:
+
+* **The Attestation Requirement**: To obtain a standard membership (costing INR 100), the application form must be attested by a "responsible person"—defined strictly as a Gazetted Officer, school principal, doctor, lawyer, bank manager, or Residents Welfare Association (RWA) president.
+* **The Financial Substitution (INR 3,000 Deposit)**: If an applicant lacks the social capital to obtain attestation from these elite professionals, they must alternatively pay a refundable security deposit of INR 3,000.
+* **Impact**: For a working-class resident, migrant student, or informal settlement dweller, this dual-gate acts as an exclusionary filter. They must either navigate an elite social patronage network to secure a signature, or lock up a week's or fortnight's worth of wages in a library deposit. This structural gatekeeping directly correlates with the steep decline in active DPL membership over the last decade.
+
+## Staffing as a Time Series
+
+The evidence set already had the 2023-24 vacancy count. The staffing table below extends that into a time series from the available annual-report PDFs.
+
+| Year | Sanctioned posts | Filled posts | Vacant posts | Vacancy rate | Notes |
+| --- | ---: | ---: | ---: | ---: | --- |
+| 2017-18 | 290 | 204 | 86 | 29.7% | Total derived from annual report text. |
+| 2018-19 | 282 | 258 | 24 | 8.5% | Best recent low vacancy point. |
+| 2019-20 | 282 | 221 | 61 | 21.6% | Vacancy rising before the pandemic year. |
+| 2020-21 | NA | NA | NA | NA | PDF archived, OCR required. |
+| 2021-22 | 274 | 173 | 101 | 36.9% | 68 professional and 33 ministerial vacancies. |
+| 2022-23 | 274 | 151 | 123 | 44.9% | 86 professional and 37 ministerial vacancies. |
+| 2023-24 | 274 | 138 | 136 | 49.6% | 102 professional and 34 ministerial vacancies. |
+
+The staffing story is stark. DPL moves from 24 vacancies in 2018-19 to 136 vacancies in 2023-24. Professional vacancies rise to 102 by 2023-24. The annual report itself says day-to-day tasks are being carried out by contract employees because of staff shortage. This matters for IFLA because a service point without staff capacity is not equivalent to a functioning library.
+
+The 2020-21 PDF is archived, but the usable staffing table has not yet been recovered. The staffing series is therefore continuous for 2017-18 to 2019-20 and 2021-22 to 2023-24, with a documented gap for 2020-21.
+
+## Parliamentary Record: Union Control, State-Subject Deflection
+
+The parliamentary record sharpens the Delhi case because it shows the contradiction inside the Union's own account of public libraries. DPL is not merely a Delhi local body in central territory. In Rajya Sabha Unstarred Question 4193, answered on 4 April 2018, the Ministry of Culture listed Delhi Public Library as one of six public libraries under its administrative control, along with the National Library, Central Reference Library, Central Secretariat Library, Khuda Bakhsh Oriental Public Library, and Rampur Raza Library.^[Rajya Sabha Unstarred Question 4193, 4 April 2018, Ministry of Culture.] An older Rajya Sabha answer places DPL inside a second national function: under the Delivery of Books Act, 1954, the four depository libraries were the National Library, Calcutta; Delhi Public Library, Delhi; State Central Library, Mumbai; and Connemara Public Library, Chennai.^[Rajya Sabha Unstarred Question 2059, 3 July 1998, Ministry of Human Resource Development.]
+
+Against that direct Union role, the Ministry's later answers repeatedly move responsibility away from the Centre. On 7 April 2022, asked whether public libraries had been neglected and what the Ministry was doing to modify the system for ICT, the answer began by saying that library is a State subject and public libraries function under State or Union Territory authorities; only then did it add that five libraries, including DPL, were funded by the Ministry of Culture.^[Rajya Sabha Unstarred Question 4014, 7 April 2022, Ministry of Culture.] On 4 August 2022, a question on funds, infrastructure, and digitisation received the same State-subject formula, followed by a limited description of NML and RRRLF assistance.^[Rajya Sabha Unstarred Question 2087, 4 August 2022, Ministry of Culture.] On 22 December 2022, a question that asked directly for library budget allocations and vacant posts in Union-funded national libraries got a vacancy non-answer — vacancies arise in the regular course and are filled "as and when" they arise — before the answer again moved public-library building and development to State or Union Territory control.^[Rajya Sabha Unstarred Question 1771, 22 December 2022, Ministry of Culture.]
+
+The pattern continues into 2024 and 2025. Questions on the National Mission on Libraries in August and December 2024 again start from the State-subject position, even while describing a Union scheme that assists one State Central Library and one District Library in each State or Union Territory and six Ministry-identified libraries.^[Rajya Sabha Unstarred Questions 1142, 1 August 2024; 1137 and 1141, 5 December 2024, Ministry of Culture.] In March 2025, when asked for data on public libraries in the country, the Ministry answered that libraries come under the State list and that no such data is maintained; the same answer then reported NML and RRRLF financial assistance figures.^[Rajya Sabha Unstarred Question 3062, 27 March 2025, Ministry of Culture.] The result is a stable administrative grammar: the Union can fund, administer, and modernise selected libraries, including DPL, but when asked for system accountability it retreats to the federal location of "libraries" in the State list.
+
+That grammar matters for Delhi. DPL's annual reports show circulation collapse and a near-half staffing vacancy. Parliament shows how those facts become administratively deniable. The Ministry can acknowledge Union-funded libraries, name DPL as one of them, and publish budget lines; but the broader public-library obligation is repeatedly displaced onto States and Union Territories. In 2018, the Ministry told Parliament that only nineteen states had library legislation, and again used the State-subject position to frame central action as financial assistance through RRRLF rather than an enforceable public-library service standard.^[Rajya Sabha Unstarred Question 4190, 4 April 2018, Ministry of Culture.] The disclosure failure in Delhi is therefore not only a missing table in an annual report. It is an accountability structure: enough centrality to control and fund DPL, enough federal deflection to avoid a national public-service obligation.
+
+# Ahmedabad and Delhi Compared
+
+| Dimension | Ahmedabad | Delhi |
+| --- | --- | --- |
+| Institutional type | Municipal library network centered on Sheth M.J. Library and AMC structures. | Union-linked public library system under Delhi Library Board / Ministry of Culture funding. |
+| Current working service count | 83 locations. | 111 working hierarchy rows, but only 35 fixed physical locations and 76 mobile service points. |
+| Latest registered users | 26,834 in 2025-26. | 110,534 in 2023-24. |
+| Latest physical loans | 96,491 in 2025-26. | 274,751 in 2023-24. |
+| Latest collection | 811,093 in 2025-26. | 1,527,531 in 2023-24. |
+| Staff disclosure | Network-level full-time staff missing. | Staff table available for recent years, but severe vacancies. |
+| Branch service detail | Seating, hours, branch collection, collection type missing for 83 / 83. | Seating, hours, branch collection, collection type missing for 111 / 111. |
+
+The two cases fail in different ways. Ahmedabad appears to have a denser municipal footprint, but the system does not yet disclose the service detail needed to judge whether those locations function as meaningful public libraries. Delhi has more registered users, a larger collection, and a longer annual-report time series, but its service hierarchy mixes very different things: fixed libraries, mobile stops, reading centres, and buses. Delhi also has a staffing crisis that directly undermines service capacity.
+
+The shared finding is the same: public library evidence in Indian cities is still too often institutional evidence rather than service evidence. We can see boards, buildings, collections, and grants. We cannot yet see enough about hours, seats, staff, use, digital access, and branch-level performance. The rest of the paper takes that failure apart along the five conditions of public-ness.
+
+# Disclosure: Can the Service Be Seen?
+
+The first condition is that the service can be seen well enough to be judged. Here the Indian cases fail before any question of quality arises. As Sections 4 and 6 showed, Ahmedabad discloses seating, branch collection size, and collection type for none of its 83 locations, and weekly hours for none; Delhi publishes system-level annual-report aggregates but almost nothing at the branch level. Infrastructure is characteristically invisible until it breaks — and here the invisibility is itself the failure, because a service that is never disclosed cannot be audited, and a withdrawal that cannot be audited proceeds unchallenged.
+
+Toronto is the lens that shows what disclosure makes possible. Toronto Public Library reports at both branch and system level:
+
+| Field | Toronto value |
+| --- | ---: |
+| Branches / service points | 102 |
+| Material borrowings | 28,000,000 |
+| Branch visits | 13,400,000 |
+| Collection items | 10,500,000 |
+| New card registrations | 235,270 |
+
+Against a 3 million population denominator, Toronto records about 34 service points per million residents, 9.33 borrowings per resident, and 4.47 visits per resident. Delhi, on a 19 million denominator, records about 0.014 issues and 0.018 reading-room attendances per resident. The point is not a moral ranking but a disclosure-and-intensity benchmark: Toronto demonstrates that a public-library system can report itself in a form that makes citizen audit routine — the precondition the Indian cases withhold.
+
+# Reach: Can People Get to the Library?
+
+A library that can be seen must still be reachable. Counting buildings is not enough; the test is whether libraries sit near population, schools, transit, and everyday pedestrian routes, and whether a listed point is a full branch, a sub-branch, a reading room, or a scheduled mobile stop. This is the axis on which the international comparators are least informative and the Indian ward data most direct, so it is argued from that data.
+
+For Ahmedabad, the location inventory is complete enough for a first-pass access diagnostic: all 83 listed library locations have coordinates. The first map below is a straight-line access proxy, not a street-network travel-time model. On current ward geometry, 28 of 48 ward centroids fall within 1.2 km of a listed library location, the median ward-centroid distance is 1.03 km, and about 31 percent of mapped ward area falls inside a 1.2 km straight-line buffer. That is useful for triage, but it is not a population-weighted access audit.
+
+![Ahmedabad's 83 listed library locations against ward boundaries. The shaded surface is the distance from each ward centroid to the nearest listed library, with a 1.2 km straight-line buffer around library points. Lambha, Ramol Hathijan, and Vastral are outlined as priority wards for further testing, not as final catchment findings.](figures/figA1_ahmedabad_walk_access_proxy.png){#fig-ahmedabad-access fig-alt="Choropleth of Ahmedabad's 48 wards shaded by distance from each ward centroid to the nearest of 83 listed libraries; the central core is well served while outer wards Lambha, Ramol Hathijan and Vastral are farthest from any library." width=100%}
+
+The second Ahmedabad map tests siting against everyday anchors rather than treating the library list as self-explanatory. In the current mapped layers, 77 of 83 listed libraries are within 400 m of a mapped bus stop, 30 are within 800 m of a Metro station, and 32 are within 400 m of a BRTS corridor. This is still a context map. The capacity-aware model will need ward population, AMTS/BRTS/Metro frequency, schools and colleges, ward deprivation, and public-space deficits. Lambha, Ramol Hathijan, and Vastral were earlier flagged as priority wards because they combine high population with service-gap signals; the next paragraph runs the spatial join those flags were waiting on.
+
+![Ahmedabad library locations against mapped AMTS, BRTS, Metro, schools, and colleges. Library points are classified by nearest mapped transit context. The map shows siting context, not commute-time access.](figures/figA2_ahmedabad_transit_education_context.png){#fig-ahmedabad-transit fig-alt="Map of Ahmedabad's 83 library locations over AMTS bus, BRTS and Metro corridors with schools and colleges marked; libraries cluster on the central transit grid and thin out toward the periphery." width=100%}
+
+Crossing access against deprivation turns those leads into a measured pattern. For each ward we take the straight-line distance from its centroid to the nearest of the 83 listed libraries and place it against the ward deprivation index, then split the city at the two medians: deprivation 0.82 and distance 1.03 km. Fifteen of the 48 wards fall in the double-locked quadrant — above the median on both axes, so both materially deprived and far from a library. Those 15 wards hold 2.82 million residents, 40 percent of the mapped ward population. The three earlier leads are all confirmed double-locked: Lambha (deprivation 0.97, 6.0 km to the nearest library), Ramol Hathijan (0.97, 3.5 km), and Vastral (0.85, 2.5 km). They are not even the sharpest case. Maktampura is — deprivation 0.999, 6.4 km — followed by Lambha and then Sarkhej (0.97, 4.3 km). The ward layer's own precomputed library-desert flag is no help here, because it reads true for all 48 wards; access has to be measured directly, which is what this cross does. The deprivation axis is not caste-neutral either: Scheduled-Caste residents are 18.8 percent of the city's recorded slum population and Scheduled-Tribe residents a further 2.3 percent (ORGI Census 2011, town level), so the material deprivation mapped here sits inside a caste geography even where ward-level caste counts are not published. This is the spatial face of the same exclusion the membership gates impose administratively: the wards furthest from a library are also the wards whose residents are least able to satisfy an Aadhaar-plus-guarantor membership test, so distance and paperwork compound rather than substitute.
+
+![Ahmedabad wards crossed on deprivation (horizontal) and distance from the ward centroid to the nearest listed library (vertical), with bubble area proportional to ward population. The shaded top-right quadrant is double-locked: above the city median on both axes. Fifteen wards holding 2.82 million residents fall inside it; Lambha, Ramol Hathijan, and Vastral are confirmed, and Maktampura is the most extreme.](figures/figA3_ahmedabad_library_exclusion_cross.png){#fig-ahmedabad-exclusion fig-alt="Scatter plot of Ahmedabad wards: ward deprivation index on the horizontal axis against distance to the nearest library on the vertical axis, with bubble area proportional to ward population; fifteen double-locked wards sit in the high-deprivation, high-distance top-right quadrant, with Maktampura the most extreme." width=100%}
+
+Delhi is further along spatially. For fixed DPL physical locations, the question is not whether DPL has 111 listed rows; 76 of those rows are mobile service points. The harder test is whether the 35 fixed physical locations are walkable and transit-linked. On the current ward geometry, only 57 of 290 wards, about 20 percent, fall within a 1.2 km walk of a fixed DPL location. The median ward sits 2.53 km from its nearest fixed DPL location, and only about 9 percent of the city's land area lies within the 1.2 km walk band. The pattern is concentrated in the older core while outer districts remain thinly served.
+
+![Distance from each Delhi ward to its nearest fixed DPL physical location. Only about 20 percent of wards lie within a 1.2 km walk, and barely 9 percent of the city's land area falls inside that walk band. Mobile service points are excluded from this fixed-location test.](figures/figD3_dpl_walk_access.png){#fig-delhi-walk fig-alt="Choropleth of Delhi wards shaded by distance to the nearest fixed DPL library; the older core is close while outer south and south-west wards lie 8 to 12 km from any fixed library." width=100%}
+
+Transit only partly repairs the gap. Against Delhi's Metro network, 16 of the 35 fixed DPL physical locations sit within 800 m of a Metro station, and only 7 sit within 400 m. The bus network does better: 27 of the 35 fixed locations are within 400 m of a bus stop. That means many branches are bus-reachable but not rapid-transit-reachable. The faster citywide network that could enlarge library catchments misses about half the fixed DPL estate.
+
+![Fixed DPL branches against Delhi's transit network. Green points are within 800 m of a Metro station; amber points are bus-served but off the Metro; red points are beyond 400 m of any mapped transit stop.](figures/figD4_dpl_transit_siting.png){#fig-delhi-transit fig-alt="Map of Delhi's 35 fixed DPL branches against the Metro and bus network; 16 branches lie within 800 m of a Metro station, 16 are bus-served only, and 3 are beyond 400 m of any mapped transit stop." width=100%}
+
+The 1.2 km walking threshold is a deliberately strict floor. It excludes auto-rickshaw, two-wheeler, bicycle, app-cab, cycle-rickshaw, bus, and Metro trips. The walk standard is still necessary because children, students, older people, and carless residents are precisely the readers for whom a short, free trip matters most.
+
+# Entry: Can People Get In?
+
+Reaching the building is not the same as being let in. Both Indian systems convert a public-service relationship into a test of documents, money, or social standing — and, as Sections 4 and 5 set out, they do so hardest against the residents who most need a free reading space. Ahmedabad's rules are inconsistent and Aadhaar-forward, with a guarantor and a mobile OTP at the centre; Delhi gates adult membership through attestation by a gazetted officer or professional, or else a refundable INR 3,000 deposit. The ward residents who are farthest from a branch (Section 8) are also the least able to produce a guarantor or to lock up a fortnight's wages, so distance and paperwork compound rather than substitute.
+
+Set against international practice, the two Indian systems are the outliers:
+
+| Library System | Residency Proof / Address Verification | ID Requirements | Guarantor Required for Adults? | Digital vs. Physical Access | Inclusion / Flexibility Features |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Ahmedabad (M.J. Library)** | **Inconsistent**: one rules block allows ration card, licence, passport, voter card, or Aadhaar; another membership blurb foregrounds Aadhaar; the online KYC dropdown narrows choices to Aadhaar, driving licence, or voter ID. | Photograph plus KYC document; online workflow also collects gender, education, date of birth, guarantor details, and mobile OTP. | **Yes** (Requires guarantor name/signature in the membership rules; online workflow asks guarantor name and mobile). | **Dual-track**: digital registration depends on valid mobile/OTP; physical M.J. membership requires KYC and librarian approval. | Low. Stated resident eligibility is broader than the actual proof and platform burden. |
+| **Delhi (DPL)** | **Flexible**: Aadhaar, Voter ID, electricity bill, MTNL bill, bank passbook. | Valid photo ID. | **No** (But requires **attestation by a Gazetted Officer/professional** or a **refundable INR 3,000 security deposit**). | Standard in-person registration; outstation students get temporary 6-month cards. | Low-Medium. Attestation or deposit gates create heavy class/caste-based exclusion. |
+| **New York Public Library (NYPL)** | **Highly Flexible**: Driver's license, IDNYC, or utility bills, rent/lease agreements, bank statements, official mail. | Any photo ID (including student, employee, or foreign cards/passports). | **No** (Only for children under 12). | Online registration offers instant digital-only card (geolocated address check); upgraded to physical card in-branch. | High. Teens (13-17) require no ID. Staff explicitly do not ask about immigration status. |
+| **Toronto Public Library (TPL)** | **Highly Flexible**: Ontario Photo ID, utility bill, lease, or **mailed registration postcard** (sent by TPL to verify address). | Driver's license, passport, birth cert, PR card, student card, or health card. | **No** (Only for children under 13). | Online registration offers instant Digital Access Card (13+) for online resources. | High. Mailed postcard allows homeless or unleased residents to verify residency without official bills. |
+| **British Public Libraries (UK)** | **Flexible**: Recent utility bill, council tax bill, bank statement, or tenancy agreement (3-6 months). | Passport, driving license, national ID, or student ID. | **No** (Only for children/youth under 14-18 depending on council). | Online registration gives a temporary number; in-person verification required for physical borrowing. | Medium-High. Most councils offer "basic" or "guest" cards with restricted limits for those without standard ID (e.g., refugees). |
+| **Medellín (SBPM)** | **Standard**: Proof of residency in the metropolitan area. | Cédula de ciudadanía, pasaporte, foreign card/permit. | **No** (Asks for 2 personal contact references, but no physical signature/liability). | Online pre-registration; in-person photo taken and linked to profile for cardless borrowing. | Medium. Photo-link simplifies access, though standard documentation is still required. |
+| **Cape Town (Library Services)** | **Standard**: Recent city account statement or municipal bill. | ID book/card or passport. | **No** (Asks for 2 contact references in Cape Town, but no signature/liability). | Standard in-person registration (3-day processing time). | Medium. Non-residents/expats can access services via a paid facilities fee. |
+
+## Mechanisms of friction
+
+When compared globally, the Indian library systems (Ahmedabad and Delhi) emerge as major outliers in their administrative barriers:
+
+* **The proof-burden mismatch**: Ahmedabad's stated eligibility rule is residence in Ahmedabad city, but the actual proof rules are inconsistent and sometimes narrower than that standard. The older rules recognise several proofs; the membership blurb foregrounds Aadhaar; the online form reduces options to three KYC documents. A public library should make residence easy to verify, not convert residence into a biometric or platform dependency.
+* **The attestation / guarantor barrier**: Ahmedabad requires a guarantor for adult membership. Delhi Public Library gates adult access through attestation by a Gazetted Officer, school principal, doctor, lawyer, bank manager, or RWA president, or else an INR 3,000 refundable security deposit. Both systems turn a public-service relationship into a test of social or financial capital, unlike the individual civil registration models used in New York, Toronto, Medellín, Cape Town, and many UK councils.
+* **Digital dual-tracking**: Rather than using digital cards to reduce friction, Ahmedabad's digital workflow makes a mobile number and OTP central, while physical M.J. membership relies on KYC, guarantor details, and librarian approval. This creates separate surveillance vectors: mobile-number tracking for digital reading and document/social verification for physical membership.
+* **Disproportionate burden by use case**: The strongest proof requirements may be defensible for high-risk borrowing, but they are excessive for low-risk uses such as reading-room access, reference consultation, public events, digital discovery, or browsing. Treating all use as if it creates the same loss risk undermines the public-library function.
+
+The comparators carry a narrow, practical lesson: verification can serve convenience instead of surveillance. Toronto mails a registration postcard to a self-declared address; New York issues an instant card and instructs staff not to ask about immigration status; Medellín takes a photograph at the desk and links it to the reader's profile so they can borrow without carrying identification. None is a template to import wholesale, but each shows that confirming residence need not mean policing it by wealth or biometrics.
+
+# Governance: Who Runs It, and Is It Accountable?
+
+Who runs a library, under what instrument, and with what public accountability shapes whether any of the earlier conditions can be enforced. The two Indian cases are governed differently and disclose their governance only partially. Delhi Public Library is a capital-city special case: a Union-linked system funded through the Ministry of Culture and run through the Delhi Library Board, serving local residents but not controlled through ordinary municipal government. Ahmedabad's M.J. Library network is municipal, but its public-facing governance is unsynchronised and incomplete — the live board roster does not match current AMC incumbency (Section 4), and the formal by-laws, current library-board membership, committee appointment dates, terms, and delegation of powers are not published.
+
+Singapore is the lens for what accountable statutory governance can report. The National Library Board is a statutory board under the National Library Board Act 1995, supervised by the Ministry of Digital Development and Information; its 2024-25 annual report and About page give a network of 28 libraries:
+
+| Field | Value | Source |
+| --- | ---: | --- |
+| Libraries | 28 | NLB About page / Annual Report 2024-25 |
+| Visits | 20.8 million | NLB Annual Report 2024-25 |
+| Total loans | 38.8 million | NLB Annual Report 2024-25 |
+| Physical loans | 24.0 million | NLB Annual Report 2024-25 |
+| Digital loans | 14.8 million | NLB Annual Report 2024-25 |
+| Digital usage | 89.2 million | NLB Annual Report 2024-25 |
+
+Table sources: National Library Board official About page and NLB Annual Report 2024-25.^[NLB's 20.8 million visit figure includes the National Library, public libraries, National Archives, and the Former Ford Factory; it is not a pure branch-only public-library visit count.]
+
+A national or statutory-board model, in other words, is no excuse for thin reporting — and it forces the Indian cases to separate physical from digital access, which Ahmedabad and Delhi barely evidence at all (e-book loans, audio-book loans, downloads, digital usage).
+
+Jakarta shows a different governance form and its characteristic risk. DISPUSIP DKI Jakarta is the provincial library and archives agency; the Jaklitera platform layers catalogue search, accounts, events, and mobile-library schedules over the network:
+
+| Field | Evidence | Source |
+| --- | --- | --- |
+| Governance | DISPUSIP DKI Jakarta is the provincial library and archives agency. | DISPUSIP profile |
+| Flagship institution | Perpustakaan Jakarta Cikini and PDS HB Jassin became a dedicated management unit in 2022. | DISPUSIP library profile |
+| Managed stationary locations | 6 locations are served through Jaklitera, plus mobile library service. | DISPUSIP library services page |
+| Wider registry | Jaklitera search exposed 5,239 registered library results, including RPTRA and school libraries. | Jaklitera library search |
+| Digital layer | Jaklitera provides web/mobile catalog and service functions. | Perpustakaan Jakarta / Jaklitera portal |
+
+Jakarta shows how a capital-region digital platform can widen discovery and registration, but it does not yet provide a clean like-for-like service-point count against Ahmedabad or Delhi.^[The 5,239 Jaklitera results are a broad registered-library ecosystem that includes school and community facilities, not 5,239 public-library branches.]
+
+# Civic Intent: Is the Library Planned as Infrastructure?
+
+The last condition is the most basic and the easiest to miss: whether a city plans its libraries as civic infrastructure at all, or merely maintains them as legacy departments. The Indian disclosure failure, the spatial neglect of the periphery, and the documentary gatekeeping point the same way — toward an institution kept on the books rather than designed around the public it is meant to serve.
+
+Medellín is the lens for the opposite choice. The Sistema de Bibliotecas Públicas de Medellín treats its library parks as cultural-development centres planned as neighbourhood civic anchors:
+
+| Field | Value | Source |
+| --- | ---: | --- |
+| SBPM libraries | 26 | SBPM network page |
+| Coverage | 16 communes and 5 corregimientos | SBPM network page |
+| 2024 visitors | 2,311,418 | SBPM 2024 statistical consolidated PDF |
+| 2024 service/program participants | 2,226,266 | SBPM 2024 statistical consolidated PDF |
+| Registered users by December 2024 | 320,771 | SBPM 2024 statistical consolidated PDF |
+| Approximate 2024 lending | about 340,370 | SBPM 2024 statistical consolidated PDF; preliminary extract |
+| Approximate collection | about 1.26 million | SBPM 2024 statistical consolidated PDF; preliminary extract |
+
+Table sources: SBPM official About page, SBPM network page, and SBPM 2024 statistical consolidated PDF.
+
+Medellín asks the question Ahmedabad and Delhi cannot avoid: is a library a planned civic anchor in a neighbourhood, or merely a room with books? Designing for the answer means siting libraries against ward population, transit, schools, bastis and resettlement colonies, heat, and public-space deficits — exactly the layers Section 8 found the Indian networks ignoring.
+
+Shenzhen shows the same intent pursued at state scale. In 2009 the city launched a "City of Libraries" programme; in 2021 the National Development and Reform Commission named it the only cultural-field item in the Shenzhen Special Economic Zone reform list to be promoted nationwide, and it is the only city awarded UNESCO's "Global Model City for Promoting Reading."
+
+Reported Shenzhen network figures:^[These are headline figures published through PRC government and government-affiliated portals (Shenzhen Government Online, EYESHENZHEN), not an independently audited annual report with branch-level open data, and they carry a state-promotion register. As with Jakarta's registry, the "744 libraries / city of 1,000 libraries" count must not be read as 744 full staffed branches: it bundles small self-service kiosks and book-bars with full libraries, and is a programme-intensity benchmark rather than a like-for-like service-point count against Ahmedabad or Delhi.]
+
+| Field | Value | Source / scope |
+| --- | ---: | --- |
+| Public libraries | 744 (incl. 9 national first-class) | Shenzhen Government / EYESHENZHEN portal |
+| Self-service libraries | 306 (200+ open 24-hour) | Shenzhen Government / EYESHENZHEN portal |
+| Network collection | 57.45 million books | Shenzhen Government / EYESHENZHEN portal |
+| Per-capita reading (2020) | 8.86 print + 12.13 e-books / person / year | Shenzhen official reading data, 2020 |
+| Main Shenzhen Library (2006) | ~4.5 million visits, ~5 million loans / year | Shenzhen Government / EYESHENZHEN portal |
+| Shenzhen Library North (opened Dec 2023) | 2.0 million visits by July 2024 | Shenzhen Government portal, 2024 |
+
+Two features matter for the Indian cases. A single shared catalogue lets a reader borrow and return at any point, and a 24-hour self-service network detaches access from staffed opening hours — and so from the staffing collapse that cripples Delhi. And the per-capita reading figures show what a city measures when it treats reading as an outcome rather than counting buildings.
+
+# Limitations and Future Work
+
+The analysis above is limited by a common disclosure failure: both cities report institutions more clearly than services. The remaining gaps are not minor. They determine whether the library network can be evaluated as public infrastructure rather than as a list of buildings, boards, and annual totals.
+
+The spatial analysis is also provisional. Ahmedabad's current map is a straight-line ward-centroid proxy rather than a population-weighted walking or transit model. Delhi's location layer covers all 111 working DPL rows, but part of the coordinate inventory still needs to be verified against DPL-published coordinates, official address material, or other open public-source evidence before the maps are treated as publication-final. These limits do not change the main finding that Delhi's fixed-library network is thin and unevenly distributed; they define the next standard of proof.
+
+The international comparators carry their own evidence caveats. Their figures are drawn from official annual reports, government portals, and government-affiliated media at differing scopes and reporting standards — and, for Shenzhen, in a state-promotion register — so they are used as directional disclosure-and-intensity benchmarks, not as like-for-like service counts against the Indian cases.
+
+For Ahmedabad, the unresolved fields are:
+
+| Field | Why |
+| --- | --- |
+| Branch-wise opening hours and weekly hours | To assess actual access, not nominal locations. |
+| Seating capacity by branch | To assess study/reading-room capacity. |
+| Branch collection size and collection type | To distinguish children's, reference, lending, periodical, digital, and special collections. |
+| Branch staff and full-time staff | To map service capacity. |
+| Physical visits and loans by branch | To identify active and inactive service points. |
+| Internet access by branch | To complete IFLA internet-access metric. |
+| Digital loans/downloads | To complete IFLA digital metrics. |
+| M.J. Library Board by-laws, current board, terms, and librarian qualifications | To make governance auditable. |
+
+For Delhi, the unresolved fields are:
+
+| Field | Why |
+| --- | --- |
+| Branch-wise opening hours and weekly hours | DPL's hierarchy mixes fixed libraries and mobile stops; hours are essential. |
+| Seating capacity by branch | Needed for reading-room and study-space adequacy. |
+| Branch collection size and collection type | Needed to distinguish central, zonal, branch, sub-branch, Braille, and mobile service. |
+| Staff posted by branch and sanctioned/filled/vacant posts by designation | Needed because system-wide vacancy is now nearly 50 percent. |
+| Physical visits and loans by branch | Reading-room attendance is only a partial visits proxy. |
+| Mobile service schedules, stop-level frequency, and usage | Needed because mobile stops are not equivalent to permanent branches. |
+| Internet access by location | Needed for IFLA metric completion. |
+| E-book, audio-book, and download metrics | Needed for digital service audit. |
+| Delhi Library Board composition, powers, by-laws, appointment dates, and term lengths | Needed because DPL is a board-governed central public institution. |
+
+The Delhi parliamentary layer added in Section 5 is a first accountability pass, not an exhaustive Parliament audit. It covers the core Rajya Sabha answers on DPL, the National Mission on Libraries, RRRLF, Union-funded libraries, vacant posts, legislation, and the repeated State-subject deflection. The next pass should add Department-related Parliamentary Standing Committee reports on Transport, Tourism and Culture where Culture-related oversight appears, and should reconcile annual-report staffing tables against any designation-level vacancy annexures tabled in Parliament.
+
+# Conclusion
+
+Ahmedabad and Delhi both have public-library systems on paper. What the evidence shows is a public institution being quietly withdrawn — not abolished, but hollowed. The buildings, boards, and collections persist while the service inside them thins. Delhi's circulation has fallen from over 1.1 million issues a year to 274,751, and its staffing vacancy has climbed to nearly half. Ahmedabad registers barely 0.38 percent of its residents, and its use has weakened even as its collection grows. The library survives as an address and recedes as a service.
+
+That withdrawal is not evenly distributed. In Ahmedabad the wards farthest from a library are also the most deprived, and that deprivation sits on a caste geography: the residents least able to reach a branch are the same residents least able to satisfy an Aadhaar-and-guarantor membership test. Distance and paperwork compound. Delhi's attestation-or-deposit gate does the same work through class. The one civic institution that should ask the least of the people who need it most is, in practice, gated hardest against them.
+
+The international cases are not models to copy. They are evidence that this is a choice, not a law of urban life. Read across the five conditions, each isolates a decision the Indian cities have made the other way: Toronto discloses where they conceal, the membership comparators admit where they screen, Singapore reports where they stay opaque, and Medellín and Shenzhen plan the library as civic infrastructure where they let it lapse into a legacy department. A library can confirm a reader by mailing a postcard or taking a photograph at the desk; it does not have to demand a biometric, a guarantor, or a fortnight's wages held as deposit.
+
+None of this requires the library to be closed — and that is the point. An institution can keep every building, board, and budget line and still be withdrawn as a public: withdrawn because the records that would show the withdrawal are the ones never kept, and because the gate that admits its public is set where the poorest and most caste-marked residents cannot clear it. The Indian public library has not failed. It has been quietly converted from an instrument meant to dissolve caste into one that, branch by branch and form by form, administers it.
+
+# Data and Code Availability {.unnumbered}
+
+The derived data for this paper --- the compiled 83-location Ahmedabad library inventory, the M.J. Library annual-statistics series (2015--16 to 2025--26), and the Delhi Public Library service hierarchy --- together with the analysis code, are deposited in the Right to Read working-paper series' Open Science Framework (OSF) project, with the code archived for a citable, versioned DOI on Zenodo (DOIs to be assigned at public release). Primary sources are cited to their own repositories rather than re-hosted here: the M.J. Library / AMC official disclosures, the Delhi Public Library annual reports (2009--10 to 2023--24), and the comparator city-library systems. The deposited derived data are released under CC-BY-4.0 and the analysis code under the GNU Affero General Public License v3 (AGPL-3.0).
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
