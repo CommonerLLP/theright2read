@@ -102,6 +102,67 @@ needed for the *Acts*. State-wise *Rules/notifications/amendments* remain the de
   Balaji counts them among the "13 legislated states that do not mandate" a tax in practice.
 - **17 states/UTs have NO library legislation** (of 28 states + 8 UTs).
 
+## Pre-history & state-form (roots + which-state-which-government)
+
+**Each Act belongs to a *then*-state and a *then*-government — 20th-c. reorganisation matters:**
+
+**19th-c. & earlier roots (institutions + a *control* law, but no public-provision Act):**
+*(throughline = **who each was actually for** — and almost none were *public*)*
+- **Deep-time (pre-colonial), all *closed* — monastic / royal / caste-gated:** Nalanda's
+  **Dharmaganja** Buddhist monastic library (3 multi-storey buildings; the "9 million manuscripts"
+  is a *traditional/contested* figure) sacked by **Bakhtiyar Khalji, 1193**; Akbar's **kitabkhana
+  ~24,000 vols** + Maktab Khana translation bureau, Fatehpur Sikri ~1574 (imperial); **Jain
+  *bhandars***; **Saraswati Mahal, Thanjavur** (royal); **Rampur Raza, 1774** (Nawabi). India's
+  library tradition is ancient — but as **sacred/royal/Brahmanical-restricted** knowledge, never a
+  public commons. WP-008: Azad's "confined to royalty and nobility… not the masses" (coded feudal,
+  never caste). The *public, open-to-all, anti-caste* library is the modern, deferred idea.
+- **Asiatic Society library, Calcutta, 1784** (William Jones) — **colonial learned society**;
+  scholarly collection for European orientalists. Elite/colonial, not public.
+- **Trivandrum Public Library, 1829** — Travancore, Maharaja Swathi Thirunal; began for court/
+  European residents, **opened to the public + taken into govt control only in 1898**. Became the
+  **Kerala State Central Library** (Kerala's roots are 1829, 160 yrs pre-1989 Act).
+- **Calcutta Public Library, 1836** (Stocqueler; European + Indian-elite patronage) — "public" in
+  name but a **subscription/proprietary** library (paid membership; for the propertied). → Imperial
+  Library 1903 → National Library of India.
+- **Connemara Public Library, Madras, 1890/96** (Lord Connemara) — a National Depository Library.
+- **Press and Registration of Books Act, 1867** — the colonial 19th-c "library law," but a
+  **legal-deposit + press-*control*** statute (copies to the colonial state, shipped to the India
+  House library in England; born post-1857 to surveil the nationalist press). **NOT public access.**
+- **The frame (WP-008):** Britain gave *itself* the **Public Libraries Act 1850**; it gave India a
+  **deposit-control act (1867)**. Colonial state = *control the reader*; the first public-*provision*
+  library law waited until Kolhapur 1945 / Madras 1948 — and was then deferred. Anti-caste reading
+  (**Phule, 1848**) is the counter-thread the State never institutionalised.
+
+**20th-c. systems & the first Acts:**
+- **Baroda, 1910** — Maharaja Sayajirao Gaekwad III brings American librarian **W. A. Borden**
+  (1853–1931) as Director of Libraries → a **free, integrated public-library *system*** (state
+  central + 4 district + ~45 town + 1,000+ village + mobile), India's **first library school
+  (1911)**. A *system* decades before any Act ("princely and improving" road, WP-008).
+- **Kolhapur Princely State, 1945** — India's **first Library *Act*** (pre-independence); declared
+  Karveer Nagar Wachan Mandir the State Central Library; mobile service + training. But thin —
+  **State Central Library only, no statewide system.** Kolhapur → Bombay State 1949 → Maharashtra
+  1960; the 1945 Act **did not survive** (Maharashtra waited till its own 1967 Act, no cess).
+- **Madras, 1948 = the Madras *Presidency*** (vast, multi-lingual), CM **Omandur Ramaswamy
+  Reddiar** (Congress), driven by **S. R. Ranganathan** + Education Min. **Avinashilingam**;
+  Connemara = first State Central Library; cess-funded. First Act in a full-fledged/independent state.
+- **Andhra Pradesh 1960** = merger of the **Hyderabad Public Libraries Act 1955** + Andhra after
+  the 1956 linguistic reorganisation. **Telangana** (2014) re-inherits this same 1960 Act.
+- **"Karnataka" 1965 = Mysore State** (formed 1956; renamed Karnataka **1 Nov 1973**) — the
+  **Mysore Public Libraries Act 1965** (preceded by the Mysore Bill Committee 1961).
+
+## Periodization cuts (to build out per-Act: state + government + era)
+
+Frame the 19 Acts against the political-economy watersheds (per Aakash):
+- **Pre-Indira / Nehruvian (–1966):** Kolhapur 1945, Madras 1948, AP 1960, Mysore 1965.
+- **Indira / Emergency (1966–77):** the central model-bill drift; 1977 Gujarat & Kerala *bills*.
+- **Post-Indira / Janata & after (1977–90):** WB 1979, Manipur 1988, Kerala 1989, Haryana 1989.
+- **Mandal watershed (1990–92):** OBC-reservation upheaval — a caste cut to test against the lull.
+- **Post-1991 liberalisation:** Goa 1993, Mizoram 1993, Gujarat 2001, Odisha 2001, Uttarakhand
+  2005, UP 2006, Rajasthan 2006, Chhattisgarh 2008, Bihar 2008, Arunachal 2009.
+- TODO: verify the specific *governing party/CM* at each Act-year (have: Madras 1948 Reddiar/Cong;
+  Mysore 1965; Gujarat 2001 Keshubhai/BJP). The "1963 Model Bill" remains unlocated on disk
+  (iCloud offloaded; the 1964 ILA proceedings that *reference* it are held).
+
 ## Landscape
 
 - **~half of states/UTs have no Public Libraries Act** (convergence paper). SECONDARY.
