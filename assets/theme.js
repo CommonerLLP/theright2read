@@ -21,6 +21,7 @@
       document.documentElement.setAttribute("data-theme", mode);
       try { localStorage.setItem(KEY, mode); } catch (e) {}
       paintLabels(mode);
+      try { document.dispatchEvent(new CustomEvent("rtr:themechange", { detail: { mode: mode } })); } catch (e) {}
     },
     toggle: function () { this.set(current() === "dark" ? "light" : "dark"); }
   };
