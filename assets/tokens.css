@@ -1,0 +1,86 @@
+/* ============================================================================
+   RTR design tokens — THE single source of truth for the campaign's look.
+   Consumed by: the website (assets/campaign.css + page CSS), the web Briefs,
+   and (values mirrored) the Working-Paper Typst theme. Change a value HERE and
+   it propagates everywhere — no per-page hand-rolling.
+
+   Light + dark are both first-class: semantic role tokens are remapped per
+   theme. Default = light; dark via prefers-color-scheme OR an explicit
+   data-theme on <html> (set by assets/theme.js, persisted).
+   ============================================================================ */
+
+:root {
+  /* --- brand primitives (the WP/Brief palette; never reference these directly
+         in components — use the semantic roles below) --- */
+  --rtr-red:    #BD3341;
+  --rtr-red-2:  #9c2a36;   /* darker red for hovers/dark-bg */
+  --rtr-blue:   #28427B;
+  --rtr-blue-2: #4a63a0;   /* lighter blue for dark-bg */
+  --rtr-ink:    #1A1A1A;
+  --rtr-paper:  #ffffff;
+  --rtr-wash:   #f5f3ef;
+  --rtr-cream:  #f1e8d3;
+  --rtr-muted:  #66737A;
+  --rtr-line:   #d7d7d7;
+
+  /* --- type (FOSS / OFL only) --- */
+  --font-display: "Oswald", "Arial Narrow", system-ui, sans-serif;     /* condensed display */
+  --font-serif:   "Source Serif 4", "Georgia", serif;                  /* reading */
+  --font-ui:      "Inter Tight", system-ui, sans-serif;                /* UI / nav / labels */
+  --font-mono:    "PT Mono", "Menlo", monospace;                       /* eyebrows / meta */
+
+  /* fluid type scale (mobile-first; grows with viewport) */
+  --t-eyebrow: .75rem;
+  --t-body: clamp(1rem, .96rem + .25vw, 1.125rem);
+  --t-h3: clamp(1.05rem, 1rem + .6vw, 1.25rem);
+  --t-h2: clamp(1.35rem, 1.2rem + 1.6vw, 1.9rem);
+  --t-h1: clamp(2.2rem, 1.6rem + 5vw, 4rem);
+  --t-display: clamp(2.6rem, 1.6rem + 8vw, 5.5rem);
+
+  /* spacing / radius / motion */
+  --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-5:1.5rem;
+  --sp-6:2rem; --sp-7:3rem; --sp-8:4rem;
+  --radius: 2px;
+  --maxw-read: 720px;          /* P2 desktop reading column */
+  --ease: cubic-bezier(.2,.6,.2,1);
+
+  /* ---------- SEMANTIC ROLES — LIGHT (default) ---------- */
+  --bg:        var(--rtr-paper);
+  --surface:   var(--rtr-wash);
+  --surface-2: var(--rtr-cream);
+  --text:      var(--rtr-ink);
+  --text-soft: #3a3a3a;
+  --text-muted:var(--rtr-muted);
+  --accent:    var(--rtr-red);
+  --accent-2:  var(--rtr-blue);
+  --on-accent: #ffffff;
+  --rule:      var(--rtr-line);
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* ---------- SEMANTIC ROLES — DARK ---------- */
+/* explicit toggle */
+:root[data-theme="dark"] {
+  --bg:        #0e0e0e;
+  --surface:   #181818;
+  --surface-2: #20201e;
+  --text:      #f2efe9;
+  --text-soft: #d6d2ca;
+  --text-muted:#9aa3a8;
+  --accent:    #e2606c;     /* brighter red for AA contrast on near-black */
+  --accent-2:  var(--rtr-blue-2);
+  --on-accent: #0e0e0e;
+  --rule:      #2c2c2c;
+  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 30px rgba(0,0,0,.5);
+}
+/* system preference when no explicit choice */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#0e0e0e; --surface:#181818; --surface-2:#20201e;
+    --text:#f2efe9; --text-soft:#d6d2ca; --text-muted:#9aa3a8;
+    --accent:#e2606c; --accent-2:var(--rtr-blue-2); --on-accent:#0e0e0e;
+    --rule:#2c2c2c; --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

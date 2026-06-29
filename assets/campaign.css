@@ -1,0 +1,90 @@
+/* ============================================================================
+   RTR campaign components — shared, low-maintenance UI built on tokens.css.
+   Used by the website AND the web Briefs. Mobile-first (P1 phone/tablet → P2
+   desktop). Theme-agnostic: everything reads semantic role tokens, so light/dark
+   just work. Add a page/brief by composing these classes — don't re-style.
+   Load order: tokens.css → campaign.css → page-specific.css
+   ============================================================================ */
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+img, svg { max-width: 100%; height: auto; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: var(--t-body);
+  line-height: 1.62;
+  transition: background .25s var(--ease), color .25s var(--ease);
+}
+.wrap { width: 100%; padding: var(--sp-5) var(--sp-4) var(--sp-8); }
+@media (min-width: 760px) { .wrap { max-width: var(--maxw-read); margin-inline: auto; padding: var(--sp-7) var(--sp-5) var(--sp-8); } }
+
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { font-weight: 700; }
+.accent { color: var(--accent); }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.05; color: var(--text); }
+h2 { font-size: var(--t-h2); margin: var(--sp-7) 0 var(--sp-3); padding-top: var(--sp-3); border-top: 1px solid var(--rule); }
+h3 { font-size: var(--t-h3); margin: var(--sp-5) 0 var(--sp-2); }
+p  { margin: 0 0 var(--sp-4); }
+
+/* --- flag rule (red over blue) --- */
+.flag { margin: var(--sp-3) 0; }
+.flag::before, .flag::after { content: ""; display: block; width: 100%; }
+.flag::before { border-top: 2px solid var(--accent); }
+.flag::after  { border-top: 2px solid var(--accent-2); margin-top: 2px; }
+
+/* --- masthead: mark + wordmark + theme toggle --- */
+.masthead { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); padding-top: var(--sp-2); }
+.masthead .mark { width: 40px; height: 40px; color: var(--text); flex: none; }   /* inline SVG inherits via currentColor */
+.wordmark { line-height: 1.05; }
+.wordmark .rtr { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.25rem, 5vw, 1.6rem); color: var(--accent); letter-spacing: -.5px; }
+.wordmark .rtr .dot { color: var(--text); }
+.wordmark .tag { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-top: 2px; }
+.masthead .spacer { flex: 1; }
+
+/* --- theme toggle --- */
+.theme-toggle {
+  font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: .5px;
+  background: transparent; color: var(--text-muted); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: .4rem .6rem; cursor: pointer; line-height: 1;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--text-muted); }
+
+/* --- kicker / title / standfirst --- */
+.kicker { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin: var(--sp-5) 0 var(--sp-2); }
+.title { font-family: var(--font-display); font-weight: 700; font-size: var(--t-h1); line-height: .98; text-transform: uppercase; margin: 0 0 var(--sp-3); }
+.tick { width: 64px; border: 0; border-top: 3px solid var(--text); margin: 0 0 var(--sp-3); }
+.standfirst { font-size: clamp(1.05rem, 1rem + .9vw, 1.3rem); line-height: 1.5; margin: 0 0 var(--sp-5); }
+
+/* --- key-message box --- */
+.keymsg { border: 2px solid var(--text); background: var(--surface); padding: var(--sp-5); margin: 0 0 var(--sp-6); }
+.keymsg h2 { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.4px; text-transform: uppercase; color: var(--accent); margin: 0 0 var(--sp-3); border: 0; padding: 0; }
+.keymsg ol { margin: 0; padding-left: 1.2rem; }
+.keymsg li { margin: 0 0 var(--sp-3); line-height: 1.5; }
+.keymsg li strong { font-family: var(--font-display); }
+
+/* --- big-number callouts (stack on phone, row on desktop) --- */
+.bignums { display: flex; flex-direction: column; gap: var(--sp-4); margin: var(--sp-5) 0 var(--sp-6); }
+.bignum { border-left: 4px solid var(--accent); padding-left: var(--sp-3); }
+.bignum .n { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 1.4rem + 4vw, 2.6rem); line-height: 1; }
+.bignum .l { font-size: .85rem; color: var(--text-muted); margin-top: var(--sp-2); line-height: 1.35; }
+@media (min-width: 620px) { .bignums { flex-direction: row; } .bignum { flex: 1; } }
+
+/* --- buttons --- */
+.btn { display: inline-block; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .5px;
+  padding: .7rem 1.1rem; border-radius: var(--radius); border: 2px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; }
+.btn:hover { text-decoration: none; }
+.btn-accent { background: var(--accent); color: var(--on-accent); }
+.btn-accent:hover { background: var(--rtr-red-2); border-color: var(--rtr-red-2); }
+
+/* --- card / surface --- */
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--sp-5); }
+
+/* --- footer / colophon --- */
+.colophon { margin-top: var(--sp-7); padding-top: var(--sp-3); border-top: 1px solid var(--rule); font-size: .8rem; color: var(--text-muted); line-height: 1.45; }
+.colophon .label { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: .8px; text-transform: uppercase; color: var(--accent); }
