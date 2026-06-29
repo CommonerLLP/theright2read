@@ -33,6 +33,7 @@
 sansad-semantic-crawler/
 
 # Local crawler/runtime output.
+/data
 data/_parliament_libraries/.DS_Store
 data/_parliament_libraries/crawl.log
 data/_parliament_libraries/parse.log
@@ -47,3 +48,44 @@ data/_parliament_libraries/
 # Python bytecode anywhere in the tree.
 __pycache__/
 *.pyc
+
+# Local agent coordination files
+CONTEXT.md
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+WORKING.md
+memory/
+notes
+notes/
+
+# Working-paper build artifacts — regenerable via `make paper` / `make zotero`.
+# Source (papers.toml, *.qmd, *.typ, *.tex, *.bib, figures) is tracked; outputs are not.
+research/working-papers/**/outputs/
+research/working-papers/**/.quarto/
+research/working-papers/**/*_files/
+research/working-papers/**/*.pdf
+research/working-papers/**/*.html
+research/working-papers/_shared/zotero-sync.js
+research/working-papers/_archive/
+
+# ============================================================
+# WEBSITE-ONLY TRACKING (2026-06-29): this repo serves theright2read.org
+# via GitHub Pages. Track ONLY the website + build/CI; everything else is
+# local-only (research, papers, briefs, planning) and lives in the v1.0.0
+# git bundle on m1-storage/git-archives. See SCOPE.md / ROADMAP.md.
+# ============================================================
+/research/
+/topics/
+/slides/
+/docs/
+/_archive/
+/scripts/sync_agents.py
+
+# Internal canonical/planning docs — local-only (backed up in the bundle).
+/ROADMAP.md
+/SCOPE.md
+/REORG-MANIFEST.md
+
+# Archives / junk
+*.zip

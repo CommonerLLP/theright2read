@@ -1,3 +1,0 @@
-system,city,population_denominator,population_year,service_points,library_locations_or_branches,coordinate_verified_locations,collection_items,latest_outcome_year,latest_finance_year,public_funding_share_pct,own_income_or_fines_fees_share_pct,materials_share_of_operating_pct,access_model_status,notes
-Ahmedabad Public Library / M.J. Library Network,Ahmedabad,7078533,2020,83,83,83,811093,2025-26,2025-26,96.30,3.70,1.44,computed_proxy,City network label used intentionally; M.J. Library alone refers to the flagship branch.
-Toronto Public Library,Toronto,2794356,2021,102,100,101,10500000,2024,2026,92.68,1.45,7.80,population_origin_and_transit_routing_pending,TPL branch locations and branch square footage are normalized; median-resident routing is pending.
