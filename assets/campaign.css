@@ -47,6 +47,18 @@ p  { margin: 0 0 var(--sp-4); }
 .wordmark .tag { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-top: 2px; }
 .masthead .spacer { flex: 1; }
 
+/* --- campaign logo (the WP/Brief lockup; wordmark is built into the art) ---
+   Light: sits on the white page exactly as in the papers (knockout letters read
+   white). Dark: the ink crowd would vanish on near-black, so the logo gets a
+   small light plate to stay legible + on-brand. */
+.brand-logo { display: inline-flex; flex: none; line-height: 0; }
+.brand-logo img { display: block; height: 96px; width: auto; }
+:root[data-theme="dark"] .brand-logo { background: #fff; padding: 8px 12px; border-radius: 8px; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brand-logo { background: #fff; padding: 8px 12px; border-radius: 8px; }
+}
+@media (min-width: 760px) { .brand-logo img { height: 140px; } }
+
 /* --- theme toggle --- */
 .theme-toggle {
   font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: .5px;
