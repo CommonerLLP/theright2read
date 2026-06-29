@@ -1,0 +1,60 @@
+/* ============================================================================
+   RTR /spend/ — lean, chart-led money page on tokens.css + campaign.css.
+   Token-themed CSS bar charts (no chart library): they re-colour light/dark for
+   free and stay crisp at any zoom. Mobile-first. The deep methodology lives at
+   /spend/full/ (the Quarto analysis). Load: tokens.css → campaign.css → spend.css
+   ============================================================================ */
+
+.page { width: 100%; max-width: 960px; margin-inline: auto; padding: 0 var(--sp-4) var(--sp-8); }
+@media (min-width: 760px) { .page { padding: 0 var(--sp-5) var(--sp-8); } }
+
+.nav-row { display: flex; flex-wrap: wrap; gap: var(--sp-4); font-family: var(--font-mono); font-size: var(--t-eyebrow);
+  letter-spacing: .5px; text-transform: uppercase; margin: var(--sp-3) 0; }
+.nav-row a { color: var(--text-muted); } .nav-row a:hover, .nav-row a[aria-current="page"] { color: var(--accent); text-decoration: none; }
+.skip-link { position: absolute; left: -9999px; } .skip-link:focus { position: static; }
+
+.spend-hero { padding: var(--sp-6) 0 var(--sp-4); }
+.spend-hero .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
+.spend-hero h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--t-h1); line-height: 1; margin: 0 0 var(--sp-3); }
+.spend-hero .standfirst { font-size: clamp(1.05rem, 1rem + .8vw, 1.3rem); line-height: 1.5; max-width: 52ch; }
+
+.sec { padding: var(--sp-7) 0; border-top: 1px solid var(--rule); }
+.sec .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
+.sec h2 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--t-h2); margin: 0 0 var(--sp-3); }
+.sec .lede { font-size: 1rem; color: var(--text-soft); max-width: 56ch; margin-bottom: var(--sp-4); }
+.src { font-family: var(--font-mono); font-size: var(--t-eyebrow); color: var(--text-muted); margin-top: var(--sp-4); }
+
+/* --- token-themed bar chart --- */
+.chart { display: flex; flex-direction: column; gap: 6px; margin: var(--sp-4) 0; }
+.bar-row { display: grid; grid-template-columns: 9rem 1fr 4.2rem; align-items: center; gap: var(--sp-3); }
+@media (max-width: 460px) { .bar-row { grid-template-columns: 6.5rem 1fr 3.4rem; gap: var(--sp-2); } }
+.bar-name { font-family: var(--font-ui); font-size: .82rem; line-height: 1.15; }
+.bar-track { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); height: 18px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--accent-2); min-width: 2px; }
+.bar-row.hi .bar-fill { background: var(--accent); }
+.bar-row.india .bar-fill { background: var(--accent); }
+.bar-val { font-family: var(--font-display); font-weight: 700; font-size: .9rem; text-align: right; white-space: nowrap; }
+
+/* --- comparison bars (libraries vs vanity) --- */
+.cmp { display: flex; flex-direction: column; gap: var(--sp-4); margin: var(--sp-4) 0; }
+.cmp-name { font-family: var(--font-ui); font-size: .9rem; margin-bottom: var(--sp-2); }
+.cmp-track { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); height: 26px; overflow: hidden; }
+.cmp-fill { height: 100%; background: var(--accent-2); min-width: 3px; }
+.cmp-row.lib .cmp-fill { background: var(--accent); }
+.cmp-amt { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-top: var(--sp-2); }
+.mult { display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-4); }
+.mult div { font-size: .95rem; } .mult .tag { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .6px; color: var(--text-muted); margin-right: .4rem; }
+
+.readmore { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); padding: var(--sp-5); margin: var(--sp-6) 0; }
+.readmore h2 { border: 0; padding: 0; margin: 0 0 var(--sp-2); }
+.readmore p { font-size: .95rem; color: var(--text-soft); }
+
+.share { padding: var(--sp-6) 0; border-top: 1px solid var(--rule); }
+.share .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-3); }
+.share-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.share-row a, .share-row button { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--font-mono); font-size: .8rem; cursor: pointer;
+  border: 1px solid var(--rule); border-radius: var(--radius); padding: .5rem .8rem; color: var(--text); background: transparent; }
+.share-row a:hover, .share-row button:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.colophon-line { margin-top: var(--sp-7); padding-top: var(--sp-3); border-top: 1px solid var(--rule); font-size: .78rem; color: var(--text-muted); line-height: 1.6; }
+.colophon-line a { color: var(--text-muted); text-decoration: underline; }

@@ -9,7 +9,9 @@
 (function (root) {
   "use strict";
   var D = (root.RTR && root.RTR.domain) || {};
-  var g = root; // data.js top-level consts are global lexical bindings
+  // data.js top-level `const`s are global LEXICAL bindings — NOT properties of
+  // window. They must be read as bare identifiers (typeof-guarded), not off root.
+  function G(getter, fb) { try { var v = getter(); return (v == null) ? fb : v; } catch (e) { return fb; } }
 
   /* ---- DesignPort: the design system (tokens), the only place pages read colour ---- */
   var DesignPort = {
@@ -33,30 +35,25 @@
 
   /* ---- ContentPort: narrative content (lead + deep), from data.js ---- */
   var ContentPort = {
-    constants:   function () { return g.CONSTANTS || {}; },
-    quotes:      function () { return g.QUOTES || []; },
-    history:     function () { return g.HISTORY || []; },
-    actions:     function () { return g.ACTIONS || []; },
-    legislation: function (state) { var L = g.LEGISLATION || {}; return state ? L[state] : L; },
-    contacts:    function () { return g.JURISDICTION_CONTACTS || {}; },
-    ruralCoverage: function () { return g.RURAL_COVERAGE || {}; }
+    constants:   function () { return G(function () { return CONSTANTS; }, {}); },
+    quotes:      function () { return G(function () { return QUOTES; }, []); },
+    history:     function () { return G(function () { return HISTORY; }, []); },
+    actions:     function () { return G(function () { return ACTIONS; }, []); },
+    legislation: function (state) { var L = G(function () { return LEGISLATION; }, {}); return state ? L[state] : L; },
+    contacts:    function () { return G(function () { return JURISDICTION_CONTACTS; }, {}); },
+    ruralCoverage: function () { return G(function () { return RURAL_COVERAGE; }, {}); }
   };
 
   /* ---- DatasetPort: numeric series for charts (static now; public-finance later) ---- */
   var DatasetPort = {
-    constants:   function () { return g.CONSTANTS || {}; },
-    statePop:    function () { return g.STATE_POP_MN || {}; },
-    stateSpend:  function () { return g.STATE_DATA || {}; },
-    years:       function () { return g.YEARS || []; },
-    world:       function () { return g.WORLD || []; },
-    standards:   function () { return g.STANDARDS || []; },
+    constants:   function () { return G(function () { return CONSTANTS; }, {}); },
+    statePop:    function () { return G(function () { return STATE_POP_MN; }, {}); },
+    stateSpend:  function () { return G(function () { return STATE_DATA; }, {}); },
+    years:       function () { return G(function () { return YEARS; }, []); },
+    world:       function () { return G(function () { return WORLD; }, []); },
+    standards:   function () { return G(function () { return STANDARDS; }, []); },
     // RRRLF disbursement (₹ lakh) → per-capita series via the domain
-    rrrlfPerCapita: function () {
-      var rr = g.RRRLF_RELEASED || {}, pop = g.STATE_POP_MN || {};
-      return Object.keys(rr).map(function (y) {
-        return { year: y, perCapita: D.lakhPerCapita ? D.lakhPerCapita(rr[y], pop.INDIA || pop.India || 1400) : null, raw: rr[y] };
-      });
-    }
+    rrrlfReleased: function () { return G(function () { return RRRLF_RELEASED; }, {}); }
   };
 
   /* ---- ChartPort: themed charts. Wraps Chart.js now; swap to SVG later.

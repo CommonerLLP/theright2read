@@ -26,10 +26,22 @@ Papers, and the Briefs; mobile-first; light + dark mode; FOSS assets.
 
 ### Changed
 - Home `/` rebuilt on the v2 system (calculator, letter, actions preserved).
+- **`/spend/` rebuilt** as a lean, chart-led money page on the v2 system: per-capita
+  by state, the libraries-vs-vanity comparison, and India-vs-world — as token-themed
+  CSS bar charts (no chart library; light/dark for free) rendered from the verified
+  data layer via the hexagonal ports (`assets/spend.js` → `RTR.ports`/`RTR.domain`).
+  The full Quarto deep-dive is preserved at **`/spend/full/`**.
 - `/inequality/` and the grammar-of-refusal essay themed via the bridge (dark mode).
 - Masthead across all pages uses the campaign logo (mode-safe: white plate on dark).
 - `/inequality/` timeline gains two verified beats: 2016 Chouhan-Cabinet
   recategorisation and 2019–20 NML declared "complete".
+
+### Fixed
+- `assets/core/ports.js` read globals off `window`, but `data.js` declares them as
+  top-level `const` (lexical, not on `window`) — Dataset/Content ports returned empty.
+  Now read via typeof-guarded bare identifiers; `/spend/` charts bind correctly.
+- Deploy rule corrected (`CONTEXT.md`, local): production repo is
+  `CommonerLLP/theright2read`, not the non-resolving `…/theright2read.github.io`.
 
 ### Removed / retired
 - `/design/` (old "India Library Spend Tracker" prototype) → redirects to `/spend/`.
@@ -38,8 +50,10 @@ Papers, and the Briefs; mobile-first; light + dark mode; FOSS assets.
 - Unused `assets/rtr-mark.svg`.
 
 ### Deferred to v2.1
-- Full v2 redesign of the Quarto `/spend/` deep-dive (lean, chart-led, dark mode).
-- `main.js` → ports migration; DatasetPort/ChartPort-driven SVG charts.
+- `main.js` → ports migration for the legacy pages (timeline, calculator, dashboards
+  still read globals + compute inline; `/spend/` is the first page on the ports).
+- The Quarto `/spend/full/` deep-dive itself re-themed for dark mode (still light-only).
+- DatasetPort → live multi-state fiscal JSON from `public-finance`.
 
 ## v1.0.0 — 2026-06 · Pre-revamp pamphlet
 
