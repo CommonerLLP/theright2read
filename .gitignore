@@ -89,3 +89,9 @@ research/working-papers/_archive/
 
 # Archives / junk
 *.zip
+
+# Caches / editor / toolchain (housekeeping 2026-06-29)
+__pycache__/
+*.pyc
+.obsidian/
+.tool-versions
