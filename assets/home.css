@@ -8,14 +8,10 @@
    ============================================================================ */
 
 /* wider canvas than the 720px reading column — the home is a pamphlet, not an essay */
-.page { width: 100%; max-width: 1100px; margin-inline: auto; padding: 0 var(--sp-4) var(--sp-8); }
+.page { width: 100%; max-width: var(--maxw-page); margin-inline: auto; padding: 0 var(--sp-4) var(--sp-8); }
 @media (min-width: 760px) { .page { padding: 0 var(--sp-5) var(--sp-8); } }
 
-/* --- top nav row (links beside the masthead toggle) --- */
-.nav-row { display: flex; flex-wrap: wrap; gap: var(--sp-4); font-family: var(--font-mono);
-  font-size: var(--t-eyebrow); letter-spacing: .5px; text-transform: uppercase; margin: var(--sp-3) 0; }
-.nav-row a { color: var(--text-muted); }
-.nav-row a:hover { color: var(--accent); text-decoration: none; }
+/* nav-row is defined once in campaign.css (shared, centred) */
 
 /* --- sticky ACT bar (armed by main.js after the reader meets the calculator) --- */
 .actbar { position: sticky; top: 0; z-index: 50; background: var(--accent); color: var(--on-accent);
@@ -118,7 +114,6 @@ body.actbar-armed .actbar { transform: translateY(0); max-height: 64px; }
 .play-card .pc-go { font-family: var(--font-mono); font-size: var(--t-eyebrow); color: var(--accent); margin-top: var(--sp-3); }
 
 /* --- WRITE-TO-CM (the ACT) --- */
-.cta { background: var(--surface-2); }
 .cta-fields { display: grid; grid-template-columns: 1fr; gap: var(--sp-4); margin: var(--sp-5) 0; }
 @media (min-width: 720px) { .cta-fields { grid-template-columns: repeat(3, 1fr); } }
 .cta-fields label { display: block; font-family: var(--font-mono); font-size: var(--t-eyebrow); text-transform: uppercase; letter-spacing: .6px; color: var(--text-muted); margin-bottom: var(--sp-2); }
@@ -148,6 +143,10 @@ body.actbar-armed .actbar { transform: translateY(0); max-height: 64px; }
 /* --- pantheon image --- */
 .pantheon { text-align: center; padding: var(--sp-7) 0; }
 .pantheon img { border-radius: var(--radius); }
+/* the illustration is vermilion figures on transparent — in dark mode give it a
+   cream stage so the anti-caste lineage reads as designed, never red-on-black. */
+:root[data-theme="dark"] .pantheon img { background: var(--rtr-cream); padding: var(--sp-5); border-radius: var(--radius); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pantheon img { background: var(--rtr-cream); padding: var(--sp-5); border-radius: var(--radius); } }
 .pantheon-credit { font-size: .75rem; color: var(--text-muted); margin-top: var(--sp-3); }
 
 /* --- ACTIONS grid (rendered by main.js) --- */

@@ -15,15 +15,23 @@
       el.textContent = mode === "dark" ? "☾" : "☀";
     });
   }
+  // swap the campaign logo to its dark variant in dark mode (crowd reads on dark);
+  // preserves the path prefix + ?v= cache-bust already in the src.
+  function applyLogo(mode) {
+    document.querySelectorAll(".brand-logo img").forEach(function (img) {
+      img.src = img.src.replace(/rtr-logo(-dark)?\.svg/, mode === "dark" ? "rtr-logo-dark.svg" : "rtr-logo.svg");
+    });
+  }
   window.RTRTheme = {
     current: current,
     set: function (mode) {
       document.documentElement.setAttribute("data-theme", mode);
       try { localStorage.setItem(KEY, mode); } catch (e) {}
       paintLabels(mode);
+      applyLogo(mode);
       try { document.dispatchEvent(new CustomEvent("rtr:themechange", { detail: { mode: mode } })); } catch (e) {}
     },
     toggle: function () { this.set(current() === "dark" ? "light" : "dark"); }
   };
-  document.addEventListener("DOMContentLoaded", function () { paintLabels(current()); });
+  document.addEventListener("DOMContentLoaded", function () { paintLabels(current()); applyLogo(current()); });
 })();

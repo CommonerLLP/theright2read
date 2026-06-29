@@ -20,6 +20,15 @@ max_retries = 2
 #    unauthenticated GETs from CI ranges.
 exclude = [
   "^https://pgportal\\.gov\\.in",
+  "^https://www\\.pmindia\\.gov\\.in",
   "^https://(cdn\\.)?jsdelivr\\.net",
   "^https://fonts\\.gstatic\\.com",
+  # social share-intent buttons — bot-hostile (LinkedIn returns 999, etc.);
+  # they are share actions, not content links, so exclude from link-checking.
+  "^https://(www\\.)?linkedin\\.com",
+  "^https://(twitter\\.com|x\\.com)",
+  "^https://wa\\.me",
+  "^https://(api|web|chat)\\.whatsapp\\.com",
+  "^https://t\\.me",
+  "^https://(www\\.)?facebook\\.com",
 ]

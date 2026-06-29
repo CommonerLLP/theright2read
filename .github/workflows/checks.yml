@@ -37,9 +37,12 @@ jobs:
             --config lychee.toml
             --root-dir ${{ github.workspace }}
             ./index.html
-            ./data/index.html
-            ./inequality/index.html
+            ./demands/index.html
             ./spend/index.html
+            ./inequality/index.html
+            ./play/index.html
+            ./library/index.html
+            ./writing/grammar-of-refusal/index.html
             ./README.md
             ./SECURITY.md
             ./CONTRIBUTING.md
@@ -65,6 +68,8 @@ jobs:
           npx html-validate \
             --formatter codeframe \
             index.html \
-            data/index.html \
-            inequality/index.html \
-            spend/index.html
+            demands/index.html \
+            spend/index.html \
+            play/index.html \
+            library/index.html \
+            inequality/index.html

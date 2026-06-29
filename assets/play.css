@@ -5,13 +5,10 @@
    page), wrong = red. Load order: tokens.css → campaign.css → play.css
    ============================================================================ */
 
-.page { width: 100%; max-width: 880px; margin-inline: auto; padding: 0 var(--sp-4) var(--sp-8); }
+.page { width: 100%; max-width: var(--maxw-page); margin-inline: auto; padding: 0 var(--sp-4) var(--sp-8); }
 @media (min-width: 760px) { .page { padding: 0 var(--sp-5) var(--sp-8); } }
 
-.nav-row { display: flex; flex-wrap: wrap; gap: var(--sp-4); font-family: var(--font-mono);
-  font-size: var(--t-eyebrow); letter-spacing: .5px; text-transform: uppercase; margin: var(--sp-3) 0; }
-.nav-row a { color: var(--text-muted); }
-.nav-row a:hover { color: var(--accent); text-decoration: none; }
+/* nav-row is defined once in campaign.css (shared, centred) */
 .skip-link { position: absolute; left: -9999px; } .skip-link:focus { position: static; }
 
 .play-hero { padding: var(--sp-6) 0 var(--sp-4); }

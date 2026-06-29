@@ -22,6 +22,10 @@ body {
 .wrap { width: 100%; padding: var(--sp-5) var(--sp-4) var(--sp-8); }
 @media (min-width: 760px) { .wrap { max-width: var(--maxw-read); margin-inline: auto; padding: var(--sp-7) var(--sp-5) var(--sp-8); } }
 
+/* .page — THE standard site shell. Every page composes this one width. */
+.page { width: 100%; max-width: var(--maxw-page); margin-inline: auto; padding: 0 var(--sp-4) var(--sp-8); }
+@media (min-width: 760px) { .page { padding: 0 var(--sp-5) var(--sp-8); } }
+
 a { color: var(--accent-2); text-decoration: none; }
 a:hover { text-decoration: underline; }
 strong { font-weight: 700; }
@@ -38,9 +42,18 @@ p  { margin: 0 0 var(--sp-4); }
 .flag::before { border-top: 2px solid var(--accent); }
 .flag::after  { border-top: 2px solid var(--accent-2); margin-top: 2px; }
 
-/* --- masthead: mark + wordmark + theme toggle --- */
-.masthead { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); padding-top: var(--sp-2); }
-.masthead .mark { width: 40px; height: 40px; color: var(--text); flex: none; }   /* inline SVG inherits via currentColor */
+/* --- masthead: centred campaign logo + tagline, theme toggle pinned top-right --- */
+.masthead { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); padding: var(--sp-5) 0 var(--sp-3); text-align: center; }
+.masthead .spacer { display: none; }
+.masthead .theme-toggle { position: absolute; top: var(--sp-4); right: 0; }
+.masthead::after { content: "Public Libraries for All"; font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+.masthead .mark { width: 40px; height: 40px; color: var(--text); flex: none; }   /* legacy inline-SVG mark (unused) */
+
+/* --- primary nav (shared; centred) — defined ONCE here, no per-page copies --- */
+.nav-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-4); margin: var(--sp-3) 0;
+  font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: .5px; text-transform: uppercase; }
+.nav-row a { color: var(--text-muted); text-decoration: none; }
+.nav-row a:hover, .nav-row a[aria-current="page"] { color: var(--accent); }
 .wordmark { line-height: 1.05; }
 .wordmark .rtr { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.25rem, 5vw, 1.6rem); color: var(--accent); letter-spacing: -.5px; }
 .wordmark .rtr .dot { color: var(--text); }
@@ -51,13 +64,10 @@ p  { margin: 0 0 var(--sp-4); }
    Light: sits on the white page exactly as in the papers (knockout letters read
    white). Dark: the ink crowd would vanish on near-black, so the logo gets a
    small light plate to stay legible + on-brand. */
+/* dark mode uses a dark-variant logo (theme.js swaps the src) — no plate needed */
 .brand-logo { display: inline-flex; flex: none; line-height: 0; }
 .brand-logo img { display: block; height: 96px; width: auto; }
-:root[data-theme="dark"] .brand-logo { background: #fff; padding: 8px 12px; border-radius: 8px; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .brand-logo { background: #fff; padding: 8px 12px; border-radius: 8px; }
-}
-@media (min-width: 760px) { .brand-logo img { height: 140px; } }
+@media (min-width: 760px) { .brand-logo img { height: 132px; } }
 
 /* --- theme toggle --- */
 .theme-toggle {
@@ -96,6 +106,19 @@ p  { margin: 0 0 var(--sp-4); }
 
 /* --- card / surface --- */
 .card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--sp-5); }
+
+/* --- demands grid (the seven standards) — shared by /demands/ + home --- */
+.demands-grid { display: grid; grid-template-columns: 1fr; gap: var(--sp-4); margin: var(--sp-5) 0; }
+@media (min-width: 620px) { .demands-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px) { .demands-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.demand { border: 1px solid var(--rule); border-top: 3px solid var(--accent); border-radius: var(--radius); background: var(--surface); padding: var(--sp-5); }
+.demand .n { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1px; color: var(--accent); }
+.demand h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--t-h3); margin: var(--sp-1) 0 var(--sp-2); }
+.demand p { font-size: .9rem; line-height: 1.45; color: var(--text-soft); margin: 0; }
+
+/* --- emphatic callout (shared) --- */
+.callout { border-left: 4px solid var(--accent); padding-left: var(--sp-4); margin: var(--sp-5) 0; font-size: 1.08rem; line-height: 1.5; }
+.callout strong { color: var(--accent); }
 
 /* --- footer / colophon --- */
 .colophon { margin-top: var(--sp-7); padding-top: var(--sp-3); border-top: 1px solid var(--rule); font-size: .8rem; color: var(--text-muted); line-height: 1.45; }

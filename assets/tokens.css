@@ -41,7 +41,8 @@
   --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-5:1.5rem;
   --sp-6:2rem; --sp-7:3rem; --sp-8:4rem;
   --radius: 2px;
-  --maxw-read: 720px;          /* P2 desktop reading column */
+  --maxw-page: 1040px;         /* THE standard page width — every page's shell uses this */
+  --maxw-read: 720px;          /* narrower reading column for prose inside a page */
   --ease: cubic-bezier(.2,.6,.2,1);
 
   /* ---------- SEMANTIC ROLES — LIGHT (default) ---------- */
@@ -60,26 +61,27 @@
 
 /* ---------- SEMANTIC ROLES — DARK ---------- */
 /* explicit toggle */
+/* warm dark — a deep warm ink, not cold black, to suit the cream/red brand */
 :root[data-theme="dark"] {
-  --bg:        #0e0e0e;
-  --surface:   #181818;
-  --surface-2: #20201e;
-  --text:      #f2efe9;
-  --text-soft: #d6d2ca;
-  --text-muted:#9aa3a8;
-  --accent:    #e2606c;     /* brighter red for AA contrast on near-black */
-  --accent-2:  var(--rtr-blue-2);
-  --on-accent: #0e0e0e;
-  --rule:      #2c2c2c;
+  --bg:        #16130f;      /* warm near-black */
+  --surface:   #201c16;
+  --surface-2: #2a241b;
+  --text:      #f3efe6;      /* warm cream */
+  --text-soft: #d9d2c4;
+  --text-muted:#a89f8e;      /* warm muted */
+  --accent:    #e2606c;      /* brighter red for AA contrast on dark */
+  --accent-2:  #7b95cf;      /* brighter blue, readable on dark */
+  --on-accent: #16130f;
+  --rule:      #38312a;      /* warm hairline */
   --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 30px rgba(0,0,0,.5);
 }
 /* system preference when no explicit choice */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg:#0e0e0e; --surface:#181818; --surface-2:#20201e;
-    --text:#f2efe9; --text-soft:#d6d2ca; --text-muted:#9aa3a8;
-    --accent:#e2606c; --accent-2:var(--rtr-blue-2); --on-accent:#0e0e0e;
-    --rule:#2c2c2c; --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.5);
+    --bg:#16130f; --surface:#201c16; --surface-2:#2a241b;
+    --text:#f3efe6; --text-soft:#d9d2c4; --text-muted:#a89f8e;
+    --accent:#e2606c; --accent-2:#7b95cf; --on-accent:#16130f;
+    --rule:#38312a; --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.5);
   }
 }
 
