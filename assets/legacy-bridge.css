@@ -35,6 +35,22 @@ body { background: var(--bg) !important; color: var(--text); transition: backgro
 .pamphlet .section:first-of-type { border-top: 0; }
 .pamphlet .grain { display: none; }   /* old texture overlay — drop on v2 */
 
+/* timeline scrubber: kill the old red/grey rgba era-band tints (leftover),
+   keep eras separated by rules + labels; make dots theme-aware. */
+.pamphlet .tl-era-pre, .pamphlet .tl-era-col, .pamphlet .tl-era-ref,
+.pamphlet .tl-era-ind, .pamphlet .tl-era-rec { background: transparent !important; }
+.pamphlet .tl-era { border-right-color: var(--rule) !important; }
+.pamphlet .tl-era-label { color: var(--text-muted); }
+.pamphlet .tl-dot { background: var(--bg); border-color: var(--text-muted); }
+.pamphlet .tl-dot.active { background: var(--accent); border-color: var(--accent); }
+
+/* pantheon (the anti-caste lineage) — moved here from home; cream stage in dark */
+.pantheon { text-align: center; padding: var(--sp-7) 0; }
+.pantheon img { border-radius: var(--radius); box-sizing: border-box; max-width: 100%; }
+.pantheon-credit { font-size: .75rem; color: var(--text-muted); margin-top: var(--sp-3); }
+:root[data-theme="dark"] .pantheon img { background: var(--rtr-cream); padding: var(--sp-5); border-radius: var(--radius); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pantheon img { background: var(--rtr-cream); padding: var(--sp-5); border-radius: var(--radius); } }
+
 /* ---- v2 masthead components (self-contained; mirror campaign.css on tokens) ---- */
 .skip-link { position: absolute; left: -9999px; } .skip-link:focus { position: static; }
 .v2-masthead { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); padding: var(--sp-5) var(--sp-4) var(--sp-3); max-width: var(--maxw-page); margin-inline: auto; text-align: center; }

@@ -40,7 +40,7 @@ jobs:
             ./demands/index.html
             ./spend/index.html
             ./inequality/index.html
-            ./play/index.html
+            ./act/index.html
             ./library/index.html
             ./writing/grammar-of-refusal/index.html
             ./README.md
@@ -70,6 +70,6 @@ jobs:
             index.html \
             demands/index.html \
             spend/index.html \
-            play/index.html \
+            act/index.html \
             library/index.html \
             inequality/index.html

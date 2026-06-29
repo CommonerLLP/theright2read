@@ -50,7 +50,7 @@ p  { margin: 0 0 var(--sp-4); }
 .masthead .mark { width: 40px; height: 40px; color: var(--text); flex: none; }   /* legacy inline-SVG mark (unused) */
 
 /* --- primary nav (shared; centred) — defined ONCE here, no per-page copies --- */
-.nav-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-4); margin: var(--sp-3) 0;
+.nav-row { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: var(--sp-4); margin: var(--sp-2) 0 var(--sp-4);
   font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: .5px; text-transform: uppercase; }
 .nav-row a { color: var(--text-muted); text-decoration: none; }
 .nav-row a:hover, .nav-row a[aria-current="page"] { color: var(--accent); }
@@ -97,12 +97,15 @@ p  { margin: 0 0 var(--sp-4); }
 .bignum .l { font-size: .85rem; color: var(--text-muted); margin-top: var(--sp-2); line-height: 1.35; }
 @media (min-width: 620px) { .bignums { flex-direction: row; } .bignum { flex: 1; } }
 
-/* --- buttons --- */
-.btn { display: inline-block; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .5px;
-  padding: .7rem 1.1rem; border-radius: var(--radius); border: 2px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; }
-.btn:hover { text-decoration: none; }
+/* --- buttons — THE one button system (used site-wide incl. games) --- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; font-size: 1rem; line-height: 1;
+  padding: .75rem 1.2rem; border-radius: var(--radius); border: 2px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; }
+.btn:hover { background: var(--accent); color: var(--on-accent); text-decoration: none; }
 .btn-accent { background: var(--accent); color: var(--on-accent); }
-.btn-accent:hover { background: var(--rtr-red-2); border-color: var(--rtr-red-2); }
+.btn-accent:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin: var(--sp-5) 0 0; }
 
 /* --- card / surface --- */
 .card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--sp-5); }

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Act — write to your CM &amp; PM — Right to Read</title>
+<meta name="description" content="Pick the state you vote in and we'll hand you a ready-to-send letter to your Chief Minister and the Prime Minister demanding free public libraries." />
+
+<script src="/assets/theme.js?v=55"></script>
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#BD3341">
+
+<link rel="canonical" href="https://theright2read.org/act/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Right to Read" />
+<meta property="og:url" content="https://theright2read.org/act/" />
+<meta property="og:title" content="Act — write to your CM &amp; the PM" />
+<meta property="og:description" content="Pick your state, get a ready letter demanding free public libraries." />
+<meta property="og:image" content="https://theright2read.org/assets/og-image.png?v=2" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=PT+Mono&family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="/assets/tokens.css?v=55">
+<link rel="stylesheet" href="/assets/campaign.css?v=55">
+<link rel="stylesheet" href="/assets/home.css?v=55">
+<style>
+  /* step 1 = pick your state; the letter is revealed only after a choice */
+  .act-step { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin: var(--sp-5) 0 var(--sp-2); }
+  .state-pick { max-width: 420px; }
+  .state-pick label { display:block; font-family: var(--font-mono); font-size: var(--t-eyebrow); text-transform:uppercase; letter-spacing:.6px; color: var(--text-muted); margin-bottom: var(--sp-2); }
+  .state-pick select { width:100%; padding:.7rem .8rem; font-family: var(--font-ui); font-size:1.05rem; background: var(--bg); color: var(--text); border:1px solid var(--rule); border-radius: var(--radius); }
+  .state-pick select:focus { outline:2px solid var(--accent); }
+  .more-fields { display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-4); margin-top: var(--sp-4); max-width:540px; }
+  .more-fields label { display:block; font-family: var(--font-mono); font-size: var(--t-eyebrow); text-transform:uppercase; letter-spacing:.6px; color: var(--text-muted); margin-bottom: var(--sp-2); }
+  .more-fields input { width:100%; padding:.6rem .7rem; font-family: var(--font-ui); font-size:1rem; background: var(--bg); color: var(--text); border:1px solid var(--rule); border-radius: var(--radius); }
+  #letter-reveal[hidden] { display:none; }
+  .skip-link { position:absolute; left:-9999px; } .skip-link:focus { position:static; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page">
+
+  <header class="masthead">
+    <a class="brand-logo" href="/" aria-label="Right to Read — home"><img src="/assets/rtr-logo.svg?v=55" alt="Right to Read — free libraries for all" width="759" height="647"></a>
+    <span class="spacer"></span>
+    <button class="theme-toggle" onclick="RTRTheme.toggle()"><span data-theme-label>☀</span> theme</button>
+  </header>
+  <div class="flag"></div>
+  <nav class="nav-row" aria-label="Primary">
+    <a href="/">Home</a>
+    <a href="/demands/">Demands</a>
+    <a href="/spend/">The money</a>
+    <a href="/inequality/">The history</a>
+    <a href="/library/">Reading room</a>
+    <a href="/act/" aria-current="page">Act</a>
+  </nav>
+
+  <main id="main">
+    <div class="kicker">// Act</div>
+    <h1 class="title">Write to your CM &amp; the PM</h1>
+    <hr class="tick">
+    <p class="standfirst">The one part that has ever changed anything is people asking — in numbers, on the record. Pick the state you vote in; we'll hand you a ready letter.</p>
+
+    <section class="sec cta" id="write" style="border-top:0;padding-top:0">
+      <div class="act-step">Step 1 — Which state do you vote in?</div>
+      <div class="state-pick">
+        <label for="mp-state">Your state</label>
+        <select id="mp-state"><option value="">— Choose your state —</option></select>
+      </div>
+
+      <div id="letter-reveal" hidden>
+        <div class="more-fields">
+          <div><label for="mp-name">Your name (optional)</label><input id="mp-name" type="text" placeholder="—" /></div>
+          <div><label for="mp-constituency">Constituency (optional)</label><input id="mp-constituency" type="text" placeholder="—" /></div>
+        </div>
+
+        <div class="act-step">Step 2 — Send it</div>
+        <div class="cta-note">The buttons open your mail app with the letter pre-loaded. <strong>You'll add the recipient's email yourself</strong> — find your CM and the PM's contact in the steps below.</div>
+        <div class="btn-row">
+          <a id="cta-mailto" class="btn btn-accent" href="#">Open mail with letter →</a>
+          <button id="cta-copy" class="btn" type="button">Copy text</button>
+        </div>
+        <pre id="letter-pre"></pre>
+        <details class="cta-howto" style="margin-top:var(--sp-5)">
+          <summary>How to send +</summary>
+          <ol style="margin-top:var(--sp-4)">
+            <li><strong>To your Chief Minister.</strong> Find the CMO contact at your state government's website — search "[Your State] CM grievance" or "[Your State] CMO email". Most state CMOs publish a public email or contact form.</li>
+            <li><strong>To the Prime Minister.</strong> Use the official PM contact form at <a href="https://www.pmindia.gov.in/en/interact-with-honble-pm/" target="_blank" rel="noopener">pmindia.gov.in/en/interact-with-honble-pm ↗</a>. Every submission via the form is logged.</li>
+            <li><strong>For an audit trail.</strong> File the same complaint via <a href="https://pgportal.gov.in" target="_blank" rel="noopener">pgportal.gov.in ↗</a> (CPGRAMS) — every submission gets a docket number and a response timeline. Address it to the Ministry of Culture and your State CMO.</li>
+            <li>Click <strong>Open mail</strong> to draft the email if you have your CM's address. Otherwise <strong>Copy text</strong> and paste into the portal forms.</li>
+            <li>Send. Then send to a friend.</li>
+          </ol>
+        </details>
+
+        <div class="share">
+          <div class="eyebrow">Then tell a friend</div>
+          <div class="share-row">
+            <a href="https://wa.me/?text=I%20just%20wrote%20to%20my%20CM%20demanding%20free%20public%20libraries.%20Add%20your%20voice%3A%20https%3A%2F%2Ftheright2read.org%2Fact%2F" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://t.me/share/url?url=https%3A%2F%2Ftheright2read.org%2Fact%2F&text=I%20just%20wrote%20to%20my%20CM%20demanding%20free%20public%20libraries.%20Add%20your%20voice." target="_blank" rel="noopener">Telegram</a>
+            <a href="https://twitter.com/intent/tweet?text=I%20just%20wrote%20to%20my%20CM%20demanding%20free%20public%20libraries.%20Add%20your%20voice.&url=https%3A%2F%2Ftheright2read.org%2Fact%2F" target="_blank" rel="noopener">X</a>
+            <button id="share-native" hidden type="button">Share…</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="colophon">
+    <span class="label">Right to Read</span> — <a href="/demands/">the demands</a> · <a href="/">home</a> ·
+    Code: <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm-NC 1.0</a> ·
+    Data: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+  </div>
+</div>
+
+<script src="/assets/data.js?v=55"></script>
+<script src="/assets/helpers.js?v=55"></script>
+<script src="/assets/main.js?v=55"></script>
+<script>
+  // progressive disclosure: reveal the letter only once a state is chosen
+  (function () {
+    var sel = document.getElementById("mp-state"), rev = document.getElementById("letter-reveal");
+    function upd() { if (rev) rev.hidden = !sel.value; }
+    if (sel) { sel.addEventListener("change", upd); upd(); }
+    if (navigator.share) { var n = document.getElementById("share-native"); if (n) { n.hidden = false;
+      n.addEventListener("click", function () { navigator.share({ title: "Right to Read", text: "I just wrote to my CM demanding free public libraries. Add your voice.", url: "https://theright2read.org/act/" }).catch(function(){}); }); } }
+  })();
+</script>
+</body>
+</html>

@@ -32,11 +32,12 @@
   background: var(--bg); color: var(--text); border: 1px solid var(--rule); border-radius: var(--radius); }
 .picker-select:focus, #statue-guess:focus { outline: 2px solid var(--accent); }
 
-.game-btn { display: inline-block; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .5px; cursor: pointer;
-  background: transparent; border: 2px solid var(--accent); color: var(--accent); padding: .7rem 1.1rem; border-radius: var(--radius); }
-.game-btn:hover { text-decoration: none; }
+/* game buttons share THE button system (campaign .btn) for consistency */
+.game-btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; font-size: 1rem; line-height: 1; cursor: pointer;
+  background: transparent; border: 2px solid var(--accent); color: var(--accent); padding: .75rem 1.2rem; border-radius: var(--radius); }
+.game-btn:hover { background: var(--accent); color: var(--on-accent); text-decoration: none; }
 .game-btn.primary { background: var(--accent); color: var(--on-accent); }
-.game-btn.primary:hover { background: var(--rtr-red-2); }
 .game-btn:disabled { opacity: .45; cursor: not-allowed; }
 
 .game-meta { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: .8rem; color: var(--text-muted); margin-bottom: var(--sp-4); }
