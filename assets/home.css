@@ -19,16 +19,20 @@
 .actbar .arrow { font-weight: 700; }
 
 /* --- HERO --- */
-/* sits in the 960 column, aligned with every other block; ₹4.66 large + red.
-   container-type lets the headline size in cqi so it fits the column on one line */
-.hero { padding: var(--sp-6) 0 var(--sp-7); border-bottom: 2px solid var(--accent); container-type: inline-size; }
+/* sits in the 960 column, aligned with every other block; ₹4.66 large + red */
+.hero { padding: var(--sp-6) 0 var(--sp-7); border-bottom: 2px solid var(--accent); }
 /* one flowing line: the big ₹4.66 sits inline inside the sentence */
 .hero-fact { border-left: 5px solid var(--accent); padding-left: var(--sp-4); margin-bottom: var(--sp-5);
   color: var(--text); font-size: clamp(1.15rem, 1rem + 1.1vw, 1.5rem); line-height: 1.3; }
 .hero-fact .num { font-family: var(--font-display); font-weight: 700; color: var(--accent); line-height: 1;
   font-size: clamp(2.3rem, 1.6rem + 3.6vw, 3.4rem); }
-.hero h1 { font-size: clamp(1.4rem, 7cqi, 4rem); white-space: nowrap; text-transform: uppercase; line-height: 1.05; margin: 0 0 var(--sp-4); }
+/* mobile: big, wraps naturally — never clips. desktop: fit to one line via cqi */
+.hero h1 { font-size: var(--t-display); text-transform: uppercase; line-height: 1.05; margin: 0 0 var(--sp-4); }
 .hero h1 .red { color: var(--accent); }
+@media (min-width: 760px) {
+  .hero { container-type: inline-size; }
+  .hero h1 { font-size: clamp(1.4rem, 7cqi, 4rem); white-space: nowrap; }
+}
 .hero-lede { font-size: clamp(1.05rem, 1rem + .8vw, 1.4rem); line-height: 1.45; }
 .hero-lede .opener { color: var(--accent); font-style: italic; }
 
