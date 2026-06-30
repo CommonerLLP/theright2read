@@ -76,6 +76,7 @@ if (excludedEl) excludedEl.innerHTML = EXCLUDED.map((e, i) => `
       <div class="tl-line" aria-hidden="true"></div>
       ${events.map((e, i) => `
         <button type="button" class="tl-dot" data-idx="${i}"
+                tabindex="${i === 0 ? "0" : "-1"}"
                 style="left:${pos(e._y)}%"
                 aria-label="${esc(e.year)} — ${esc(e.title)}">
           <span class="tl-dot-year">${esc(e.year)}</span>
@@ -113,7 +114,7 @@ if (excludedEl) excludedEl.innerHTML = EXCLUDED.map((e, i) => `
   let playing = false;
   let timer = null;
 
-  function show(i) {
+  function show(i, moveFocus) {
     idx = (i + events.length) % events.length;
     const e = events[idx];
     detail.year.textContent  = e.year;
@@ -122,10 +123,14 @@ if (excludedEl) excludedEl.innerHTML = EXCLUDED.map((e, i) => `
     detail.body.textContent  = e.body;
     detail.cur.textContent   = String(idx + 1);
     dots.forEach((d, j) => {
-      d.classList.toggle("active", j === idx);
-      if (j === idx) d.setAttribute("aria-current", "true");
+      const on = j === idx;
+      d.classList.toggle("active", on);
+      // roving tabindex: only the active dot is in the tab order (APG slider/tabs)
+      d.setAttribute("tabindex", on ? "0" : "-1");
+      if (on) d.setAttribute("aria-current", "true");
       else d.removeAttribute("aria-current");
     });
+    if (moveFocus) dots[idx].focus();
   }
 
   function setPlaying(on) {
@@ -152,11 +157,18 @@ if (excludedEl) excludedEl.innerHTML = EXCLUDED.map((e, i) => `
   nextBtn.addEventListener("click", () => { setPlaying(false); show(idx + 1); });
   playBtn.addEventListener("click", () => setPlaying(!playing));
 
-  // Keyboard arrows (when timeline is focused via tab)
+  // Keyboard (APG slider/tabs): arrows step, Home/End jump to ends. When a dot
+  // holds focus, move focus with the selection (roving tabindex); when focus is
+  // on a control button, navigate without stealing its focus.
   root.addEventListener("keydown", (ev) => {
-    if (ev.key === "ArrowLeft")  { ev.preventDefault(); setPlaying(false); show(idx - 1); }
-    if (ev.key === "ArrowRight") { ev.preventDefault(); setPlaying(false); show(idx + 1); }
-    if (ev.key === " ")           { ev.preventDefault(); setPlaying(!playing); }
+    const onDot = !!(document.activeElement && document.activeElement.classList.contains("tl-dot"));
+    if (ev.key === "ArrowLeft")  { ev.preventDefault(); setPlaying(false); show(idx - 1, onDot); }
+    if (ev.key === "ArrowRight") { ev.preventDefault(); setPlaying(false); show(idx + 1, onDot); }
+    if (ev.key === "Home")       { ev.preventDefault(); setPlaying(false); show(0, onDot); }
+    if (ev.key === "End")        { ev.preventDefault(); setPlaying(false); show(events.length - 1, onDot); }
+    // Space toggles play only from the container/controls; on a dot, let the
+    // button activate natively.
+    if ((ev.key === " " || ev.key === "Spacebar") && !onDot) { ev.preventDefault(); setPlaying(!playing); }
   });
 
   // Touch swipe on the detail panel (mobile)
