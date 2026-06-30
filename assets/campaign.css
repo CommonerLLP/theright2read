@@ -43,7 +43,7 @@ p  { margin: 0 0 var(--sp-4); }
 .flag::after  { border-top: 2px solid var(--accent-2); margin-top: 2px; }
 
 /* --- masthead: centred campaign logo + tagline, theme toggle pinned top-right --- */
-.masthead { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); padding: var(--sp-5) 0 var(--sp-3); text-align: center; }
+.masthead { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--sp-1); padding: var(--sp-3) 0 var(--sp-2); text-align: center; }
 .masthead .spacer { display: none; }
 .masthead .theme-toggle { position: absolute; top: var(--sp-4); right: 0; }
 .masthead::after { content: "Public Libraries for All"; font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
@@ -66,8 +66,8 @@ p  { margin: 0 0 var(--sp-4); }
    small light plate to stay legible + on-brand. */
 /* dark mode uses a dark-variant logo (theme.js swaps the src) — no plate needed */
 .brand-logo { display: inline-flex; flex: none; line-height: 0; }
-.brand-logo img { display: block; height: 96px; width: auto; }
-@media (min-width: 760px) { .brand-logo img { height: 132px; } }
+.brand-logo img { display: block; height: 58px; width: auto; }   /* mobile-first: compact so the hook sits near the top */
+@media (min-width: 760px) { .brand-logo img { height: 104px; } }
 
 /* --- theme toggle --- */
 .theme-toggle {
