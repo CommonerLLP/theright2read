@@ -25,7 +25,11 @@
 /* --- token-themed bar chart --- */
 .chart { display: flex; flex-direction: column; gap: 6px; margin: var(--sp-4) 0; }
 .bar-row { display: grid; grid-template-columns: 9rem 1fr 4.2rem; align-items: center; gap: var(--sp-3); }
-@media (max-width: 460px) { .bar-row { grid-template-columns: 6.5rem 1fr 3.4rem; gap: var(--sp-2); } }
+/* narrow phones: stack the state name above a full-width bar so bars aren't squeezed */
+@media (max-width: 460px) {
+  .bar-row { grid-template-columns: 1fr auto; gap: var(--sp-1) var(--sp-2); }
+  .bar-name { grid-column: 1 / -1; }
+}
 .bar-name { font-family: var(--font-ui); font-size: .82rem; line-height: 1.15; }
 .bar-track { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); height: 18px; overflow: hidden; }
 .bar-fill { height: 100%; background: var(--accent-2); min-width: 2px; }
