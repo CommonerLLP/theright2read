@@ -19,6 +19,9 @@ max_retries = 2
 #  - jsdelivr.net and fonts.gstatic.com: CDN endpoints that block
 #    unauthenticated GETs from CI ranges.
 exclude = [
+  # the site's own absolute canonical/OG URLs — they race the Pages deploy and are
+  # validated as relative links anyway.
+  "^https://theright2read\\.org",
   "^https://pgportal\\.gov\\.in",
   "^https://www\\.pmindia\\.gov\\.in",
   "^https://(cdn\\.)?jsdelivr\\.net",
