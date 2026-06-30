@@ -14,12 +14,12 @@
 .spend-hero { padding: var(--sp-6) 0 var(--sp-4); }
 .spend-hero .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
 .spend-hero h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--t-h1); line-height: 1; margin: 0 0 var(--sp-3); }
-.spend-hero .standfirst { font-size: clamp(1.05rem, 1rem + .8vw, 1.3rem); line-height: 1.5; max-width: 52ch; }
+.spend-hero .standfirst { font-size: clamp(1.05rem, 1rem + .8vw, 1.3rem); line-height: 1.5; }
 
 .sec { padding: var(--sp-7) 0; border-top: 1px solid var(--rule); }
 .sec .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
 .sec h2 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--t-h2); margin: 0 0 var(--sp-3); }
-.sec .lede { font-size: 1rem; color: var(--text-soft); max-width: 56ch; margin-bottom: var(--sp-4); }
+.sec .lede { font-size: 1rem; color: var(--text-soft); margin-bottom: var(--sp-4); }
 .src { font-family: var(--font-mono); font-size: var(--t-eyebrow); color: var(--text-muted); margin-top: var(--sp-4); }
 
 /* --- token-themed bar chart --- */

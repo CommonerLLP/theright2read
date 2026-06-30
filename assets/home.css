@@ -33,7 +33,7 @@
 .hero-fact .suf { font-size: clamp(1rem, .95rem + .6vw, 1.25rem); color: var(--text); max-width: 30ch; margin-top: var(--sp-2); }
 .hero h1 { font-size: var(--t-display); text-transform: uppercase; margin: 0 0 var(--sp-4); }
 .hero h1 .red { color: var(--accent); }
-.hero-lede { font-size: clamp(1.05rem, 1rem + .8vw, 1.4rem); line-height: 1.45; max-width: 46ch; }
+.hero-lede { font-size: clamp(1.05rem, 1rem + .8vw, 1.4rem); line-height: 1.45; }
 .hero-lede .opener { color: var(--accent); font-style: italic; }
 
 /* --- "what ₹4.66 buys" grid --- */
@@ -52,7 +52,7 @@
 .sec { padding: var(--sp-7) 0; border-top: 1px solid var(--rule); }
 .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
 .sec h2 { border: 0; padding: 0; margin: 0 0 var(--sp-3); text-transform: uppercase; }
-.sec .lede { font-size: 1.05rem; color: var(--text-soft); max-width: 50ch; }
+.sec .lede { font-size: 1.05rem; color: var(--text-soft); }
 .t-ink { color: var(--text); }
 
 /* --- TAX CALCULATOR --- */

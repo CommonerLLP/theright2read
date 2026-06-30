@@ -14,13 +14,13 @@
 .play-hero { padding: var(--sp-6) 0 var(--sp-4); }
 .play-hero .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
 .play-hero h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--t-h1); line-height: 1; margin: 0 0 var(--sp-3); }
-.play-hero p { font-size: 1.05rem; color: var(--text-soft); max-width: 52ch; }
+.play-hero p { font-size: 1.05rem; color: var(--text-soft); }
 
 /* each game in its own section */
 .game-sec { padding: var(--sp-6) 0; border-top: 1px solid var(--rule); scroll-margin-top: var(--sp-4); }
 .game-sec .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
 .game-sec h2 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; border: 0; padding: 0; margin: 0 0 var(--sp-2); }
-.game-sec > .lede { font-size: 1rem; color: var(--text-soft); max-width: 54ch; margin-bottom: var(--sp-5); }
+.game-sec > .lede { font-size: 1rem; color: var(--text-soft); margin-bottom: var(--sp-5); }
 
 /* --- game shell --- */
 .game-app { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--sp-5); }
