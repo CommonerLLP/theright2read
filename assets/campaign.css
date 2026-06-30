@@ -130,6 +130,14 @@ p  { margin: 0 0 var(--sp-4); }
 /* every eyebrow/kicker gets the // marker, once, here — never hand-typed */
 .eyebrow::before, .sec-eyebrow::before, .kicker::before { content: "// "; }
 
+/* --- share row (shared) — buttons share content, not just a link --- */
+.share { padding: var(--sp-6) 0; border-top: 1px solid var(--rule); }
+.share .eyebrow { margin-bottom: var(--sp-3); }
+.share-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.share-row a, .share-row button { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--font-mono); font-size: .8rem; cursor: pointer;
+  border: 1px solid var(--rule); border-radius: var(--radius); padding: .55rem .85rem; color: var(--text); background: transparent; }
+.share-row a:hover, .share-row button:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
 /* --- call-to-action band (shared) --- */
 .cta-band { border: 2px solid var(--accent); border-radius: var(--radius); padding: var(--sp-5); margin: var(--sp-6) 0; }
 .cta-band h2 { border: 0; padding: 0; margin: 0 0 var(--sp-2); text-transform: uppercase; }
