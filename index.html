@@ -65,7 +65,6 @@
     <a href="/" aria-current="page">Demands</a>
     <a href="/spend/">Money</a>
     <a href="/inequality/">History</a>
-    <a href="/library/">Research</a>
     <a href="/act/">Act</a>
   </nav>
 
@@ -184,5 +183,9 @@
 <script src="assets/data.js?v=55"></script>
 <script src="assets/helpers.js?v=55"></script>
 <script src="assets/games.js?v=55"></script>
+<script>
+  /* reveal the sticky ACT bar only after the reader is into the page */
+  (function(){var bar=document.querySelector(".actbar");if(!bar)return;function on(){bar.classList.toggle("show",window.scrollY>600);}window.addEventListener("scroll",on,{passive:true});on();})();
+</script>
 </body>
 </html>

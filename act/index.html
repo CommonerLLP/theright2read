@@ -58,7 +58,6 @@
     <a href="/">Demands</a>
     <a href="/spend/">Money</a>
     <a href="/inequality/">History</a>
-    <a href="/library/">Research</a>
     <a href="/act/" aria-current="page">Act</a>
   </nav>
 
@@ -126,7 +125,7 @@
   (function () {
     var sel = document.getElementById("mp-state"), rev = document.getElementById("letter-reveal");
     function upd() { if (rev) rev.hidden = !sel.value; }
-    if (sel) { sel.addEventListener("change", upd); upd(); }
+    if (sel) { upd(); sel.addEventListener("change", function(){ upd(); if (sel.value && rev) rev.scrollIntoView({behavior:"smooth",block:"start"}); }); }
     if (navigator.share) { var n = document.getElementById("share-native"); if (n) { n.hidden = false;
       n.addEventListener("click", function () { navigator.share({ title: "Right to Read", text: "I just wrote to my CM demanding free public libraries. Add your voice.", url: "https://theright2read.org/act/" }).catch(function(){}); }); } }
   })();
