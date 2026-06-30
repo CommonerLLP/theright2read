@@ -64,6 +64,21 @@
     return Math.round(mult) + "×";
   }
 
+  // A publication's accession line — the catalogue spine: "RTR-WP-001 · 2026-06 · v0.1.0 · Draft".
+  function accession(p) {
+    return [p.id, p.date, p.version, p.status].filter(Boolean).join(" · ");
+  }
+
+  // Catalogue order: papers first by ascending number, then everything else newest-first.
+  function sortPublications(list) {
+    return (list || []).slice().sort(function (a, b) {
+      var ap = a.kind === "paper", bp = b.kind === "paper";
+      if (ap && bp) return String(a.number || "").localeCompare(String(b.number || ""));
+      if (ap !== bp) return ap ? -1 : 1;
+      return String(b.date || "").localeCompare(String(a.date || ""));
+    });
+  }
+
   var domain = {
     perCapita: perCapita,
     crorePerCapita: crorePerCapita,
@@ -73,7 +88,9 @@
     yearsOf: yearsOf,
     rank: rank,
     inLakhCr: inLakhCr,
-    timesText: timesText
+    timesText: timesText,
+    accession: accession,
+    sortPublications: sortPublications
   };
 
   if (typeof module !== "undefined" && module.exports) module.exports = domain;

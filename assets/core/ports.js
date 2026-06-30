@@ -102,10 +102,22 @@
     }
   };
 
+  /* ---- LibraryPort: the rights2reads Zotero group as curated shelves, from the
+         generated assets/library.js (window.RTR_LIBRARY). Driven adapter is the
+         Zotero Web API at build time (curated by library.toml); the page only
+         ever sees static data. ---- */
+  var LibraryPort = {
+    shelves: function () { return (root.RTR_LIBRARY && root.RTR_LIBRARY.shelves) || []; },
+    groupUrl: function () {
+      var g = root.RTR_LIBRARY && root.RTR_LIBRARY.group;
+      return g ? "https://www.zotero.org/groups/" + g + "/rights2reads" : "";
+    }
+  };
+
   root.RTR = root.RTR || {};
   root.RTR.ports = {
     design: DesignPort, content: ContentPort, dataset: DatasetPort,
-    chart: ChartPort, publications: PublicationsPort
+    chart: ChartPort, publications: PublicationsPort, library: LibraryPort
   };
 
   // keep charts correct across theme toggles
