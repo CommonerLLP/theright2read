@@ -47,8 +47,8 @@ p  { margin: 0 0 var(--sp-4); }
 /* --- flag rule (red over blue) --- */
 .flag { margin: var(--sp-3) 0; }
 .flag::before, .flag::after { content: ""; display: block; width: 100%; }
-.flag::before { border-top: 2px solid var(--accent); }
-.flag::after  { border-top: 2px solid var(--accent-2); margin-top: 2px; }
+.flag::before { border-top: 4px solid var(--accent); }
+.flag::after  { border-top: 4px solid var(--accent-2); margin-top: 12px; }
 
 /* --- masthead: centred campaign logo + tagline, theme toggle pinned top-right --- */
 .masthead { position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--sp-1); padding: var(--sp-3) 0 var(--sp-2); text-align: center; }
