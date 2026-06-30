@@ -785,31 +785,25 @@ function buildLetter() {
   }
 
   return `To: ${cmTitle}
-cc: ${centreContact.title}
 
-Subject: Public Library Funding in ${stateLabel} — A Constitutional Failure
+Subject: Public Library Funding in ${stateLabel} — A State Responsibility, Unmet
 
-I write to both of you because public libraries in India are a failure of the State and of the Centre.
+Hon'ble Chief Minister,
 
-Libraries are listed in List II of the Seventh Schedule of the Constitution — a State subject. The responsibility to legislate, fund, and operate them is constitutionally the State's. The Centre has used "state subject" as cover to abdicate, but India is a centralized polity in practice, and the Prime Minister's office sets the political agenda. Both of you chose this.
+Public libraries are a State subject — listed in List II of the Seventh Schedule of the Constitution. The responsibility to legislate, fund, and operate them is yours. In ${stateLabel}, that responsibility has not been met.
 
 THE FACTS
 
-State governments together spend ₹15.30 per person per year on public libraries — less than a packet of biscuits. The Centre's RRRLF works out to ₹0.07 per person per year. The United States spends ₹2,900 per person. Australia ₹2,400. Of 36 states and union territories, only 19 have library legislation. Only one — Haryana — defines a public library as actually free of fees.
+State governments together spend about ₹15.30 per person per year on public libraries — less than a packet of biscuits. The United States spends about ₹2,900 per person; Australia ₹2,400. Of India's states and union territories, only about half have library legislation, and only one — Haryana — defines a public library as actually free of fees.
 ${stateLine ? "\n" + stateLine + "\n" : ""}
-This is not a budget problem. It is a political choice. It locks Dalit, Bahujan, Adivasi, working-class, women, disabled and minority readers out of the institutions our Constitution promises them under Articles 14, 21 and 21A.
+This is not a budget problem. It is a political choice — and it locks Dalit, Bahujan, Adivasi, working-class, women, disabled and minority readers out of institutions the Constitution promises under Articles 14, 21 and 21A.
 
-TO THE HON'BLE CHIEF MINISTER
+WHAT I ASK OF YOU
 
   1. Enact (or strengthen) ${stateLabel}'s Public Library Act to define public libraries as free of fees, on the Haryana model.
-  2. Allocate per-capita library funding tied to minimum standards. Audit it.
-  3. Engage local self-government (Panchayats, Municipalities) in library governance and outreach to Dalit, Bahujan, Adivasi communities.
-
-TO THE HON'BLE PRIME MINISTER
-
-  1. Stop using "state subject" as cover for inaction.
-  2. Adopt the People's National Library Policy 2024 (PNLP24) drafted by the Free Libraries Network — endorsed by IFLA, Internet Freedom Foundation, HarperCollins India, the Dalit Bahujan Resource Centre, and the National Campaign on Dalit Human Rights.
-  3. Mandate a national survey of every public library in India — even the Raja Rammohun Roy Library Foundation cannot say how many exist.
+  2. Allocate per-capita library funding tied to minimum standards, and audit it.
+  3. Engage local self-government (Panchayats, Municipalities) in library governance and outreach to Dalit, Bahujan and Adivasi communities.
+  4. Adopt the standards of the People's National Library Policy 2024 (PNLP24), drafted by the Free Libraries Network.
 
 The library is not a favour. It is a right.
 
@@ -823,11 +817,10 @@ function syncLetter() {
   letterPre.textContent = letter;
   const state = stateSel.value;
   const cmEmail = state ? (JURISDICTION_CONTACTS[state]?.email || "") : "";
-  // PMO has no public direct email; cc field is intentionally blank.
-  // The howto strip directs users to the official PM contact form & CPGRAMS portal.
+  // Libraries are a State subject — the letter is addressed to the State CM only.
   const subject = state
-    ? `Public Library Funding in ${state} — A Constitutional Failure`
-    : "Public Library Funding in India — A Constitutional Failure";
+    ? `Public Library Funding in ${state} — A State Responsibility, Unmet`
+    : "Public Library Funding — A State Responsibility, Unmet";
   mailtoLink.href = "mailto:" + encodeURIComponent(cmEmail) +
     "?subject=" + encodeURIComponent(subject) +
     "&body=" + encodeURIComponent(letter);

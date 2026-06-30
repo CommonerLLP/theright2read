@@ -123,6 +123,50 @@ p  { margin: 0 0 var(--sp-4); }
 .callout { border-left: 4px solid var(--accent); padding-left: var(--sp-4); margin: var(--sp-5) 0; font-size: 1.08rem; line-height: 1.5; }
 .callout strong { color: var(--accent); }
 
+/* --- generic section + eyebrow + lede (shared) --- */
+.sec { padding: var(--sp-7) 0; border-top: 1px solid var(--rule); }
+.sec:first-of-type { border-top: 0; }
+.eyebrow, .sec-eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
+.sec h2 { border: 0; padding: 0; margin: 0 0 var(--sp-3); text-transform: uppercase; }
+.lede { font-size: clamp(1.05rem, 1rem + .6vw, 1.25rem); line-height: 1.5; color: var(--text-soft); max-width: 56ch; margin: 0 0 var(--sp-4); }
+.src { font-family: var(--font-mono); font-size: var(--t-eyebrow); color: var(--text-muted); margin-top: var(--sp-4); }
+
+/* --- quotes (voices) --- */
+.quote-grid { display: grid; grid-template-columns: 1fr; gap: var(--sp-5); margin: var(--sp-5) 0; }
+@media (min-width: 720px) { .quote-grid { grid-template-columns: 1fr 1fr; } }
+.quote { border-left: 4px solid var(--accent); padding-left: var(--sp-4); margin: 0; }
+.quote .text { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; line-height: 1.45; color: var(--text); }
+.quote .attr { font-family: var(--font-mono); font-size: var(--t-eyebrow); text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); margin-top: var(--sp-2); }
+
+/* --- pantheon illustration (cream stage in dark so it never goes red-on-black) --- */
+.pantheon { text-align: center; padding: var(--sp-7) 0; }
+.pantheon img { border-radius: var(--radius); max-width: 100%; box-sizing: border-box; }
+.pantheon-credit { font-size: .75rem; color: var(--text-muted); margin-top: var(--sp-3); }
+:root[data-theme="dark"] .pantheon img { background: var(--rtr-cream); padding: var(--sp-5); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pantheon img { background: var(--rtr-cream); padding: var(--sp-5); } }
+
+/* --- collapsible sources / bibliography --- */
+.bib-collapse { margin: var(--sp-6) 0; border-top: 1px solid var(--rule); padding-top: var(--sp-4); }
+.bib-head { font-family: var(--font-mono); font-size: var(--t-eyebrow); text-transform: uppercase; letter-spacing: .8px; color: var(--accent); cursor: pointer; }
+.bib-list { list-style: none; padding: 0; margin: var(--sp-4) 0; }
+.bib-list li { margin-bottom: var(--sp-3); font-size: .82rem; line-height: 1.5; }
+.bib-label { font-family: var(--font-ui); font-weight: 600; color: var(--text); display: block; }
+.bib-cite { color: var(--text-muted); }
+.bib-notes { font-size: .8rem; color: var(--text-muted); line-height: 1.5; margin-top: var(--sp-4); }
+.bib-notes .bib-label { display: inline; margin-right: .4rem; }
+
+/* --- closing peroration --- */
+.closing { padding: var(--sp-8) 0; border-top: 2px solid var(--accent); }
+.closing h2 { font-size: var(--t-display); text-transform: uppercase; border: 0; padding: 0; margin: 0; line-height: .95; }
+.closing h2 .red { color: var(--accent); }
+.closing .meta { font-size: .9rem; color: var(--text-muted); line-height: 1.5; margin-top: var(--sp-5); }
+.closing .meta .head { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: var(--sp-2); }
+.salute { margin-top: var(--sp-4); font-family: var(--font-ui); color: var(--accent); }
+.salute-sep { color: var(--text-muted); margin: 0 .4rem; }
+.colophon-line { margin-top: var(--sp-7); padding-top: var(--sp-3); border-top: 1px solid var(--rule); font-size: .78rem; color: var(--text-muted); line-height: 1.6; }
+.colophon-line a { color: var(--text-muted); text-decoration: underline; }
+.github-icon { width: 14px; height: 14px; fill: currentColor; vertical-align: -2px; }
+
 /* --- footer / colophon --- */
 .colophon { margin-top: var(--sp-7); padding-top: var(--sp-3); border-top: 1px solid var(--rule); font-size: .8rem; color: var(--text-muted); line-height: 1.45; }
 .colophon .label { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: .8px; text-transform: uppercase; color: var(--accent); }

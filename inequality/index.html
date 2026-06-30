@@ -3,236 +3,131 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>A History of Inequality — Right to Read</title>
-<meta name="description" content="A history of inequality in Indian public-library policy — Ambedkar's 1915 Columbia letter, the timeline of neglect, and the voices of the tradition (Phule, Ambedkar, Periyar, Birsa, Savitribai, Ranganathan)." />
+<title>The history — how reading was refused — Right to Read</title>
+<meta name="description" content="A history of India's public-library question — Ambedkar's 1915 Columbia letter, the interactive timeline of neglect from Phule (1848) to today, and the voices of the tradition." />
 
-<!-- no-flash theme: set data-theme before paint -->
-<script src="../assets/theme.js?v=55"></script>
+<script src="/assets/theme.js?v=55"></script>
 
-<!-- Favicon — campaign logo -->
-<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
-<link rel="shortcut icon" href="../assets/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#BD3341">
 
-<!-- Canonical + Open Graph + Twitter card for link unfurls -->
 <link rel="canonical" href="https://theright2read.org/inequality/" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Right to Read — Free Libraries for All" />
+<meta property="og:site_name" content="Right to Read" />
 <meta property="og:url" content="https://theright2read.org/inequality/" />
-<meta property="og:title" content="A History of Inequality — Right to Read" />
-<meta property="og:description" content="Ambedkar's 1915 letter, the timeline of neglect, and the voices of the tradition. The historical case for public libraries in India." />
-<meta property="og:locale" content="en_IN" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="A History of Inequality — Right to Read" />
-<meta name="twitter:description" content="Ambedkar's 1915 letter, the timeline of neglect, and the voices of the tradition." />
+<meta property="og:title" content="The history — how reading was refused" />
+<meta property="og:description" content="Ambedkar's 1915 letter, the timeline of neglect from Phule to today, and the voices of the tradition." />
 <meta property="og:image" content="https://theright2read.org/assets/og-image.png?v=2" />
-<meta property="og:image:secure_url" content="https://theright2read.org/assets/og-image.png?v=2" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1600" />
-<meta property="og:image:height" content="838" />
-<meta property="og:image:alt" content="Right to Read — Free Libraries for All. One statue = two years of India's entire library budget." />
-<meta name="twitter:image" content="https://theright2read.org/assets/og-image.png?v=2" />
-<meta name="twitter:image:alt" content="Right to Read — Free Libraries for All. One statue = two years of India's entire library budget." />
-
+<meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=PT+Mono&family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="../assets/tokens.css?v=55">
-<link rel="stylesheet" href="../assets/styles.css?v=55">
-<link rel="stylesheet" href="../assets/legacy-bridge.css?v=55">
+<link rel="stylesheet" href="/assets/tokens.css?v=55">
+<link rel="stylesheet" href="/assets/campaign.css?v=55">
+<link rel="stylesheet" href="/assets/timeline.css?v=55">
+<style>
+  .longer { margin-top: var(--sp-3); }
+  .longer summary { cursor: pointer; font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
+  .longer p { font-size: .95rem; line-height: 1.55; color: var(--text-soft); margin-top: var(--sp-3); }
+  .src-note { font-size: .8rem; color: var(--text-muted); margin-top: var(--sp-3); }
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<div class="page">
 
-<a class="skip-link" href="#main-content">Skip to content</a>
-
-<header class="v2-masthead">
-  <a class="brand-logo" href="/" aria-label="Right to Read — home"><img src="../assets/rtr-logo.svg?v=55" alt="Right to Read — free libraries for all" width="759" height="647"></a>
-  <span class="spacer"></span>
-  <button class="theme-toggle" onclick="RTRTheme.toggle()"><span data-theme-label>☀</span> theme</button>
-</header>
-<div class="v2-flag"></div>
-<nav class="v2-nav" aria-label="Primary">
-    <a href="/">Home</a>
-    <a href="/demands/">Demands</a>
-    <a href="/spend/">The money</a>
-    <a href="/inequality/" aria-current="page">The history</a>
-    <a href="/library/">Reading room</a>
+  <header class="masthead">
+    <a class="brand-logo" href="/" aria-label="Right to Read — home"><img src="/assets/rtr-logo.svg?v=55" alt="Right to Read — free libraries for all" width="759" height="647"></a>
+    <span class="spacer"></span>
+    <button class="theme-toggle" onclick="RTRTheme.toggle()"><span data-theme-label>☀</span> theme</button>
+  </header>
+  <div class="flag"></div>
+  <nav class="nav-row" aria-label="Primary">
+    <a href="/">Demands</a>
+    <a href="/spend/">Money</a>
+    <a href="/inequality/" aria-current="page">History</a>
+    <a href="/library/">Research</a>
     <a href="/act/">Act</a>
   </nav>
 
-<main class="pamphlet" id="main-content">
+  <main id="main">
+    <div class="kicker">// A history of inequality</div>
+    <h1 class="title">We have been told. Again and again.</h1>
+    <hr class="tick">
+    <p class="standfirst">By Phule. By Ambedkar. By Ranganathan. By committees the government itself appointed. The plans exist; the will does not. Here is the historical case for free public libraries in India — the words, the dates, and the people who said them first.</p>
 
-  <h1 class="visually-hidden">A History of Inequality — The Right to Read: how India's public-library policy has been built and refused, from Ambedkar's 1915 Columbia letter to the present.</h1>
+    <section class="sec">
+      <div class="eyebrow">Ambedkar said this first</div>
+      <h2>1915. Columbia University. A letter to Bombay.</h2>
+      <p class="lede">In 1915, writing from Columbia, a young Ambedkar urged the Bombay government to build a library in honour of <strong>Sir Pherozshah Mehta</strong> — <em>not a statue</em>. The statue went up. A century on, India is still building statues, expressways named after donors, and vanity projects. <strong>Not libraries.</strong></p>
+      <details class="longer">
+        <summary>+ The longer story</summary>
+        <p>Ambedkar was reading for his Master's in Economics and Political Science at Columbia in 1915. The Bombay government had proposed a statue to commemorate Sir Pherozshah Mehta, the Parsi reformer and Congress leader, who had just died. Ambedkar wrote back: build a library in his name. Not a statue. The statue went up. A century on, the same logic governs every public-spending priority.</p>
+        <p class="src-note">Source: Narake, Kasare, Kamble &amp; Godghate (Eds.) (2014), <em>Dr. Babasaheb Ambedkar: Writings and Speeches</em>, Vol. 17(III), p. 162. Govt. of Maharashtra. Cited via <a href="https://www.roundtableindia.co.in/a-library-in-a-controversy-dr-b-r-ambedkar-and-jawaharlal-nehru-university/" target="_blank" rel="noopener">Round Table India</a>.</p>
+      </details>
+    </section>
 
-  <!-- HISTORY PAGE OPENER -->
-  <section class="section cream fit-headline" id="history-hero" style="--cqi-h2: 7;">
-    <div class="def-stack">
-      <div class="eyebrow">A history of inequality</div>
-      <h2>WE HAVE BEEN TOLD. AGAIN AND AGAIN.</h2>
-      <p class="lede">By Phule. By Ambedkar. By Ranganathan. By committees the government itself appointed. The plans exist. The will does not. What follows is the historical case for free public libraries in India — the words, the dates, and the people who said them first.</p>
-    </div>
-  </section>
-
-  <!-- 1 · AMBEDKAR SAID THIS FIRST — opening reflection -->
-  <section class="section cream fit-headline" id="ambedkar-columbia" style="--cqi-h2: 5;">
-    <div class="eyebrow">Ambedkar said this first</div>
-    <h2>1915. COLUMBIA UNIVERSITY. A LETTER TO BOMBAY.</h2>
-    <p class="lede" style="max-width:920px;">
-      In 1915, writing from Columbia, a young Ambedkar urged the Bombay government to build a library in honour of <strong style="color:var(--ink); font-weight:700">Sir Pherozshah Mehta</strong> — <em>not a statue.</em> The statue went up. A century on, India is still building statues, expressways named after donors, smart cities that are not smart, vanity projects that enrich politicians' families. <strong>Not libraries.</strong>
-    </p>
-    <details style="margin-top: 16px; max-width: 920px; font-family: var(--f-slab); font-size: 14px; color: var(--ink-soft);">
-      <summary style="cursor: pointer; font-family: var(--f-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); font-weight: 700;">+ The longer story</summary>
-      <p style="margin-top: 12px; line-height: 1.55;">
-        Ambedkar was reading for his Master's in Economics and Political Science at Columbia in 1915. The Bombay government had proposed a statue to commemorate Sir Pherozshah Mehta, the Parsi reformer and Indian National Congress leader, who had just died. Ambedkar wrote back: build a library in his name. Not a statue. The statue went up. A century on, the same logic governs every public-spending priority — expressways named after donors, smart cities that are not smart, hyperscale data centres for American corporations, and vanity projects that fund politicians' families, friends and the kickbacks they collect.
-      </p>
-      <div class="section-source-note" style="margin-top: 16px;">
-        Source: Narake, H., Kasare, M. L., Kamble, N. G., &amp; Godghate, A. (Eds.) (2014), <em>Dr. Babasaheb Ambedkar: Writings and Speeches</em>, Vol. 17(III), p. 162. Government of Maharashtra. Cited via <a href="https://www.roundtableindia.co.in/a-library-in-a-controversy-dr-b-r-ambedkar-and-jawaharlal-nehru-university/" target="_blank" rel="noopener">Round Table India</a>.
-      </div>
-    </details>
-  </section>
-
-  <!-- 2 · TIMELINE — short history of policy neglect -->
-  <section class="section cream fit-headline" id="history" style="--cqi-h2: 6;">
-    <div class="grain light"></div>
-    <div class="stack">
+    <section class="sec">
       <div class="eyebrow">A short history</div>
-      <h2>BUILT BY MOVEMENTS, REFUSED BY THE STATE.</h2>
-      <p class="lede">From Phule to Chattopadhyay, the long arc gave hope in pieces — anti-caste reformers and people's movements built reading rooms, village libraries, science circles. The State drafted plans, then shelved them. Then 1991 came, and the State stopped pretending.</p>
+      <h2>Built by movements, refused by the State.</h2>
+      <p class="lede">From Phule to Chattopadhyay, the long arc gave hope in pieces — anti-caste reformers and people's movements built reading rooms, village libraries, science circles. The State drafted plans, then shelved them. Scrub the timeline:</p>
       <div class="timeline" id="timeline"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- STANDARDS — what we are demanding -->
-  <section class="section cream standards-section">
-    <div class="def-stack">
-      <div class="eyebrow">Seven minimum standards</div>
-      <h2>WHAT A PUBLIC LIBRARY MUST BE.</h2>
-      <div id="standards"></div>
-    </div>
-  </section>
+    <section class="sec">
+      <div class="eyebrow">From the tradition</div>
+      <h2>Our people have been saying this for two centuries.</h2>
+      <div class="quote-grid" id="quote-grid"></div>
+    </section>
 
-  <!-- 3 · QUOTES — voices from the tradition -->
-  <section class="section cream quotes fit-headline" id="quotes" style="--cqi-h2: 4.8;">
-    <div class="eyebrow">From the tradition</div>
-    <h2>OUR PEOPLE HAVE BEEN SAYING THIS FOR TWO CENTURIES.</h2>
-    <div class="quote-grid" id="quote-grid"></div>
+    <section class="pantheon" aria-label="The lineage">
+      <img src="/assets/pantheon-900.png"
+        srcset="/assets/pantheon-600.png 600w, /assets/pantheon-900.png 900w, /assets/pantheon-1200.png 1200w"
+        sizes="(min-width: 1040px) 1040px, 96vw"
+        alt="The lineage: Phule, Ambedkar, Periyar, Birsa Munda, Savitribai Phule, and others who taught us that the library is the gate." />
+      <p class="pantheon-credit">Illustration borrowed and recoloured from <a href="https://sadancanada.org/" target="_blank" rel="noopener">sadancanada.org</a>.</p>
+    </section>
 
-    <button type="button" class="print-btn" onclick="window.print()" aria-label="Print the history of inequality as an A4 PDF" style="margin-top: 32px;">
-      Print this history (2–3 pages, A4) →
-    </button>
-  </section>
-
-  <!-- PANTHEON — the anti-caste lineage -->
-  <section class="pantheon" aria-label="The lineage">
-    <img src="../assets/pantheon-900.png"
-      srcset="../assets/pantheon-600.png 600w, ../assets/pantheon-900.png 900w, ../assets/pantheon-1200.png 1200w"
-      sizes="(min-width: 1040px) 1040px, 96vw"
-      alt="The lineage: Phule, Ambedkar, Periyar, Birsa Munda, Savitribai Phule, and others who taught us that the library is the gate." />
-    <p class="pantheon-credit">Illustration borrowed and recoloured from <a href="https://sadancanada.org/" target="_blank" rel="noopener">sadancanada.org</a>.</p>
-  </section>
-
-  <!-- FOOTER -->
-  <!-- Sources above the closing peroration -->
-  <footer class="page-footer">
     <details class="bib-collapse">
       <summary class="bib-head">Sources, data &amp; citations</summary>
-        <ul class="bib-list">
-          <li>
-            <span class="bib-label">Ambedkar's 1915 letter on Sir Pherozshah Mehta</span>
-            <span class="bib-cite">(urging a library over a statue) — Narake, H., Kasare, M. L., Kamble, N. G., &amp; Godghate, A. (Eds.) (2014), <em>Dr. Babasaheb Ambedkar: Writings and Speeches</em>, Vol. 17(III), p. 162. Government of Maharashtra. Cited via <a href="https://www.roundtableindia.co.in/a-library-in-a-controversy-dr-b-r-ambedkar-and-jawaharlal-nehru-university/" target="_blank" rel="noopener">Round Table India</a>.</span>
-          </li>
-          <li>
-            <span class="bib-label">Chattopadhyay Committee, 1986</span>
-            <span class="bib-cite">Report of the Committee on National Policy on Library and Information System (CONPOLIS), Department of Culture, Government of India, May 1986.</span>
-          </li>
-          <li>
-            <span class="bib-label">National Mission on Libraries, 2014</span>
-            <span class="bib-cite">Ministry of Culture, Government of India. Sanction details and disbursement records, RTI / Lok Sabha replies.</span>
-          </li>
-          <li>
-            <span class="bib-label">Phule's writings on caste and education</span>
-            <span class="bib-cite">Mahatma Phule: <em>Gulamgiri</em> (1873), <em>Shetkaryancha Asud</em> (1881). Source for "Without learning, intellect was lost."</span>
-          </li>
-          <li>
-            <span class="bib-label">Ranganathan, S. R.</span>
-            <span class="bib-cite"><em>The Five Laws of Library Science</em> (1931). Madras Library Association. The first principle of librarianship in modern South Asia.</span>
-          </li>
-          <li>
-            <span class="bib-label">Periyar's writings on rationalism</span>
-            <span class="bib-cite">Periyar E. V. Ramasamy, <em>Kudi Arasu</em> (Self-Respect Movement journal, 1925-onwards). Tamil Nadu Library Resources.</span>
-          </li>
-          <li>
-            <span class="bib-label">Birsa Munda — "Abua dishum, abua raj"</span>
-            <span class="bib-cite">Birsa's address to his followers, late 1890s. Documented in K. S. Singh, <em>Birsa Munda and His Movement, 1874-1901</em> (1983). Oxford University Press.</span>
-          </li>
-          <li>
-            <span class="bib-label">Savitribai Phule</span>
-            <span class="bib-cite">Letters and writings, 1853-1890. Sources: M. G. Mali (Ed.), <em>Savitribai Phule's Collected Works</em> (1988). Maharashtra State Education Department.</span>
-          </li>
-          <li>
-            <span class="bib-label">Library law &amp; policy framing</span>
-            <span class="bib-cite">People's National Library Policy 2024 (Free Libraries Network, <a href="https://www.fln.org.in" target="_blank" rel="noopener">fln.org.in</a>).</span>
-          </li>
-        </ul>
-      <div class="bib-notes">
-        <span class="bib-label">Notes on the history</span>
-        The voices in the Quotes section are presented in their original languages (Marathi, Tamil, Hindi/Devanagari) on the page, with English glosses for accessibility. Citations follow conventional academic style; primary sources are used wherever possible. Historical events are dated from official government / archival records.
-      </div>
+      <ul class="bib-list">
+        <li><span class="bib-label">Ambedkar's 1915 letter on Sir Pherozshah Mehta</span><span class="bib-cite">Narake, H., Kasare, M. L., Kamble, N. G., &amp; Godghate, A. (Eds.) (2014), <em>Dr. Babasaheb Ambedkar: Writings and Speeches</em>, Vol. 17(III), p. 162. Government of Maharashtra.</span></li>
+        <li><span class="bib-label">Chattopadhyay Committee, 1986</span><span class="bib-cite">Report of the Committee on National Policy on Library and Information System, Department of Culture, Government of India, May 1986.</span></li>
+        <li><span class="bib-label">National Mission on Libraries, 2014; 2016 recategorisation; 2019–20 sunset</span><span class="bib-cite">Ministry of Culture; PIB (3 Aug 2016); Rajya Sabha replies Q.277 (12.03.2020), Q.310 (Feb 2022).</span></li>
+        <li><span class="bib-label">Phule's writings</span><span class="bib-cite">Mahatma Phule, <em>Gulamgiri</em> (1873), <em>Shetkaryancha Asud</em> (1881).</span></li>
+        <li><span class="bib-label">Ranganathan, S. R.</span><span class="bib-cite"><em>The Five Laws of Library Science</em> (1931). Madras Library Association.</span></li>
+        <li><span class="bib-label">Periyar</span><span class="bib-cite">Periyar E. V. Ramasamy, <em>Kudi Arasu</em> (1925-onwards).</span></li>
+        <li><span class="bib-label">Birsa Munda</span><span class="bib-cite">K. S. Singh, <em>Birsa Munda and His Movement, 1874-1901</em> (1983). Oxford University Press.</span></li>
+        <li><span class="bib-label">Savitribai Phule</span><span class="bib-cite">M. G. Mali (Ed.), <em>Savitribai Phule's Collected Works</em> (1988).</span></li>
+        <li><span class="bib-label">Library law &amp; policy framing</span><span class="bib-cite">People's National Library Policy 2024 (Free Libraries Network, <a href="https://www.fln.org.in" target="_blank" rel="noopener">fln.org.in</a>).</span></li>
+      </ul>
+      <div class="bib-notes"><span class="bib-label">Note</span> Historical events dated from official government / archival records; primary sources used wherever possible.</div>
     </details>
-  </footer>
 
-  <!-- Closing peroration -->
-  <section class="closing-section">
-    <div class="footer-grid">
-      <div>
-        <h3>EDUCATE.<br>AGITATE.<br><span class="red">ORGANISE.</span></h3>
+    <section class="closing">
+      <h2>EDUCATE.<br>AGITATE.<br><span class="red">ORGANISE.</span></h2>
+      <div class="meta">
+        <div class="head">Right to Read</div>
+        A people's campaign, independent of any political party. <a href="/">See the demands →</a>
+        <div class="salute"><span lang="hi">जय भीम</span><span class="salute-sep" aria-hidden="true">·</span><span lang="ta">வாழ்க பெரியார்</span></div>
       </div>
-      <div class="footer-meta">
-        <a href="/" class="footer-og-link" aria-label="Right to Read — back to pamphlet">
-          <img class="footer-og-card" src="../assets/og-image.png?v=2" alt="Right to Read — Free Libraries for All." />
-        </a>
-        <div class="head">Free Libraries For All</div>
-        A pamphlet for the middle class.<br>
-        Independent of any political party.<br>
-        Built on the People's National<br>Library Policy 2024.<br>
-        Read the policy: <a href="https://www.fln.org.in" target="_blank" rel="noopener">fln.org.in</a>
-        <div class="salute">
-          <span lang="hi">जय भीम</span>
-          <span class="salute-sep" aria-hidden="true">·</span>
-          <span class="ta" lang="ta">வாழ்க பெரியார்</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Colophon -->
-  <div class="page-footer-end">
-    <div class="wip-notice">
-      Work in progress · 2021-25 figures are extrapolations and will be revised as CAG actuals are published.
-    </div>
     <div class="colophon-line">
-      Last updated May 2026 ·
+      Right to Read · <a href="/">the demands</a> ·
       Code: <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm-NC 1.0</a> ·
-      Data: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> ·
-      <a class="github-link" href="https://github.com/CommonerLLP/theright2read" target="_blank" rel="noopener" aria-label="GitHub repository: CommonerLLP/theright2read" title="CommonerLLP/theright2read">
-        <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-          <title>GitHub</title>
-          <path d="M8 0C3.58 0 0 3.67 0 8.2c0 3.62 2.29 6.69 5.47 7.77.4.08.55-.18.55-.4 0-.19-.01-.84-.01-1.53-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.16-.28-.16-.68-.56-.01-.57.63-.01 1.08.59 1.23.83.72 1.24 1.87.89 2.33.68.07-.53.28-.89.51-1.09-1.78-.21-3.64-.91-3.64-4.04 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.4 7.4 0 0 1 8 3.95c.68 0 1.36.09 2 .28 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.3.82 2.19 0 3.14-1.87 3.83-3.65 4.04.29.25.54.76.54 1.54 0 1.11-.01 2-.01 2.27 0 .22.15.48.55.4A8.09 8.09 0 0 0 16 8.2C16 3.67 12.42 0 8 0Z" />
-        </svg>
-        <span>GitHub</span>
-      </a>
+      Data: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
     </div>
-  </div>
+  </main>
+</div>
 
-</main>
-
-<script src="../assets/data.js?v=55"></script>
-<script src="../assets/helpers.js?v=55"></script>
-<script src="../assets/main.js?v=55"></script>
+<script src="/assets/data.js?v=55"></script>
+<script src="/assets/helpers.js?v=55"></script>
+<script src="/assets/main.js?v=55"></script>
 </body>
 </html>

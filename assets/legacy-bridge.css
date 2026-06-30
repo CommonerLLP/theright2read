@@ -29,7 +29,7 @@ body { background: var(--bg) !important; color: var(--text); transition: backgro
 
 /* constrain legacy content to the SAME shell width as v2 pages, and convert the
    old full-bleed section bands into plain ruled sections (matches the v2 look). */
-.pamphlet { max-width: var(--maxw-page); margin-inline: auto; padding: 0 var(--sp-4); }
+.pamphlet { background: transparent !important; max-width: var(--maxw-page); margin-inline: auto; padding: 0 var(--sp-4); }
 @media (min-width: 760px) { .pamphlet { padding: 0 var(--sp-5); } }
 .pamphlet .section { background: transparent !important; border-bottom: 0 !important; border-top: 1px solid var(--rule); padding: var(--sp-7) 0; }
 .pamphlet .section:first-of-type { border-top: 0; }
