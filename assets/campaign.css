@@ -74,8 +74,8 @@ p  { margin: 0 0 var(--sp-4); }
    small light plate to stay legible + on-brand. */
 /* dark mode uses a dark-variant logo (theme.js swaps the src) — no plate needed */
 .brand-logo { display: inline-flex; flex: none; line-height: 0; }
-.brand-logo img { display: block; height: 58px; width: auto; }   /* mobile-first: compact so the hook sits near the top */
-@media (min-width: 760px) { .brand-logo img { height: 104px; } }
+.brand-logo img { display: block; height: 130px; width: auto; }   /* mobile-first: compact so the hook sits near the top */
+@media (min-width: 760px) { .brand-logo img { height: 240px; } }
 
 /* --- theme toggle --- */
 .theme-toggle {

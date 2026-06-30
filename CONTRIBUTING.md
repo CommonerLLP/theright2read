@@ -67,6 +67,32 @@ Developer contributions are also welcome. Useful improvements include:
   downloads.
 - Refactoring carefully where it makes the static site easier to maintain.
 
+### Who We Build For — Devices And Viewports
+
+This site is for India, and India is Android-first: roughly 93% of mobile
+traffic is Android and 7% iOS (StatCounter India, May 2026). Build for the
+budget Android phone in the ₹8,000–20,000 segment — Redmi, Realme, Samsung
+Galaxy A/M, Vivo, Oppo, Tecno, Infinix — not for iPhones or iPads. Testing
+only on an iPhone misrepresents the real audience.
+
+The market clusters tightly by CSS viewport width:
+
+- 360 px wide is the single most common width (`360×800` alone is about 19%
+  of Indian mobile traffic, on HD+ 720×1600 phones at device-pixel-ratio 2).
+- 393 px wide is second (`393×876`, on FHD+ 1080×2400 phones at DPR ~2.75–3).
+- 412 px wide is the next bucket (larger Android and Pixel-class phones).
+
+The hard rule: nothing may break at 360 px wide. That narrow width — not the
+iPhone's 390/393 — is where budget-Android layouts fail through text
+wrapping, fixed widths, or horizontal overflow. Keep the layout fluid so it
+works at any width in the range rather than only at tested sizes, and confirm
+there is no horizontal scroll (`document.documentElement.clientWidth` equals
+`scrollWidth`) at 360 px. Design raster assets and icons up to 3× DPR.
+
+When testing responsiveness, cover `360×800` and `393×876` at minimum, add
+`412×915`, and check one laptop width such as `1366×768` — each in both light
+and dark themes.
+
 ## Source Standards
 
 Data changes need a source trail. When changing numbers, classifications, or
