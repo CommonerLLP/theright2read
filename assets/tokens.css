@@ -35,13 +35,13 @@
   --t-h3: clamp(1.05rem, 1rem + .6vw, 1.25rem);
   --t-h2: clamp(1.35rem, 1.2rem + 1.6vw, 1.9rem);
   --t-h1: clamp(2.2rem, 1.6rem + 5vw, 4rem);
-  --t-display: clamp(2.6rem, 1.6rem + 8vw, 5.5rem);
+  --t-display: clamp(2.2rem, 1.5rem + 4vw, 4rem);
 
   /* spacing / radius / motion */
   --sp-1:.25rem; --sp-2:.5rem; --sp-3:.75rem; --sp-4:1rem; --sp-5:1.5rem;
   --sp-6:2rem; --sp-7:3rem; --sp-8:4rem;
   --radius: 2px;
-  --maxw-page: 720px;         /* THE standard page width — every page's shell uses this */
+  --maxw-page: 960px;         /* THE standard page width — every page's shell uses this */
   --maxw-read: 720px;          /* narrower reading column for prose inside a page */
   --ease: cubic-bezier(.2,.6,.2,1);
 

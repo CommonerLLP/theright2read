@@ -37,8 +37,8 @@ jobs:
             --config lychee.toml
             --root-dir ${{ github.workspace }}
             ./index.html
-            ./spend/index.html
-            ./inequality/index.html
+            ./status-quo/index.html
+            ./history/index.html
             ./act/index.html
             ./library/index.html
           fail: true
@@ -63,7 +63,7 @@ jobs:
           npx html-validate \
             --formatter codeframe \
             index.html \
-            spend/index.html \
+            status-quo/index.html \
             act/index.html \
             library/index.html \
-            inequality/index.html
+            history/index.html

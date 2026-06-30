@@ -29,7 +29,7 @@
 .hero-fact { border-left: 5px solid var(--accent); padding-left: var(--sp-4); margin-bottom: var(--sp-5); }
 .hero-fact .pre { font-family: var(--font-mono); font-size: var(--t-eyebrow); text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
 .hero-fact .num { font-family: var(--font-display); font-weight: 700; color: var(--accent); line-height: .9;
-  font-size: clamp(3.5rem, 2rem + 14vw, 7rem); }
+  font-size: clamp(3rem, 2rem + 8vw, 5rem); }
 .hero-fact .suf { font-size: clamp(1rem, .95rem + .6vw, 1.25rem); color: var(--text); max-width: 30ch; margin-top: var(--sp-2); }
 .hero h1 { font-size: var(--t-display); text-transform: uppercase; margin: 0 0 var(--sp-4); }
 .hero h1 .red { color: var(--accent); }

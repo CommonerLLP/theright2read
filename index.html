@@ -7,7 +7,7 @@
 <meta name="description" content="India spends just ₹4.66 per Indian, per year on every public library combined. We demand that every state legislate free, tax-funded, anti-caste public libraries. Built on the People's National Library Policy 2024." />
 
 <!-- no-flash theme: set data-theme before paint -->
-<script src="assets/theme.js?v=59"></script>
+<script src="assets/theme.js?v=60"></script>
 
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -39,10 +39,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=PT+Mono&family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="assets/tokens.css?v=59">
-<link rel="stylesheet" href="assets/campaign.css?v=59">
-<link rel="stylesheet" href="assets/home.css?v=59">
-<link rel="stylesheet" href="assets/play.css?v=59">
+<link rel="stylesheet" href="assets/tokens.css?v=60">
+<link rel="stylesheet" href="assets/campaign.css?v=60">
+<link rel="stylesheet" href="assets/home.css?v=60">
+<link rel="stylesheet" href="assets/play.css?v=60">
 </head>
 <body>
 
@@ -56,15 +56,15 @@
 <div class="page">
 
   <header class="masthead">
-    <a class="brand-logo" href="/" aria-label="Right to Read — home"><img src="assets/rtr-logo.svg?v=59" alt="Right to Read — free libraries for all" width="759" height="647"></a>
+    <a class="brand-logo" href="/" aria-label="Right to Read — home"><img src="assets/rtr-logo.svg?v=60" alt="Right to Read — free libraries for all" width="759" height="647"></a>
     <span class="spacer"></span>
     <button class="theme-toggle" onclick="RTRTheme.toggle()"><span data-theme-label>☀</span> theme</button>
   </header>
   <div class="flag"></div>
   <nav class="nav-row" aria-label="Primary">
     <a href="/" aria-current="page">Demands</a>
-    <a href="/spend/">Status Quo</a>
-    <a href="/inequality/">History</a>
+    <a href="/status-quo/">Status Quo</a>
+    <a href="/history/">History</a>
     <a href="/act/">Act</a>
   </nav>
 
@@ -143,15 +143,24 @@
       <div class="demand"><div class="n">06</div><h3>Private</h3><p>What you read is your business. No surveillance. No data sold.</p></div>
       <div class="demand"><div class="n">07</div><h3>Funded</h3><p>Public money. Per-capita allocations tied to standards. Audited.</p></div>
     </div>
-    <p class="btn-row"><a class="btn btn-accent" href="act/">Write to your CM →</a></p>
+  </section>
+
+  <!-- ACT — the call to action -->
+  <section class="sec">
+    <div class="cta-band">
+      <div class="eyebrow">The only part that changes anything</div>
+      <h2>Make the demand.</h2>
+      <p class="lede">The State has deferred this for seventy-five years. The one thing that has ever moved it is people asking — in numbers, on the record.</p>
+      <a class="btn btn-accent" href="act/">Write to your CM →</a>
+    </div>
   </section>
 
   <!-- 5 · GO DEEPER — secondary -->
   <section class="sec">
     <div class="eyebrow">Go deeper</div>
     <div class="teasers">
-      <a class="teaser" href="inequality/"><div class="tz">History</div><div class="tt">How reading was refused</div><div class="tg">Our past →</div></a>
-      <a class="teaser" href="spend/"><div class="tz">Status quo</div><div class="tt">What India spends</div><div class="tg">Our present →</div></a>
+      <a class="teaser" href="history/"><div class="tz">History</div><div class="tt">How reading was refused</div><div class="tg">Our past →</div></a>
+      <a class="teaser" href="status-quo/"><div class="tz">Status quo</div><div class="tt">What India spends</div><div class="tg">Our present →</div></a>
       <a class="teaser" href="library/"><div class="tz">Research</div><div class="tt">Papers &amp; briefs</div><div class="tg">Read →</div></a>
     </div>
   </section>
@@ -180,9 +189,9 @@
   </main>
 </div>
 
-<script src="assets/data.js?v=59"></script>
-<script src="assets/helpers.js?v=59"></script>
-<script src="assets/games.js?v=59"></script>
+<script src="assets/data.js?v=60"></script>
+<script src="assets/helpers.js?v=60"></script>
+<script src="assets/games.js?v=60"></script>
 <script>
   /* reveal the sticky ACT bar only after the reader is into the page */
   (function(){var bar=document.querySelector(".actbar");if(!bar)return;function on(){bar.classList.toggle("show",window.scrollY>600);}window.addEventListener("scroll",on,{passive:true});on();})();

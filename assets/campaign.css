@@ -127,6 +127,13 @@ p  { margin: 0 0 var(--sp-4); }
 .sec { padding: var(--sp-7) 0; border-top: 1px solid var(--rule); }
 .sec:first-of-type { border-top: 0; }
 .eyebrow, .sec-eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
+/* every eyebrow/kicker gets the // marker, once, here — never hand-typed */
+.eyebrow::before, .sec-eyebrow::before, .kicker::before { content: "// "; }
+
+/* --- call-to-action band (shared) --- */
+.cta-band { border: 2px solid var(--accent); border-radius: var(--radius); padding: var(--sp-5); margin: var(--sp-6) 0; }
+.cta-band h2 { border: 0; padding: 0; margin: 0 0 var(--sp-2); text-transform: uppercase; }
+.cta-band .lede { margin-bottom: var(--sp-4); }
 .sec h2 { border: 0; padding: 0; margin: 0 0 var(--sp-3); text-transform: uppercase; }
 .lede { font-size: clamp(1.05rem, 1rem + .6vw, 1.25rem); line-height: 1.5; color: var(--text-soft); margin: 0 0 var(--sp-4); }
 .src { font-family: var(--font-mono); font-size: var(--t-eyebrow); color: var(--text-muted); margin-top: var(--sp-4); }

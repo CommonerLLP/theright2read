@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The money — Right to Read</title>
+<meta name="description" content="What India spends on public libraries, in full: per-capita spend state by state, against the budgets the same governments found for statues, subsidies and tax cuts." />
+
+<script src="/assets/theme.js?v=60"></script>
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#BD3341">
+
+<link rel="canonical" href="https://theright2read.org/status-quo/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Right to Read" />
+<meta property="og:url" content="https://theright2read.org/status-quo/" />
+<meta property="og:title" content="The money — Right to Read" />
+<meta property="og:description" content="What India spends on public libraries, in full — state by state, against statues, subsidies and tax cuts." />
+<meta property="og:image" content="https://theright2read.org/assets/og-image.png?v=2" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=PT+Mono&family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="/assets/tokens.css?v=60">
+<link rel="stylesheet" href="/assets/campaign.css?v=60">
+<link rel="stylesheet" href="/assets/status-quo.css?v=60">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page">
+
+  <header class="masthead">
+    <a class="brand-logo" href="/" aria-label="Right to Read — home"><img src="/assets/rtr-logo.svg?v=60" alt="Right to Read — free libraries for all" width="759" height="647"></a>
+    <span class="spacer"></span>
+    <button class="theme-toggle" onclick="RTRTheme.toggle()"><span data-theme-label>☀</span> theme</button>
+  </header>
+  <div class="flag"></div>
+  <nav class="nav-row" aria-label="Primary">
+    <a href="/">Demands</a>
+    <a href="/status-quo/" aria-current="page">Status Quo</a>
+    <a href="/history/">History</a>
+    <a href="/act/">Act</a>
+  </nav>
+
+  <main id="main">
+    <section class="spend-hero">
+      <div class="eyebrow">Status quo</div>
+      <h1>What India spends on libraries</h1>
+      <p class="standfirst">India's states spend about <strong>₹15.30 per person per year</strong> on public libraries. The best-funded state spends roughly <strong>1,400× the worst</strong> — both under the same Constitution. Here is the money, in full.</p>
+    </section>
+
+    <section class="sec">
+      <div class="eyebrow">State by state · 2020-21</div>
+      <h2>31 states. One scandal.</h2>
+      <p class="lede">Per-capita public-library spending, ₹ per person per year, latest year reported. Goa, at the top, spends about ₹140; Jharkhand, at the bottom, spends 10 paise.</p>
+      <div class="chart" id="chart-states" role="figure" aria-label="Per-capita library spending by state, 2020-21"></div>
+      <div class="src">Source: Ministry of Culture, state-wise per-capita library spending, 2014-15 to 2020-21.</div>
+    </section>
+
+    <section class="sec">
+      <div class="eyebrow">The budget is a moral document</div>
+      <h2>We had the money.</h2>
+      <p class="lede">Every public library in India, for a whole year, set beside what the same Union government found for a statue and a single corporate tax cut. One scale.</p>
+      <div class="cmp">
+        <div class="cmp-row lib"><div class="cmp-name">All public libraries · 1 year</div><div class="cmp-track"><div class="cmp-fill" style="width:1%"></div></div><div class="cmp-amt">₹1,406 cr</div></div>
+        <div class="cmp-row"><div class="cmp-name">Statue of Unity · construction</div><div class="cmp-track"><div class="cmp-fill" style="width:2.1%"></div></div><div class="cmp-amt">₹2,989 cr</div></div>
+        <div class="cmp-row"><div class="cmp-name">Corporate tax cut (2019) · 1 year</div><div class="cmp-track"><div class="cmp-fill" style="width:100%"></div></div><div class="cmp-amt">₹1,45,000 cr</div></div>
+      </div>
+      <div class="mult">
+        <div><span class="tag">Statue =</span> <strong>~2 years</strong> of every public library combined.</div>
+        <div><span class="tag">Tax cut · 1 yr =</span> <strong>~103 years</strong> of every public library combined.</div>
+        <div><span class="tag">Libraries =</span> <strong>0.03%</strong> of the Union Budget.</div>
+      </div>
+      <div class="src">Sources: Statue of Unity ~₹2,989 cr (Govt. of Gujarat, 2018); corporate tax cut ~₹1.45 lakh cr revenue forgone, FY 2019-20 (CAG / Finance Ministry); all-libraries ₹1,406 cr (combined per-capita × population).</div>
+    </section>
+
+    <section class="sec">
+      <div class="eyebrow">India vs the world</div>
+      <h2>A rounding error.</h2>
+      <p class="lede">Per-capita public-library spending, ₹ per person per year, order-of-magnitude. India's line is barely visible — that is the finding.</p>
+      <div class="chart" id="chart-world" role="figure" aria-label="Per-capita library spending, India vs other countries"></div>
+      <div class="src">Sources: IMLS (USA), CIPFA (UK), ALIA (Australia), NAPLE/Libraries.fi (Finland), Statistics Canada, Ministry of Culture &amp; Tourism (PRC); India from Ministry of Culture / KBD 2025. Order-of-magnitude.</div>
+    </section>
+
+    <section class="sec">
+      <div class="eyebrow">Methodology</div>
+      <h2>How these numbers are built.</h2>
+      <p class="lede">Per-capita figures come from the CAG Combined Finance &amp; Revenue Accounts (Major Head 2205, sub-head 105) and the Ministry of Culture's state-wise series, 2014-15 to 2020-21. The ₹4.66 hero figure is the nominal series deflated to constant 2011-12 ₹ via the MoSPI implicit GDP deflator; the real-terms peak was ₹7.87 in 2018-19. Comparators (statue, corporate tax cut) are from the Government of Gujarat (2018) and CAG / Finance Ministry annexures (FY 2019-20). A fuller per-state write-up is in preparation.</p>
+    </section>
+
+    <section class="share">
+      <div class="eyebrow">Share the number</div>
+      <div class="share-row">
+        <a href="https://wa.me/?text=India's%20states%20spend%20~%E2%82%B915%20per%20person%20a%20year%20on%20public%20libraries.%20One%20corporate%20tax%20cut%20%3D%20103%20years%20of%20every%20library%20combined.%20https%3A%2F%2Ftheright2read.org%2Fstatus-quo%2F" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://t.me/share/url?url=https%3A%2F%2Ftheright2read.org%2Fstatus-quo%2F&text=One%20corporate%20tax%20cut%20%3D%20103%20years%20of%20every%20public%20library%20in%20India%20combined." target="_blank" rel="noopener">Telegram</a>
+        <a href="https://twitter.com/intent/tweet?text=One%20corporate%20tax%20cut%20%3D%20103%20years%20of%20every%20public%20library%20in%20India%20combined.&url=https%3A%2F%2Ftheright2read.org%2Fstatus-quo%2F" target="_blank" rel="noopener">X</a>
+        <button id="share-native" hidden type="button">Share…</button>
+      </div>
+    </section>
+
+    <div class="colophon-line">
+      Right to Read · a people's pamphlet · <a href="/">home</a> ·
+      Code: <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">PolyForm-NC 1.0</a> ·
+      Data: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+  </main>
+</div>
+
+<script src="/assets/data.js?v=60"></script>
+<script src="/assets/core/domain.js?v=60"></script>
+<script src="/assets/core/ports.js?v=60"></script>
+<script src="/assets/status-quo.js?v=60"></script>
+<script>
+  (function () { if (!navigator.share) return; var n=document.getElementById("share-native"); if(!n) return; n.hidden=false;
+    n.addEventListener("click", function(){ navigator.share({title:"Right to Read — The money", text:"One corporate tax cut = 103 years of every public library in India combined.", url:"https://theright2read.org/status-quo/"}).catch(function(){}); }); })();
+</script>
+</body>
+</html>
