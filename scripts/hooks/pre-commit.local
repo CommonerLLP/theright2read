@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Repo-local pre-commit gate — hexagonal-architecture compliance.
+# Auto-invoked by the org pre-commit hook (_org/scripts/pre-commit, §6 repo-local
+# extension). Survives `make hooks` reinstalls because it lives in the repo.
+# Blocks the commit if the architecture invariants are violated.
+set -euo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+PY="$ROOT/.venv/bin/python"
+[ -x "$PY" ] || PY="$(command -v python3)"
+echo "pre-commit: hexagonal architecture compliance (tests/test_architecture.py)…" >&2
+if ! "$PY" -m pytest "$ROOT/tests/test_architecture.py" -q >&2; then
+  echo "pre-commit: architecture compliance FAILED — fix before committing." >&2
+  exit 1
+fi

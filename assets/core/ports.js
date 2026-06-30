@@ -41,7 +41,9 @@
     actions:     function () { return G(function () { return ACTIONS; }, []); },
     legislation: function (state) { var L = G(function () { return LEGISLATION; }, {}); return state ? L[state] : L; },
     contacts:    function () { return G(function () { return JURISDICTION_CONTACTS; }, {}); },
-    ruralCoverage: function () { return G(function () { return RURAL_COVERAGE; }, {}); }
+    ruralCoverage: function () { return G(function () { return RURAL_COVERAGE; }, {}); },
+    // campaign channels for the site-wide footer; only the enabled ones
+    channels:    function () { return G(function () { return CHANNELS; }, []).filter(function (c) { return c && c.enabled; }); }
   };
 
   /* ---- DatasetPort: numeric series for charts (static now; public-finance later) ---- */
