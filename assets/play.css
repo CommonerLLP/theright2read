@@ -1,26 +1,14 @@
 /* ============================================================================
-   RTR /play/ — games hub. Game components on tokens.css + campaign.css.
-   Mobile-first, light + dark. Hosts the two games from games.js (Higher-or-Lower
-   + Statue Test, and "What Did We Build?"). On-brand: correct = blue (the READ
-   page), wrong = red. Load order: tokens.css → campaign.css → play.css
+   RTR games — the interactive game component, embedded in the home funnel
+   (#dgame-app). Built on tokens.css + campaign.css. On-brand: correct = blue
+   (the READ page), wrong = red. The page shell, share row, skip-link and
+   colophon all live in campaign.css — this file owns ONLY game internals.
+   Load order: tokens.css → campaign.css → play.css
    ============================================================================ */
 
-.page { width: 100%; max-width: var(--maxw-page); margin-inline: auto; padding: 0 var(--sp-4) var(--sp-8); }
-@media (min-width: 760px) { .page { padding: 0 var(--sp-5) var(--sp-8); } }
-
-/* nav-row is defined once in campaign.css (shared, centred) */
-.skip-link { position: absolute; left: -9999px; } .skip-link:focus { position: static; }
-
-.play-hero { padding: var(--sp-6) 0 var(--sp-4); }
-.play-hero .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
-.play-hero h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: var(--t-h1); line-height: 1; margin: 0 0 var(--sp-3); }
-.play-hero p { font-size: 1.05rem; color: var(--text-soft); }
-
-/* each game in its own section */
-.game-sec { padding: var(--sp-6) 0; border-top: 1px solid var(--rule); scroll-margin-top: var(--sp-4); }
-.game-sec .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-2); }
-.game-sec h2 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; border: 0; padding: 0; margin: 0 0 var(--sp-2); }
-.game-sec > .lede { font-size: 1rem; color: var(--text-soft); margin-bottom: var(--sp-5); }
+.picker-select, #statue-guess { width: 100%; max-width: 320px; padding: .6rem .7rem; font-family: var(--font-ui); font-size: 1rem;
+  background: var(--bg); color: var(--text); border: 1px solid var(--rule); border-radius: var(--radius); }
+.picker-select:focus, #statue-guess:focus { outline: 2px solid var(--accent); }
 
 /* --- game shell --- */
 .game-app { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--sp-5); }
@@ -28,9 +16,6 @@
 .game-intro p { margin: var(--sp-3) 0 var(--sp-4); }
 .game-home-wrap { margin: var(--sp-4) 0; }
 .game-home-label { display: block; font-family: var(--font-mono); font-size: var(--t-eyebrow); text-transform: uppercase; letter-spacing: .6px; color: var(--text-muted); margin-bottom: var(--sp-2); }
-.picker-select, #statue-guess { width: 100%; max-width: 320px; padding: .6rem .7rem; font-family: var(--font-ui); font-size: 1rem;
-  background: var(--bg); color: var(--text); border: 1px solid var(--rule); border-radius: var(--radius); }
-.picker-select:focus, #statue-guess:focus { outline: 2px solid var(--accent); }
 
 /* game buttons share THE button system (campaign .btn) for consistency */
 .game-btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
@@ -78,7 +63,7 @@
 .dgame-final-text { font-size: .95rem; color: var(--text-soft); line-height: 1.5; }
 .t-red { color: var(--accent); }
 
-/* diversion game */
+/* diversion game (the one embedded on the home page) */
 .dgame-prompt { font-family: var(--font-display); text-transform: uppercase; font-size: 1.2rem; line-height: 1.15; margin-bottom: var(--sp-4); }
 .dgame-options { display: flex; flex-direction: column; gap: var(--sp-3); }
 .dgame-option { display: flex; align-items: flex-start; gap: var(--sp-3); text-align: left; cursor: pointer;
@@ -93,14 +78,3 @@
 .dgame-option.disabled { cursor: default; }
 .dgame-feedback .alt { display: block; font-style: italic; color: var(--text-muted); margin-top: var(--sp-2); }
 .dgame-feedback .next-btn { margin-top: var(--sp-4); }
-
-/* share */
-.share { padding: var(--sp-6) 0; border-top: 1px solid var(--rule); }
-.share .eyebrow { font-family: var(--font-mono); font-size: var(--t-eyebrow); letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-3); }
-.share-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
-.share-row a, .share-row button { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--font-mono); font-size: .8rem; cursor: pointer;
-  border: 1px solid var(--rule); border-radius: var(--radius); padding: .5rem .8rem; color: var(--text); background: transparent; }
-.share-row a:hover, .share-row button:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-
-.colophon-line { margin-top: var(--sp-7); padding-top: var(--sp-3); border-top: 1px solid var(--rule); font-size: .78rem; color: var(--text-muted); line-height: 1.6; }
-.colophon-line a { color: var(--text-muted); text-decoration: underline; }

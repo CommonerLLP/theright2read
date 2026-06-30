@@ -20,7 +20,7 @@
   --rtr-paper:  #ffffff;
   --rtr-wash:   #f5f3ef;
   --rtr-cream:  #f1e8d3;
-  --rtr-muted:  #66737A;
+  --rtr-muted:  #5d6a71;   /* AA (≥4.5:1) on both paper and the cream surface */
   --rtr-line:   #d7d7d7;
 
   /* --- type (FOSS / OFL only) --- */
