@@ -5,6 +5,9 @@
 # Stage split:
 # - commoner-probe owns acquisition/provenance into data/_parliament_libraries/.
 # - sansad-semantic-crawler owns parse/analysis/export over that acquired corpus.
+# - pikepdf is used by research/working-papers/build-paper.sh to merge the
+#   generated frontmatter/body PDFs without dropping PDF outlines/bookmarks.
 
 commoner-probe[http,pdf] @ git+https://github.com/CommonerLLP/commoner-probe.git@v0.3.0
 sansad-semantic-crawler[http,pdf] @ git+https://github.com/CommonerLLP/sansad-semantic-crawler.git@294a77b9ef476ca5a3e582db57f495529095d977
+pikepdf==10.5.1
