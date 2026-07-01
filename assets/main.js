@@ -371,7 +371,7 @@ $$("#actions-grid").innerHTML = ACTIONS.map((a) => `
 // ─── STATE SCANDAL PICKER (pamphlet only) ─────────────────────────
 // Replaces the old 31-row state-list + filters. Same data, but
 // now revealed one-state-at-a-time so the user gets a punchline.
-const NATIONAL_AVG = 15.30; // ₹/person/year — per-capita library spend (state avg)
+const NATIONAL_AVG = 15.30; // ₹/person/year — NOMINAL state-level average, yardstick for the per-state picker only. NOT the campaign headline (that is ₹4.77 consolidated real, WP-001).
 const BOOK_PRICE   = 250;   // ₹ — typical Indian-published paperback
 function rankStates() {
   return Object.keys(STATE_DATA)
@@ -783,9 +783,9 @@ function buildLetter() {
     const leg = LEGISLATION[state] || {};
     const ratio = spend ? (15.30 / spend).toFixed(1) : null;
     if (spend !== undefined && spend !== null) {
-      if (spend < 1)         stateLine = `${state} spends just ₹${fmtMoney(spend)} per person per year on public libraries — among the lowest in India, ${ratio}× below the state-level national average of ₹15.30.`;
-      else if (spend < 15.3) stateLine = `${state} spends ₹${fmtMoney(spend)} per person per year on public libraries — below the state-level national average of ₹15.30.`;
-      else                   stateLine = `${state} spends ₹${fmtMoney(spend)} per person per year on public libraries — above the national average, but still a fraction of what comparable democracies spend.`;
+      if (spend < 1)         stateLine = `${state} spends just ₹${fmtMoney(spend)} per person per year on public libraries: among the lowest in India, ${ratio}× below the state-level average of ₹15.30 (nominal).`;
+      else if (spend < 15.3) stateLine = `${state} spends ₹${fmtMoney(spend)} per person per year on public libraries, below the state-level average of ₹15.30 (nominal).`;
+      else                   stateLine = `${state} spends ₹${fmtMoney(spend)} per person per year on public libraries, above the state-level average, but still a fraction of what comparable democracies spend.`;
     }
     if (leg.free) {
       stateLine += ` ${state}'s Public Library Act (${leg.year}) is one of the only state laws in India that defines public libraries as free of fees — a national model. The challenge now is funding and implementation.`;
@@ -806,7 +806,7 @@ Public libraries are a State subject — listed in List II of the Seventh Schedu
 
 THE FACTS
 
-State governments together spend about ₹15.30 per person per year on public libraries — less than a packet of biscuits. The United States spends about ₹2,900 per person; Australia ₹2,400. Of India's states and union territories, only about half have library legislation, and only one — Haryana — defines a public library as actually free of fees.
+India spends about ₹4.77 per person per year on every public library combined, states and the Centre together, in real terms: less than a packet of biscuits. The United States spends about ₹2,900 per person; Australia ₹2,400. Of India's states and union territories, only about half have library legislation, and only one, Haryana, defines a public library as actually free of fees.
 ${stateLine ? "\n" + stateLine + "\n" : ""}
 This is not a budget problem. It is a political choice — and it locks Dalit, Bahujan, Adivasi, working-class, women, disabled and minority readers out of institutions the Constitution promises under Articles 14, 21 and 21A.
 

@@ -12,9 +12,13 @@
 // or {{NAME}} from HTML (with substituteConstants on load).
 const CONSTANTS = {
   STATUE_OF_UNITY_CR:   2989,    // ₹ crore — Statue of Unity construction cost (Govt. of Gujarat, 2018)
-  NATIONAL_PER_CAPITA:  15.30,   // ₹ / person / year — state-level avg. per-capita library spend (KBD 2025)
-  CENTRE_PER_CAPITA:    2.07,    // ₹ / person / year — Centre's per-capita library spend (KBD 2025)
-  COMBINED_PER_CAPITA:  11.62,   // ₹ / person / year — peak national combined (state + Centre)
+  // NB: these three are NOMINAL, state-level (KBD 2025) — NOT the campaign headline.
+  // The single per-person headline is ₹4.77 (consolidated state+Centre, real 2011-12 ₹, WP-001).
+  // Do not surface these as "what India spends per person"; use HERO_PER_CAPITA_REAL below.
+  HERO_PER_CAPITA_REAL: 4.77,    // ₹ / person / year — CANONICAL headline (consolidated real, WP-001/005)
+  NATIONAL_PER_CAPITA:  15.30,   // ₹ / person / year — nominal state-level average (yardstick only)
+  CENTRE_PER_CAPITA:    2.07,    // ₹ / person / year — Centre's per-capita library spend (nominal, KBD 2025)
+  COMBINED_PER_CAPITA:  11.62,   // ₹ / person / year — peak national combined, nominal (state + Centre)
   RRRLF_20YR_TOTAL_CR:  197,     // ₹ crore — RRRLF total 2003-2023
   BOOK_PRICE:           250,     // ₹ — typical Indian-published paperback (illustrative)
 
@@ -188,9 +192,9 @@ const NML_STATES = new Set(['Arunachal Pradesh','Goa','Mizoram','Rajasthan','Tel
   'Bihar','Himachal Pradesh','Haryana','Chhattisgarh','Odisha','Uttarakhand','Jammu & Kashmir',
   'Sikkim','Manipur','Meghalaya','Kerala','Puducherry','Punjab','Jharkhand']);
 
-// India vs World (₹ per capita per year — nominal). Lives on /data/ subpage now.
+// India vs World (₹ per capita per year, order-of-magnitude). Lives on /data/ subpage now.
 // Anchored at the top with rich-country comparators; India sits at the bottom
-// (state avg + Centre) so the bar visually rounds to zero.
+// (₹4.77 = consolidated state-plus-Centre real headline, WP-001) so the bar rounds to zero.
 // Sources: IMLS Public Libraries Survey (USA); CIPFA (UK); ALIA (Australia);
 // NAPLE Forum / Libraries.fi (Finland); Statistics Canada; Ministry of Culture
 // & Tourism (PRC); Kulkarni-Balaji-Dhanamjaya 2025 (India).
@@ -201,8 +205,7 @@ const WORLD = [
   { name: "UK",                 value: 1820, india: false },
   { name: "Canada",             value: 1700, india: false },
   { name: "China",              value: 250,  india: false },
-  { name: "India · State avg",  value: 15.30, india: true },
-  { name: "India · Centre",     value: 0.07,  india: true }
+  { name: "India",              value: 4.77, india: true }
 ];
 
 const STANDARDS = [
