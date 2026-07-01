@@ -1,236 +1,67 @@
 # The Right to Read
 
-This repository powers the The Right to Read GitHub Pages site:
+**Free public libraries for all.** A campaign for the reading commons India was promised and never given, and a reckoning with why.
 
-```text
-https://theright2read.github.io
-```
+→ **[theright2read.org](https://theright2read.org)**
 
-It is a static public data dashboard tracking public library funding in India.
-The site compares Indian state-level per-capita library spending, Raja
-Rammohun Roy Library Foundation (RRRLF) grants, public library legislation,
-National Mission on Libraries (NML) participation, and international spending
-benchmarks.
+The Right to Read is an anti-caste campaign for **free, tax-funded, universal public libraries** in India. This repository holds the campaign's website and its open research. The site makes one argument, in numbers and in history: the public library was built by India's emancipatory movements and refused by its State, and winning it back is a question of political will, not of money.
 
-If you are another developer, this README is meant to be a quick scan: fork the
-repo, run the dashboard locally, and reproduce the deployed
-`theright2read.github.io` site from static files.
+## The demand
 
-There is no build step, backend, database, or package manager. The live site is
-served directly from the static files in this repo.
+Every person in India should have a free public library within reach: staffed, stocked, open, and funded by law rather than by a minister's mood. Not a subscription reading room, not a screen, not a scheme that can be zeroed by a revised estimate. A commons.
 
-## Ethics and Principles
+The claim is older than the Republic. In 1848 Jotirao Phule named reading itself as an anti-caste act and opened schools for the children caste had kept illiterate. The line runs through Periyar, through Travancore's P.N. Panicker and the Kerala library movement, to Tamil Nadu's statutory, cess-funded library system, to the demand this campaign makes now. Reading was withheld by caste for centuries. The free public library is where it is taken back.
 
-The Right to Read is grounded in the principles of social justice and 
-democratic access to knowledge. The project treats access to books, 
-public libraries, and knowledge infrastructure as essential components 
-of material equality and civil participation.
+## The finding
 
-The dashboard is built with the understanding that public libraries are 
-critical for those who have been historically excluded from institutional 
-literacy and cultural power. This includes Dalit, Bahujan, Adivasi, 
-minority, and working-class communities, among others.
+India spends about **₹4.77 per person per year** on public libraries, states and the Centre combined, in real terms. That is not a budget. It is a measure of how little a reading public is held to be owed. In real terms the figure has fallen 42 per cent from its 2018-19 peak. And where libraries survive, a documentary gate (a guarantor, a gazetted officer's signature, a refundable ₹3,000 deposit, a biometric) screens out the very readers they were built for.
 
-Contributors are expected to maintain these commitments:
+Every number on the site cites a primary source. The full method and the evidence are in the working papers.
 
-- Treat library access as a fundamental public good.
-- Prioritize technical accuracy in documenting exclusion across caste, 
-  class, region, and language.
-- Maintain analytical rigor: follow the evidence where it reveals 
-  systemic neglect.
-- Build tools and data that empower researchers and communities to 
-  hold public institutions accountable.
+## On the site
 
-## Refreshing The Parliamentary Library Corpus
+| Page | What it is |
+|---|---|
+| **[/](https://theright2read.org/)** | The pamphlet: the demand |
+| **[/status-quo/](https://theright2read.org/status-quo/)** | The money: what India spends, state by state |
+| **[/history/](https://theright2read.org/history/)** | The history: how reading was refused |
+| **[/act/](https://theright2read.org/act/)** | Write to your representative |
+| **[/writing/](https://theright2read.org/writing/)** | The working papers and briefs |
+| **[/library/](https://theright2read.org/library/)** | The reading room: the sources |
 
-`assets/parliament_libraries.js` is generated, not hand-edited. The refresh
-pipeline is split across two packages:
+## The research
 
-- [`commoner-probe`](https://github.com/CommonerLLP/commoner-probe), pinned at
-  `v0.3.0` in [`requirements.txt`](./requirements.txt), owns acquisition:
-  probing Lok Sabha / Rajya Sabha records, writing `manifest.jsonl`,
-  downloading source files, and recording run provenance.
-- [`sansad-semantic-crawler`](https://github.com/CommonerLLP/sansad-semantic-crawler),
-  pinned at `294a77b9ef476ca5a3e582db57f495529095d977`, owns this repo's
-  analysis/export stage: parse, discourse analysis, ministry aggregation, and
-  export.
+The campaign runs on a working-paper series. Each paper is public, cited, and reproducible:
 
-The host project supplies the topic profile at
-[`topics/libraries.json`](./topics/libraries.json), a vendored copy of the
-library topic lens used by the pipeline.
+- **RTR-WP-001**, *A Consolidated Real Per-Capita Series for Public Library Expenditure in India.* The ₹4.77 measurement.
+- **RTR-WP-002**, *The Convergence Blueprint.* A tax-funded national public-library network by 2035.
+- **RTR-WP-003**, *The Grammar of Refusal.* How the Centre's library funding was unmade by procedure, not by any decision on record.
+- **RTR-WP-006**, *Whom Does the City Allow to Read?* Disclosure, reach, and the documentary gate in Ahmedabad and Delhi.
+- **RTR-WP-008**, *From Reader to User.*
 
-```sh
-make deps              # one-time: install pinned deps into .venv
-make corpus-refresh    # acquire LS + RS, parse/analyse, regenerate the JS
-make test              # docs/code sync checks for this repo contract
-```
+Read them at [theright2read.org/writing](https://theright2read.org/writing/).
 
-The refresh pipeline leaves an auditable local trail in
-`data/_parliament_libraries/`. These files are refresh artifacts, not the
-public site surface:
+## How to help
 
-- `data/_parliament_libraries/manifest.jsonl` records acquired questions and
-  source files.
-- `data/_parliament_libraries/_runs.jsonl` records run-level provenance,
-  including the topic-profile hash.
-- `data/_parliament_libraries/probe.log` records acquisition progress.
-- `data/_parliament_libraries/analysis.jsonl` records topic classification
-  against the vendored `topics/libraries.json` profile.
-- `data/_parliament_libraries/answers.jsonl`,
-  `analysis_discourse.jsonl`, and `ministry_summary_qa.jsonl` support the
-  discourse layer.
+The campaign needs people more than it needs pull requests. In rough order of usefulness:
 
-The site's public artifact is still `assets/parliament_libraries.js`.
-That file is the static artifact served by the site; the intermediate JSONL
-files matter because they are the easiest way to review whether a corpus
-refresh changed the substance of the analysis or only the rendered asset.
+1. **Read it, share it, cite it.** The evidence only counts if it travels. Send the site to a librarian, a journalist, a councillor.
+2. **Correct a fact.** If a number, date, or law is wrong, open an issue with a **primary source**: an official PDF, an annexure, a table, a gazette. Sourced corrections are the single most valuable contribution to this repository.
+3. **Add to the record.** State Library Acts, budget lines, RRRLF releases, membership rules. If you hold a document the campaign is missing, bring it.
+4. **Organise.** The demand is local. A library is won ward by ward.
 
-After regeneration, **bump the `?v=N` cache-bust suffix** wherever the
-JS or CSS is loaded. One-pass update across all HTML files:
+Conduct here is governed by an anti-caste **[Code of Conduct](CODE_OF_CONDUCT.md)**: caste, including descent and work-and-descent-based discrimination, is a protected characteristic, and casteism has no place in this project.
 
-```bash
-find . -name "*.html" -not -path "./node_modules/*" \
-  -exec sed -i '' 's/v=OLD/v=NEW/g' {} +
-```
+## The code
 
-The legacy `scripts/sansad_library_crawl.py` + `sansad_library_parse.py`
-that previously did this work were retired in the 2026-05-06 migration;
-they were never tracked in git (dev-time tools that produced the
-committed JS). If you find a stale local copy on disk, it is safe to
-delete.
+The site is built to last with almost no maintenance: **static, no backend, no framework, no build step.** Any browser that runs ES2020 will serve it in 2035. Under the hood it is a small hexagonal core (`assets/core/`: a pure domain, thin ports, and swap-in render adapters), a single light-and-dark design-token system (`assets/tokens.css`), and generated content (the working-paper catalogue and the Zotero reading room are compiled from source, not hand-written). GitHub Pages serves it from `main`.
 
-## Quick Start For Developers
-
-1. Fork the repo on GitHub:
-
-   ```text
-   https://github.com/theright2read/theright2read.github.io
-   ```
-
-2. Clone your fork:
-
-   ```sh
-   git clone https://github.com/YOUR-USER/theright2read.github.io.git
-   cd theright2read.github.io
-   ```
-
-3. Serve the site locally:
-
-   ```sh
-   python3 -m http.server 8000
-   ```
-
-4. Open:
-
-   ```text
-   http://localhost:8000
-   ```
-
-5. Edit `index.html`, refresh the browser, and verify the dashboard still works.
-
-## Reproducing The GitHub Pages Site
-
-This repo is structured for GitHub Pages. To reproduce the public site from a
-fork:
-
-1. Keep the production dashboard at the repository root as `index.html`.
-2. Push your changes to the fork's `main` branch.
-3. In GitHub, open the fork's repository settings.
-4. Go to **Pages**.
-5. Set the source to deploy from the `main` branch and the repository root.
-6. Save and wait for GitHub Pages to publish.
-
-For a personal or organization fork, GitHub will usually publish at:
-
-```text
-https://YOUR-USER.github.io/theright2read.github.io/
-```
-
-To publish at `https://YOUR-USER.github.io/`, rename the fork to
-`YOUR-USER.github.io` before enabling Pages.
-
-## What The Dashboard Covers
-
-- India vs. world public library spending, with nominal USD and PPP-adjusted
-  comparisons.
-- State-by-state public library expenditure for 31 Indian states and union
-  territories from 2014-15 through 2020-21.
-- RRRLF annual grant trends from 2003 through 2023.
-- State-wise RRRLF releases for 2021-22 through 2024-25, based on Parliament
-  data.
-- Public Library Act status by state and how legislation relates to spending.
-- State report cards combining spending, legislation, RRRLF utilization, and NML
-  participation.
-- A state-specific "Write to Your MP" letter generator for library advocacy.
-- **`/spend/`** — per-capita library expenditure analysis. Corrects
-  Kulkarni-Balaji-Dhanamjaya (2025) with TG 2020 population projections,
-  extrapolates state series to 2024-25, compares MHA Zonal Councils
-  (1956) against Ministry of Culture Cultural Zones (1985), and reads
-  the data against four generations of state Library Acts. Generated
-  from a Quarto living document (`spend/index.qmd`).
-
-## Data Sources
-
-The dashboard cites and combines public sources, including:
-
-- Ministry of Culture, Government of India: state-wise per-capita expenditure on
-  public libraries, 2014-15 to 2020-21.
-- Raja Rammohun Roy Library Foundation annual and state-wise grant data.
-- Rajya Sabha Question 1316, answered July 31, 2025, for RRRLF state-wise data.
-- Lok Sabha questions from the July-August 2025 session on NML status and
-  library funding.
-- Public library legislation surveys for Indian states and union territories.
-- International benchmarks from sources such as IMLS, CIPFA, NAPLE,
-  Libraries.fi, ALIA, and Statistics Canada / Alberta.
-
-Source notes, caveats, and conversion notes are included in the dashboard
-footer. Data corrections are welcome, especially when they include a primary
-source link, table, annexure, or official PDF.
+You are welcome to read, fork, and reuse the code, but rebuilding the site is not the point of this repository. To run it locally, contribute code, or refresh the parliamentary-record corpus, see **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
 ## Acknowledgements
 
-Special thanks to the Open Budgets India project by CivicDataLab for opening up
-Indian budget data. This project relies significantly on the broader
-availability and usability of public budget data that work like Open Budgets
-India has made possible.
+With thanks to Open Budgets India (CivicDataLab) for opening up Indian budget data, on which much of this work rests.
 
-## Repository Structure
+## Licence
 
-```text
-.
-|-- index.html           # The pamphlet — the case
-|-- data/index.html      # The data — RRRLF, State Report Card, etc.
-|-- inequality/index.html# The history — interactive timeline
-|-- spend/index.qmd      # Per-capita expenditure analysis (Quarto)
-|-- spend/index.html     # Rendered output
-|-- spend/spend_analysis.pdf # Rendered PDF output
-|-- assets/              # styles.css, data.js, helpers.js, games.js, main.js
-|-- scripts/             # build_parliament_libraries.py, render_essays.py, sync_agents.py
-|-- design/index.html    # Earlier design/prototype version
-|-- README.md
-|-- CONTRIBUTING.md
-`-- LICENSE
-```
-
-Most application logic, styles, and data live inside `index.html`,
-`data/`, `inequality/`, and shared `assets/`. The page loads Chart.js
-from a CDN.
-
-`spend/index.html` is rendered from `spend/index.qmd` via Quarto — regenerate with `make spend-page`.
-
-## Development Notes
-
-- Keep the site usable as a static page.
-- Prefer primary public sources for data changes.
-- Add source notes when changing numbers, formulas, classifications, or claims.
-- Check the dashboard on mobile and desktop widths after visual changes.
-- Keep accessibility in mind: chart colors, table readability, and keyboard
-  navigation matter for a public-interest site.
-- Treat factual README and Makefile claims as part of the repo contract.
-  If you change corpus entrypoints, pinned versions, or named output files,
-  update the docs in the same PR and keep `make test` green.
-
-## License
-
-This project is licensed under the [PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)
-license. Noncommercial use only. See `LICENSE` for the full license text.
+Code and content are released under the **[PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)** licence: noncommercial use only. For the underlying facts, cite the primary sources named on the site, not this repository. See [`LICENSE`](LICENSE).
