@@ -23,7 +23,7 @@ jobs:
     name: link checker
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       # lychee is a fast link checker — supports HTML, markdown, and
       # ignores false positives via a config file when one is added.
       - name: Check links
@@ -49,7 +49,7 @@ jobs:
     name: html validation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       # html-validate is a fast standalone HTML5 validator — no DOM,
       # no headless browser. Catches structural issues only.
       - name: Set up Node
@@ -75,7 +75,7 @@ jobs:
     # data-driven channels. Runs only the architecture suite (not the corpus/docs
     # tests, which need gitignored data not present on a clean checkout).
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
