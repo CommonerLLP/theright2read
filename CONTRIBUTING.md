@@ -183,10 +183,45 @@ Before submitting a change:
    make spend-page
    ```
 
-   These checks enforce narrow factual invariants: the README's pinned
-   refresh-package refs must match `requirements.txt`, documented `make ...`
-   commands must exist, and the public static artifacts the README names must
-   exist in the repo.
+   These checks enforce narrow factual invariants: the pinned refresh-package
+   refs documented here must match `requirements.txt`, documented `make ...`
+   commands must exist, the named corpus artifacts must be mentioned here, and
+   the public content routes must exist in the repo.
+
+## Reproducibility: the parliamentary corpus
+
+The site's parliamentary-library layer, `assets/parliament_libraries.js`, is
+**generated, not hand-edited.** It is regenerated from the parliamentary record
+by two pinned packages, split by responsibility:
+
+- [`commoner-probe`](https://github.com/CommonerLLP/commoner-probe) owns
+  acquisition and provenance, pinned at `v0.3.0` in
+  [`requirements.txt`](./requirements.txt).
+- [`sansad-semantic-crawler`](https://github.com/CommonerLLP/sansad-semantic-crawler)
+  owns parse, analysis, and export, pinned at
+  `294a77b9ef476ca5a3e582db57f495529095d977`.
+
+The topic lens is a vendored profile at `topics/libraries.json`.
+
+```sh
+make deps            # install the pinned deps into .venv
+make corpus-refresh  # acquire LS + RS, parse/analyse, regenerate the JS
+make test            # code/docs sync + architecture checks
+```
+
+The refresh leaves an auditable local trail under `data/_parliament_libraries/`
+(gitignored; not the public surface):
+
+- `data/_parliament_libraries/manifest.jsonl` — acquired questions and source files
+- `data/_parliament_libraries/_runs.jsonl` — run-level provenance (topic-profile hash)
+- `data/_parliament_libraries/probe.log` — acquisition progress
+- `data/_parliament_libraries/analysis.jsonl` — topic classification against `topics/libraries.json`
+- `data/_parliament_libraries/answers.jsonl`, `analysis_discourse.jsonl`, and `ministry_summary_qa.jsonl` — the discourse layer
+
+The public artifact is `assets/parliament_libraries.js`; the JSONL files are the
+easiest way to review whether a refresh changed the substance of the analysis or
+only the rendered asset. After regenerating, **bump the `?v=N` cache-bust** across
+all HTML.
 
 ## Pull Request Checklist
 
