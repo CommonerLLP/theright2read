@@ -95,3 +95,21 @@ __pycache__/
 *.pyc
 .obsidian/
 .tool-versions
+
+# More generated agent-context files (local-only, like CLAUDE/GEMINI/AGENTS)
+/HERMES.md
+/PI.md
+
+# Retained brand/media render sources (local build tooling, backed up in bundle)
+/scripts/media/
+
+# Brand/social-channel exports (NOT site-served): retained local, backed up in bundle.
+# Site-served assets (rtr-logo.svg, favicon*, og-image.png, icon-*.png) stay tracked.
+/assets/rtr-substack-*
+/assets/rtr-youtube-*
+/assets/rtr-video-watermark*
+/assets/rtr-podcast-*
+
+# Local-only tooling that depends on the gitignored research/ tree (not public-repo surface).
+/tests/test_papers.py
+/scripts/social/

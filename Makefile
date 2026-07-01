@@ -26,7 +26,7 @@ CORPUS_DEPS   := $(VENV)/.corpus-deps.stamp
 .PHONY: deps test corpus-crawl corpus-crawl-committees corpus-parse corpus-export \
         corpus-extract-answers corpus-analyse-discourse corpus-analyse-ministry \
         corpus-analyse corpus-enrich corpus-refresh spend-page sync-agents \
-        hooks prune help
+        hooks prune help doctor paper zotero site-content
 
 $(PYTHON):
 	python3 -m venv $(VENV)
@@ -114,6 +114,19 @@ sync-agents:
 hooks:  ## Install git pre-commit hook (run once after clone)
 	bash ../_org/scripts/install-hooks.sh
 
+doctor:  ## Verify local toolchain pins
+	bash ../_org/scripts/toolchain-doctor.sh
+
+WP ?= 1
+paper:  ## Build a full working paper PDF (front matter + body): make paper WP=1
+	bash research/working-papers/build-paper.sh $(WP)
+
+zotero: $(PYTHON)  ## Generate the Zotero upsert snippet from papers.toml
+	$(PYTHON) research/working-papers/_shared/papers_to_zotero.py
+
+site-content: $(PYTHON)  ## Regenerate /writing + /library data from papers.toml + Zotero
+	$(PYTHON) research/working-papers/_shared/site_content.py
+
 prune:  ## Delete local branches already merged into main
 	git fetch --prune
 	git branch --merged main | grep -vE '^\*|main' | xargs -r git branch -d
@@ -131,16 +144,21 @@ help:
 	@echo "Setup:"
 	@echo "  make deps                             — install pinned deps into .venv"
 	@echo "  make test                             — run docs/code sync checks"
+	@echo "  make doctor                           — verify toolchain pins (quarto/python/tex/fonts)"
+	@echo "Working papers:"
+	@echo "  make paper WP=1                       — build a full working paper (cover + colophon + body)"
+	@echo "  make zotero                           — generate the Zotero upsert snippet from papers.toml"
+	@echo "  make site-content                     — regenerate /writing + /library data (papers.toml + Zotero)"
 	@echo "Agent rules:"
-	@echo "  make sync-agents                      — regenerate CLAUDE.md + AGENTS.md from CONTEXT.md"
+	@echo "  make sync-agents                      — regenerate local dev config"
 	@echo "  make hooks                            — install pre-commit hook into .git/hooks/"
 	@echo "  make prune                            — delete local branches merged into main"
 
 data-init:  ## Create the local corpus output directory under the public data page
 	mkdir -p data/_parliament_libraries
 
-data-link:  ## Symlink only the corpus output dir: make data-link EXTERNAL=/Volumes/m1-storage
-	@test -n "$(EXTERNAL)" || (echo "Usage: make data-link EXTERNAL=/Volumes/your-drive"; exit 1)
+data-link:  ## Symlink only the corpus output dir: make data-link EXTERNAL=/path/to/drive
+	@test -n "$(EXTERNAL)" || (echo "Usage: make data-link EXTERNAL=/path/to/drive"; exit 1)
 	mkdir -p data
 	mkdir -p $(EXTERNAL)/$(shell basename $(CURDIR))/_parliament_libraries
 	ln -sfn $(EXTERNAL)/$(shell basename $(CURDIR))/_parliament_libraries data/_parliament_libraries
