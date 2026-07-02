@@ -127,6 +127,8 @@
   /* embed mode — strip chrome for iframes */
   body.embed #appbar, body.embed #appfoot { display: none; }
   body.embed main { padding: 0; }
+  body.embed #view { max-width: none; }           /* flush full-width in an iframe [codex #21] */
+  body.embed .fig-tools { display: none; }         /* no interactive PNG control in embeds [codex #21] */
   body.embed figure { margin: 0; border: none; box-shadow: none; background: transparent; }
   body.embed .embed-cite {
     display: block; font-family: var(--font-mono); font-size: .58rem;
@@ -164,6 +166,6 @@
   <script src="./render-svg.js?v=5"></script>
   <script src="./echarts-theme.js?v=5"></script>
   <script src="./render-echarts.js?v=5"></script>
-  <script src="./app.js?v=5"></script>
+  <script src="./app.js?v=6"></script>
 </body>
 </html>
