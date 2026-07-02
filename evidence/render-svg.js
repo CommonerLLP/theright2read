@@ -181,7 +181,32 @@
     host.innerHTML = "";
     var rows = chart.data, labels = (chart.config && chart.config.cessLabels) || {};
     var slug = chart.slug || "lookup";
+    var years = (chart.config && chart.config.spendYears) || [];
+    var spendLabel = (chart.config && chart.config.spendLabel) || "Per-capita spend";
     var tierVar = { operative: "var(--blue)", none: "var(--red-2)", provision: "var(--accent)", renamed: "var(--accent)" };
+
+    // per-State spending sparkline (₹/person/yr, 2205-105) — reads live CSS vars
+    function spark(series) {
+      var W = 320, H = 66, padL = 6, padR = 6, padT = 16, padB = 15;
+      var acc = cssv("--accent"), muted = cssv("--text-muted"), text = cssv("--text"), surf = cssv("--surface"), rule = cssv("--rule");
+      var vals = series.slice(), n = vals.length;
+      var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals), rng = (mx - mn) || 1;
+      var stepX = (W - padL - padR) / (n - 1);
+      function X(i) { return padL + i * stepX; }
+      function Y(v) { return padT + (1 - (v - mn) / rng) * (H - padT - padB); }
+      var s = mk("svg", { viewBox: "0 0 " + W + " " + H, preserveAspectRatio: "none", role: "img" });
+      s.style.width = "100%"; s.style.height = "auto"; s.style.display = "block";
+      s.setAttribute("aria-label", spendLabel + ": " + years[0] + " ₹" + vals[0].toFixed(2) + " to " + years[n - 1] + " ₹" + vals[n - 1].toFixed(2) + " (peak ₹" + mx.toFixed(2) + ").");
+      var d = "M" + X(0) + "," + Y(vals[0]);
+      for (var i = 1; i < n; i++) d += " L" + X(i) + "," + Y(vals[i]);
+      s.appendChild(mk("path", { d: d, fill: "none", stroke: acc, "stroke-width": 1.6, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+      for (var j = 0; j < n; j++) s.appendChild(mk("circle", { cx: X(j), cy: Y(vals[j]), r: j === n - 1 ? 3 : 1.7, fill: j === n - 1 ? acc : surf, stroke: acc, "stroke-width": 1.1 }));
+      s.appendChild(txt("₹" + vals[0].toFixed(2), X(0), Y(vals[0]) - 6, muted, 8.5, "start", 400, "0", MONO));
+      s.appendChild(txt("₹" + vals[n - 1].toFixed(2), X(n - 1), Y(vals[n - 1]) - 6, text, 9.5, "end", 700, "0", MONO));
+      s.appendChild(txt(years[0], X(0), H - 3, muted, 7.5, "start", 400, "0", MONO));
+      s.appendChild(txt(years[n - 1], X(n - 1), H - 3, muted, 7.5, "end", 400, "0", MONO));
+      return s;
+    }
     var ctl = doc.createElement("div");
     ctl.style.cssText = "display:flex;flex-wrap:wrap;gap:.5rem .7rem;align-items:center;margin-bottom:1rem";
     var lab = doc.createElement("label"); lab.setAttribute("for", slug + "-sel"); lab.textContent = "Your State";
@@ -210,6 +235,14 @@
         var rep = doc.createElement("p");
         rep.style.cssText = "font-family:var(--font-serif);font-size:.9rem;line-height:1.45;color:var(--text);border-left:3px solid var(--blue);padding-left:.7rem;margin:.7rem 0 0";
         rep.textContent = "★ " + r.repNote; card.appendChild(rep);
+      }
+      if (r.spend && r.spend.length) {
+        var sp = doc.createElement("div");
+        sp.style.cssText = "margin-top:.9rem;padding-top:.7rem;border-top:1px solid var(--rule)";
+        var spl = doc.createElement("div");
+        spl.style.cssText = "font-family:var(--font-mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.4rem";
+        spl.textContent = spendLabel;
+        sp.appendChild(spl); sp.appendChild(spark(r.spend)); card.appendChild(sp);
       }
       lookupSel[slug] = i;
     }
