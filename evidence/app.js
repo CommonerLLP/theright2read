@@ -163,7 +163,15 @@
   // redraw charts when the site theme toggles (theme.js sets data-theme on <html>)
   new MutationObserver(function () { rerender(); }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
   // and when the OS theme changes while on system default (no explicit choice)
-  if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { if (!FORCED_THEME && !(function(){try{return localStorage.getItem(THEME_KEY)}catch(e){return null}})()) rerender(); });
+  // OS-theme change on system default — guard addEventListener (older WebKit/Safari
+  // MediaQueryList has only addListener; calling the missing method would throw and
+  // abort boot before route()). [codex #20]
+  if (window.matchMedia) {
+    var _mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var _onSys = function () { if (!FORCED_THEME && !(function(){try{return localStorage.getItem(THEME_KEY)}catch(e){return null}})()) rerender(); };
+    if (_mq.addEventListener) _mq.addEventListener("change", _onSys);
+    else if (_mq.addListener) _mq.addListener(_onSys);
+  }
   window.addEventListener("hashchange", route);
   var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { if (_resizeOnly) _resizeOnly(); }, 180); });
   route();
