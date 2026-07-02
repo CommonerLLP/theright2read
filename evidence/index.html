@@ -1,26 +1,31 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-IN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Evidence — The Right to Read</title>
-<meta name="description" content="Self-hosted, embeddable data visualisations for the Right to Read campaign. Every chart is a permalink; drop it into a page or a post by iframe.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Evidence — Right to Read</title>
+<meta name="description" content="The Right to Read campaign's evidence: embeddable charts and lookups on India's public-library law and spending. Every chart is a permalink." />
 <!--
-  theright2read.org/evidence — self-hosted, iframe-embeddable proof surface.
-  Processed charts/lookups (data/ is raw corpus; this is the evidence distilled
-  from it). Subtree of theright2read; served on GitHub Pages at /evidence/
-  (host-agnostic: hash routing works at any base path or a future subdomain).
-  Design mirrors the site v2 design language (assets/tokens.css). Two renderers
-  keyed off chart JSON: vanilla-SVG/canvas for signature pamphlet charts, ECharts
-  (Apache-2.0, lazy-loaded) for maps/dense charts. NO green (game-signal only).
+  theright2read.org/evidence — the processed proof surface (data/ is the raw
+  corpus; this is the evidence distilled from it). Wears the standard site chrome
+  (masthead, nav, shared channels/colophon) via campaign.css + core/footer.js;
+  ?embed=1 strips it for iframes. Hash-routed; two renderers (vanilla-SVG/canvas +
+  lazy Apache ECharts) keyed off chart JSON. NO green (game-signal only).
 -->
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=PT+Mono&family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/tokens.css?v=76">
+<script src="/assets/theme.js?v=76"></script>
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#BD3341">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=PT+Mono&family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="/assets/tokens.css?v=76">
+<link rel="stylesheet" href="/assets/campaign.css?v=76">
 <style>
   /* chart colour aliases consumed by the SVG/canvas code — tokens.css has no
      --blue/--red-2/--grid-off, so define them here (and remap per theme). */
@@ -29,38 +34,11 @@
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) { --blue: #7b95cf; --red-2: #d05661; --grid-off: #39332b; }
   }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0; background: var(--bg); color: var(--text);
-    font-family: var(--font-serif); font-size: var(--t-body); line-height: 1.6;
-    overflow-x: hidden; -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: var(--maxw-read); margin: 0 auto; padding: 0 1.15rem; }
 
-  /* app bar */
-  #appbar {
-    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-    max-width: var(--maxw-page); margin: 0 auto; padding: 1rem 1.15rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  #appbar a.brand {
-    font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .12em;
-    font-size: .7rem; color: var(--accent); text-decoration: none;
-  }
-  #appbar a.brand b { color: var(--text); }
-  .btns { display: flex; gap: .5rem; }
-  .btn {
-    font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .08em;
-    font-size: .64rem; cursor: pointer; background: transparent; color: var(--text);
-    border: 1px solid var(--rule); border-radius: var(--radius); padding: .34rem .66rem;
-  }
-  .btn:hover { border-color: var(--accent); color: var(--accent); }
-
-  main { padding: 1.6rem 0 2.4rem; }
+  #view { max-width: var(--maxw-read); margin: 0 auto; padding: 1.6rem 1.15rem 2.4rem; }
 
   /* figure card */
-  figure {
+  #view figure {
     margin: 0 0 1.4rem; background: var(--surface); border: 1px solid var(--rule);
     border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
   }
@@ -73,16 +51,23 @@
     font-family: var(--font-display); font-weight: 700; font-size: 1.5rem;
     line-height: 1.1; margin: 0 0 1rem; color: var(--text);
   }
-  figcaption {
+  #view figcaption {
     font-family: var(--font-serif); font-size: .92rem; line-height: 1.5;
     color: var(--text-muted); margin-top: 1rem;
   }
-  figcaption b { color: var(--text); font-weight: 600; }
+  #view figcaption b { color: var(--text); font-weight: 600; }
   .fig-src {
     font-family: var(--font-mono); font-size: .64rem; text-transform: uppercase;
     letter-spacing: .05em; color: var(--text-muted); margin-top: .7rem;
     padding-top: .6rem; border-top: 1px solid var(--rule);
   }
+  .fig-tools { margin-top: .8rem; }
+  .png-btn {
+    font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .08em;
+    font-size: .62rem; cursor: pointer; background: transparent; color: var(--text-muted);
+    border: 1px solid var(--rule); border-radius: var(--radius); padding: .34rem .66rem;
+  }
+  .png-btn:hover, .png-btn:focus-visible { border-color: var(--accent); color: var(--accent); }
   .hit { cursor: pointer; }
   .hit:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
 
@@ -109,54 +94,66 @@
   #rtr-tip.on { opacity: 1; }
   #rtr-tip b { color: var(--bg); }
 
-  #appfoot {
-    max-width: var(--maxw-page); margin: 0 auto; padding: 1.2rem 1.15rem 2rem;
-    border-top: 1px solid var(--rule);
-    font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase;
-    letter-spacing: .06em; color: var(--text-muted);
-    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-  }
-  #appfoot a { color: var(--text-muted); }
-
-  /* embed mode — strip chrome for iframes */
-  body.embed #appbar, body.embed #appfoot { display: none; }
-  body.embed main { padding: 0; }
-  body.embed figure { margin: 0; border: none; box-shadow: none; background: transparent; }
+  /* embed mode — strip ALL site chrome for iframes, keep only the figure */
+  .embed-cite { display: none; }
+  body.embed .masthead, body.embed .flag, body.embed .nav-row,
+  body.embed .channels, body.embed .colophon, body.embed .skip-link { display: none; }
+  body.embed #view { padding: 0; max-width: none; }
+  body.embed #view figure { margin: 0; border: none; box-shadow: none; background: transparent; }
   body.embed .embed-cite {
     display: block; font-family: var(--font-mono); font-size: .58rem;
     text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted);
     text-align: right; margin-top: .4rem;
   }
-  .embed-cite { display: none; }
 
   @media (max-width: 420px) {
     .fig-pad { padding: .95rem .8rem 1rem; }
     .fig-title { font-size: 1.3rem; }
   }
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
-  <header id="appbar">
-    <a class="brand" href="https://theright2read.org">THE RIGHT TO READ · <b>Evidence</b></a>
-    <div class="btns">
-      <button class="btn" id="btn-png" hidden>Download PNG</button>
-      <button class="btn" id="btn-theme" aria-label="Toggle light or dark theme">Theme</button>
-    </div>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page">
+
+  <header class="masthead">
+    <a class="brand-logo" href="/" aria-label="Right to Read — home"><img src="/assets/rtr-logo.svg?v=76" alt="Right to Read — free libraries for all" width="759" height="647"></a>
+    <span class="spacer"></span>
+    <button class="theme-toggle" onclick="RTRTheme.toggle()"><span data-theme-label>☀</span> theme</button>
   </header>
+  <div class="flag"></div>
+  <nav class="nav-row" aria-label="Primary">
+    <a href="/">Demands</a>
+    <a href="/status-quo/">Status Quo</a>
+    <a href="/history/">History</a>
+    <a href="/act/">Act</a>
+  </nav>
 
-  <main id="view" class="wrap"><noscript>These charts need JavaScript. Each chart's caption states its finding in full without it.</noscript></main>
+  <main id="main">
+    <div id="view"><noscript>These charts need JavaScript. Each chart's caption states its finding in full without it.</noscript></div>
+  </main>
 
-  <footer id="appfoot">
-    <span>Self-hosted · no trackers · FOSS</span>
-    <a href="https://theright2read.org">theright2read.org &rarr;</a>
+  <div class="channels">
+    <div class="channels-eyebrow">Join the campaign</div>
+    <div class="channels-row" data-channels></div>
+  </div>
+
+  <footer class="colophon">
+    <span>Free libraries for all</span>
+    <a class="github-link" href="https://github.com/CommonerLLP/theright2read" target="_blank" rel="noopener" aria-label="Source and licences on GitHub"><svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.67 0 8.2c0 3.62 2.29 6.69 5.47 7.77.4.08.55-.18.55-.4 0-.19-.01-.84-.01-1.53-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.16-.28-.16-.68-.56-.01-.57.63-.01 1.08.59 1.23.83.72 1.24 1.87.89 2.33.68.07-.53.28-.89.51-1.09-1.78-.21-3.64-.91-3.64-4.04 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.4 7.4 0 0 1 8 3.95c.68 0 1.36.09 2 .28 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.3.82 2.19 0 3.14-1.87 3.83-3.65 4.04.29.25.54.76.54 1.54 0 1.11-.01 2-.01 2.27 0 .22.15.48.55.4A8.09 8.09 0 0 0 16 8.2C16 3.67 12.42 0 8 0Z"/></svg>GitHub</a>
   </footer>
+</div>
 
-  <div id="rtr-tip"></div>
+<div id="rtr-tip"></div>
 
-  <script src="./render-svg.js?v=1"></script>
-  <script src="./echarts-theme.js?v=1"></script>
-  <script src="./render-echarts.js?v=1"></script>
-  <script src="./app.js?v=1"></script>
+<script src="./render-svg.js?v=2"></script>
+<script src="./echarts-theme.js?v=2"></script>
+<script src="./render-echarts.js?v=2"></script>
+<script src="/assets/data.js?v=76"></script>
+<script src="/assets/helpers.js?v=76"></script>
+<script src="/assets/core/domain.js?v=76"></script>
+<script src="/assets/core/ports.js?v=76"></script>
+<script src="/assets/core/footer.js?v=76"></script>
+<script src="./app.js?v=2"></script>
 </body>
 </html>

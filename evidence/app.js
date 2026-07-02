@@ -34,21 +34,12 @@
     if (FORCED_THEME) root.setAttribute("data-theme", FORCED_THEME);
   }
 
-  /* ---- theme ---- */
-  function currentTheme() {
-    return root.getAttribute("data-theme") ||
-      (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  }
-  function applyTheme(mode) {
-    root.setAttribute("data-theme", mode);
-    if (!FORCED_THEME) { try { localStorage.setItem(THEME_KEY, mode); } catch (e) {} }
-    rerender();
-  }
-  function initTheme() {
-    if (FORCED_THEME) { root.setAttribute("data-theme", FORCED_THEME); return; }
-    var saved; try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
-    if (saved) root.setAttribute("data-theme", saved);
-  }
+  /* ---- theme ----
+     Theme is owned by the site's assets/theme.js (RTRTheme + the masthead toggle),
+     same as every other page. We only need to REDRAW charts when the theme flips,
+     since the SVG/canvas renderers read live CSS vars — a MutationObserver on
+     data-theme (wired in boot) calls rerender(). ?theme= (embeds) is applied in
+     applyRouteParams above. */
 
   /* ---- render bookkeeping (re-run on theme/resize; SVG reads live CSS vars) ---- */
   var _rerender = null, _resizeOnly = null;
@@ -66,10 +57,9 @@
 
   function renderIndex() {
     clearActive();
-    doc.getElementById("btn-png").hidden = true;
     fetchJSON("./manifest.json").then(function (m) {
       view.innerHTML = "";
-      view.appendChild(el("h1", { class: "idx-title" }, "Charts"));
+      view.appendChild(el("h1", { class: "idx-title" }, "Evidence"));
       var p = el("p", { style: "color:var(--text-muted);font-size:.92rem;margin:-.6rem 0 1.4rem" },
         "Every chart is a permalink. Embed one with <code>&lt;iframe src=\"&hellip;/#/c/&lt;slug&gt;?embed=1\"&gt;</code>.");
       view.appendChild(p);
@@ -114,9 +104,13 @@
       _rerender = draw;                       // theme change → redraw (picks up new CSS vars)
       _resizeOnly = function () { if (isEch && RTR.echartsResize) RTR.echartsResize(); else draw(); };
 
-      // PNG export (Substack / print fallback) — only for graphic renderers
-      var btn = doc.getElementById("btn-png"); btn.hidden = (chart.renderer === "lookup");
-      btn.onclick = btn.hidden ? null : function () { exportPNG(slug, chart, canvasHost); };
+      // PNG export (Substack / print fallback) — a per-figure control, graphic charts only
+      if (chart.renderer !== "lookup") {
+        var tools = el("div", { class: "fig-tools" });
+        var pbtn = el("button", { class: "png-btn", type: "button" }, "Download PNG");
+        pbtn.onclick = function () { exportPNG(slug, chart, canvasHost); };
+        tools.appendChild(pbtn); pad.appendChild(tools);
+      }
     }).catch(function (e) { view.innerHTML = '<p style="color:var(--accent)">Could not load chart "' + slug + '": ' + e.message + "</p>"; });
   }
 
@@ -161,8 +155,9 @@
   }
 
   /* ---- boot ---- */
-  initTheme();
-  doc.getElementById("btn-theme").onclick = function () { applyTheme(currentTheme() === "dark" ? "light" : "dark"); };
+  // redraw charts when the site theme toggles (theme.js sets data-theme on <html>)
+  new MutationObserver(function () { rerender(); }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  // and when the OS theme changes while on system default (no explicit choice)
   if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { if (!FORCED_THEME && !(function(){try{return localStorage.getItem(THEME_KEY)}catch(e){return null}})()) rerender(); });
   window.addEventListener("hashchange", route);
   var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { if (_resizeOnly) _resizeOnly(); }, 180); });
