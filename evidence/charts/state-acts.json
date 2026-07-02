@@ -1,0 +1,38 @@
+{
+  "slug": "state-acts",
+  "renderer": "lookup",
+  "type": "lookup",
+  "title": "Does your State's library Act pay for libraries?",
+  "subtitle": "The nineteen State Public Libraries Acts",
+  "source": "Bare-act reads (rights2reads Zotero group); research/library-law ledger v0.2, cross-checked with IIHS 2018 & IFLA 2025. RTR-WP-008.",
+  "caption": "Nineteen States have passed a Public Libraries Act. Read from the statute text, only <b>six</b> fund libraries through an <b>operative cess</b> — Tamil Nadu, Andhra Pradesh, Telangana, Karnataka, Kerala and Goa — and every one was enacted <b>before 1994</b>. Two more States legislate a cess without a working rate (Haryana) or keep the machinery but rename the levy a “fee” (Uttarakhand); the remaining eleven Acts create a library system with <b>no dedicated funding instrument at all</b>. Select a State to read its Act's funding provision.",
+  "config": {
+    "cessLabels": {
+      "operative": "Operative cess",
+      "provision": "Cess on paper, no rate",
+      "renamed": "Cess renamed a “fee”",
+      "none": "No cess"
+    }
+  },
+  "data": [
+    { "state": "Tamil Nadu",        "year": 1948, "cess": "operative", "rate": "10% surcharge on property tax (3 paise 1950 → 5 paise 1972 → 10 paise 1992). The one cess that durably raised real per-capita spend." },
+    { "state": "Andhra Pradesh",    "year": 1960, "cess": "operative", "rate": "8% surcharge on property tax (4 paise base)." },
+    { "state": "Telangana",         "year": 1960, "cess": "operative", "rate": "The Andhra Pradesh 1960 Act adapted; §20 library cess, same 8% regime." },
+    { "state": "Karnataka",         "year": 1965, "cess": "operative", "rate": "6% surcharge on property tax, plus a land-revenue grant (Rules 1966)." },
+    { "state": "Maharashtra",       "year": 1967, "cess": "none",      "rate": "No library cess; the Act builds a library system funded from general grants." },
+    { "state": "West Bengal",       "year": 1979, "cess": "none",      "rate": "No cess. The Library Fund is endowments + government grants + amounts collected under rules — it lacks the cess definition every cess Act carries. (Secondary lit wrongly lists WB as a cess State.)" },
+    { "state": "Manipur",           "year": 1988, "cess": "none",      "rate": "No library cess." },
+    { "state": "Kerala",            "year": 1989, "cess": "operative", "rate": "5% surcharge on property tax.", "rep": true, "repNote": "The only State Act to mandate representation for Scheduled Castes, Scheduled Tribes and women on the library authorities. Written on the back of a mass library movement." },
+    { "state": "Haryana",           "year": 1989, "cess": "provision", "rate": "The Act provides for a cess but sets no operative rate — “at such rate as the Government may decide.” No rate has been fixed." },
+    { "state": "Goa",               "year": 1993, "cess": "operative", "rate": "A specific excise duty: ₹0.50 per proof-litre of IMFL + ₹0.50 per bulk-litre of beer, plus 1% of the education budget (not merely the “1.67%” ad-valorem gloss)." },
+    { "state": "Mizoram",           "year": 1993, "cess": "none",      "rate": "No library cess." },
+    { "state": "Gujarat",           "year": 2001, "cess": "none",      "rate": "No library cess." },
+    { "state": "Odisha",            "year": 2001, "cess": "none",      "rate": "No library cess." },
+    { "state": "Uttarakhand",       "year": 2005, "cess": "renamed",   "rate": "The cess machinery is kept but the levy is renamed a “fee” — the fossil clause “except the power to levy library cess” survives in the text." },
+    { "state": "Uttar Pradesh",     "year": 2006, "cess": "none",      "rate": "No library cess." },
+    { "state": "Rajasthan",         "year": 2006, "cess": "none",      "rate": "No library cess (confirmed via Hindi+English re-OCR; an earlier English-only pass misread statute citations as a cess — there is no उपकर chapter)." },
+    { "state": "Chhattisgarh",      "year": 2008, "cess": "none",      "rate": "No library cess." },
+    { "state": "Bihar",             "year": 2008, "cess": "none",      "rate": "No library cess." },
+    { "state": "Arunachal Pradesh", "year": 2009, "cess": "none",      "rate": "No library cess." }
+  ]
+}

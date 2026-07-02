@@ -32,7 +32,9 @@
 # it has its own .git directory and remote.
 sansad-semantic-crawler/
 
-# Local crawler/runtime output.
+# Local crawler/runtime output. data/ is raw, unprocessed corpus only (sources,
+# symlinks, crawler output) — stays local. The PROCESSED public proof surface
+# lives at evidence/ (theright2read.org/evidence/), tracked normally.
 /data
 data/_parliament_libraries/.DS_Store
 data/_parliament_libraries/crawl.log
