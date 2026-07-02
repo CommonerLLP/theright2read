@@ -183,6 +183,7 @@
     var slug = chart.slug || "lookup";
     var years = (chart.config && chart.config.spendYears) || [];
     var spendLabel = (chart.config && chart.config.spendLabel) || "Per-capita spend";
+    var spendCaveat = (chart.config && chart.config.spendCaveat) || "";
     var tierVar = { operative: "var(--blue)", none: "var(--red-2)", provision: "var(--accent)", renamed: "var(--accent)" };
 
     // per-State spending sparkline (₹/person/yr, 2205-105) — reads live CSS vars
@@ -242,7 +243,14 @@
         var spl = doc.createElement("div");
         spl.style.cssText = "font-family:var(--font-mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.4rem";
         spl.textContent = spendLabel;
-        sp.appendChild(spl); sp.appendChild(spark(r.spend)); card.appendChild(sp);
+        sp.appendChild(spl); sp.appendChild(spark(r.spend));
+        if (spendCaveat) {
+          var cav = doc.createElement("p");
+          cav.style.cssText = "font-family:var(--font-serif);font-style:italic;font-size:.76rem;line-height:1.4;color:var(--text-muted);margin:.5rem 0 0";
+          cav.textContent = spendCaveat;
+          sp.appendChild(cav);
+        }
+        card.appendChild(sp);
       }
       lookupSel[slug] = i;
     }
