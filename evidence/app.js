@@ -60,8 +60,12 @@
     fetchJSON("./manifest.json").then(function (m) {
       view.innerHTML = "";
       view.appendChild(el("h1", { class: "idx-title" }, "Evidence"));
-      var p = el("p", { style: "color:var(--text-muted);font-size:.92rem;margin:-.6rem 0 1.4rem" },
-        "Every chart is a permalink. Embed one with <code>&lt;iframe src=\"&hellip;/#/c/&lt;slug&gt;?embed=1\"&gt;</code>.");
+      var p = el("div", { style: "color:var(--text-muted);font-size:.9rem;line-height:1.55;margin:-.4rem 0 1.5rem" },
+        "<b style=\"color:var(--text)\">Using this work.</b> Every chart is a permalink, and embeddable — " +
+        "<code>&lt;iframe src=\"&hellip;/#/c/&lt;slug&gt;?embed=1\"&gt;</code>. These are research products of " +
+        "<b style=\"color:var(--text)\">The Right to Read</b>, released for noncommercial reuse " +
+        "(<a href=\"https://polyformproject.org/licenses/noncommercial/1.0.0\" style=\"color:var(--accent)\">PolyForm-NC 1.0.0</a>). " +
+        "If you use one, <b style=\"color:var(--text)\">credit The Right to Read</b> and cite the primary source named on the chart.");
       view.appendChild(p);
       var ul = el("ul", { class: "idx" });
       (m.charts || []).forEach(function (c) {
@@ -88,6 +92,7 @@
       pad.appendChild(canvasHost);
       if (chart.caption) pad.appendChild(el("figcaption", null, chart.caption));
       if (chart.source) pad.appendChild(el("p", { class: "fig-src" }, "Source: " + chart.source));
+      pad.appendChild(el("p", { class: "fig-cite" }, "Cite as: The Right to Read, “" + (chart.title || slug) + "”, theright2read.org/evidence/#/c/" + slug + " (2026). Reuse noncommercial, with credit."));
       pad.appendChild(el("p", { class: "embed-cite" }, "theright2read.org/evidence · #/c/" + slug));
       fig.appendChild(pad); view.appendChild(fig);
 
